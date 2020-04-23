@@ -1,0 +1,112 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "4.43.0",
+  "hash": "bbcf9701564160eb79e2",
+  "publicPath": "/static/",
+  "outputPath": "C:\\Code\\rg-frontity\\build\\static",
+  "assetsByChunkName": {
+    "list": "list.module.js",
+    "rg-frontity": [
+      "rg-frontity.module.js",
+      "rg-frontity.1c0db7a77168d271490c.hot-update.js"
+    ]
+  },
+  "assets": [
+    {
+      "name": "1c0db7a77168d271490c.hot-update.json",
+      "size": 53,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "list.module.js",
+      "size": 47489,
+      "chunks": [
+        "list"
+      ],
+      "chunkNames": [
+        "list"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "rg-frontity.1c0db7a77168d271490c.hot-update.js",
+      "size": 66710,
+      "chunks": [
+        "rg-frontity"
+      ],
+      "chunkNames": [
+        "rg-frontity"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "rg-frontity.module.js",
+      "size": 6404196,
+      "chunks": [
+        "rg-frontity"
+      ],
+      "chunkNames": [
+        "rg-frontity"
+      ],
+      "info": {},
+      "emitted": false
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "rg-frontity": {
+      "chunks": [
+        "rg-frontity"
+      ],
+      "assets": [
+        "rg-frontity.module.js",
+        "rg-frontity.1c0db7a77168d271490c.hot-update.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "rg-frontity": {
+      "chunks": [
+        "rg-frontity"
+      ],
+      "assets": [
+        "rg-frontity.module.js",
+        "rg-frontity.1c0db7a77168d271490c.hot-update.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "list": {
+      "chunks": [
+        "list"
+      ],
+      "assets": [
+        "list.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "logging": {
+    "webpack.buildChunkGraph.visitModules": {
+      "entries": [],
+      "filteredEntries": 5,
+      "debug": false
+    }
+  },
+  "children": []
+}
