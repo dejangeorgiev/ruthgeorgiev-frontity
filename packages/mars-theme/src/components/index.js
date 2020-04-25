@@ -4,6 +4,7 @@ import Switch from "@frontity/components/switch";
 import Header from "./header";
 import List from "./list";
 import Post from "./post";
+import Page from "./page";
 import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";

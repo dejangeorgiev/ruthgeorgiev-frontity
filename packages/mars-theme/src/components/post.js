@@ -5,6 +5,7 @@ import List from "./list";
 import FeaturedMedia from "./featured-media";
 
 import Button from '@material-ui/core/Button';
+import AffiliateLink from "./global/acf/recipes/affiliate/AffiliateLink";
 
 const Post = ({state, actions, libraries}) => {
     // Get information about the current URL.
@@ -18,6 +19,10 @@ const Post = ({state, actions, libraries}) => {
 
     // Get the html2react component.
     const Html2React = libraries.html2react.Component;
+
+    const acf = post.acf;
+
+    //console.log(post.id);
 
     /**
      * Once the post has loaded in the DOM, prefetch both the
@@ -33,6 +38,12 @@ const Post = ({state, actions, libraries}) => {
     return data.isReady ? (
         <Container>
             <div>
+
+                {/* Look at the settings to see if we should include the featured image */}
+                {state.theme.featured.showOnPost && (
+                    <FeaturedMedia id={post.featured_media}/>
+                )}
+
                 <Title dangerouslySetInnerHTML={{__html: post.title.rendered}}/>
 
                 {/* Only display author and date on posts */}
@@ -53,10 +64,6 @@ const Post = ({state, actions, libraries}) => {
                 )}
             </div>
 
-            {/* Look at the settings to see if we should include the featured image */}
-            {state.theme.featured.showOnPost && (
-                <FeaturedMedia id={post.featured_media}/>
-            )}
 
             {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
@@ -64,13 +71,10 @@ const Post = ({state, actions, libraries}) => {
                 <Html2React html={post.content.rendered}/>
             </Content>
 
+            <AffiliateLink id={post.id} />
 
-            <Link link={post.acf['postfieldgroup.url']}>
-                <Button variant="contained"
-                        color="primary">
-                    {post.acf['postfieldgroup.text']}
-                </Button>
-            </Link>
+            <p>{acf['postfieldgroup.ingredients'][0]['postfieldgroup.ingredients.name']}</p>
+
         </Container>
     ) : null;
 };

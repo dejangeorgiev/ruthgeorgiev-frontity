@@ -1,15 +1,15 @@
 const settings = {
-    "name": "rg-frontity",
-    "state": {
-        "frontity": {
-            "url": "https://admin.ruthgeorgiev.com",
-            "title": "Test Frontity Blog",
-            "description": "WordPress installation for Frontity development"
+    name: "rg-frontity",
+    state: {
+        frontity: {
+            url: "https://admin.ruthgeorgiev.com",
+            title: "Ruth Georgiev",
+            description: "Cooking with love"
         }
     },
-    "packages": [
+    packages: [
         {
-            "name": "@frontity/mars-theme",
+            "name": "@frontity/twentytwenty-theme",
             "state": {
                 "theme": {
                     "menu": [
@@ -18,34 +18,24 @@ const settings = {
                             "/"
                         ],
                         [
-                            "Nature",
-                            "/category/nature/"
-                        ],
-                        [
-                            "Travel",
-                            "/category/travel/"
-                        ],
-                        [
-                            "Japan",
-                            "/tag/japan/"
-                        ],
-                        [
-                            "About Us",
-                            "/about-us/"
+                            "Recipes",
+                            "/recipes/"
                         ]
                     ],
                     "featured": {
-                        "showOnList": false,
-                        "showOnPost": false
+                        "showOnList": true,
+                        "showOnPost": true
                     }
                 }
             }
         },
         {
-            "name": "@frontity/wp-source",
-            "state": {
-                "source": {
-                    "api": "https://admin.ruthgeorgiev.com/wp-json"
+            name: "@frontity/wp-source",
+            state: {
+                source: {
+                    api: "https://admin.ruthgeorgiev.com/wp-json",
+                    postsPage:'/recipes',
+                    homepage:'/'
                 }
             }
         },

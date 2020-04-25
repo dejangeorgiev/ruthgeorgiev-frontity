@@ -2,19 +2,45 @@
   "errors": [],
   "warnings": [],
   "version": "4.43.0",
-  "hash": "bbcf9701564160eb79e2",
+  "hash": "6f294d0e55ef2eb9eea2",
   "publicPath": "/static/",
   "outputPath": "C:\\Code\\rg-frontity\\build\\static",
   "assetsByChunkName": {
-    "list": "list.module.js",
+    "archive": "archive.module.js",
+    "archive~post": "archive~post.module.js",
+    "post": "post.module.js",
     "rg-frontity": [
       "rg-frontity.module.js",
-      "rg-frontity.1c0db7a77168d271490c.hot-update.js"
+      "rg-frontity.c6333a288eec515892fd.hot-update.js"
     ]
   },
   "assets": [
     {
-      "name": "1c0db7a77168d271490c.hot-update.json",
+      "name": "archive.module.js",
+      "size": 74228,
+      "chunks": [
+        "archive"
+      ],
+      "chunkNames": [
+        "archive"
+      ],
+      "info": {},
+      "emitted": true
+    },
+    {
+      "name": "archive~post.module.js",
+      "size": 120515,
+      "chunks": [
+        "archive~post"
+      ],
+      "chunkNames": [
+        "archive~post"
+      ],
+      "info": {},
+      "emitted": true
+    },
+    {
+      "name": "c6333a288eec515892fd.hot-update.json",
       "size": 53,
       "chunks": [],
       "chunkNames": [],
@@ -25,20 +51,68 @@
       "emitted": false
     },
     {
-      "name": "list.module.js",
-      "size": 47489,
-      "chunks": [
-        "list"
-      ],
-      "chunkNames": [
-        "list"
-      ],
+      "name": "fonts/Inter-Bold-LATIN.woff2",
+      "size": 33648,
+      "chunks": [],
+      "chunkNames": [],
       "info": {},
-      "emitted": false
+      "emitted": true
     },
     {
-      "name": "rg-frontity.1c0db7a77168d271490c.hot-update.js",
-      "size": 66710,
+      "name": "fonts/Inter-Bold.woff2",
+      "size": 138872,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": true
+    },
+    {
+      "name": "fonts/Inter-Medium-LATIN.woff2",
+      "size": 33232,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": true
+    },
+    {
+      "name": "fonts/Inter-Medium.woff2",
+      "size": 137268,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": true
+    },
+    {
+      "name": "fonts/Inter-SemiBold-LATIN.woff2",
+      "size": 33456,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": true
+    },
+    {
+      "name": "fonts/Inter-SemiBold.woff2",
+      "size": 138088,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": true
+    },
+    {
+      "name": "post.module.js",
+      "size": 30723,
+      "chunks": [
+        "post"
+      ],
+      "chunkNames": [
+        "post"
+      ],
+      "info": {},
+      "emitted": true
+    },
+    {
+      "name": "rg-frontity.c6333a288eec515892fd.hot-update.js",
+      "size": 27627,
       "chunks": [
         "rg-frontity"
       ],
@@ -53,7 +127,7 @@
     },
     {
       "name": "rg-frontity.module.js",
-      "size": 6404196,
+      "size": 6027554,
       "chunks": [
         "rg-frontity"
       ],
@@ -72,7 +146,7 @@
       ],
       "assets": [
         "rg-frontity.module.js",
-        "rg-frontity.1c0db7a77168d271490c.hot-update.js"
+        "rg-frontity.c6333a288eec515892fd.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -85,17 +159,31 @@
       ],
       "assets": [
         "rg-frontity.module.js",
-        "rg-frontity.1c0db7a77168d271490c.hot-update.js"
+        "rg-frontity.c6333a288eec515892fd.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
     },
-    "list": {
+    "archive": {
       "chunks": [
-        "list"
+        "archive~post",
+        "archive"
       ],
       "assets": [
-        "list.module.js"
+        "archive~post.module.js",
+        "archive.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "post": {
+      "chunks": [
+        "archive~post",
+        "post"
+      ],
+      "assets": [
+        "archive~post.module.js",
+        "post.module.js"
       ],
       "children": {},
       "childAssets": {}
