@@ -21,7 +21,7 @@ const PostTags = ({ tags }) => {
             const isLastTag = index === postTags.length - 1;
             return (
               <Fragment key={tag.id}>
-                <Link link={tag.link}>{decode(tag.name)}</Link>
+                #<Link link={tag.link}>{decode(tag.name)}</Link>
                 {!isLastTag && <>, </>}
               </Fragment>
             );

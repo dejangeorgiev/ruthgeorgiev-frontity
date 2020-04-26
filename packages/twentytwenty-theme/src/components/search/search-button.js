@@ -21,7 +21,7 @@ const SearchButton = ({ state, actions }) => {
           aria-label="Click to open search bar..."
           style={{ bottom: "0.5rem" }}
         >
-          <LabeledIcon icon={SearchIcon} label="Search" />
+          <LabeledIcon icon={SearchIcon} label="" />
         </BaseToggle>
       </ToggleWrapper>
     </HeaderToggle>

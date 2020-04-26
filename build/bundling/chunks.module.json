@@ -2,31 +2,17 @@
   "errors": [],
   "warnings": [],
   "version": "4.43.0",
-  "hash": "5d87e9a0fc93eadf1760",
+  "hash": "abbc6536bb1f1dd2298e",
   "publicPath": "/static/",
   "outputPath": "C:\\Code\\rg-frontity\\build\\static",
   "assetsByChunkName": {
     "archive": "archive.module.js",
     "archive~post": "archive~post.module.js",
-    "post": [
-      "post.module.js",
-      "post.a6e81aed5d4da932eb30.hot-update.js"
-    ],
+    "post": "post.module.js",
     "rg-frontity": "rg-frontity.module.js",
     "vendors~post": "vendors~post.module.js"
   },
   "assets": [
-    {
-      "name": "a6e81aed5d4da932eb30.hot-update.json",
-      "size": 46,
-      "chunks": [],
-      "chunkNames": [],
-      "info": {
-        "hotModuleReplacement": true,
-        "immutable": true
-      },
-      "emitted": false
-    },
     {
       "name": "archive.module.js",
       "size": 74228,
@@ -37,11 +23,11 @@
         "archive"
       ],
       "info": {},
-      "emitted": true
+      "emitted": false
     },
     {
       "name": "archive~post.module.js",
-      "size": 120515,
+      "size": 120861,
       "chunks": [
         "archive~post"
       ],
@@ -100,23 +86,8 @@
       "emitted": false
     },
     {
-      "name": "post.a6e81aed5d4da932eb30.hot-update.js",
-      "size": 31689,
-      "chunks": [
-        "post"
-      ],
-      "chunkNames": [
-        "post"
-      ],
-      "info": {
-        "hotModuleReplacement": true,
-        "immutable": true
-      },
-      "emitted": false
-    },
-    {
       "name": "post.module.js",
-      "size": 44231,
+      "size": 82242,
       "chunks": [
         "post"
       ],
@@ -128,7 +99,7 @@
     },
     {
       "name": "rg-frontity.module.js",
-      "size": 6027625,
+      "size": 6027603,
       "chunks": [
         "rg-frontity"
       ],
@@ -136,7 +107,8 @@
         "rg-frontity"
       ],
       "info": {},
-      "emitted": false
+      "emitted": false,
+      "isOverSizeLimit": true
     },
     {
       "name": "vendors~post.module.js",
@@ -197,8 +169,7 @@
       "assets": [
         "vendors~post.module.js",
         "archive~post.module.js",
-        "post.module.js",
-        "post.a6e81aed5d4da932eb30.hot-update.js"
+        "post.module.js"
       ],
       "children": {},
       "childAssets": {}

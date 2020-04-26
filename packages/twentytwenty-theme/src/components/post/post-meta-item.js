@@ -1,21 +1,21 @@
 import React from "react";
-import { styled } from "frontity";
+import {styled} from "frontity";
 import Link from "../link";
 import ScreenReaderText from "../styles/screen-reader";
 
-const PostMetaItem = ({ icon: Icon, label, link, children }) => {
-  return (
-    <ListItem>
-      <MetaIcon>
-        <ScreenReaderText>{label}</ScreenReaderText>
-        <Icon />
-      </MetaIcon>
+const PostMetaItem = ({icon: Icon, label, link, children}) => {
+    return (
+        <ListItem>
+            <MetaIcon>
+                <ScreenReaderText>{label}</ScreenReaderText>
+                <Icon/>
+            </MetaIcon>
 
-      <MetaText>
-        {link ? <Link link={link}>{children}</Link> : children}
-      </MetaText>
-    </ListItem>
-  );
+            <MetaText>
+                {link ? <Link link={link}>{children}</Link> : children}
+            </MetaText>
+        </ListItem>
+    );
 };
 
 const MetaIcon = styled.span`
@@ -28,8 +28,8 @@ const MetaText = styled.span`
     color: inherit;
     text-decoration: none;
   }
-
-  :hover {
+  
+  a:hover {
     text-decoration: underline;
   }
 `;
@@ -48,6 +48,7 @@ const ListItem = styled.li`
     margin: 1.4rem 0 0 3rem;
     max-width: calc(100% - 3rem);
   }
+  
 `;
 
 export default PostMetaItem;
