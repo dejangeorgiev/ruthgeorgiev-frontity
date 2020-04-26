@@ -21,6 +21,7 @@ const settings = {
                             "Recipes",
                             "/recipes/"
                         ]
+
                     ],
                     "featured": {
                         "showOnList": true,

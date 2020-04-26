@@ -13,6 +13,9 @@ import PostCategories from "./post-categories";
 import PostMeta from "./post-meta";
 import PostTags from "./post-tags";
 
+
+import AffiliateLink from "./acf/affiliate/AffiliateLink";
+
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
@@ -42,6 +45,7 @@ const Post = ({ state, actions, libraries }) => {
    * So, we'll look up the details of each tag in allTags
    */
   const tags = post.tags && post.tags.map((tagId) => allTags[tagId]);
+
 
   /**
    * Once the post has loaded in the DOM, prefetch both the
@@ -78,6 +82,8 @@ const Post = ({ state, actions, libraries }) => {
       {state.theme.featuredMedia.showOnPost && (
         <FeaturedImage id={post.featured_media} isSinglePost={true} />
       )}
+
+      <AffiliateLink id={post.id} />
 
       {/* If the post has an excerpt (short summary text), we render it */}
       {post.content && (
