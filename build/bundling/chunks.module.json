@@ -2,17 +2,31 @@
   "errors": [],
   "warnings": [],
   "version": "4.43.0",
-  "hash": "9cd70db24f22dd725f27",
+  "hash": "1a66118c4bfb92becffa",
   "publicPath": "/static/",
   "outputPath": "C:\\Code\\rg-frontity\\build\\static",
   "assetsByChunkName": {
     "archive": "archive.module.js",
     "archive~post": "archive~post.module.js",
-    "post": "post.module.js",
+    "post": [
+      "post.module.js",
+      "post.464d78fe828bc282f636.hot-update.js"
+    ],
     "rg-frontity": "rg-frontity.module.js",
     "vendors~post": "vendors~post.module.js"
   },
   "assets": [
+    {
+      "name": "464d78fe828bc282f636.hot-update.json",
+      "size": 46,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
     {
       "name": "archive.module.js",
       "size": 74228,
@@ -86,8 +100,23 @@
       "emitted": false
     },
     {
+      "name": "post.464d78fe828bc282f636.hot-update.js",
+      "size": 4124,
+      "chunks": [
+        "post"
+      ],
+      "chunkNames": [
+        "post"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
       "name": "post.module.js",
-      "size": 172907,
+      "size": 180743,
       "chunks": [
         "post"
       ],
@@ -119,7 +148,8 @@
         "vendors~post"
       ],
       "info": {},
-      "emitted": false
+      "emitted": false,
+      "isOverSizeLimit": true
     }
   ],
   "filteredAssets": 0,
@@ -167,7 +197,8 @@
       "assets": [
         "vendors~post.module.js",
         "archive~post.module.js",
-        "post.module.js"
+        "post.module.js",
+        "post.464d78fe828bc282f636.hot-update.js"
       ],
       "children": {},
       "childAssets": {}

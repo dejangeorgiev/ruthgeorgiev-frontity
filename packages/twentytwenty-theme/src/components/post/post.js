@@ -17,6 +17,7 @@ import AffiliateLink from "./acf/affiliate/AffiliateLink";
 import Equipment from "./acf/equipment/Equipment";
 import RecipeDescription from "./acf/RecipeDescription";
 import RecipeTips from "./acf/tips/RecipeTips";
+import Cuisine from "./acf/cuisine/Cuisine";
 
 
 const Post = ({state, actions, libraries}) => {
@@ -48,8 +49,23 @@ const Post = ({state, actions, libraries}) => {
      * So, we'll look up the details of each tag in allTags
      */
     const tags = post.tags && post.tags.map((tagId) => allTags[tagId]);
-    console.log(post.acf);
+
+
+    // Get all cuisine
+    const allCuisine = state.source.cuisine;
+
+    /**
+     * The item's cuisine is an array of each category id
+     * So, we'll look up the details of each category in allCategories
+     */
+
+    const cuisine =
+        post.cuisine && post.cuisine.map((catId) => allCuisine[catId]);
+
+
+    console.log(cuisine);
     // console.log(state.source);
+
     /**
      * Once the post has loaded in the DOM, prefetch both the
      * home posts and the list component so if the user visits
@@ -90,6 +106,9 @@ const Post = ({state, actions, libraries}) => {
 
                     {/* if the post has tips, render it */}
                     {post.acf['postfieldgroup.tips'] && <RecipeTips id={post.id}/>}
+
+                    {/* If the post has cuisine, render the cuisine */}
+                    {post.cuisine && <Cuisine cuisine={cuisine}/>}
 
                 </SectionContainer>
             </Header>
