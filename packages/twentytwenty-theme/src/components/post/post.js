@@ -48,7 +48,7 @@ const Post = ({state, actions, libraries}) => {
      * So, we'll look up the details of each tag in allTags
      */
     const tags = post.tags && post.tags.map((tagId) => allTags[tagId]);
-console.log(post.acf);
+    console.log(post.acf);
     // console.log(state.source);
     /**
      * Once the post has loaded in the DOM, prefetch both the
@@ -80,16 +80,16 @@ console.log(post.acf);
                     {post.tags && <PostTags tags={tags}/>}
 
                     {/* If the post has ingredients, render it */}
-                    <Ingredients id={post.id}/>
+                    {post.acf['postfieldgroup.ingredients'] && <Ingredients id={post.id}/>}
 
                     {/* If the post has equipment, render it */}
-                    <Equipment id={post.id}/>
+                    {post.acf['postfieldgroup.equipment'] && <Equipment id={post.id}/>}
 
                     {/* if the post has description, render it */}
-                    <RecipeDescription id={post.id}/>
+                    {post.acf['postfieldgroup.description'] && <RecipeDescription id={post.id}/>}
 
                     {/* if the post has tips, render it */}
-                    <RecipeTips id={post.id} />
+                    {post.acf['postfieldgroup.tips'] && <RecipeTips id={post.id}/>}
 
                 </SectionContainer>
             </Header>

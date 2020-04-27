@@ -2,7 +2,7 @@
   "errors": [],
   "warnings": [],
   "version": "4.43.0",
-  "hash": "abbc6536bb1f1dd2298e",
+  "hash": "9cd70db24f22dd725f27",
   "publicPath": "/static/",
   "outputPath": "C:\\Code\\rg-frontity\\build\\static",
   "assetsByChunkName": {
@@ -87,7 +87,7 @@
     },
     {
       "name": "post.module.js",
-      "size": 82242,
+      "size": 172907,
       "chunks": [
         "post"
       ],
@@ -107,8 +107,7 @@
         "rg-frontity"
       ],
       "info": {},
-      "emitted": false,
-      "isOverSizeLimit": true
+      "emitted": false
     },
     {
       "name": "vendors~post.module.js",
@@ -120,8 +119,7 @@
         "vendors~post"
       ],
       "info": {},
-      "emitted": false,
-      "isOverSizeLimit": true
+      "emitted": false
     }
   ],
   "filteredAssets": 0,

@@ -1,32 +1,38 @@
 import React from "react";
 import {connect, styled} from "frontity";
-import Link from "../../../link";
 import tw from 'tailwind.macro'
 
 const AffiliateLink = ({state, id}) => {
 
     const affiliateLink = state.source.post[id];
 
-    let Button = styled('button')`
-                       ${tw`
-                            appearance-none bg-indigo text-indigo-lightest
-    border-0 p-3 rounded-default font-mono cursor-pointer
-    text-xs
-  `};
-`
+    let Card = styled('div')` ${tw`max-w-sm bg-gray-200 rounded overflow-hidden shadow-lg`};`;
+    let Image = styled('img')`${tw`w-full`};`;
+    let Contents = styled('div')`${tw`px-6 py-4`};`;
+    let Title = styled('div')`${tw`font-bold text-xl mb-2`};`;
+    let Excerpt = styled('p')`${tw`text-gray-700 text-base`};`;
+    let HashTags = styled('div')`${tw`px-6 py-4`};`;
+    let HashTag = styled('span')`${tw`inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2`};`;
+
 
     return (
-        <Link link={affiliateLink.acf['postfieldgroup.url']}
-              target='_blank'>
 
-            Highlighted: {affiliateLink.acf['postfieldgroup.text_highlighted']}
-            Text: {affiliateLink.acf['postfieldgroup.text']}
-
-            <p>Code: {affiliateLink.acf['postfieldgroup.code']}</p>
-
-<Button>hello</Button>
-        </Link>
-
+        <Card>
+            <Image src="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/03/IMG_7068-scaled.jpg"
+                   alt="Sunset in the mountains"/>
+            <Contents>
+                <Title>The Coldest Sunset</Title>
+                <Excerpt>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et
+                    perferendis eaque, exercitationem praesentium nihil.
+                </Excerpt>
+            </Contents>
+            <HashTags>
+                <HashTag>#photography</HashTag>
+                <HashTag>#travel</HashTag>
+                <HashTag>#winter</HashTag>
+            </HashTags>
+        </Card>
 
     );
 };
