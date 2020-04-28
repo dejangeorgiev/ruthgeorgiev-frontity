@@ -2,23 +2,23 @@
   "errors": [],
   "warnings": [],
   "version": "4.43.0",
-  "hash": "1a66118c4bfb92becffa",
+  "hash": "48cb87e99b5556134deb",
   "publicPath": "/static/",
   "outputPath": "C:\\Code\\rg-frontity\\build\\static",
   "assetsByChunkName": {
     "archive": "archive.module.js",
     "archive~post": "archive~post.module.js",
-    "post": [
-      "post.module.js",
-      "post.464d78fe828bc282f636.hot-update.js"
+    "post": "post.module.js",
+    "rg-frontity": [
+      "rg-frontity.module.js",
+      "rg-frontity.185d624d62154c85f6c5.hot-update.js"
     ],
-    "rg-frontity": "rg-frontity.module.js",
     "vendors~post": "vendors~post.module.js"
   },
   "assets": [
     {
-      "name": "464d78fe828bc282f636.hot-update.json",
-      "size": 46,
+      "name": "185d624d62154c85f6c5.hot-update.json",
+      "size": 53,
       "chunks": [],
       "chunkNames": [],
       "info": {
@@ -100,23 +100,8 @@
       "emitted": false
     },
     {
-      "name": "post.464d78fe828bc282f636.hot-update.js",
-      "size": 4124,
-      "chunks": [
-        "post"
-      ],
-      "chunkNames": [
-        "post"
-      ],
-      "info": {
-        "hotModuleReplacement": true,
-        "immutable": true
-      },
-      "emitted": false
-    },
-    {
       "name": "post.module.js",
-      "size": 180743,
+      "size": 172117,
       "chunks": [
         "post"
       ],
@@ -124,6 +109,21 @@
         "post"
       ],
       "info": {},
+      "emitted": true
+    },
+    {
+      "name": "rg-frontity.185d624d62154c85f6c5.hot-update.js",
+      "size": 14477,
+      "chunks": [
+        "rg-frontity"
+      ],
+      "chunkNames": [
+        "rg-frontity"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
       "emitted": false
     },
     {
@@ -159,7 +159,8 @@
         "rg-frontity"
       ],
       "assets": [
-        "rg-frontity.module.js"
+        "rg-frontity.module.js",
+        "rg-frontity.185d624d62154c85f6c5.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -171,7 +172,8 @@
         "rg-frontity"
       ],
       "assets": [
-        "rg-frontity.module.js"
+        "rg-frontity.module.js",
+        "rg-frontity.185d624d62154c85f6c5.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -197,8 +199,7 @@
       "assets": [
         "vendors~post.module.js",
         "archive~post.module.js",
-        "post.module.js",
-        "post.464d78fe828bc282f636.hot-update.js"
+        "post.module.js"
       ],
       "children": {},
       "childAssets": {}

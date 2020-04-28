@@ -6,33 +6,22 @@ const AffiliateLink = ({state, id}) => {
 
     const affiliateLink = state.source.post[id];
 
-    let Card = styled('div')` ${tw`max-w-sm bg-gray-200 rounded overflow-hidden shadow-lg`};`;
-    let Image = styled('img')`${tw`w-full`};`;
-    let Contents = styled('div')`${tw`px-6 py-4`};`;
-    let Title = styled('div')`${tw`font-bold text-xl mb-2`};`;
-    let Excerpt = styled('p')`${tw`text-gray-700 text-base`};`;
-    let HashTags = styled('div')`${tw`px-6 py-4`};`;
-    let HashTag = styled('span')`${tw`inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2`};`;
-
+    let Badge = styled('div')` ${tw`bg-indigo-900 text-center py-4 lg:px-4`};`;
+    let Contents = styled('div')`${tw`p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex`};`;
+    let BadgeAlert = styled('span')`${tw`flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3`};`;
+    let BadgeText = styled('span')`${tw`font-semibold mr-2 text-left flex-auto`};`;
+    let Icon = styled('svg')`${tw`fill-current opacity-75 h-4 w-4`};`;
 
     return (
-
-        <Card>
-            <Image src="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/03/IMG_7068-scaled.jpg"
-                   alt="Sunset in the mountains"/>
-            <Contents>
-                <Title>The Coldest Sunset</Title>
-                <Excerpt>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et
-                    perferendis eaque, exercitationem praesentium nihil.
-                </Excerpt>
+        <Badge>
+            <Contents role={'alert'}>
+                <BadgeAlert>New</BadgeAlert>
+                <BadgeText>Get the coolest t-shirts from our brand new store</BadgeText>
+                <Icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/>
+                </Icon>
             </Contents>
-            <HashTags>
-                <HashTag>#photography</HashTag>
-                <HashTag>#travel</HashTag>
-                <HashTag>#winter</HashTag>
-            </HashTags>
-        </Card>
+        </Badge>
 
     );
 };
