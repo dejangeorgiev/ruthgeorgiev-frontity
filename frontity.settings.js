@@ -4,7 +4,7 @@ const settings = {
         frontity: {
             url: "https://admin.ruthgeorgiev.com",
             title: "Ruth Georgiev",
-            description: "Cooking with love"
+            description: "Cooking with love & travelling with passion"
         }
     },
     packages: [

@@ -18,9 +18,10 @@ import Equipment from "./acf/equipment/Equipment";
 import RecipeDescription from "./acf/RecipeDescription";
 import RecipeTips from "./acf/tips/RecipeTips";
 import Cuisine from "./acf/cuisine/Cuisine";
-
-import Announcement from "../global/announcements/Announcement";
-
+import Diets from "./acf/diets/Diets";
+import Dishes from "./acf/dishes/Dishes";
+import Meals from "./acf/meals/Meals";
+import tw from 'tailwind.macro'
 
 const Post = ({state, actions, libraries}) => {
     // Get information about the current URL.
@@ -41,8 +42,7 @@ const Post = ({state, actions, libraries}) => {
      * The item's categories is an array of each category id
      * So, we'll look up the details of each category in allCategories
      */
-    const categories =
-        post.categories && post.categories.map((catId) => allCategories[catId]);
+    const categories = post.categories && post.categories.map((catId) => allCategories[catId]);
 
     // Get all tags
     const allTags = state.source.tag;
@@ -57,16 +57,40 @@ const Post = ({state, actions, libraries}) => {
     const allCuisine = state.source.cuisine;
 
     /**
-     * The item's cuisine is an array of each category id
-     * So, we'll look up the details of each category in allCategories
+     * The item's cuisine is an array of each cuisine id
+     * So, we'll look up the details of each cuisine in allCuisine
      */
+    const cuisine = post.cuisine && post.cuisine.map((cuisineId) => allCuisine[cuisineId]);
 
-    const cuisine =
-        post.cuisine && post.cuisine.map((catId) => allCuisine[catId]);
+    // Get all diets
+    const allDiets = state.source.diets;
+
+    /**
+     * The item's diets is an array of each diet id
+     * So, we'll look up the details of each diet in allDiets
+     */
+    const diets = post.diets && post.diets.map((dietId) => allDiets[dietId]);
 
 
-    console.log(cuisine);
-    // console.log(state.source);
+    // Get all dishes
+    const allDishes = state.source.dishes;
+
+    /**
+     * The item's dishes is an array of each dish id
+     * So, we'll look up the details of each dish in allDishes
+     */
+    const dishes = post.dishes && post.dishes.map((dishId) => allDishes[dishId]);
+
+
+    // Get all meals
+    const allMeals = state.source.meals;
+
+    /**
+     * The item's dishes is an array of each category id
+     * So, we'll look up the details of each dish in allDishes
+     */
+    const meals = post.meals && post.meals.map((mealId) => allMeals[mealId]);
+
 
     /**
      * Once the post has loaded in the DOM, prefetch both the
@@ -82,6 +106,7 @@ const Post = ({state, actions, libraries}) => {
         <PostArticle>
             <Header>
                 <SectionContainer>
+
                     {/* If the post has categories, render the categories */}
                     {post.categories && <PostCategories categories={categories}/>}
 
@@ -97,6 +122,30 @@ const Post = ({state, actions, libraries}) => {
                     {/* If the post has tags, render it */}
                     {post.tags && <PostTags tags={tags}/>}
 
+
+                    <PostTaxonomies>
+
+                        <CuisineTaxonomy>
+                            {/* If the post has cuisine, render it */}
+                            {post.cuisine && <Cuisine cuisine={cuisine}/>}
+                        </CuisineTaxonomy>
+                        <DietsTaxonomy>
+                            {/* If the post has diets, render it */}
+                            {post.diets && <Diets diets={diets}/>}
+                        </DietsTaxonomy>
+                        <DishesTaxonomy>
+                            {/* If the post has dishes, render it */}
+                            {post.dishes && <Dishes dishes={dishes}/>}
+                        </DishesTaxonomy>
+                        <MealsTaxonomy>
+                            {/* If the post has dishes, render it */}
+                            {post.meals && <Meals meals={meals}/>}
+                        </MealsTaxonomy>
+                    </PostTaxonomies>
+                    {state.theme.featuredMedia.showOnPost && (
+                        <FeaturedImage id={post.featured_media} isSinglePost={true}/>
+                    )}
+
                     {/* If the post has ingredients, render it */}
                     {post.acf['postfieldgroup.ingredients'] && <Ingredients id={post.id}/>}
 
@@ -107,15 +156,10 @@ const Post = ({state, actions, libraries}) => {
                     {post.acf['postfieldgroup.description'] && <RecipeDescription id={post.id}/>}
 
                     {/* if the post has affiliate link, render it */}
-                    {post.acf['postfieldgroup.url'] && <AffiliateLink id={post.id} />}
+                    {post.acf['postfieldgroup.url'] && <AffiliateLink id={post.id}/>}
 
                     {/* if the post has tips, render it */}
                     {post.acf['postfieldgroup.tips'] && <RecipeTips id={post.id}/>}
-
-                    {/* If the post has cuisine, render the cuisine */}
-                    {post.cuisine && <Cuisine cuisine={cuisine}/>}
-
-                    <Announcement />
 
 
                 </SectionContainer>
@@ -124,19 +168,20 @@ const Post = ({state, actions, libraries}) => {
             {/*
        * If the want to show featured media in the
        * list of featured posts, we render the media.
-       */}
-            {state.theme.featuredMedia.showOnPost && (
-                <FeaturedImage id={post.featured_media} isSinglePost={true}/>
-            )}
+       */
+            }
 
-            {/* If the post has an excerpt (short summary text), we render it */}
-            {post.content && (
-                <PostInner size="thin">
-                    <EntryContent>
-                        <Html2React html={post.content.rendered}/>
-                    </EntryContent>
-                </PostInner>
-            )}
+            {/* If the post has an excerpt (short summary text), we render it */
+            }
+            {
+                post.content && (
+                    <PostInner size="thin">
+                        <EntryContent>
+                            <Html2React html={post.content.rendered}/>
+                        </EntryContent>
+                    </PostInner>
+                )
+            }
         </PostArticle>
     ) : null;
 };
@@ -144,34 +189,40 @@ const Post = ({state, actions, libraries}) => {
 export default connect(Post);
 
 const Header = styled(PostHeader)`
-  background-color: #fff;
-  margin: 0;
-  padding: 4rem 0;
-  @media (min-width: 700px) {
-    padding: 8rem 0;
-  }
+background-color: #fff;
+margin: 0;
+padding: 4rem 0;
+@media (min-width: 700px) {
+padding: 8rem 0;
+}
 `;
 
 const PostArticle = styled(_Post)`
-  padding-top: 0 !important;
+padding-top: 0 !important;
 `;
 
 const FeaturedImage = styled(FeaturedMedia)`
-  margin-top: 0 !important;
-  position: relative;
+margin-top: 0 !important;
+position: relative;
 
-  > div {
-    position: relative;
-  }
+> div {
+position: relative;
+}
 
-  &:before {
-    background: #fff;
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: 50%;
-    left: 0;
-    right: 0;
-    top: 0;
-  }
+&:before {
+background: #fff;
+content: "";
+display: block;
+position: absolute;
+bottom: 50%;
+left: 0;
+right: 0;
+top: 0;
+}
 `;
+
+const PostTaxonomies = styled('div')` ${tw`flex content-start sm:flex-wrap flex-wrap h-30 bg-gray-200 my-10 p-10`};`;
+const CuisineTaxonomy = styled('div')` ${tw`w-1/2 p-1`};`;
+const DietsTaxonomy = styled('div')` ${tw`w-1/2 p-1`};`;
+const DishesTaxonomy = styled('div')` ${tw`w-1/2 p-1`};`;
+const MealsTaxonomy = styled('div')` ${tw`w-1/2 p-1`};`;

@@ -1,5 +1,5 @@
 import React from "react";
-import { connect, styled } from "frontity";
+import {connect, styled} from "frontity";
 import Link from "./link";
 import Navigation from "./navigation/navigation";
 import SearchButton from "./search/search-button";
@@ -8,41 +8,41 @@ import MobileSearchButton from "./mobile/search-button";
 import MobileMenuButton from "./mobile/menu-button";
 import MobileMenuModal from "./mobile/menu-modal";
 
-const Header = ({ state }) => {
-  const { title, description } = state.frontity;
-  const { headerBg } = state.theme.colors;
+const Header = ({state}) => {
+    const {title, description} = state.frontity;
+    const {headerBg} = state.theme.colors;
 
-  return (
-    <PageHeader bg={headerBg} id="site-header">
-      <HeaderInner>
-        <TitleWrapper>
-          {/* Search button on mobile */}
-          {state.theme.showSearchInHeader && <MobileSearchButton />}
+    return (
+        <PageHeader bg={headerBg} id="site-header">
+            <HeaderInner>
+                <TitleWrapper>
+                    {/* Search button on mobile */}
+                    {state.theme.showSearchInHeader && <MobileSearchButton/>}
 
-          {/* Heading and Description of the site */}
-          <TitleGroup>
-            <SiteTitle>
-              <StyledLink link="/">{title}</StyledLink>
-            </SiteTitle>
-            <SiteDescription>{description}</SiteDescription>
-          </TitleGroup>
+                    {/* Heading and Description of the site */}
+                    <TitleGroup>
+                        <SiteTitle>
+                            <StyledLink link="/">{title}</StyledLink>
+                        </SiteTitle>
+                        <SiteDescription>{description}</SiteDescription>
+                    </TitleGroup>
 
-          {/* Mobile menu button and modal */}
-          <MobileMenuButton />
-          <MobileMenuModal />
-        </TitleWrapper>
+                    {/* Mobile menu button and modal */}
+                    <MobileMenuButton/>
+                    <MobileMenuModal/>
+                </TitleWrapper>
 
-        <HeaderNavigationWrapper>
-          {/* Desktop navigation links */}
-          <Navigation />
-          {/* Desktop search button */}
-          {state.theme.showSearchInHeader && <SearchButton />}
-        </HeaderNavigationWrapper>
-      </HeaderInner>
-      {/* Global search modal */}
-      <SearchModal />
-    </PageHeader>
-  );
+                <HeaderNavigationWrapper>
+                    {/* Desktop navigation links */}
+                    <Navigation/>
+                    {/* Desktop search button */}
+                    {state.theme.showSearchInHeader && <SearchButton/>}
+                </HeaderNavigationWrapper>
+            </HeaderInner>
+            {/* Global search modal */}
+            <SearchModal/>
+        </PageHeader>
+    );
 };
 
 // Connect the Header component to get access to the `state` in it's `props`
