@@ -6,6 +6,8 @@ const AffiliateLink = ({state, id}) => {
 
     const affiliateLink = state.source.post[id];
 
+    console.log(affiliateLink);
+
     let Badge = styled('div')` ${tw`bg-indigo-900 text-center py-4 lg:px-4`};`;
     let Contents = styled('div')`${tw`p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex`};`;
     let BadgeAlert = styled('span')`${tw`flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3`};`;

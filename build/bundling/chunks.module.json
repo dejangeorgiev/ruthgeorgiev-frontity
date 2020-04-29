@@ -2,23 +2,23 @@
   "errors": [],
   "warnings": [],
   "version": "4.43.0",
-  "hash": "48cb87e99b5556134deb",
+  "hash": "1a4a014ab307ece5946a",
   "publicPath": "/static/",
-  "outputPath": "C:\\Code\\rg-frontity\\build\\static",
+  "outputPath": "/Users/dejangeorgiev/Code/rg-frontity/build/static",
   "assetsByChunkName": {
     "archive": "archive.module.js",
     "archive~post": "archive~post.module.js",
-    "post": "post.module.js",
-    "rg-frontity": [
-      "rg-frontity.module.js",
-      "rg-frontity.185d624d62154c85f6c5.hot-update.js"
+    "post": [
+      "post.module.js",
+      "post.0f11c1b785e7922ac4a7.hot-update.js"
     ],
+    "rg-frontity": "rg-frontity.module.js",
     "vendors~post": "vendors~post.module.js"
   },
   "assets": [
     {
-      "name": "185d624d62154c85f6c5.hot-update.json",
-      "size": 53,
+      "name": "0f11c1b785e7922ac4a7.hot-update.json",
+      "size": 46,
       "chunks": [],
       "chunkNames": [],
       "info": {
@@ -29,7 +29,7 @@
     },
     {
       "name": "archive.module.js",
-      "size": 74228,
+      "size": 74452,
       "chunks": [
         "archive"
       ],
@@ -37,11 +37,11 @@
         "archive"
       ],
       "info": {},
-      "emitted": false
+      "emitted": true
     },
     {
       "name": "archive~post.module.js",
-      "size": 120861,
+      "size": 121277,
       "chunks": [
         "archive~post"
       ],
@@ -49,7 +49,7 @@
         "archive~post"
       ],
       "info": {},
-      "emitted": false
+      "emitted": true
     },
     {
       "name": "fonts/Inter-Bold-LATIN.woff2",
@@ -57,7 +57,7 @@
       "chunks": [],
       "chunkNames": [],
       "info": {},
-      "emitted": false
+      "emitted": true
     },
     {
       "name": "fonts/Inter-Bold.woff2",
@@ -65,7 +65,7 @@
       "chunks": [],
       "chunkNames": [],
       "info": {},
-      "emitted": false
+      "emitted": true
     },
     {
       "name": "fonts/Inter-Medium-LATIN.woff2",
@@ -73,7 +73,7 @@
       "chunks": [],
       "chunkNames": [],
       "info": {},
-      "emitted": false
+      "emitted": true
     },
     {
       "name": "fonts/Inter-Medium.woff2",
@@ -81,7 +81,7 @@
       "chunks": [],
       "chunkNames": [],
       "info": {},
-      "emitted": false
+      "emitted": true
     },
     {
       "name": "fonts/Inter-SemiBold-LATIN.woff2",
@@ -89,7 +89,7 @@
       "chunks": [],
       "chunkNames": [],
       "info": {},
-      "emitted": false
+      "emitted": true
     },
     {
       "name": "fonts/Inter-SemiBold.woff2",
@@ -97,28 +97,16 @@
       "chunks": [],
       "chunkNames": [],
       "info": {},
-      "emitted": false
-    },
-    {
-      "name": "post.module.js",
-      "size": 172117,
-      "chunks": [
-        "post"
-      ],
-      "chunkNames": [
-        "post"
-      ],
-      "info": {},
       "emitted": true
     },
     {
-      "name": "rg-frontity.185d624d62154c85f6c5.hot-update.js",
-      "size": 14477,
+      "name": "post.0f11c1b785e7922ac4a7.hot-update.js",
+      "size": 32567,
       "chunks": [
-        "rg-frontity"
+        "post"
       ],
       "chunkNames": [
-        "rg-frontity"
+        "post"
       ],
       "info": {
         "hotModuleReplacement": true,
@@ -127,8 +115,20 @@
       "emitted": false
     },
     {
+      "name": "post.module.js",
+      "size": 204037,
+      "chunks": [
+        "post"
+      ],
+      "chunkNames": [
+        "post"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
       "name": "rg-frontity.module.js",
-      "size": 6027603,
+      "size": 6029673,
       "chunks": [
         "rg-frontity"
       ],
@@ -148,7 +148,7 @@
         "vendors~post"
       ],
       "info": {},
-      "emitted": false,
+      "emitted": true,
       "isOverSizeLimit": true
     }
   ],
@@ -159,8 +159,7 @@
         "rg-frontity"
       ],
       "assets": [
-        "rg-frontity.module.js",
-        "rg-frontity.185d624d62154c85f6c5.hot-update.js"
+        "rg-frontity.module.js"
       ],
       "children": {},
       "childAssets": {}
@@ -172,8 +171,7 @@
         "rg-frontity"
       ],
       "assets": [
-        "rg-frontity.module.js",
-        "rg-frontity.185d624d62154c85f6c5.hot-update.js"
+        "rg-frontity.module.js"
       ],
       "children": {},
       "childAssets": {}
@@ -199,7 +197,8 @@
       "assets": [
         "vendors~post.module.js",
         "archive~post.module.js",
-        "post.module.js"
+        "post.module.js",
+        "post.0f11c1b785e7922ac4a7.hot-update.js"
       ],
       "children": {},
       "childAssets": {}

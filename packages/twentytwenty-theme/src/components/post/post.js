@@ -19,6 +19,8 @@ import RecipeDescription from "./acf/RecipeDescription";
 import RecipeTips from "./acf/tips/RecipeTips";
 import Cuisine from "./acf/cuisine/Cuisine";
 
+import Announcement from "../global/announcements/Announcement";
+
 
 const Post = ({state, actions, libraries}) => {
     // Get information about the current URL.
@@ -104,11 +106,17 @@ const Post = ({state, actions, libraries}) => {
                     {/* if the post has description, render it */}
                     {post.acf['postfieldgroup.description'] && <RecipeDescription id={post.id}/>}
 
+                    {/* if the post has affiliate link, render it */}
+                    {post.acf['postfieldgroup.url'] && <AffiliateLink id={post.id} />}
+
                     {/* if the post has tips, render it */}
                     {post.acf['postfieldgroup.tips'] && <RecipeTips id={post.id}/>}
 
                     {/* If the post has cuisine, render the cuisine */}
                     {post.cuisine && <Cuisine cuisine={cuisine}/>}
+
+                    <Announcement />
+
 
                 </SectionContainer>
             </Header>
@@ -120,8 +128,6 @@ const Post = ({state, actions, libraries}) => {
             {state.theme.featuredMedia.showOnPost && (
                 <FeaturedImage id={post.featured_media} isSinglePost={true}/>
             )}
-
-            <AffiliateLink id={post.id}/>
 
             {/* If the post has an excerpt (short summary text), we render it */}
             {post.content && (
