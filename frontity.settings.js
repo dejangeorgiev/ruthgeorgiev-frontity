@@ -13,15 +13,8 @@ const settings = {
             "state": {
                 "theme": {
                     "menu": [
-                        [
-                            "Home",
-                            "/"
-                        ],
-                        [
-                            "Recipes",
-                            "/recipes/"
-                        ]
-
+                        ["Home", "/"],
+                        ["Recipes", "/recipes/"]
                     ],
                     "featured": {
                         "showOnList": true,
@@ -35,8 +28,8 @@ const settings = {
             state: {
                 source: {
                     api: "https://admin.ruthgeorgiev.com/wp-json",
-                    postsPage:'/recipes',
-                    homepage:'/'
+                    postsPage: '/recipes',
+                    homepage: '/'
                 }
             }
         },

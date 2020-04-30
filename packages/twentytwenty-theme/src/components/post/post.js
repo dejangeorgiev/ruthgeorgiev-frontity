@@ -91,7 +91,7 @@ const Post = ({state, actions, libraries}) => {
      */
     const meals = post.meals && post.meals.map((mealId) => allMeals[mealId]);
 
-
+console.log(post);
     /**
      * Once the post has loaded in the DOM, prefetch both the
      * home posts and the list component so if the user visits
@@ -221,8 +221,8 @@ top: 0;
 }
 `;
 
-const PostTaxonomies = styled('div')` ${tw`flex content-start sm:flex-wrap flex-wrap h-30 bg-gray-200 my-10 p-10`};`;
-const CuisineTaxonomy = styled('div')` ${tw`w-1/2 p-1`};`;
-const DietsTaxonomy = styled('div')` ${tw`w-1/2 p-1`};`;
-const DishesTaxonomy = styled('div')` ${tw`w-1/2 p-1`};`;
-const MealsTaxonomy = styled('div')` ${tw`w-1/2 p-1`};`;
+const PostTaxonomies = styled('div')` ${tw`flex content-start text-left sm:flex-wrap flex-wrap h-30 bg-gray-200 my-10 p-10`};`;
+const CuisineTaxonomy = styled('div')` ${tw`w-full p-1`};`;
+const DietsTaxonomy = styled('div')` ${tw`w-full p-1`};`;
+const DishesTaxonomy = styled('div')` ${tw`w-full p-1`};`;
+const MealsTaxonomy = styled('div')` ${tw`w-full p-1`};`;
