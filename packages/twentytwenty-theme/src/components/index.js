@@ -1,4 +1,4 @@
-import { connect, Global, Head, styled } from "frontity";
+import {connect, Global, Head, styled} from "frontity";
 import Switch from "@frontity/components/switch";
 import React from "react";
 import Footer from "./footer";
@@ -12,57 +12,61 @@ import SearchResults from "./search/search-results";
 import SkipLink from "./styles/skip-link";
 import MetaTitle from "./page-meta-title";
 import PageError from "./page-error";
+import Page from "./page"
+import FrontPage from "./page/FrontPage";
 
 /**
  * Theme is the root React component of our theme. The one we will export
  * in roots.
  */
-const Theme = ({ state, libraries }) => {
-  // Get information about the current URL.
-  const data = state.source.get(state.router.link);
-  const parse = libraries.source.parse(state.router.link);
-  // Check if the url is a search type
-  const isSearch = Boolean(parse.query["s"]);
+const Theme = ({state, libraries}) => {
+    // Get information about the current URL.
+    const data = state.source.get(state.router.link);
+    const parse = libraries.source.parse(state.router.link);
+    // Check if the url is a search type
+    const isSearch = Boolean(parse.query["s"]);
 
-  return (
-    <>
-      {/* Add global styles for the whole site, like body or a's or font-faces. 
+    return (
+        <>
+            {/* Add global styles for the whole site, like body or a's or font-faces.
         Not classes here because we use CSS-in-JS. Only global HTML tags. */}
-      <Global styles={globalStyles(state.theme.colors)} />
-      <FontFaces />
+            <Global styles={globalStyles(state.theme.colors)}/>
+            <FontFaces/>
 
-      {/* Add some metatags to the <head> of the HTML. */}
-      <MetaTitle />
-      <Head>
-        <meta name="description" content={state.frontity.description} />
-        <html lang="en" />
-      </Head>
+            {/* Add some metatags to the <head> of the HTML. */}
+            <MetaTitle/>
+            <Head>
+                <meta name="description" content={state.frontity.description}/>
+                <html lang="en"/>
+            </Head>
 
-      {/* Accessibility: Provides ability to skip to main content */}
-      <SkipLink as="a" href="#main">
-        Skip to main content
-      </SkipLink>
+            {/* Accessibility: Provides ability to skip to main content */}
+            <SkipLink as="a" href="#main">
+                Skip to main content
+            </SkipLink>
 
-      <div style={{ minHeight: "calc(100vh - 190px)" }}>
-        {/* Add the header of the site. */}
-        <Header />
+            <div style={{minHeight: "calc(100vh - 190px)"}}>
+                {/* Add the header of the site. */}
+                <Header/>
 
-        {/* Add the main section. It renders a different component depending
+                {/* Add the main section. It renders a different component depending
         on the type of URL we are in. */}
-        <Main id="main">
-          <Switch>
-            <Loading when={data.isFetching} />
-            <SearchResults when={isSearch} />
-            <Archive when={data.isArchive} />
-            <Post when={data.isPostType} />
-            <PageError when={data.isError} />
-          </Switch>
-        </Main>
-      </div>
+                <Main id="main">
+                    <Switch>
+                        <FrontPage when={data.isHome}/>
+                        <Loading when={data.isFetching}/>
+                        <SearchResults when={isSearch}/>
+                        <Archive when={data.isArchive}/>
+                        <Page when={data.isPage}/>
+                        <Post when={data.isPostType}/>
+                        <PageError when={data.isError}/>
+                    </Switch>
+                </Main>
+            </div>
 
-      <Footer />
-    </>
-  );
+            <Footer/>
+        </>
+    );
 };
 
 export default connect(Theme);

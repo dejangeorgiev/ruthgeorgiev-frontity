@@ -14,7 +14,9 @@ const settings = {
                 "theme": {
                     "menu": [
                         ["Home", "/"],
-                        ["Recipes", "/recipes/"]
+                        ["Recipes", "/recipes/"],
+                        ["About Me", "/about/"],
+                        ["Gardening", "/gardening/"]
                     ],
                     "featured": {
                         "showOnList": true,

@@ -83,6 +83,9 @@ const documentSetup = (colors) => css`
     word-break: break-word;
     word-wrap: break-word;
   }
+  *::selection{
+  background: #fff2a8;
+  }
 
   #site-content {
     overflow: hidden;

@@ -26,16 +26,15 @@ const BackToTop = () => {
 const Footer = ({ state }) => {
   const currentYear = new Date().getFullYear();
   const { footerBg } = state.theme.colors;
-
   return (
     <SiteFooter bg={footerBg} role="contentinfo">
       <SiteFooterInner>
         <Credits>
           <Copyright>
             &copy; {currentYear}{" "}
-            <Link link={state.frontity.url}>{state.frontity.title}</Link>
+            <Link link={"/"}>{state.frontity.title}</Link>
           </Copyright>
-          <PoweredBy>Cooking with love</PoweredBy>
+          <PoweredBy>Cooking with love & travelling with passion</PoweredBy>
         </Credits>
         <BackToTop />
       </SiteFooterInner>

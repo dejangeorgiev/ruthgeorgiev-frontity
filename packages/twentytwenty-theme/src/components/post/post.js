@@ -147,6 +147,7 @@ console.log(post);
                     )}
 
                     {/* If the post has ingredients, render it */}
+                    {post.acf['postfieldgroup.ingredients'] && <IngredientsTitle>Ingredients</IngredientsTitle>}
                     {post.acf['postfieldgroup.ingredients'] && <Ingredients id={post.id}/>}
 
                     {/* If the post has equipment, render it */}
@@ -220,6 +221,9 @@ right: 0;
 top: 0;
 }
 `;
+
+const IngredientsTitle = styled('h2')` ${tw`text-3xl text-gray-800 py-6 px-2`};`;
+
 
 const PostTaxonomies = styled('div')` ${tw`flex content-start text-left sm:flex-wrap flex-wrap h-30 bg-gray-200 my-10 p-10`};`;
 const CuisineTaxonomy = styled('div')` ${tw`w-full p-1`};`;
