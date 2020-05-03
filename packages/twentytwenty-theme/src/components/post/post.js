@@ -91,7 +91,7 @@ const Post = ({state, actions, libraries}) => {
      */
     const meals = post.meals && post.meals.map((mealId) => allMeals[mealId]);
 
-console.log(post);
+    console.log(post);
     /**
      * Once the post has loaded in the DOM, prefetch both the
      * home posts and the list component so if the user visits
@@ -151,15 +151,19 @@ console.log(post);
                     {post.acf['postfieldgroup.ingredients'] && <Ingredients id={post.id}/>}
 
                     {/* If the post has equipment, render it */}
+                    {post.acf['postfieldgroup.equipment'] && <EquipmentTitle>Equipment</EquipmentTitle>}
                     {post.acf['postfieldgroup.equipment'] && <Equipment id={post.id}/>}
 
                     {/* if the post has description, render it */}
+                    {post.acf['postfieldgroup.description'] &&
+                    <RecipeDescriptionTitle>Description</RecipeDescriptionTitle>}
                     {post.acf['postfieldgroup.description'] && <RecipeDescription id={post.id}/>}
 
                     {/* if the post has affiliate link, render it */}
                     {post.acf['postfieldgroup.url'] && <AffiliateLink id={post.id}/>}
 
                     {/* if the post has tips, render it */}
+                    {post.acf['postfieldgroup.tips'] && <RecipeTipsTitle>Tips</RecipeTipsTitle>}
                     {post.acf['postfieldgroup.tips'] && <RecipeTips id={post.id}/>}
 
 
@@ -222,11 +226,13 @@ top: 0;
 }
 `;
 
-const IngredientsTitle = styled('h2')` ${tw`text-3xl text-gray-800 py-6 px-2`};`;
+const IngredientsTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
+const EquipmentTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
+const RecipeDescriptionTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
+const RecipeTipsTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
 
-
-const PostTaxonomies = styled('div')` ${tw`flex content-start text-left sm:flex-wrap flex-wrap h-30 bg-gray-200 my-10 p-10`};`;
-const CuisineTaxonomy = styled('div')` ${tw`w-full p-1`};`;
-const DietsTaxonomy = styled('div')` ${tw`w-full p-1`};`;
-const DishesTaxonomy = styled('div')` ${tw`w-full p-1`};`;
-const MealsTaxonomy = styled('div')` ${tw`w-full p-1`};`;
+const PostTaxonomies = styled('div')` ${tw`flex content-start text-left sm:flex-wrap flex-wrap h-30 bg-gray-200 my-10 p-10`}`;
+const CuisineTaxonomy = styled('div')` ${tw`w-full p-1`}`;
+const DietsTaxonomy = styled('div')` ${tw`w-full p-1`}`;
+const DishesTaxonomy = styled('div')` ${tw`w-full p-1`}`;
+const MealsTaxonomy = styled('div')` ${tw`w-full p-1`}`;
