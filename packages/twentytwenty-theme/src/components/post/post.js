@@ -21,6 +21,7 @@ import Cuisine from "./acf/cuisine/Cuisine";
 import Diets from "./acf/diets/Diets";
 import Dishes from "./acf/dishes/Dishes";
 import Meals from "./acf/meals/Meals";
+import YoutubeVideo from "./acf/YoutubeVideo";
 import tw from 'tailwind.macro'
 
 const Post = ({state, actions, libraries}) => {
@@ -166,6 +167,11 @@ const Post = ({state, actions, libraries}) => {
                     {post.acf['postfieldgroup.tips'] && <RecipeTipsTitle>Tips</RecipeTipsTitle>}
                     {post.acf['postfieldgroup.tips'] && <RecipeTips id={post.id}/>}
 
+                    {/* if the post has description, render it */}
+                    {post.acf['postfieldgroup.video'] &&
+                    <RecipeYoutubeVideoTitle>Explained on YouTube</RecipeYoutubeVideoTitle>}
+                    {post.acf['postfieldgroup.video'] && <YoutubeVideo videoId={post.acf['postfieldgroup.video']}/>}
+
 
                 </SectionContainer>
             </Header>
@@ -230,6 +236,7 @@ const IngredientsTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
 const EquipmentTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
 const RecipeDescriptionTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
 const RecipeTipsTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
+const RecipeYoutubeVideoTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
 
 const PostTaxonomies = styled('div')` ${tw`flex content-start text-left sm:flex-wrap flex-wrap h-30 bg-gray-200 my-10 p-10`}`;
 const CuisineTaxonomy = styled('div')` ${tw`w-full p-1`}`;

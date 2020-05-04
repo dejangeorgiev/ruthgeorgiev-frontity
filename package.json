@@ -15,11 +15,11 @@
   "dependencies": {
     "@babel/preset-react": "^7.9.4",
     "@babel/types": "^7.9.5",
+    "@frontity/connect": "^1.0.5",
     "@frontity/core": "^1.5.2",
+    "@frontity/google-tag-manager": "^0.1.1",
     "@frontity/head-tags": "^1.0.2",
     "@frontity/html2react": "^1.3.2",
-    "@frontity/connect": "^1.0.5",
-    "@frontity/google-tag-manager": "^0.1.1",
     "@frontity/tiny-router": "^1.2.0",
     "@frontity/twentytwenty-theme": "./packages/twentytwenty-theme",
     "@frontity/wp-source": "^1.7.0",
@@ -28,6 +28,7 @@
     "antd": "^4.1.5",
     "babel-plugin-macros": "^2.8.0",
     "frontity": "^1.5.3",
+    "react-youtube": "^7.11.2",
     "tailwind.macro": "^1.0.0-alpha.10",
     "tailwindcss": "^1.3.5"
   },
