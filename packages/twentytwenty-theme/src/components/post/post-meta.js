@@ -5,8 +5,10 @@ import { UserIcon, CalendarIcon } from "../icons";
 
 export const PostMetaWrapper = styled.div`
   margin-top: 2rem;
+  margin-bottom: 2rem;
   @media (min-width: 700px) {
     margin-top: 3rem;
+    margin-bottom: 3rem;
   }
 `;
 

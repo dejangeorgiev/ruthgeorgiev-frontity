@@ -89,6 +89,8 @@ export default connect(PostItem);
 
 // All styles :)
 
+
+
 export const Post = styled.article`
   &:first-of-type {
     padding: 4rem 0 0;
@@ -167,3 +169,7 @@ export const EntryContent = styled.div`
     max-width: 100%;
   }
 `;
+
+
+
+

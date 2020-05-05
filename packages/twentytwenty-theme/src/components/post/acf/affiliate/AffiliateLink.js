@@ -52,8 +52,3 @@ const ContentBadge = styled('div')`${tw`uppercase tracking-wide text-gray-500 fo
 const BadgeTitle = styled('h5')`${tw`block mt-1 leading-tight font-semibold pt-3 mb-0 text-gray-900 hover:underline`}`;
 const BadgeDescription = styled('p')`${tw`mt-2 text-gray-600 pr-6 py-3`}`;
 const BadgeIcon = styled('svg')`${tw`fill-current text-gray-500 w-5 h-5 mr-2 inline-block`}`;
-
-
-const BadgeAlert = styled('span')`${tw`flex rounded-full bg-indigo-500 uppercase px-2 py-1 font-bold mr-3`}`;
-const BadgeText = styled('span')`${tw`font-semibold mr-2 text-left flex-auto`}`;
-const Icon = styled('svg')`${tw`fill-current opacity-75 h-4 w-4`}`;

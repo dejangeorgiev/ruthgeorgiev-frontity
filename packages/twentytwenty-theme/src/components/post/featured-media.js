@@ -22,14 +22,14 @@ const FeaturedMedia = ({state, id, className}) => {
             ) || null;
 
     return (
-        <Figure className={className}>
-            <SectionContainer size="medium">
+        <Figure>
+            <SectionImageContainer size="medium">
                 <Image
                     alt={media.title.rendered}
                     src={media.source_url}
                     srcSet={srcset}
                 />
-            </SectionContainer>
+            </SectionImageContainer>
 
         </Figure>
     );
@@ -38,13 +38,12 @@ const FeaturedMedia = ({state, id, className}) => {
 export default connect(FeaturedMedia);
 
 const Figure = styled.figure`
-  margin-top: 5rem;
   position: relative;
   min-height: 300px;
+`;
 
-  @media (min-width: 700px) {
-    margin-top: 6rem;
-  }
+const SectionImageContainer = styled(SectionContainer)`
+width:100% !important;
 `;
 
 const Image = styled(Img)`
