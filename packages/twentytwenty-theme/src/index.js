@@ -30,7 +30,13 @@ const twentyTwentyTheme = {
             // Whether to show the search button in page header
             showSearchInHeader: true,
             // Menu links to display in the header
-            menu: [],
+            menu: [
+
+                ["Home", "/"],
+                ["Recipes", "/recipes/"],
+                ["About Me", "/about/"],
+                ["Gardening", "/gardening/"]
+            ],
             // State for the menu on mobile
             isMobileMenuOpen: false,
             // State for the search modal on mobile
@@ -102,7 +108,7 @@ const twentyTwentyTheme = {
             closeSearchModal: ({state}) => {
                 state.theme.isSearchModalOpen = false;
             },
-        },
+        }
     },
     libraries: {
         html2react: {
@@ -111,7 +117,7 @@ const twentyTwentyTheme = {
              * inside the content HTML. You can add your own processors too
              */
             processors: [image],
-        },
+        }
     },
 };
 

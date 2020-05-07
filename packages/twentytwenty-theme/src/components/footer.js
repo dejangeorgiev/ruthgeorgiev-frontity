@@ -27,6 +27,7 @@ const Footer = ({ state }) => {
   const currentYear = new Date().getFullYear();
   const { footerBg } = state.theme.colors;
   return (
+
     <SiteFooter bg={footerBg} role="contentinfo">
       <SiteFooterInner>
         <Credits>

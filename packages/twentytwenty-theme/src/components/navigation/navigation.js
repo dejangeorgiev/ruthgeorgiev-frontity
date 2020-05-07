@@ -1,42 +1,41 @@
 import React from "react";
-import { connect, styled } from "frontity";
+import {connect, styled} from "frontity";
 import Link from "../link";
+import tw from 'tailwind.macro'
 
 /**
  * Navigation Component
  *
  * It renders the navigation links
  */
-const Navigation = ({ state }) => (
-  <NavWrapper>
-    <MenuNav>
-      <Menu>
-        {state.theme.menu.map(([name, link]) => {
-          // Check if the link matched the current page url
-          const isCurrentPage = state.router.link === link;
-          return (
-            <MenuItem key={name}>
-              {/* If link url is the current page, add `aria-current` for a11y */}
-              <MenuLink
-                link={link}
-                aria-current={isCurrentPage ? "page" : undefined}
-              >
-                {name}
-              </MenuLink>
-            </MenuItem>
-          );
-        })}
-      </Menu>
-    </MenuNav>
-  </NavWrapper>
+const Navigation = ({state}) => (
+    <NavWrapper>
+        <MenuNav>
+            <Menu>
+                {state.theme.menu.map(([name, link]) => {
+                    // Check if the link matched the current page url
+                    const isCurrentPage = state.router.link === link;
+
+                    return (
+                        <MenuItem key={name}>
+                            {/* If link url is the current page, add `aria-current` for a11y */}
+                            <MenuLink
+                                link={link}
+                                aria-current={isCurrentPage ? "page" : undefined}
+                            >
+                                {name}
+                            </MenuLink>
+                        </MenuItem>
+                    );
+                })}
+            </Menu>
+        </MenuNav>
+    </NavWrapper>
 );
 
 export default connect(Navigation);
 
-const NavWrapper = styled.div`
-  align-items: center;
-  display: flex;
-`;
+const NavWrapper = styled.div`${tw`w-full text-gray-700`}`;
 
 const MenuNav = styled.nav`
   display: none;
@@ -75,13 +74,12 @@ const MenuItem = styled.li`
   }
 `;
 
-const MenuLink = styled(Link)`
-  display: block;
-  line-height: 1.2;
-  text-decoration: none;
-
-  &:hover,
+const MenuLink = styled(Link)`${tw`px-4 py-4 mt-2 text-gray-800 font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline`}
+ text-decoration: none;
   &[aria-current="page"] {
-    text-decoration: underline;
+  
+  ${tw`text-gray-900 bg-gray-200`}
+
   }
 `;
+

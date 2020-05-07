@@ -5,6 +5,9 @@ const settings = {
             url: "https://admin.ruthgeorgiev.com",
             title: "Ruth Georgiev",
             description: "Cooking with love & travelling with passion"
+        },
+        newsletter: {
+            slot: 'above-the-footer'
         }
     },
     packages: [
@@ -12,12 +15,7 @@ const settings = {
             "name": "@frontity/twentytwenty-theme",
             "state": {
                 "theme": {
-                    "menu": [
-                        ["Home", "/"],
-                        ["Recipes", "/recipes/"],
-                        ["About Me", "/about/"],
-                        ["Gardening", "/gardening/"]
-                    ],
+                    "menu": [],
                     "featured": {
                         "showOnList": true,
                         "showOnPost": true

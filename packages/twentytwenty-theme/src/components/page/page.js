@@ -34,7 +34,7 @@ const Page = ({state, actions, libraries}) => {
     // Load the post, but only if the data is ready.
     return data.isReady ? (
         <div>
-       aaa
+       This will be a page
 
 
         </div>
