@@ -6,6 +6,7 @@ import { CloseIcon } from "../icons";
 import useFocusTrap from "../hooks/use-trap-focus";
 import useFocusEffect from "../hooks/use-focus-effect";
 import SectionContainer from "../styles/section-container";
+import tw from "tailwind.macro";
 
 const MobileMenuModal = ({ state, actions }) => {
   // Get the menu state and action
@@ -136,9 +137,6 @@ const ToggleText = styled.span`
 
 const MenuListItem = styled.li`
   position: relative;
-  border-style: solid;
-  border-width: 0.1rem 0 0 0;
-  border-color: #dcd7ca;
   display: flex;
   flex-wrap: wrap;
   line-height: 1;
@@ -152,29 +150,15 @@ const MenuLinkWrapper = styled.div`
   width: 100%;
 `;
 
-const MenuLink = styled(Link)`
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: -0.0375em;
-  display: block;
-  padding: 2rem 2.5rem;
-  text-decoration: none;
-  width: 100%;
-  text-align: left;
 
-  @media (min-width: 700px) {
-    font-size: 2.4rem;
-    padding: 2.5rem 0;
-  }
-
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-  }
-  /* styles for active link */
+const MenuLink = styled(Link)`${tw`px-4 w-full py-6 m-4 text-left text-gray-800 font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline`}
+ text-decoration: none;
   &[aria-current="page"] {
-    text-decoration: underline;
+  
+  ${tw`text-gray-900 bg-gray-200`}
+
   }
 `;
+
 
 export default connect(MobileMenuModal);
