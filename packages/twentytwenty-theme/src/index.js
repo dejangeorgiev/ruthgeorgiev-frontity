@@ -31,11 +31,42 @@ const twentyTwentyTheme = {
             showSearchInHeader: true,
             // Menu links to display in the header
             menu: [
-
+                {
+                    name: 'Home',
+                    href: '/',
+                },
+                {
+                    name: 'About Me',
+                    href: '/about/',
+                },
+                {
+                    name: 'Recipes',
+                    href: '/recipes/',
+                    submenu: [
+                        {
+                            name: 'Salad',
+                            href: '/category/salad/'
+                        },
+                        {
+                            name: 'Italian',
+                            href: '/category/italian/'
+                        },
+                        {
+                            name: 'Vegan',
+                            href: '/category/vegan/'
+                        }
+                    ]
+                },
+                {
+                    name: 'Gardening',
+                    href: '/gardening/'
+                }
+/**
                 ["Home", "/"],
                 ["Recipes", "/recipes/"],
                 ["About Me", "/about/"],
                 ["Gardening", "/gardening/"]
+   **/
             ],
             // State for the menu on mobile
             isMobileMenuOpen: false,

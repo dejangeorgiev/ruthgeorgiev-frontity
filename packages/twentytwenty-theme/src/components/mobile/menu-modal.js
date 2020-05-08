@@ -6,7 +6,6 @@ import { CloseIcon } from "../icons";
 import useFocusTrap from "../hooks/use-trap-focus";
 import useFocusEffect from "../hooks/use-focus-effect";
 import SectionContainer from "../styles/section-container";
-import tw from "tailwind.macro";
 
 const MobileMenuModal = ({ state, actions }) => {
   // Get the menu state and action
@@ -15,6 +14,7 @@ const MobileMenuModal = ({ state, actions }) => {
 
   // Check if there are links in the state
   const isThereLinks = menu != null && menu.length > 0;
+  console.log({menu, isThereLinks})
 
   /**
    * Keep a reference to the close button so we can focus on it when
@@ -32,50 +32,50 @@ const MobileMenuModal = ({ state, actions }) => {
   useFocusTrap(menuRef, isMobileMenuOpen);
 
   return (
-    <Modal data-open={isMobileMenuOpen} role="dialog" aria-modal="true">
-      {/* Global styles to prevent body scroll when the menu is open */}
-      {isMobileMenuOpen && (
-        <Global styles={{ body: { overflowY: "hidden" } }} />
-      )}
-      <ModalInner>
-        <MenuWrapper ref={menuRef}>
-          <div style={{ flexShrink: 0 }}>
-            <CloseNavToggle
-              ref={closeButtonRef}
-              aria-expanded={isMobileMenuOpen}
-              onClick={closeMobileMenu}
-            >
-              <ToggleText> Close Menu</ToggleText>
-              <CloseIcon />
-            </CloseNavToggle>
+      <Modal data-open={isMobileMenuOpen} role="dialog" aria-modal="true">
+        {/* Global styles to prevent body scroll when the menu is open */}
+        {isMobileMenuOpen && (
+            <Global styles={{ body: { overflowY: "hidden" } }} />
+        )}
+        <ModalInner>
+          <MenuWrapper ref={menuRef}>
+            <div style={{ flexShrink: 0 }}>
+              <CloseNavToggle
+                  ref={closeButtonRef}
+                  aria-expanded={isMobileMenuOpen}
+                  onClick={closeMobileMenu}
+              >
+                <ToggleText> Close Menu</ToggleText>
+                <CloseIcon />
+              </CloseNavToggle>
 
-            <MenuContent
-              as="nav"
-              role="navigation"
-              aria-label="Mobile menu links"
-            >
-              <MenuList>
-                {isThereLinks &&
-                  menu.map(([name, link]) => (
-                    <MenuListItem key={name}>
-                      <MenuLinkWrapper>
-                        <MenuLink
-                          link={link}
-                          aria-current={
-                            state.router.link === link ? "page" : undefined
-                          }
-                        >
-                          {name}
-                        </MenuLink>
-                      </MenuLinkWrapper>
-                    </MenuListItem>
+              <MenuContent
+                  as="nav"
+                  role="navigation"
+                  aria-label="Mobile menu links"
+              >
+                <MenuList>
+                  {isThereLinks &&
+                  menu.map(({name, href, subcategories}) => (
+                      <MenuListItem key={name}>
+                        <MenuLinkWrapper>
+                          <MenuLink
+                              link={href}
+                              aria-current={
+                                state.router.link === href ? "page" : undefined
+                              }
+                          >
+                            {name}
+                          </MenuLink>
+                        </MenuLinkWrapper>
+                      </MenuListItem>
                   ))}
-              </MenuList>
-            </MenuContent>
-          </div>
-        </MenuWrapper>
-      </ModalInner>
-    </Modal>
+                </MenuList>
+              </MenuContent>
+            </div>
+          </MenuWrapper>
+        </ModalInner>
+      </Modal>
   );
 };
 
@@ -90,7 +90,6 @@ const Modal = styled.div`
   right: 99999rem;
   top: 0;
   z-index: 99;
-
   &[data-open="true"] {
     display: flex;
     left: 0;
@@ -137,6 +136,9 @@ const ToggleText = styled.span`
 
 const MenuListItem = styled.li`
   position: relative;
+  border-style: solid;
+  border-width: 0.1rem 0 0 0;
+  border-color: #dcd7ca;
   display: flex;
   flex-wrap: wrap;
   line-height: 1;
@@ -150,15 +152,27 @@ const MenuLinkWrapper = styled.div`
   width: 100%;
 `;
 
-
-const MenuLink = styled(Link)`${tw`px-4 w-full py-6 m-4 text-left text-gray-800 font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline`}
- text-decoration: none;
+const MenuLink = styled(Link)`
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.0375em;
+  display: block;
+  padding: 2rem 2.5rem;
+  text-decoration: none;
+  width: 100%;
+  text-align: left;
+  @media (min-width: 700px) {
+    font-size: 2.4rem;
+    padding: 2.5rem 0;
+  }
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+  /* styles for active link */
   &[aria-current="page"] {
-  
-  ${tw`text-gray-900 bg-gray-200`}
-
+    text-decoration: underline;
   }
 `;
-
 
 export default connect(MobileMenuModal);
