@@ -5,6 +5,7 @@ import ArchiveHeader from "./archive-header";
 import Pagination from "./archive-pagination";
 import PostSeparator from "../post/post-separator";
 import Post from "../post";
+import RecipeTaxonomies from "../global/taxonomies/RecipeTaxonomies/RecipeTaxonomies";
 import tw from "tailwind.macro";
 
 const Archive = ({state, showExcerpt, showMedia}) => {
@@ -15,13 +16,26 @@ const Archive = ({state, showExcerpt, showMedia}) => {
     // Whether the show the excerpt instead of the full content
     // If passed as prop, we'll respect that. Else, we'll use the theme settings
     const _showExcerpt = showExcerpt || !state.theme.showAllContentOnArchive;
-
     useEffect(() => {
         Post.preload();
     }, []);
 
+
+    // Get all taxonomies
+    const taxonomies = state.source.taxonomies;
+
+    /**
+     * The item's cuisine is an array of each cuisine id
+     * So, we'll look up the details of each cuisine in allCuisine
+     */
+
     return (
         <>
+
+            {/* If the post has categories, render the categories */}
+            {taxonomies && <RecipeTaxonomies taxonomies={taxonomies}/>}
+
+
             {/* If the list is a taxonomy, we render a title. */}
             {data.isTaxonomy && (
                 <ArchiveHeader labelColor={primary} label={data.taxonomy}>

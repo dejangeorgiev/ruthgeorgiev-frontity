@@ -72,7 +72,6 @@ const Post = ({state, actions, libraries}) => {
      */
     const diets = post.diets && post.diets.map((dietId) => allDiets[dietId]);
 
-
     // Get all dishes
     const allDishes = state.source.dishes;
 
@@ -92,7 +91,6 @@ const Post = ({state, actions, libraries}) => {
      */
     const meals = post.meals && post.meals.map((mealId) => allMeals[mealId]);
 
-    console.log(post);
     /**
      * Once the post has loaded in the DOM, prefetch both the
      * home posts and the list component so if the user visits

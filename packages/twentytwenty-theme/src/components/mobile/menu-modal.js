@@ -14,7 +14,6 @@ const MobileMenuModal = ({ state, actions }) => {
 
   // Check if there are links in the state
   const isThereLinks = menu != null && menu.length > 0;
-  console.log({menu, isThereLinks})
 
   /**
    * Keep a reference to the close button so we can focus on it when

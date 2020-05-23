@@ -21,7 +21,7 @@ const Page = ({state, actions, libraries}) => {
 
 
 
-    console.log(data);
+    console.log(page);
     /**
      * Once the post has loaded in the DOM, prefetch both the
      * home posts and the list component so if the user visits
