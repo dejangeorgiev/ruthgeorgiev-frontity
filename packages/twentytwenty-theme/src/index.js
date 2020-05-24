@@ -36,12 +36,14 @@ const twentyTwentyTheme = {
                     href: '/',
                 },
                 {
-                    name: 'About Me',
+                    name: 'About',
                     href: '/about/',
                 },
                 {
                     name: 'Recipes',
                     href: '/recipes/',
+
+                    /**
                     submenu: [
                         {
                             name: 'Salad',
@@ -56,10 +58,15 @@ const twentyTwentyTheme = {
                             href: '/category/vegan/'
                         }
                     ]
+                     **/
                 },
                 {
                     name: 'Gardening',
                     href: '/gardening/'
+                },
+                {
+                    name: 'Contact',
+                    href: '/contact/'
                 }
 /**
                 ["Home", "/"],

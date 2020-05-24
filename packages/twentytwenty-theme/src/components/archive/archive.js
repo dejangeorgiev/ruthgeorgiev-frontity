@@ -8,6 +8,8 @@ import Post from "../post";
 import RecipeTaxonomies from "../global/taxonomies/RecipeTaxonomies/RecipeTaxonomies";
 import tw from "tailwind.macro";
 
+import Link from "../link"
+
 const Archive = ({state, showExcerpt, showMedia}) => {
     // Get the data of the current list.
     const data = state.source.get(state.router.link);
@@ -33,13 +35,14 @@ const Archive = ({state, showExcerpt, showMedia}) => {
         <>
 
             {/* If the post has categories, render the categories */}
-            {taxonomies && <RecipeTaxonomies taxonomies={taxonomies}/>}
+            {taxonomies && data.isPostArchive && <RecipeTaxonomies taxonomies={taxonomies}/>}
 
 
             {/* If the list is a taxonomy, we render a title. */}
             {data.isTaxonomy && (
                 <ArchiveHeader labelColor={primary} label={data.taxonomy}>
                     <span>{decode(state.source[data.taxonomy][data.id].name)}</span>
+                    <RemoveTaxonomy link="/recipes">X</RemoveTaxonomy>
                 </ArchiveHeader>
             )}
 
@@ -78,3 +81,8 @@ const Archive = ({state, showExcerpt, showMedia}) => {
 };
 
 export default connect(Archive);
+const RemoveTaxonomy = styled(Link)` ${tw``}`;
+
+
+
+

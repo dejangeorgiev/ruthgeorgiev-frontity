@@ -23,11 +23,10 @@ const RecipeTaxonomy = ({taxonomy, state, actions}) => {
     return data.isReady ? (
         <TaxonomySingleCard>
             <TaxonomyTag link={taxonomy.link}>
-                <TaxonomyName>{taxonomy.name}</TaxonomyName>
+                <TaxonomyName>{decode(taxonomy.name)}</TaxonomyName>
                 {
-                    TaxonomyImage ? <Image src={TaxonomyImage.sizes.thumbnail} alt={TaxonomyImage.alt}/> : null
+                    TaxonomyImage ? <Image src={TaxonomyImage.sizes.medium} alt={TaxonomyImage.alt}/> : null
                 }
-
             </TaxonomyTag>
             <span>{taxonomy.description}</span>
         </TaxonomySingleCard>
@@ -38,6 +37,7 @@ export default connect(RecipeTaxonomy);
 
 const TaxonomyTag = styled(Link)`
   font-size: 1.4rem;
+  color:black;
   font-weight: 400;
   letter-spacing: 0.036666667em;
   text-decoration: none;
@@ -45,9 +45,9 @@ const TaxonomyTag = styled(Link)`
   position:relative;
 `;
 
-const TaxonomySingleCard = styled('div')` ${tw`sm:inline-block bg-no-repeat bg-center mx-2 rounded overflow-hidden shadow-md sm:w-64 sm:h-64`}`;
-const Image = styled('img')` ${tw`rounded object-cover sm:h-64 sm:w-64`}`;
-const TaxonomyName = styled('span')` ${tw`bg-gray-200 p-8 rounded align-middle block`}`;
+const TaxonomySingleCard = styled('div')` ${tw`bg-white-400 hover:bg-gray-200 my-6 sm:inline-block bg-no-repeat bg-center mx-2 rounded overflow-hidden shadow-lg hover:shadow-none sm:w-64 sm:h-64`}`;
+const Image = styled('img')` ${tw`object-cover object-bottom sm:h-64 sm:w-64`}`;
+const TaxonomyName = styled('span')` ${tw`p-8 align-middle block`}`;
 
 
 

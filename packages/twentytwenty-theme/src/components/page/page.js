@@ -17,11 +17,6 @@ const Page = ({state, actions, libraries}) => {
     // Get the html2react component.
     const Html2React = libraries.html2react.Component;
 
-
-
-
-
-    console.log(page);
     /**
      * Once the post has loaded in the DOM, prefetch both the
      * home posts and the list component so if the user visits
