@@ -1,6 +1,32 @@
 import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
 
+
+const homeHandler = {
+    name: "home",
+    priority: 10,
+    pattern: "/",
+    func: async ({ route, state, libraries }) => {
+        const { api } = libraries.source;
+        // 1. fetch the specified page
+        const response = await api.get({
+            endpoint: "home"
+        });
+
+        // 2. Transform to json
+        const homeData = await response.json();
+
+        // 3. add data to source
+        Object.assign(state.source.data[route], {
+            homeData,
+            isArchive: true,
+            isPostTypeArchive: true,
+            isHome: true
+        });
+    }
+};
+
+
 const twentyTwentyTheme = {
     name: "@frontity/twentytwenty-theme",
     roots: {
@@ -125,7 +151,8 @@ const twentyTwentyTheme = {
                     endpoint: "meals", // REST API endpoint
                     postTypeEndpoint: "posts", // endpoint from which posts from this taxonomy are fetched
                 }
-            ]
+            ],
+            handlers: [ homeHandler ]
         }
     },
     /**

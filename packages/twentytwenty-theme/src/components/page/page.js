@@ -4,6 +4,7 @@ import FeaturedMedia from "../post/featured-media";
 
 
 
+
 const Page = ({state, actions, libraries}) => {
     // Get information about the current URL.
     const data = state.source.get(state.router.link);
@@ -16,7 +17,7 @@ const Page = ({state, actions, libraries}) => {
 
     // Get the html2react component.
     const Html2React = libraries.html2react.Component;
-
+console.log(page);
     /**
      * Once the post has loaded in the DOM, prefetch both the
      * home posts and the list component so if the user visits
@@ -29,7 +30,11 @@ const Page = ({state, actions, libraries}) => {
     // Load the post, but only if the data is ready.
     return data.isReady ? (
         <div>
-       This will be a page
+            <h1>{page.title.rendered}</h1>
+
+            {page.featured_media !== 0 && (
+                <FeaturedImage id={page.featured_media} />
+            )}
 
 
         </div>
@@ -38,3 +43,23 @@ const Page = ({state, actions, libraries}) => {
 
 export default connect(Page);
 
+
+const FeaturedImage = styled(FeaturedMedia)`
+margin-top: 0 !important;
+position: relative;
+
+> div {
+position: relative;
+}
+
+&:before {
+background: #fff;
+content: "";
+display: block;
+position: absolute;
+bottom: 50%;
+left: 0;
+right: 0;
+top: 0;
+}
+`;
