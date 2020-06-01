@@ -13,7 +13,7 @@ import PostCategories from "./post-categories";
 import PostMeta from "./post-meta";
 import PostTags from "./post-tags";
 import Ingredients from "./acf/ingredients/Ingredients";
-import AffiliateLink from "./acf/affiliate/AffiliateLink";
+import Sponsored from "./acf/sponsored/Sponsored";
 import Equipment from "./acf/equipment/Equipment";
 import RecipeDescription from "./acf/RecipeDescription";
 import RecipeTips from "./acf/tips/RecipeTips";
@@ -22,7 +22,9 @@ import Diets from "./acf/diets/Diets";
 import Dishes from "./acf/dishes/Dishes";
 import Meals from "./acf/meals/Meals";
 import YoutubeVideo from "./acf/YoutubeVideo";
+import YouTubeIcon from "../global/icons/YouTubeIcon";
 import tw from 'tailwind.macro'
+
 
 const Post = ({state, actions, libraries}) => {
     // Get information about the current URL.
@@ -33,6 +35,8 @@ const Post = ({state, actions, libraries}) => {
     // const author = state.source.author[post.author];
     // Get a human readable date.
     // const date = new Date(post.date);
+
+    console.log(post);
 
     // Get the html2react component.
     const Html2React = libraries.html2react.Component;
@@ -159,7 +163,7 @@ const Post = ({state, actions, libraries}) => {
                     {post.acf['postfieldgroup.description'] && <RecipeDescription id={post.id}/>}
 
                     {/* if the post has affiliate link, render it */}
-                    {post.acf['postfieldgroup.url'] && <AffiliateLink id={post.id}/>}
+                    {post.acf['postfieldgroup.sponsored'] && <Sponsored id={post.id}/>}
 
                     {/* if the post has tips, render it */}
                     {post.acf['postfieldgroup.tips'] && <RecipeTipsTitle>Tips</RecipeTipsTitle>}
@@ -167,10 +171,12 @@ const Post = ({state, actions, libraries}) => {
 
                     {/* if the post has description, render it */}
                     {post.acf['postfieldgroup.video'] &&
-                    <RecipeYoutubeVideoTitle>Explained on YouTube</RecipeYoutubeVideoTitle>}
+                    <RecipeYoutubeVideoTitle>Explained on YouTube <YouTubeIcon/>
+                    </RecipeYoutubeVideoTitle>}
                     {post.acf['postfieldgroup.video'] && <YoutubeVideo videoId={post.acf['postfieldgroup.video']}/>}
 
 
+                    
                 </SectionContainer>
             </Header>
 

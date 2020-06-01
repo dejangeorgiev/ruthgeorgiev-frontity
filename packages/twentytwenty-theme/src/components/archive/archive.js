@@ -7,8 +7,10 @@ import PostSeparator from "../post/post-separator";
 import Post from "../post";
 import RecipeTaxonomies from "../global/taxonomies/RecipeTaxonomies/RecipeTaxonomies";
 import tw from "tailwind.macro";
-
 import Link from "../link"
+import GetTaxonomy from "../global/taxonomies/RecipeTaxonomies/GetTaxonomy";
+
+
 
 const Archive = ({state, showExcerpt, showMedia}) => {
     // Get the data of the current list.
@@ -43,6 +45,7 @@ const Archive = ({state, showExcerpt, showMedia}) => {
                 <ArchiveHeader labelColor={primary} label={data.taxonomy}>
                     <span>{decode(state.source[data.taxonomy][data.id].name)}</span>
                     <RemoveTaxonomy link="/recipes">X</RemoveTaxonomy>
+                    <GetTaxonomy taxonomy={state.source[data.taxonomy][data.id].link}/>
                 </ArchiveHeader>
             )}
 

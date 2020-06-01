@@ -4,7 +4,6 @@ import FeaturedMedia from "../post/featured-media";
 
 
 
-
 const Page = ({state, actions, libraries}) => {
     // Get information about the current URL.
     const data = state.source.get(state.router.link);
@@ -35,6 +34,7 @@ console.log(page);
             {page.featured_media !== 0 && (
                 <FeaturedImage id={page.featured_media} />
             )}
+
 
 
         </div>

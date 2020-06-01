@@ -21,7 +21,7 @@ const IngredientItem = ({key, amount, measure, name, image}) => {
 
 export default connect(IngredientItem);
 
-const Ingredient = styled('div')` ${tw`md:inline-flex sm:w-1/2 bg-white rounded-lg p-6 shadow-md my-6`}`;
+const Ingredient = styled('div')` ${tw`md:inline-flex md:w-1/2 bg-white rounded-lg p-6 shadow-md my-6`}`;
 const IngredientImage = styled('img')` ${tw`h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6`}`;
 const IngredientContents = styled('div')` ${tw`text-center md:text-left px-10`}`;
 const IngredientName = styled('h4')` ${tw`p-0 m-0 font-normal`}`;

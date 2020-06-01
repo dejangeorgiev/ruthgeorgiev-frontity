@@ -5,11 +5,13 @@ import Link from "../../../link";
 
 import tw from "tailwind.macro";
 
-const RecipeTaxonomy = ({taxonomy, state, actions}) => {
+const GetTaxonomy = ({taxonomy, state, actions}) => {
     // Get information about the current URL.
     const data = state.source.get(state.router.link);
 
-    const TaxonomyImage = taxonomy.acf.image;
+
+    const TaxonomyData = actions.source.fetch(taxonomy);
+    console.log(TaxonomyData);
 
     /**
      * Once the post has loaded in the DOM, prefetch both the
@@ -22,19 +24,13 @@ const RecipeTaxonomy = ({taxonomy, state, actions}) => {
 
     // Load the post, but only if the data is ready.
     return data.isReady ? (
-        <TaxonomySingleCard>
-            <TaxonomyTag link={taxonomy.link}>
-                <TaxonomyName>{decode(taxonomy.name)}</TaxonomyName>
-                {
-                    TaxonomyImage ? <Image src={TaxonomyImage.sizes.medium} alt={TaxonomyImage.alt}/> : null
-                }
-            </TaxonomyTag>
-            <span>{taxonomy.description}</span>
-        </TaxonomySingleCard>
+        <div>
+            {taxonomy}
+        </div>
     ) : null;
 };
 
-export default connect(RecipeTaxonomy);
+export default connect(GetTaxonomy);
 
 const TaxonomyTag = styled(Link)`
   font-size: 1.4rem;
