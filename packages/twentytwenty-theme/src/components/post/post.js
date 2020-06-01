@@ -25,47 +25,7 @@ import YoutubeVideo from "./acf/YoutubeVideo";
 import YouTubeIcon from "../global/icons/YouTubeIcon";
 import RecommendedPosts from "./acf/recommended/posts/RecommendedPosts";
 
-import {
-    FacebookShareButton,
-    LinkedinShareButton,
-    TwitterShareButton,
-    TelegramShareButton,
-    WhatsappShareButton,
-    PinterestShareButton,
-    VKShareButton,
-    OKShareButton,
-    RedditShareButton,
-    TumblrShareButton,
-    LivejournalShareButton,
-    MailruShareButton,
-    ViberShareButton,
-    WorkplaceShareButton,
-    LineShareButton,
-    PocketShareButton,
-    InstapaperShareButton,
-    EmailShareButton,
-} from 'react-share';
-
-import {
-    FacebookIcon,
-    TwitterIcon,
-    TelegramIcon,
-    WhatsappIcon,
-    LinkedinIcon,
-    PinterestIcon,
-    VKIcon,
-    OKIcon,
-    RedditIcon,
-    TumblrIcon,
-    LivejournalIcon,
-    MailruIcon,
-    ViberIcon,
-    WorkplaceIcon,
-    LineIcon,
-    PocketIcon,
-    InstapaperIcon,
-    EmailIcon,
-} from 'react-share';
+import SocialMediaShareButtons from "../global/social-share/SocialMediaShareButtons";
 
 import tw from 'tailwind.macro'
 
@@ -76,6 +36,8 @@ const Post = ({state, actions, libraries}) => {
     const post = state.source[data.type][data.id];
 
     const postUrl = window.location.href;
+
+    const media = state.source.attachment[post.featured_media];
 
     // Get the data of the author.
     // const author = state.source.author[post.author];
@@ -166,14 +128,17 @@ const Post = ({state, actions, libraries}) => {
                     {/* If the post has tags, render it */}
                     {post.tags && <PostTags tags={tags}/>}
 
-
-                    <FacebookShareButton url={postUrl}>
-                        <FacebookIcon/>
-                    </FacebookShareButton>
-
+                    <SocialMediaShareButtons
+                        url={postUrl}
+                        media={media.source_url}
+                        alt={media.alt_text}
+                        title={post.title.rendered}
+                        children={post.title.rendered}
+                        hashtag='#ruthgeorgiev'
+                        hashtags={['ruthgeorgiev','dejangeorgiev']}
+                    />
 
                     <PostTaxonomies>
-
                         <CuisineTaxonomy>
                             {/* If the post has cuisine, render it */}
                             {post.cuisine && <Cuisine cuisine={cuisine}/>}
