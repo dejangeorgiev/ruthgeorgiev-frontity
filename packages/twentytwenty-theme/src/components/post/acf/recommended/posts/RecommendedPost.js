@@ -2,13 +2,14 @@ import React from 'react';
 import {connect, styled} from "frontity";
 import tw from "tailwind.macro";
 
-const RecommendedPost = ({key}) => {
+const RecommendedPost = ({state, id}) => {
 
+    const post = state.source.post[id];
 
     return (
-        <Item>
-aaaa
-        </Item>
+        <div>
+            {id}
+        </div>
     );
 };
 

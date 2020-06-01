@@ -23,21 +23,64 @@ import Dishes from "./acf/dishes/Dishes";
 import Meals from "./acf/meals/Meals";
 import YoutubeVideo from "./acf/YoutubeVideo";
 import YouTubeIcon from "../global/icons/YouTubeIcon";
-import tw from 'tailwind.macro'
+import RecommendedPosts from "./acf/recommended/posts/RecommendedPosts";
 
+import {
+    FacebookShareButton,
+    LinkedinShareButton,
+    TwitterShareButton,
+    TelegramShareButton,
+    WhatsappShareButton,
+    PinterestShareButton,
+    VKShareButton,
+    OKShareButton,
+    RedditShareButton,
+    TumblrShareButton,
+    LivejournalShareButton,
+    MailruShareButton,
+    ViberShareButton,
+    WorkplaceShareButton,
+    LineShareButton,
+    PocketShareButton,
+    InstapaperShareButton,
+    EmailShareButton,
+} from 'react-share';
+
+import {
+    FacebookIcon,
+    TwitterIcon,
+    TelegramIcon,
+    WhatsappIcon,
+    LinkedinIcon,
+    PinterestIcon,
+    VKIcon,
+    OKIcon,
+    RedditIcon,
+    TumblrIcon,
+    LivejournalIcon,
+    MailruIcon,
+    ViberIcon,
+    WorkplaceIcon,
+    LineIcon,
+    PocketIcon,
+    InstapaperIcon,
+    EmailIcon,
+} from 'react-share';
+
+import tw from 'tailwind.macro'
 
 const Post = ({state, actions, libraries}) => {
     // Get information about the current URL.
     const data = state.source.get(state.router.link);
     // Get the data of the post.
     const post = state.source[data.type][data.id];
+
+    const postUrl = window.location.href;
+
     // Get the data of the author.
     // const author = state.source.author[post.author];
     // Get a human readable date.
     // const date = new Date(post.date);
-
-    console.log(post);
-
     // Get the html2react component.
     const Html2React = libraries.html2react.Component;
 
@@ -56,7 +99,6 @@ const Post = ({state, actions, libraries}) => {
      * So, we'll look up the details of each tag in allTags
      */
     const tags = post.tags && post.tags.map((tagId) => allTags[tagId]);
-
 
     // Get all cuisine
     const allCuisine = state.source.cuisine;
@@ -84,7 +126,6 @@ const Post = ({state, actions, libraries}) => {
      * So, we'll look up the details of each dish in allDishes
      */
     const dishes = post.dishes && post.dishes.map((dishId) => allDishes[dishId]);
-
 
     // Get all meals
     const allMeals = state.source.meals;
@@ -126,6 +167,11 @@ const Post = ({state, actions, libraries}) => {
                     {post.tags && <PostTags tags={tags}/>}
 
 
+                    <FacebookShareButton url={postUrl}>
+                        <FacebookIcon/>
+                    </FacebookShareButton>
+
+
                     <PostTaxonomies>
 
                         <CuisineTaxonomy>
@@ -162,21 +208,23 @@ const Post = ({state, actions, libraries}) => {
                     <RecipeDescriptionTitle>Description</RecipeDescriptionTitle>}
                     {post.acf['postfieldgroup.description'] && <RecipeDescription id={post.id}/>}
 
-                    {/* if the post has affiliate link, render it */}
+                    {/* if the post has affiliate / sponsored link, render it */}
                     {post.acf['postfieldgroup.sponsored'] && <Sponsored id={post.id}/>}
 
                     {/* if the post has tips, render it */}
                     {post.acf['postfieldgroup.tips'] && <RecipeTipsTitle>Tips</RecipeTipsTitle>}
                     {post.acf['postfieldgroup.tips'] && <RecipeTips id={post.id}/>}
 
-                    {/* if the post has description, render it */}
+                    {/* if the post has a YouTube video, render it */}
                     {post.acf['postfieldgroup.video'] &&
                     <RecipeYoutubeVideoTitle>Explained on YouTube <YouTubeIcon/>
                     </RecipeYoutubeVideoTitle>}
                     {post.acf['postfieldgroup.video'] && <YoutubeVideo videoId={post.acf['postfieldgroup.video']}/>}
 
+                    {/* if the post has relationship posts video, render it */}
+                    {post.acf['postfieldgroup.posts'] && <RecommendedPostsTitle>Read Next</RecommendedPostsTitle>}
+                    {post.acf['postfieldgroup.posts'] && <RecommendedPosts id={post.id}/>}
 
-                    
                 </SectionContainer>
             </Header>
 
@@ -241,6 +289,7 @@ const EquipmentTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
 const RecipeDescriptionTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
 const RecipeTipsTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
 const RecipeYoutubeVideoTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
+const RecommendedPostsTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
 
 const PostTaxonomies = styled('div')` ${tw`flex content-start text-left sm:flex-wrap flex-wrap h-30 bg-gray-200 my-10 p-10`}`;
 const CuisineTaxonomy = styled('div')` ${tw`w-full p-1`}`;

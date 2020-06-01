@@ -46,8 +46,8 @@ const TaxonomyTag = styled(Link)`
   position:relative;
 `;
 
-const TaxonomySingleCard = styled('div')` ${tw`bg-white-400 hover:bg-gray-200 my-6 sm:inline-block bg-no-repeat bg-center mx-2 rounded overflow-hidden shadow-lg hover:shadow-none sm:w-64 sm:h-64`}`;
-const Image = styled('img')` ${tw`object-cover object-bottom sm:h-64 sm:w-64`}`;
+const TaxonomySingleCard = styled('div')` ${tw`bg-white-400 h-64 hover:bg-gray-200 my-6 sm:inline-block bg-no-repeat bg-center mx-2 rounded overflow-hidden shadow-md hover:shadow-none sm:w-64 sm:h-64`}`;
+const Image = styled('img')` ${tw`object-cover object-bottom h-64 w-64 `}`;
 const TaxonomyName = styled('span')` ${tw`p-8 align-middle block`}`;
 
 
