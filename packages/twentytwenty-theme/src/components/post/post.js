@@ -35,7 +35,7 @@ const Post = ({state, actions, libraries}) => {
     // Get the data of the post.
     const post = state.source[data.type][data.id];
 
-    const postUrl = window.location.href;
+    const postUrl = state.router.link;
 
     const media = state.source.attachment[post.featured_media];
 

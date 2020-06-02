@@ -6,8 +6,6 @@ const RecommendedPost = ({state, id}) => {
 
     const post = state.source.post[id];
 
-    console.log(post)
-
     return (
         <Fragment>
             <Article
