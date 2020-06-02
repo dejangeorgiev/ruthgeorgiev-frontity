@@ -15,13 +15,7 @@ import tw from 'tailwind.macro';
  * - Author: name of author and published date
  * - FeaturedMedia: the featured image/video of the post
  */
-const PostItemPreview = ({
-                             state,
-                             item,
-                             libraries,
-                             showExcerpt,
-                             showMedia = true,
-                         }) => {
+const PostItemPreview = ({state, item, libraries, showExcerpt, showMedia = true,}) => {
     // Get all categories
     const allCategories = state.source.category;
     /**

@@ -186,6 +186,16 @@ const Post = ({state, actions, libraries}) => {
                     </RecipeYoutubeVideoTitle>}
                     {post.acf['postfieldgroup.video'] && <YoutubeVideo videoId={post.acf['postfieldgroup.video']}/>}
 
+                    <SocialMediaShareButtons
+                        url={postUrl}
+                        media={media.source_url}
+                        alt={media.alt_text}
+                        title={post.title.rendered}
+                        children={post.title.rendered}
+                        hashtag='#ruthgeorgiev'
+                        hashtags={['ruthgeorgiev','dejangeorgiev']}
+                    />
+
                     {/* if the post has relationship posts video, render it */}
                     {post.acf['postfieldgroup.posts'] && <RecommendedPostsTitle>Read Next</RecommendedPostsTitle>}
                     {post.acf['postfieldgroup.posts'] && <RecommendedPosts id={post.id}/>}
@@ -248,6 +258,7 @@ right: 0;
 top: 0;
 }
 `;
+
 
 const IngredientsTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
 const EquipmentTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;

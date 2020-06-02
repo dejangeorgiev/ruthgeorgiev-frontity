@@ -1,15 +1,21 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {connect, styled} from "frontity";
 import tw from "tailwind.macro";
-
+import Article from '../../../../post/post-item-preview'
 const RecommendedPost = ({state, id}) => {
 
     const post = state.source.post[id];
 
+    console.log(post)
+
     return (
-        <div>
-            {id}
-        </div>
+        <Fragment>
+            <Article
+            item={post}
+            showExcerpt={true}
+            showMedia={true}
+            />
+        </Fragment>
     );
 };
 

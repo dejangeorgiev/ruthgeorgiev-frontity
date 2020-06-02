@@ -20,11 +20,13 @@ import {
     RedditIcon,
     EmailIcon,
 } from 'react-share';
+import tw from "tailwind.macro";
 
 const SocialMediaShareButtons = ({url, media, alt, title, children, hashtag, hashtags}) => {
 
     return (
-        <div>
+        <SocialMediaButtons>
+            <ShareTitle>Share:</ShareTitle>
             <FacebookShareButton
                 url={url}
                 media={media}
@@ -32,7 +34,7 @@ const SocialMediaShareButtons = ({url, media, alt, title, children, hashtag, has
                 hashtag={hashtag}
             >
                 <FacebookIcon
-                    size={50}
+                    size={40}
                     round={true}
                 />
             </FacebookShareButton>
@@ -44,7 +46,7 @@ const SocialMediaShareButtons = ({url, media, alt, title, children, hashtag, has
                 hashtags={hashtags}
             >
                 <TwitterIcon
-                    size={50}
+                    size={40}
                     round={true}
                 />
             </TwitterShareButton>
@@ -55,7 +57,7 @@ const SocialMediaShareButtons = ({url, media, alt, title, children, hashtag, has
                 url={url}
                 children={children}>
                 <PinterestIcon
-                    size={50}
+                    size={40}
                     round={true}
                 />
             </PinterestShareButton>
@@ -65,7 +67,7 @@ const SocialMediaShareButtons = ({url, media, alt, title, children, hashtag, has
                 children={children}
             >
                 <LinkedinIcon
-                    size={50}
+                    size={40}
                     round={true}
                 />
             </LinkedinShareButton>
@@ -76,7 +78,7 @@ const SocialMediaShareButtons = ({url, media, alt, title, children, hashtag, has
                 children={children}
             >
                 <WhatsappIcon
-                    size={50}
+                    size={40}
                     round={true}
                 />
             </WhatsappShareButton>
@@ -87,7 +89,7 @@ const SocialMediaShareButtons = ({url, media, alt, title, children, hashtag, has
                 title={title}
             >
                 <RedditIcon
-                    size={50}
+                    size={40}
                     round={true}
                 />
             </RedditShareButton>
@@ -98,13 +100,15 @@ const SocialMediaShareButtons = ({url, media, alt, title, children, hashtag, has
                 subject={title}
             >
                 <EmailIcon
-                    size={50}
+                    size={40}
                     round={true}
                 />
             </EmailShareButton>
-        </div>
+        </SocialMediaButtons>
 
     );
 };
 
 export default connect(SocialMediaShareButtons);
+const SocialMediaButtons =styled('div')` ${tw`mt-10 text-left`}`;
+const ShareTitle =styled('h4')` ${tw`lowercase text-normal text-left p-0 m-0`}`;

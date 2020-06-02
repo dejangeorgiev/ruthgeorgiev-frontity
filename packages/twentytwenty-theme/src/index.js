@@ -6,8 +6,8 @@ const homeHandler = {
     name: "home",
     priority: 10,
     pattern: "/",
-    func: async ({ route, state, libraries }) => {
-        const { api } = libraries.source;
+    func: async ({route, state, libraries}) => {
+        const {api} = libraries.source;
         // 1. fetch the specified page
         const response = await api.get({
             endpoint: "home"
@@ -25,7 +25,6 @@ const homeHandler = {
         });
     }
 };
-
 
 const twentyTwentyTheme = {
     name: "@frontity/twentytwenty-theme",
@@ -70,20 +69,20 @@ const twentyTwentyTheme = {
                     href: '/recipes/',
 
                     /**
-                    submenu: [
-                        {
+                     submenu: [
+                     {
                             name: 'Salad',
                             href: '/category/salad/'
                         },
-                        {
+                     {
                             name: 'Italian',
                             href: '/category/italian/'
                         },
-                        {
+                     {
                             name: 'Vegan',
                             href: '/category/vegan/'
                         }
-                    ]
+                     ]
                      **/
                 },
                 {
@@ -94,12 +93,12 @@ const twentyTwentyTheme = {
                     name: 'Contact',
                     href: '/contact/'
                 }
-/**
-                ["Home", "/"],
-                ["Recipes", "/recipes/"],
-                ["About Me", "/about/"],
-                ["Gardening", "/gardening/"]
-   **/
+                /**
+                 ["Home", "/"],
+                 ["Recipes", "/recipes/"],
+                 ["About Me", "/about/"],
+                 ["Gardening", "/gardening/"]
+                 **/
             ],
             // State for the menu on mobile
             isMobileMenuOpen: false,
@@ -152,7 +151,7 @@ const twentyTwentyTheme = {
                     postTypeEndpoint: "posts", // endpoint from which posts from this taxonomy are fetched
                 }
             ],
-            handlers: [ homeHandler ]
+            handlers: [homeHandler]
         }
     },
     /**
