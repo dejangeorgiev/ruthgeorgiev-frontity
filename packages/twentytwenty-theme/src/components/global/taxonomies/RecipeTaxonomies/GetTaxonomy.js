@@ -9,7 +9,11 @@ const GetTaxonomy = ({taxonomy, state, actions}) => {
     // Get information about the current URL.
     const data = state.source.get(state.router.link);
 
-    const TaxonomyData = actions.source.fetch(taxonomy);
+
+
+    const TaxonomyData = actions.source.fetch('/cuisine');
+
+
 
     /**
      * Once the post has loaded in the DOM, prefetch both the

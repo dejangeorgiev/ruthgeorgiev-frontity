@@ -228,7 +228,7 @@ const elementBase = (colors) => css`
 
   a {
     color: ${colors.primary};
-    text-decoration: underline;
+    text-decoration: none;
   }
 
   a:hover,

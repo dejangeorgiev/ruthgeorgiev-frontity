@@ -8,8 +8,7 @@ import Post from "../post";
 import RecipeTaxonomies from "../global/taxonomies/RecipeTaxonomies/RecipeTaxonomies";
 import tw from "tailwind.macro";
 import Link from "../link"
-import GetTaxonomy from "../global/taxonomies/RecipeTaxonomies/GetTaxonomy";
-
+import DeleteIcon from "../global/icons/DeleteIcon";
 
 
 const Archive = ({state, showExcerpt, showMedia}) => {
@@ -43,9 +42,14 @@ const Archive = ({state, showExcerpt, showMedia}) => {
             {/* If the list is a taxonomy, we render a title. */}
             {data.isTaxonomy && (
                 <ArchiveHeader labelColor={primary} label={data.taxonomy}>
-                    <span>{decode(state.source[data.taxonomy][data.id].name)}</span>
-                    <RemoveTaxonomy link="/recipes">X</RemoveTaxonomy>
-                    <GetTaxonomy taxonomy={state.source[data.taxonomy][data.id].link}/>
+
+                    <TaxonomyTagButton link="/recipes">
+
+                        <span>{decode(state.source[data.taxonomy][data.id].name)}</span>
+
+                            <DeleteIcon/>
+
+                    </TaxonomyTagButton>
                 </ArchiveHeader>
             )}
 
@@ -84,7 +88,11 @@ const Archive = ({state, showExcerpt, showMedia}) => {
 };
 
 export default connect(Archive);
-const RemoveTaxonomy = styled(Link)` ${tw``}`;
+
+
+const TaxonomyTagButton = styled(Link)` ${tw`bg-gray-300 hover:bg-gray-400 text-gray-800 font-normal py-2 px-4 no-underline rounded inline-flex items-center`}`;
+
+
 
 
 

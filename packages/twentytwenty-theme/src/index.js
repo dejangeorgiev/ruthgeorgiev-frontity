@@ -47,7 +47,7 @@ const twentyTwentyTheme = {
                     light: "#DCD7CA",
                     lighter: "#F5EFE0",
                 },
-                primary: "#cd2653",
+                primary: "#2d3748",
                 headerBg: "#ffffff",
                 footerBg: "#ffffff",
                 bodyBg: "#f5efe0",
