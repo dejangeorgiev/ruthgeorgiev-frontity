@@ -27,13 +27,21 @@ const RecipeTaxonomies = ({taxonomies, state, actions}) => {
     }, []);
 
     return (
-        <div>
+        <TaxonomiesContainer>
             {Object.keys(taxonomies).map((key, id) => {
                 const Taxonomy = state.source[taxonomies[key].taxonomy];
                 return (
                     <TaxonomyCard key={key}>
                         <TaxonomyTitle>{taxonomies[key].taxonomy}</TaxonomyTitle>
-                        <RecipesCarousel breakPoints={CarouselBreakpoints} focusOnSelect={false} itemsToShow={9} itemsToScroll={5} pagination={false}
+                        <RecipesCarousel
+                            breakPoints={CarouselBreakpoints}
+                            focusOnSelect={false}
+                            itemsToShow={9}
+                            itemsToScroll={5}
+                            pagination={true}
+                            showArrows={false}
+                            enableSwipe={true}
+                            enableMouseSwipe={true}
                         >
                         {
                             Object.keys(Taxonomy).map(id => {
@@ -46,12 +54,13 @@ const RecipeTaxonomies = ({taxonomies, state, actions}) => {
                     </TaxonomyCard>
                 );
             })}
-        </div>
+        </TaxonomiesContainer>
     )
 };
 
 export default connect(RecipeTaxonomies);
 
+const TaxonomiesContainer = styled('div')` ${tw`my-32`}`;
 const TaxonomyCard = styled('div')` ${tw`flex-no-wrap text-center`}`;
 const TaxonomyTitle = styled('h2')` ${tw`text-gray-800 p-0 text-center uppercase font-normal`}`;
 const RecipesCarousel = styled(Carousel)` ${tw`h-auto px-4`}`;

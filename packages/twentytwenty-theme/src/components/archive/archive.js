@@ -64,6 +64,7 @@ const Archive = ({state, showExcerpt, showMedia}) => {
             {data.items.map(({type, id}, index) => {
                 const isLastArticle = index === data.items.length - 1;
                 const item = state.source[type][id];
+
                 // Render one Item component for each one.
                 return (
                     <Fragment key={item.id}>
@@ -91,7 +92,6 @@ export default connect(Archive);
 
 
 const TaxonomyTagButton = styled(Link)` ${tw`bg-gray-300 hover:bg-gray-400 text-gray-800 font-normal py-2 px-4 no-underline rounded inline-flex items-center`}`;
-
 
 
 

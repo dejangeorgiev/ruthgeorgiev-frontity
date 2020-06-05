@@ -25,6 +25,7 @@ import YoutubeVideo from "./acf/YoutubeVideo";
 import YouTubeIcon from "../global/icons/YouTubeIcon";
 import RecommendedPosts from "./acf/recommended/posts/RecommendedPosts";
 
+
 import SocialMediaShareButtons from "../global/social-share/SocialMediaShareButtons";
 
 import tw from 'tailwind.macro'
@@ -197,8 +198,10 @@ const Post = ({state, actions, libraries}) => {
                     />
 
                     {/* if the post has relationship posts video, render it */}
-                    {post.acf['postfieldgroup.posts'] && <RecommendedPostsTitle>Read Next</RecommendedPostsTitle>}
-                    {post.acf['postfieldgroup.posts'] && <RecommendedPosts id={post.id}/>}
+                    {/*post.acf['postfieldgroup.posts'] && <RecommendedPostsTitle>Read Next</RecommendedPostsTitle>*/}
+                    {/*post.acf['postfieldgroup.posts'] && <RecommendedPosts id={post.id}/>*/}
+
+
 
                 </SectionContainer>
             </Header>
