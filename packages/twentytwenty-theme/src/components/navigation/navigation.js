@@ -81,7 +81,7 @@ const NavWrapper = styled.div`${tw`w-full text-gray-700`}`;
 
 const MenuNav = styled.nav`
   display: none;
-  @media (min-width: 1000px) {
+  @media (min-width: 1600px) {
     display: block;
     width: 100%;
   }

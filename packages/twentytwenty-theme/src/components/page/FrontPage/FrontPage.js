@@ -1,5 +1,6 @@
 import {styled, connect} from "frontity";
 import React, {useEffect} from "react";
+import tw from "tailwind.macro";
 
 
 
@@ -30,13 +31,16 @@ const FrontPage = ({state, actions, libraries}) => {
 
     // Load the post, but only if the data is ready.
     return data.isReady ? (
-        <div>
+        <FrontPageContainer>
+
+
             Frontpage
 
 
-        </div>
+        </FrontPageContainer>
     ) : null;
 };
 
 export default connect(FrontPage);
 
+const FrontPageContainer = styled('div')` ${tw`flex flex-wrap fixed w-full top-0 bg-gray-200 h-full`}`;

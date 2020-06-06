@@ -7,6 +7,7 @@ import SearchModal from "./search/search-modal";
 import MobileSearchButton from "./mobile/search-button";
 import MobileMenuButton from "./mobile/menu-button";
 import MobileMenuModal from "./mobile/menu-modal";
+import tw from "tailwind.macro";
 
 const Header = ({state}) => {
     const {title, description} = state.frontity;
@@ -49,7 +50,7 @@ const Header = ({state}) => {
 export default connect(Header);
 
 const TitleGroup = styled.div`
-  @media (min-width: 1000px) {
+  @media (min-width: 1600px) {
     align-items: baseline;
     display: flex;
     flex-wrap: wrap;
@@ -66,7 +67,7 @@ const TitleWrapper = styled.div`
   text-align: center;
   width: 100%;
 
-  @media (min-width: 1000px) {
+  @media (min-width: 1600px) {
     width: auto;
     margin-right: 4rem;
     max-width: 50%;
@@ -79,6 +80,7 @@ const PageHeader = styled.header`
   z-index: 1;
   background: ${(props) => props.bg};
   position: relative;
+  ${tw`sm:w-10/12 shadow-2xl sm:my-10 sm:rounded-full sm:mx-auto fixed top-0 right-0 left-0`}
 `;
 
 const HeaderInner = styled.div`
@@ -102,7 +104,7 @@ const SiteTitle = styled.h1`
   line-height: 1;
   margin: 0;
 
-  @media (min-width: 1000px) {
+  @media (min-width: 1600px) {
     margin: 1rem 0 0 2.4rem;
   }
   @media (min-width: 700px) {
@@ -121,7 +123,7 @@ const SiteDescription = styled.div`
   letter-spacing: -0.0311em;
   transition: all 0.15s linear;
 
-  @media (min-width: 1000px) {
+  @media (min-width: 1600px) {
     margin: 1rem 0 0 2.4rem;
   }
 
@@ -143,7 +145,7 @@ const StyledLink = styled(Link)`
 const HeaderNavigationWrapper = styled.div`
   display: none;
 
-  @media (min-width: 1000px) {
+  @media (min-width: 1600px) {
     align-items: center;
     display: flex;
   }
