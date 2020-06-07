@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useState, useEffect, useRef} from "react";
+import {useTransition, animated} from 'react-spring'
+import {useInView} from 'react-intersection-observer'
 import {connect, styled} from "frontity";
 import Link from "./link";
 import Navigation from "./navigation/navigation";
@@ -13,36 +15,50 @@ const Header = ({state}) => {
     const {title, description} = state.frontity;
     const {headerBg} = state.theme.colors;
 
-    return (
-        <PageHeader bg={headerBg} id="site-header">
-            <HeaderInner>
-                <TitleWrapper>
-                    {/* Search button on mobile */}
-                    {state.theme.showSearchInHeader && <MobileSearchButton/>}
 
-                    {/* Heading and Description of the site */}
-                    <TitleGroup>
-                        <SiteTitle>
-                            <StyledLink link="/">{title}</StyledLink>
-                        </SiteTitle>
-                        <SiteDescription>{description}</SiteDescription>
-                    </TitleGroup>
+    const [ref, inView] = useInView();
+    const transitions = useTransition(!inView, null, {
+        from: {},
+        enter: {},
+        leave: {}
+    });
 
-                    {/* Mobile menu button and modal */}
-                    <MobileMenuButton/>
-                    <MobileMenuModal/>
-                </TitleWrapper>
 
-                <HeaderNavigationWrapper>
-                    {/* Desktop navigation links */}
-                    <Navigation/>
-                    {/* Desktop search button */}
-                    {state.theme.showSearchInHeader && <SearchButton/>}
-                </HeaderNavigationWrapper>
-            </HeaderInner>
-            {/* Global search modal */}
-            <SearchModal/>
-        </PageHeader>
+    return transitions.map(
+        ({item, key, props}) =>
+            item && (
+                <animated.div key={key} style={props}>
+                    <PageHeader bg={headerBg} id="site-header">
+                        <HeaderInner>
+                            <TitleWrapper>
+                                {/* Search button on mobile */}
+                                {state.theme.showSearchInHeader && <MobileSearchButton/>}
+
+                                {/* Heading and Description of the site */}
+                                <TitleGroup>
+                                    <SiteTitle>
+                                        <StyledLink link="/">{title}</StyledLink>
+                                    </SiteTitle>
+                                    <SiteDescription>{description}</SiteDescription>
+                                </TitleGroup>
+
+                                {/* Mobile menu button and modal */}
+                                <MobileMenuButton/>
+                                <MobileMenuModal/>
+                            </TitleWrapper>
+
+                            <HeaderNavigationWrapper>
+                                {/* Desktop navigation links */}
+                                <Navigation/>
+                                {/* Desktop search button */}
+                                {state.theme.showSearchInHeader && <SearchButton/>}
+                            </HeaderNavigationWrapper>
+                        </HeaderInner>
+                        {/* Global search modal */}
+                        <SearchModal/>
+                    </PageHeader>
+                </animated.div>
+            )
     );
 };
 
@@ -79,7 +95,6 @@ const TitleWrapper = styled.div`
 const PageHeader = styled.header`
   z-index: 1;
   background: ${(props) => props.bg};
-  position: relative;
   ${tw`sm:w-10/12 shadow-2xl sm:my-10 sm:rounded-full sm:mx-auto fixed top-0 right-0 left-0`}
 `;
 

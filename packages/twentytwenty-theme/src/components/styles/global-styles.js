@@ -1,4 +1,4 @@
-import { css } from "frontity";
+import {css} from "frontity";
 
 const cssReset = css`
   html,
@@ -56,6 +56,10 @@ const cssReset = css`
   a,
   path {
     transition: all 0.15s linear;
+  }
+  
+  .cNRLLS{
+    margin:0 !important;
   }
 `;
 
@@ -459,16 +463,16 @@ const tableStyles = (colors) => css`
 `;
 
 const globalStyle = (colors) =>
-  css([
-    cssReset,
-    documentSetup(colors),
-    accessibilitySettings,
-    elementBase(colors),
-    listStyle,
-    quoteStyle(colors),
-    codeStyle(colors),
-    mediaStyle(colors),
-    tableStyles(colors),
-  ]);
+    css([
+        cssReset,
+        documentSetup(colors),
+        accessibilitySettings,
+        elementBase(colors),
+        listStyle,
+        quoteStyle(colors),
+        codeStyle(colors),
+        mediaStyle(colors),
+        tableStyles(colors),
+    ]);
 
 export default globalStyle;

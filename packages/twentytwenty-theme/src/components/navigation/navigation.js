@@ -41,13 +41,11 @@ const Navigation = ({state}) => (
 export default connect(Navigation);
 
 const MenuItem = styled.li`
-
   position: relative;
-
 `;
 
 
-const MenuLink = styled(Link)`${tw`block px-4 py-4 mb-4 text-gray-800 font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline`}
+const MenuLink = styled(Link)`${tw`block px-4 py-4 text-gray-800 font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline`}
  text-decoration: none;
   &[aria-current="page"] {
   ${tw`text-gray-900 bg-gray-200`}
