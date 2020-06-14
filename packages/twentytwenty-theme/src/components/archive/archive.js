@@ -9,7 +9,7 @@ import RecipeTaxonomies from "../global/taxonomies/RecipeTaxonomies/RecipeTaxono
 import tw from "tailwind.macro";
 import Link from "../link"
 import DeleteIcon from "../global/icons/DeleteIcon";
-
+import GetTaxonomyDescription from "../global/taxonomies/RecipeTaxonomies/GetTaxonomyDescription";
 
 const Archive = ({state, showExcerpt, showMedia}) => {
     // Get the data of the current list.
@@ -22,7 +22,6 @@ const Archive = ({state, showExcerpt, showMedia}) => {
     useEffect(() => {
         Post.preload();
     }, []);
-
 
     // Get all taxonomies
     const taxonomies = state.source.taxonomies;
@@ -42,14 +41,11 @@ const Archive = ({state, showExcerpt, showMedia}) => {
             {/* If the list is a taxonomy, we render a title. */}
             {data.isTaxonomy && (
                 <ArchiveHeader labelColor={primary} label={data.taxonomy}>
-
                     <TaxonomyTagButton link="/recipes">
-
                         <span>{decode(state.source[data.taxonomy][data.id].name)}</span>
-
-                            <DeleteIcon/>
-
+                        <DeleteIcon/>
                     </TaxonomyTagButton>
+                    <GetTaxonomyDescription taxonomy={state.source[data.taxonomy][data.id].link}/>
                 </ArchiveHeader>
             )}
 

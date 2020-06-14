@@ -29,7 +29,6 @@ const RecipeTaxonomy = ({taxonomy, state, actions}) => {
                     TaxonomyImage ? <Image src={TaxonomyImage.sizes.medium} alt={TaxonomyImage.alt}/> : null
                 }
             </TaxonomyTag>
-            <span>{taxonomy.description}</span>
         </TaxonomySingleCard>
     ) : null;
 };

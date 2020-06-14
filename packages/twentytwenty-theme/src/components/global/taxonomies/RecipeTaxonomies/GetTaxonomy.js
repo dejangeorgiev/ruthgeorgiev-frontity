@@ -11,9 +11,6 @@ const GetTaxonomy = ({taxonomy, state, actions}) => {
 
 
 
-    const TaxonomyData = actions.source.fetch('/cuisine');
-
-
 
     /**
      * Once the post has loaded in the DOM, prefetch both the
@@ -21,7 +18,10 @@ const GetTaxonomy = ({taxonomy, state, actions}) => {
      * the home page, everything is ready and it loads instantly.
      */
     useEffect(() => {
-        actions.source.fetch("/");
+
+        actions.source.fetch('/cuisine');
+
+
     }, []);
 
     // Load the post, but only if the data is ready.

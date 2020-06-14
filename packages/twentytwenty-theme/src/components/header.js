@@ -95,7 +95,7 @@ const TitleWrapper = styled.div`
 const PageHeader = styled.header`
   z-index: 1;
   background: ${(props) => props.bg};
-  ${tw`sm:w-10/12 shadow-2xl sm:my-10 sm:rounded-full sm:mx-auto fixed top-0 right-0 left-0`}
+  ${tw`sm:w-10/12 shadow-2xl sm:my-10 sm:rounded-full sm:mx-auto fixed sm:relative top-0 right-0 left-0`}
 `;
 
 const HeaderInner = styled.div`
