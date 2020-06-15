@@ -55,7 +55,7 @@ const Archive = ({state, showExcerpt, showMedia}) => {
                     <b>{decode(state.source.author[data.id].name)}</b>
                 </ArchiveHeader>
             )}
-
+            <ArticlesContainer>
             {/* Iterate over the items of the list. */}
             {data.items.map(({type, id}, index) => {
                 const isLastArticle = index === data.items.length - 1;
@@ -64,15 +64,18 @@ const Archive = ({state, showExcerpt, showMedia}) => {
                 // Render one Item component for each one.
                 return (
                     <Fragment key={item.id}>
-                        <Article
-                            key={item.id}
-                            item={item}
-                            showExcerpt={_showExcerpt}
-                            showMedia={showMedia}
-                        />
+
+                            <Article
+                                key={item.id}
+                                item={item}
+                                showExcerpt={_showExcerpt}
+                                showMedia={showMedia}
+                            />
+
                     </Fragment>
                 );
             })}
+            </ArticlesContainer>
 
             {data.totalPages > 1 && (
                 <>
@@ -88,6 +91,8 @@ export default connect(Archive);
 
 
 const TaxonomyTagButton = styled(Link)` ${tw`bg-gray-300 hover:bg-gray-400 text-gray-800 font-normal py-2 px-4 no-underline rounded inline-flex items-center`}`;
+
+const ArticlesContainer = styled('div')` ${tw`flex flex-wrap justify-center`}`;
 
 
 

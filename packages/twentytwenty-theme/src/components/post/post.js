@@ -36,7 +36,9 @@ const Post = ({state, actions, libraries}) => {
     // Get the data of the post.
     const post = state.source[data.type][data.id];
 
-    const postUrl = state.router.link;
+    const postUrl = 'https://ruthgeorgiev-frontity.now.sh'+state.router.link;
+
+
 
     const media = state.source.attachment[post.featured_media];
 
@@ -136,7 +138,7 @@ const Post = ({state, actions, libraries}) => {
                         title={post.title.rendered}
                         children={post.title.rendered}
                         hashtag='#ruthgeorgiev'
-                        hashtags={['ruthgeorgiev','dejangeorgiev']}
+                        hashtags={['ruthgeorgiev', 'dejangeorgiev']}
                     />
 
                     <PostTaxonomies>
@@ -194,13 +196,12 @@ const Post = ({state, actions, libraries}) => {
                         title={post.title.rendered}
                         children={post.title.rendered}
                         hashtag='#ruthgeorgiev'
-                        hashtags={['ruthgeorgiev','dejangeorgiev']}
+                        hashtags={['ruthgeorgiev', 'dejangeorgiev']}
                     />
 
                     {/* if the post has relationship posts video, render it */}
                     {/*post.acf['postfieldgroup.posts'] && <RecommendedPostsTitle>Read Next</RecommendedPostsTitle>*/}
                     {/*post.acf['postfieldgroup.posts'] && <RecommendedPosts id={post.id}/>*/}
-
 
 
                 </SectionContainer>
