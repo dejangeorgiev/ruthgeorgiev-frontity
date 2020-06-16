@@ -2,6 +2,7 @@ import {styled, connect} from "frontity";
 import React, {useEffect} from "react";
 import FeaturedMedia from "../post/featured-media";
 
+import PageCarousel from "./acf/Content/Carousel/PageCarousel";
 
 
 const Page = ({state, actions, libraries}) => {
@@ -16,7 +17,7 @@ const Page = ({state, actions, libraries}) => {
 
     // Get the html2react component.
     const Html2React = libraries.html2react.Component;
-console.log(page);
+  
     /**
      * Once the post has loaded in the DOM, prefetch both the
      * home posts and the list component so if the user visits
@@ -32,9 +33,10 @@ console.log(page);
             <h1>{page.title.rendered}</h1>
 
             {page.featured_media !== 0 && (
-                <FeaturedImage id={page.featured_media} />
+                <FeaturedImage id={page.featured_media}/>
             )}
 
+            <PageCarousel/>
 
 
         </div>

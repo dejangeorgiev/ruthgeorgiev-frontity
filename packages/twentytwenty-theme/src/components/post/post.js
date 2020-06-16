@@ -16,6 +16,7 @@ import Ingredients from "./acf/ingredients/Ingredients";
 import Sponsored from "./acf/sponsored/Sponsored";
 import Equipment from "./acf/equipment/Equipment";
 import RecipeDescription from "./acf/RecipeDescription";
+import RecipeNote from "./acf/RecipeNote";
 import RecipeTips from "./acf/tips/RecipeTips";
 import Cuisine from "./acf/cuisine/Cuisine";
 import Diets from "./acf/diets/Diets";
@@ -23,6 +24,7 @@ import Dishes from "./acf/dishes/Dishes";
 import Meals from "./acf/meals/Meals";
 import YoutubeVideo from "./acf/YoutubeVideo";
 import YouTubeIcon from "../global/icons/YouTubeIcon";
+import Comments from "../comments";
 import RecommendedPosts from "./acf/recommended/posts/RecommendedPosts";
 
 
@@ -36,9 +38,7 @@ const Post = ({state, actions, libraries}) => {
     // Get the data of the post.
     const post = state.source[data.type][data.id];
 
-    const postUrl = 'https://ruthgeorgiev-frontity.now.sh'+state.router.link;
-
-
+    const postUrl = 'https://ruthgeorgiev-frontity.now.sh' + state.router.link;
 
     const media = state.source.attachment[post.featured_media];
 
@@ -173,7 +173,7 @@ const Post = ({state, actions, libraries}) => {
 
                     {/* if the post has description, render it */}
                     {post.acf['postfieldgroup.description'] &&
-                    <RecipeDescriptionTitle>Description</RecipeDescriptionTitle>}
+                    <RecipeDescriptionTitle>How to do it?</RecipeDescriptionTitle>}
                     {post.acf['postfieldgroup.description'] && <RecipeDescription id={post.id}/>}
 
                     {/* if the post has affiliate / sponsored link, render it */}
@@ -183,11 +183,16 @@ const Post = ({state, actions, libraries}) => {
                     {post.acf['postfieldgroup.tips'] && <RecipeTipsTitle>Tips</RecipeTipsTitle>}
                     {post.acf['postfieldgroup.tips'] && <RecipeTips id={post.id}/>}
 
+                    {/* if the post has description, render it */}
+                    {post.acf['postfieldgroup.note'] && <RecipeNote id={post.id}/>}
+
                     {/* if the post has a YouTube video, render it */}
                     {post.acf['postfieldgroup.video'] &&
                     <RecipeYoutubeVideoTitle>Explained on YouTube <YouTubeIcon/>
                     </RecipeYoutubeVideoTitle>}
                     {post.acf['postfieldgroup.video'] && <YoutubeVideo videoId={post.acf['postfieldgroup.video']}/>}
+
+                    {/* <Comments id={post.id}/> */}
 
                     <SocialMediaShareButtons
                         url={postUrl}
