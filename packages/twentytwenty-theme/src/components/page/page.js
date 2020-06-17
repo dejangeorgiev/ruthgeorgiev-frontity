@@ -3,6 +3,8 @@ import React, {useEffect} from "react";
 import FeaturedMedia from "../post/featured-media";
 
 import PageCarousel from "./acf/Content/Carousel/PageCarousel";
+import Ingredients from "../post/acf/ingredients/Ingredients";
+import {SectionContainer} from "../post/post-item";
 
 
 const Page = ({state, actions, libraries}) => {
@@ -10,14 +12,10 @@ const Page = ({state, actions, libraries}) => {
     const data = state.source.get(state.router.link);
     // Get the data of the post.
     const page = state.source[data.type][data.id];
-    // Get the data of the author.
-    // const author = state.source.author[post.author];
-    // Get a human readable date.
-    // const date = new Date(post.date);
 
     // Get the html2react component.
     const Html2React = libraries.html2react.Component;
-  
+
     /**
      * Once the post has loaded in the DOM, prefetch both the
      * home posts and the list component so if the user visits
@@ -26,6 +24,10 @@ const Page = ({state, actions, libraries}) => {
     useEffect(() => {
         actions.source.fetch("/");
     }, []);
+
+
+    const pageContent = page.acf['contentfieldgroup.content'];
+
 
     // Load the post, but only if the data is ready.
     return data.isReady ? (
@@ -36,7 +38,31 @@ const Page = ({state, actions, libraries}) => {
                 <FeaturedImage id={page.featured_media}/>
             )}
 
-            <PageCarousel/>
+            {Object.keys(pageContent)
+                .map(function (key, i) {
+
+                    if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.carousel') {
+                        const Carousel = pageContent[key]['contentfieldgroup.content.carousel.item'];
+
+
+
+                        return <PageCarousel
+                            key={i}
+                            id={page.id}
+                            carousel={Carousel}
+
+                        />
+                    }
+
+                    if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.image') {
+                        return <h1 key={key}>IMAGE</h1>
+                    }
+
+                    if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.accordion') {
+                        return <h1 key={key}>Accordion</h1>
+                    }
+
+                })}
 
 
         </div>

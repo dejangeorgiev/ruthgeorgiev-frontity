@@ -16,7 +16,6 @@ const Ingredients = ({state, id}) => {
                         amount={ingredient['postfieldgroup.ingredients.amount']}
                         measure={ingredient['postfieldgroup.ingredients.measure']}
                         name={ingredient['postfieldgroup.ingredients.name']}
-                        image={ingredient['postfieldgroup.ingredients.image']}
                     />
                 )
             }

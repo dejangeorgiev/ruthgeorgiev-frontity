@@ -24,6 +24,11 @@ import Dishes from "./acf/dishes/Dishes";
 import Meals from "./acf/meals/Meals";
 import YoutubeVideo from "./acf/YoutubeVideo";
 import YouTubeIcon from "../global/icons/YouTubeIcon";
+import EasyRecipe from "../global/icons/png/EasyRecipe.png"
+import ModernCookingTools from "../global/icons/png/ModernCookingTools.png"
+import ProfessionalChefFemale from "../global/icons/png/ProfessionalChefFemale.png"
+import RecipeTipsIconPng from "../global/icons/png/RecipeTips.png"
+
 import Comments from "../comments";
 import RecommendedPosts from "./acf/recommended/posts/RecommendedPosts";
 
@@ -163,24 +168,29 @@ const Post = ({state, actions, libraries}) => {
                         <FeaturedImage id={post.featured_media} isSinglePost={true}/>
                     )}
 
+                    {/* if the post has description, render it */}
+                    {post.acf['postfieldgroup.description'] &&
+                    <RecipeDescriptionTitle>How to do it? <DescriptionIcon
+                        src={ProfessionalChefFemale}/></RecipeDescriptionTitle>}
+                    {post.acf['postfieldgroup.description'] && <RecipeDescription id={post.id}/>}
+
                     {/* If the post has ingredients, render it */}
-                    {post.acf['postfieldgroup.ingredients'] && <IngredientsTitle>Ingredients</IngredientsTitle>}
+                    {post.acf['postfieldgroup.ingredients'] &&
+                    <IngredientsTitle>Ingredients <IngredientsIcon src={EasyRecipe}/></IngredientsTitle>}
                     {post.acf['postfieldgroup.ingredients'] && <Ingredients id={post.id}/>}
 
                     {/* If the post has equipment, render it */}
-                    {post.acf['postfieldgroup.equipment'] && <EquipmentTitle>Equipment</EquipmentTitle>}
+                    {post.acf['postfieldgroup.equipment'] &&
+                    <EquipmentTitle>Equipment <EquipmentIcon src={ModernCookingTools}/> </EquipmentTitle>}
                     {post.acf['postfieldgroup.equipment'] && <Equipment id={post.id}/>}
-
-                    {/* if the post has description, render it */}
-                    {post.acf['postfieldgroup.description'] &&
-                    <RecipeDescriptionTitle>How to do it?</RecipeDescriptionTitle>}
-                    {post.acf['postfieldgroup.description'] && <RecipeDescription id={post.id}/>}
+                    
 
                     {/* if the post has affiliate / sponsored link, render it */}
                     {post.acf['postfieldgroup.sponsored'] && <Sponsored id={post.id}/>}
 
                     {/* if the post has tips, render it */}
-                    {post.acf['postfieldgroup.tips'] && <RecipeTipsTitle>Tips</RecipeTipsTitle>}
+                    {post.acf['postfieldgroup.tips'] &&
+                    <RecipeTipsTitle>Tips <RecipeTipsIcon src={RecipeTipsIconPng}/> </RecipeTipsTitle>}
                     {post.acf['postfieldgroup.tips'] && <RecipeTips id={post.id}/>}
 
                     {/* if the post has description, render it */}
@@ -281,3 +291,7 @@ const CuisineTaxonomy = styled('div')` ${tw`w-full p-1`}`;
 const DietsTaxonomy = styled('div')` ${tw`w-full p-1`}`;
 const DishesTaxonomy = styled('div')` ${tw`w-full p-1`}`;
 const MealsTaxonomy = styled('div')` ${tw`w-full p-1`}`;
+const IngredientsIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;
+const EquipmentIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;
+const DescriptionIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;
+const RecipeTipsIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;

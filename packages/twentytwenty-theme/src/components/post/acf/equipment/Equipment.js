@@ -15,7 +15,6 @@ const Equipment = ({state, id}) => {
                         key={index}
                         name={equipment['postfieldgroup.equipment.name']}
                         description={equipment['postfieldgroup.equipment.description']}
-                        image={equipment['postfieldgroup.equipment.image']}
                         link={equipment['postfieldgroup.equipment.link']}
                     />
                 )
