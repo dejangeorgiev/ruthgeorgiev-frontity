@@ -23,13 +23,14 @@ const GetTaxonomyDescription = ({taxonomy, state, actions}) => {
     const taxonomyData = state.source[data.taxonomy][data.id];
 
     // Load the taxonomy description, but only if the data is ready.
-    return taxonomyData.description ? (
-        <div>
-            {taxonomyData.description}
-        </div>
+    return data.isReady ? (
+        <TaxonomyDescription>
+            <TaxonomyDescriptionText>{taxonomyData.description}</TaxonomyDescriptionText>
+        </TaxonomyDescription>
     ) : null;
 };
 
 export default connect(GetTaxonomyDescription);
 
-const TaxonomyDescription = styled('div')` ${tw``}`;
+const TaxonomyDescription = styled('div')` ${tw`py-2 px-4 rounded inline-flex shadow-xl items-center`}`;
+const TaxonomyDescriptionText = styled('p')` ${tw`font-normal text-4xl m-0 text-gray-800`}`;

@@ -64,14 +64,12 @@ const Archive = ({state, showExcerpt, showMedia}) => {
                 // Render one Item component for each one.
                 return (
                     <Fragment key={item.id}>
-
                             <Article
                                 key={item.id}
                                 item={item}
                                 showExcerpt={_showExcerpt}
                                 showMedia={showMedia}
                             />
-
                     </Fragment>
                 );
             })}
@@ -90,7 +88,7 @@ const Archive = ({state, showExcerpt, showMedia}) => {
 export default connect(Archive);
 
 
-const TaxonomyTagButton = styled(Link)` ${tw`bg-gray-300 hover:bg-gray-400 text-gray-800 font-normal py-2 px-4 no-underline rounded inline-flex items-center`}`;
+const TaxonomyTagButton = styled(Link)` ${tw`z-10 border-solid border-2 border-black-200 hover:bg-gray-400 text-gray-800 font-normal py-2 px-4 no-underline rounded-full inline-flex items-center`}`;
 
 const ArticlesContainer = styled('div')` ${tw`flex flex-wrap justify-center`}`;
 

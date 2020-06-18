@@ -2,7 +2,6 @@ import React from 'react';
 import {connect, styled} from "frontity";
 import RecipeTip from "./RecipeTip";
 
-
 const RecipeTips = ({state, id}) => {
 
     const post = state.source.post[id];

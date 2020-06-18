@@ -183,7 +183,6 @@ const Post = ({state, actions, libraries}) => {
                     {post.acf['postfieldgroup.equipment'] &&
                     <EquipmentTitle>Equipment <EquipmentIcon src={ModernCookingTools}/> </EquipmentTitle>}
                     {post.acf['postfieldgroup.equipment'] && <Equipment id={post.id}/>}
-                    
 
                     {/* if the post has affiliate / sponsored link, render it */}
                     {post.acf['postfieldgroup.sponsored'] && <Sponsored id={post.id}/>}
