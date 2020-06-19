@@ -1,11 +1,15 @@
 import {styled, connect} from "frontity";
 import React, {useEffect} from "react";
 import tw from "tailwind.macro";
-
 import Carousel, {consts} from 'react-elastic-carousel'
+import ArrowRight from "../../global/icons/ArrowRight";
+import ArrowLeft from "../../global/icons/ArrowLeft";
+import Media from "../../post/featured-media";
+
 import Food from './images/food.jpg'
 import Brunch from './images/brunch.jpg'
 import Brekkie from './images/brekkie.jpg'
+
 
 const FrontPage = ({state, actions, libraries}) => {
     // Get information about the current URL.
@@ -22,16 +26,36 @@ const FrontPage = ({state, actions, libraries}) => {
     const Html2React = libraries.html2react.Component;
 
     const FirstSlideStyles = {
-        backgroundImage: `url(${Food})`
+        backgroundImage: `url(${Food})`,
+        backgroundSize: 'cover',
+        width: '100%',
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent:'center',
+        alignItems: 'center'
     };
 
     const SecondSlideStyles = {
-        backgroundImage: `url(${Brunch})`
+        backgroundImage: `url(${Brunch})`,
+        backgroundSize: 'cover',
+        width: '100%',
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent:'center',
+        alignItems: 'center'
     };
 
     const ThirdSlideStyles = {
-        backgroundImage: `url(${Brekkie})`
-
+        backgroundImage: `url(${Brekkie})`,
+        backgroundSize: 'cover',
+        width: '100%',
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent:'center',
+        alignItems: 'center'
     };
 
     /**
@@ -55,27 +79,32 @@ const FrontPage = ({state, actions, libraries}) => {
                 showArrows={true}
                 enableSwipe={true}
                 enableMouseSwipe={true}
-                disableArrowsOnEnd={true}
+                disableArrowsOnEnd={false}
                 preventDefaultTouchmoveEvent={true}
+                enableAutoPlay={true}
+                autoPlaySpeed={8000}
+                easing="cubic-bezier(1,.15,.55,1.54)"
+                tiltEasing="cubic-bezier(0.110, 1, 1.000, 0.210)"
+                transitionMs={700}
             >
                 <FirstSlide style={FirstSlideStyles}>
                     <SlideContent>
                         <SlideContentTitle>Recipes</SlideContentTitle>
-                        <span>A variety of recipes, vegan, vegetarian, healthy, Asian, European...</span>
+                        <p>A variety of recipes, vegan, vegetarian, healthy, Asian, European...</p>
                     </SlideContent>
                 </FirstSlide>
 
                 <SecondSlide style={SecondSlideStyles}>
                     <SlideContent>
                         <SlideContentTitle>Travel</SlideContentTitle>
-                        <span>A variety of travel tips, from Asia till Europe...</span>
+                        <p>A variety of travel tips, from Asia till Europe...</p>
                     </SlideContent>
                 </SecondSlide>
 
                 <ThirdSlide style={ThirdSlideStyles}>
                     <SlideContent>
                         <SlideContentTitle>Gardening</SlideContentTitle>
-                        <span>A variety of Gardening tips, from plants till foods...</span>
+                        <p>A variety of Gardening tips, from plants till foods...</p>
                     </SlideContent>
                 </ThirdSlide>
             </HomeCarousel>
@@ -87,27 +116,25 @@ const FrontPage = ({state, actions, libraries}) => {
 
 export default connect(FrontPage);
 
-
 export function arrow({type, onClick, isEdge}) {
-    const pointer = type === consts.PREV ? '👈' : '👉';
     return type === consts.PREV ? (
-        <PrevButton onClick={onClick} disabled={isEdge}>{pointer}</PrevButton>
-    ) : <NextButton onClick={onClick} disabled={isEdge}>{pointer}</NextButton>
+        <PrevButton onClick={onClick} disabled={isEdge}><ArrowLeft/></PrevButton>
+    ) : <NextButton onClick={onClick} disabled={isEdge}><ArrowRight/></NextButton>
 }
 
 const FrontPageContainer = styled('div')` ${tw`flex flex-wrap outline-none fixed w-full top-0 h-full min-h-full`}`;
 
 const HomeCarousel = styled(Carousel)` ${tw`p-0 m-0 relative w-full h-full min-h-full outline-none`}`;
 
-const PrevButton = styled('button')` ${tw`bg-transparent outline-none fixed left-0 z-10 mx-auto top-0 bottom-0`}`;
-const NextButton = styled('button')` ${tw`bg-transparent outline-none fixed right-0 z-10 mx-auto top-0 bottom-0`}`;
+const PrevButton = styled('button')` ${tw`bg-transparent hover:cursor-pointer outline-none fixed left-0 z-10 mx-auto top-0 bottom-0`}`;
+const NextButton = styled('button')` ${tw`bg-transparent hover:cursor-pointer outline-none fixed right-0 z-10 mx-auto top-0 bottom-0`}`;
 
 const FirstSlide = styled('div')` ${tw`bg-grey-200 bg-no-repeat bg-cover bg-center w-full h-screen`}`;
 const SecondSlide = styled('div')` ${tw`bg-green-400 bg-no-repeat bg-cover bg-center w-full h-screen`}`;
 const ThirdSlide = styled('div')` ${tw`bg-red-200 bg-no-repeat bg-cover bg-center w-full h-screen`}`;
 
-const SlideContent = styled('div')` ${tw`bg-gray-100 fixed p-10 shadow-2xl rounded bottom-0`}`;
-const SlideContentTitle = styled('h1')` ${tw`font-normal text-12xl`}`;
+const SlideContent = styled('div')` ${tw`bg-gray-100 fixed px-10 shadow-2xl rounded-full sm:bottom-10 `}`;
+const SlideContentTitle = styled('h1')` ${tw`font-normal text-10xl`}`;
 
 
 
