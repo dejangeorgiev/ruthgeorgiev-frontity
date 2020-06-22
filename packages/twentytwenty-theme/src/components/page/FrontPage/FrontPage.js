@@ -4,11 +4,7 @@ import tw from "tailwind.macro";
 import Carousel, {consts} from 'react-elastic-carousel'
 import ArrowRight from "../../global/icons/ArrowRight";
 import ArrowLeft from "../../global/icons/ArrowLeft";
-import Media from "../../post/featured-media";
-
-import Food from './images/food.jpg'
-import Brunch from './images/brunch.jpg'
-import Brekkie from './images/brekkie.jpg'
+import Link from '../../link'
 
 
 const FrontPage = ({state, actions, libraries}) => {
@@ -26,7 +22,7 @@ const FrontPage = ({state, actions, libraries}) => {
     const Html2React = libraries.html2react.Component;
 
     const FirstSlideStyles = {
-        backgroundImage: `url(${Food})`,
+        backgroundImage: `url(https://admin.ruthgeorgiev.com/wp-content/uploads/2020/06/food-scaled.jpg)`,
         backgroundSize: 'cover',
         width: '100%',
         height: '100vh',
@@ -37,7 +33,7 @@ const FrontPage = ({state, actions, libraries}) => {
     };
 
     const SecondSlideStyles = {
-        backgroundImage: `url(${Brunch})`,
+        backgroundImage: `url(https://admin.ruthgeorgiev.com/wp-content/uploads/2020/06/brekkie-scaled.jpg)`,
         backgroundSize: 'cover',
         width: '100%',
         height: '100vh',
@@ -48,7 +44,17 @@ const FrontPage = ({state, actions, libraries}) => {
     };
 
     const ThirdSlideStyles = {
-        backgroundImage: `url(${Brekkie})`,
+        backgroundImage: `url(https://admin.ruthgeorgiev.com/wp-content/uploads/2020/06/brunch-scaled.jpg)`,
+        backgroundSize: 'cover',
+        width: '100%',
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent:'center',
+        alignItems: 'center'
+    };
+    const FourthSlideStyles = {
+        backgroundImage: `url(https://admin.ruthgeorgiev.com/wp-content/uploads/2020/05/ovo-vegetarian-diet-scaled.jpg)`,
         backgroundSize: 'cover',
         width: '100%',
         height: '100vh',
@@ -90,23 +96,34 @@ const FrontPage = ({state, actions, libraries}) => {
                 <FirstSlide style={FirstSlideStyles}>
                     <SlideContent>
                         <SlideContentTitle>Recipes</SlideContentTitle>
-                        <p>A variety of recipes, vegan, vegetarian, healthy, Asian, European...</p>
+                        <SlideContentText>A variety of recipes, vegan, vegetarian, healthy, Asian, European...</SlideContentText>
+                        <SlideContentButton link='/recipes'>go to the recipes</SlideContentButton>
                     </SlideContent>
                 </FirstSlide>
 
                 <SecondSlide style={SecondSlideStyles}>
                     <SlideContent>
                         <SlideContentTitle>Travel</SlideContentTitle>
-                        <p>A variety of travel tips, from Asia till Europe...</p>
+                        <SlideContentText>A variety of travel tips, from Asia till Europe...</SlideContentText>
+                        <SlideContentButton link='/recipes'>Button</SlideContentButton>
                     </SlideContent>
                 </SecondSlide>
 
                 <ThirdSlide style={ThirdSlideStyles}>
                     <SlideContent>
                         <SlideContentTitle>Gardening</SlideContentTitle>
-                        <p>A variety of Gardening tips, from plants till foods...</p>
+                        <SlideContentText>A variety of Gardening tips, from plants till foods...</SlideContentText>
+                        <SlideContentButton link='/recipes'>Button</SlideContentButton>
                     </SlideContent>
                 </ThirdSlide>
+
+                <FourthSlide style={FourthSlideStyles}>
+                    <SlideContent>
+                        <SlideContentTitle>Gardening</SlideContentTitle>
+                        <SlideContentText>A variety of Gardening tips, from plants till foods...</SlideContentText>
+                        <SlideContentButton link='/recipes'>Button</SlideContentButton>
+                    </SlideContent>
+                </FourthSlide>
             </HomeCarousel>
 
 
@@ -132,9 +149,13 @@ const NextButton = styled('button')` ${tw`bg-transparent hover:cursor-pointer ou
 const FirstSlide = styled('div')` ${tw`bg-grey-200 bg-no-repeat bg-cover bg-center w-full h-screen`}`;
 const SecondSlide = styled('div')` ${tw`bg-green-400 bg-no-repeat bg-cover bg-center w-full h-screen`}`;
 const ThirdSlide = styled('div')` ${tw`bg-red-200 bg-no-repeat bg-cover bg-center w-full h-screen`}`;
+const FourthSlide = styled('div')` ${tw`bg-red-200 bg-no-repeat bg-cover bg-center w-full h-screen`}`;
 
-const SlideContent = styled('div')` ${tw`bg-gray-100 fixed px-10 shadow-2xl rounded-full sm:bottom-10 `}`;
-const SlideContentTitle = styled('h1')` ${tw`font-normal text-10xl`}`;
+const SlideContent = styled('div')` ${tw`bg-gray-100 fixed px-10 shadow-2xl rounded sm:bottom-auto`}`;
+const SlideContentTitle = styled('h1')` ${tw`font-normal m-0 pt-6 text-8xl`}`;
+const SlideContentText = styled('p')` ${tw`font-normal pb-8 m-0`}`;
+const SlideContentButton = styled(Link)` ${tw`border-b-2 border-gray-600 m-0 p-0`}`;
+
 
 
 
