@@ -155,12 +155,3 @@ const SlideContent = styled('div')` ${tw`bg-gray-100 fixed px-10 shadow-2xl roun
 const SlideContentTitle = styled('h1')` ${tw`font-normal m-0 pt-6 text-8xl`}`;
 const SlideContentText = styled('p')` ${tw`font-normal pb-8 m-0`}`;
 const SlideContentButton = styled(Link)` ${tw`border-b-2 border-gray-600 m-0 p-0`}`;
-
-
-
-
-
-
-
-
-

@@ -4,8 +4,10 @@ import tw from "tailwind.macro";
 
 import Carousel, {consts} from 'react-elastic-carousel'
 
+import ArrowLeft from "../../../../global/icons/ArrowLeft";
+import ArrowRight from "../../../../global/icons/ArrowRight";
 
-const PageCarousel = ({state, actions, libraries, id,carousel}) => {
+const PageCarousel = ({state, actions, libraries, id, carousel}) => {
 
     /**
      * Once the post has loaded in the DOM, prefetch both the
@@ -26,63 +28,104 @@ const PageCarousel = ({state, actions, libraries, id,carousel}) => {
     // const date = new Date(post.date);
 
     const Html2React = libraries.html2react.Component;
-
-    console.log(carousel)
-
+    const CarouselBreakpoints = [
+        {width: 1, itemsToShow: 1, itemsToScroll: 1},
+        {width: 550, itemsToShow: 1, itemsToScroll: 1},
+        {width: 850, itemsToShow: 1, itemsToScroll: 1},
+        {width: 1150, itemsToShow: 1, itemsToScroll: 1},
+        {width: 1450, itemsToShow: 1, itemsToScroll: 1},
+        {width: 1750, itemsToShow: 1, itemsToScroll: 1},
+    ];
 
     return data.isReady ? (
         <CarouselContainer>
+            <PageElasticCarousel
+                renderArrow={arrow}
+                breakPoints={CarouselBreakpoints}
+                focusOnSelect={false}
+                itemsToShow={1}
+                itemsToScroll={5}
+                pagination={true}
+                showArrows={true}
+                enableSwipe={true}
+                enableMouseSwipe={true}
+                preventDefaultTouchmoveEvent={true}
+                autoPlaySpeed={8000}
+                easing="cubic-bezier(1,.15,.55,1.54)"
+                tiltEasing="cubic-bezier(0.110, 1, 1.000, 0.210)"
+                transitionMs={700}
+            >
+                {
+                    Object.keys(carousel).map((item, i) => {
+                            const CarouselTitle = carousel[item]['contentfieldgroup.content.carousel.item.title'];
+                            const CarouselText = carousel[item]['contentfieldgroup.content.carousel.item.text'];
 
-            {
-                Object.keys(carousel).map( (item, i) =>{
-                        const ImageId = carousel[item]['contentfieldgroup.content.carousel.item.image'];
-                        const ImageAlt = carousel[item]['contentfieldgroup.content.carousel.item.image']['alt'];
+                            const ImageData = carousel[item]['contentfieldgroup.content.carousel.item.image'];
+                            const ImageId = ImageData.id;
+                            const ImageAlt = ImageData.alt;
+                            const ImageSize = ImageData.sizes;
+                            const ImageSizeMedium = ImageSize['medium'];
 
-                        return <FirstDiv key={i}>
-                            <SecondDiv>
-                                <Image src="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/05/ruth-georgiev-kitchen.jpg"
-                                       alt=""/>
-                                <ThirdDiv/>
-                                <FourthDiv>
-                                    <FourthDivH2>
-                                        Ruth
-                                    </FourthDivH2>
-                                </FourthDiv>
-                            </SecondDiv>
-                            <FifthDiv>
-                                <SixthDiv>
-                                    <Description>
-                                        <DescriptionSpan>Ruth Georgiev</DescriptionSpan> is a Here goes description.
-                                    </Description>
-                                    <DescriptionLink href="/">
-                                        <span>Learn more about our users</span>
-                                        <DescriptionLinkSpan>&#x279c;</DescriptionLinkSpan>
-                                    </DescriptionLink>
-                                </SixthDiv>
-                                <FifthDivSvg
-                                    viewBox="0 0 100 100" preserveAspectRatio="none">
-                                    <polygon points="50,0 100,0 50,100 0,100"/>
-                                </FifthDivSvg>
-                            </FifthDiv>
-                            <ButtonLeft>
-                                <ButtonLeftSpan>&#x279c;</ButtonLeftSpan>
-                            </ButtonLeft>
-                            <ButtonRight>
-                                <ButtonRightSpan>&#x279c;</ButtonRightSpan>
-                            </ButtonRight>
-                        </FirstDiv>
+                            const CarouselLink = carousel[item]['contentfieldgroup.content.carousel.item.link'];
 
-                    }
-                )
-            }
+                            const CarouselLinkTarget = CarouselLink.target;
+                            const CarouselLinkUrl = CarouselLink.url;
+                            const CarouselLinkTitle = CarouselLink.title;
 
 
-
+                            return <FirstDiv key={i}>
+                                <SecondDiv>
+                                    <Image
+                                        src={ImageSizeMedium}
+                                        alt={ImageAlt}
+                                    />
+                                    <ThirdDiv/>
+                                    <FourthDiv>
+                                        <FourthDivH2>
+                                            {CarouselTitle}
+                                        </FourthDivH2>
+                                    </FourthDiv>
+                                </SecondDiv>
+                                <FifthDiv>
+                                    <SixthDiv>
+                                        <Description>
+                                            <DescriptionSpan>{CarouselTitle}</DescriptionSpan>
+                                            {CarouselText}
+                                        </Description>
+                                        <DescriptionLink
+                                            href={CarouselLinkUrl}
+                                            target={CarouselLinkTarget}
+                                        >
+                                            <span>{CarouselLinkTitle}</span>
+                                            <DescriptionLinkSpan>&#x279c;</DescriptionLinkSpan>
+                                        </DescriptionLink>
+                                    </SixthDiv>
+                                    <FifthDivSvg
+                                        viewBox="0 0 100 100" preserveAspectRatio="none">
+                                        <polygon points="50,0 100,0 50,100 0,100"/>
+                                    </FifthDivSvg>
+                                </FifthDiv>
+                            </FirstDiv>
+                        }
+                    )
+                }
+            </PageElasticCarousel>
         </CarouselContainer>
     ) : null;
 };
 
 export default connect(PageCarousel);
+
+
+export function arrow({type, onClick, isEdge}) {
+    return type === consts.PREV ? (
+        <ButtonLeft onClick={onClick} disabled={isEdge}>
+            <ButtonLeftSpan>&#x279c;</ButtonLeftSpan>
+        </ButtonLeft>
+    ) : <ButtonRight onClick={onClick} disabled={isEdge}>
+        <ButtonRightSpan>&#x279c;</ButtonRightSpan>
+        </ButtonRight>
+}
 
 
 const CarouselContainer = styled('div')` ${tw`m-10 mx-auto p-16 sm:p-24 lg:p-48 bg-gray-200`}`;
@@ -97,12 +140,13 @@ const Description = styled('p')` ${tw`text-gray-600`}`;
 const DescriptionSpan = styled('span')` ${tw`text-gray-900`}`;
 const DescriptionLink = styled('a')` ${tw`flex items-baseline mt-3 text-indigo-600 hover:text-indigo-900 focus:text-indigo-900`}`;
 const DescriptionLinkSpan = styled('span')` ${tw`text-xs ml-1`}`;
-const FourthDivH2 = styled('h2')` ${tw`w-full h-24`}`;
+const FourthDivH2 = styled('h2')` ${tw`w-full h-24 text-center`}`;
 const FifthDivSvg = styled('svg')` ${tw`hidden md:block absolute inset-y-0 h-full w-24 fill-current text-gray-100 -ml-12`}`;
-const ButtonLeft = styled('button')` ${tw`absolute top-0 bottom-0 m-auto left-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -ml-6 focus:outline-none focus:shadow-outline`}`;
-const ButtonLeftSpan = styled('span')` ${tw`block`}`;
-const ButtonRight = styled('button')` ${tw`absolute top-0 bottom-0 m-auto right-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -mr-6 focus:outline-none focus:shadow-outline`}`;
-const ButtonRightSpan = styled('span')` ${tw`block`}`;
+const ButtonLeft = styled('button')` transform: scale(-1); ${tw`top-0 bottom-0 m-auto left-0 bg-white hover:bg-gray-900 rounded-full shadow-md h-16 w-16 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -ml-6 cursor-pointer focus:outline-none focus:shadow-outline`}`;
+const ButtonLeftSpan = styled('span')` ${tw`block text-3xl px-4`}`;
+const ButtonRight = styled('button')` ${tw`top-0 bottom-0 m-auto right-0 bg-white rounded-full shadow-md hover:bg-gray-900 h-16 w-16 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -mr-6 focus:outline-none cursor-pointer focus:shadow-outline`}`;
+const ButtonRightSpan = styled('span')` ${tw`block text-3xl px-4`}`;
+const PageElasticCarousel = styled(Carousel)` max-height:330px ${tw``}`;
 
 
 

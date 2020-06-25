@@ -43,14 +43,10 @@ const Page = ({state, actions, libraries}) => {
 
                     if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.carousel') {
                         const Carousel = pageContent[key]['contentfieldgroup.content.carousel.item'];
-
-
-
                         return <PageCarousel
                             key={i}
                             id={page.id}
                             carousel={Carousel}
-
                         />
                     }
 
