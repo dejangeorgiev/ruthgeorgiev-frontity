@@ -1,4 +1,4 @@
-import { styled, css } from "frontity";
+import {styled, css} from "frontity";
 import React from "react";
 
 // Base styling for all toggle buttons
@@ -43,8 +43,8 @@ export const BaseToggle = styled.button`
     top: auto;
     width: auto;
     ${(props) =>
-      props.isMobile &&
-      css`
+    props.isMobile &&
+    css`
         display: none !important;
       `}
   }
@@ -57,7 +57,7 @@ export const NavToggle = styled(BaseToggle)`
   right: 0;
   top: 0;
   width: 6.6rem;
-
+  outline:none;
   @media (min-width: 700px) {
     right: 2rem;
   }
@@ -72,7 +72,7 @@ export const CloseNavToggle = styled(BaseToggle)`
   font-size: 1.6rem;
   font-weight: 500;
   padding: 3.1rem 0;
-
+  outline:none;
   @media (max-width: 700px) {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
@@ -95,6 +95,7 @@ export const SearchToggle = styled(BaseToggle)`
   bottom: 0;
   left: 0;
   top: 0;
+  outline:none;
 
   @media (min-width: 700px) {
     left: 2rem;
@@ -102,11 +103,11 @@ export const SearchToggle = styled(BaseToggle)`
 `;
 
 // Generic, reusable component for displaying icon and label
-export const LabeledIcon = ({ icon: Icon, label }) => (
-  <ToggleInner>
-    <Icon />
-    <ToggleText>{label}</ToggleText>
-  </ToggleInner>
+export const LabeledIcon = ({icon: Icon, label}) => (
+    <ToggleInner>
+        <Icon/>
+        <ToggleText>{label}</ToggleText>
+    </ToggleInner>
 );
 
 export const ToggleInner = styled.span`

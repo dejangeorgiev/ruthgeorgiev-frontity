@@ -1,34 +1,66 @@
-import React from 'react';
-import {connect, styled} from "frontity";
-import RecommendedPost from "./RecommendedPost";
+import {connect, styled, decode} from "frontity";
+import React, {Fragment, useEffect} from "react";
+import Article from "../../../post-item-preview";
+import Pagination from "../../../../archive/archive-pagination";
+import PostSeparator from "../../../post-separator";
+import Post from "../../../post";
+import tw from "tailwind.macro";
 
-const RecommendedPosts = ({state, id}) => {
+const RecommendedPosts = ({state, showExcerpt, showMedia, actions}) => {
 
-    const data = state.source.get(state.router.link);
+    useEffect(() => {
+        actions.source.fetch('/recipes');
+        Post.preload();
+    }, []);
+    // Get the data of the current list.
+    const data = state.source.get('/recipes');
+    const {primary} = state.theme.colors;
 
-    const post = state.source[data.type][data.id];
-
-    //const post = state.source.post[id];
-
-    const RelationshipPosts = post.acf['postfieldgroup.posts'];
+    // Whether the show the excerpt instead of the full content
+    // If passed as prop, we'll respect that. Else, we'll use the theme settings
+    const _showExcerpt = showExcerpt || !state.theme.showAllContentOnArchive;
+    /**
+     * The item's cuisine is an array of each cuisine id
+     * So, we'll look up the details of each cuisine in allCuisine
+     */
 
     return (
-        RelationshipPosts.map((post) => {
-            const singlePostType = post['post_type'];
-            const singlePostId = post['ID'];
+        <>
+            <ArticlesContainer>
+                {/* Iterate over the items of the list. */}
+                {data.items.map(({type, id}, index) => {
+                    const isLastArticle = index === data.items.length - 1;
+                    const item = state.source[type][id];
 
-            const singlePost= state.source[singlePostType][singlePostId];
-            console.log(singlePost)
+                    // Render one Item component for each one.
+                    return (
+                        <Fragment key={item.id}>
+                            <Article
+                                key={item.id}
+                                item={item}
+                                showExcerpt={_showExcerpt}
+                                showMedia={showMedia}
+                            />
+                        </Fragment>
+                    );
+                })}
+            </ArticlesContainer>
 
-                return (
-                    <RecommendedPost
-                        key={singlePostId}
-                        title={singlePost.title.rendered}
-                    />
-                )
-            }
-        )
+            {data.totalPages > 1 && (
+                <>
+                    <PostSeparator/>
+                    <Pagination size="thin"/>
+                </>
+            )}
+        </>
     );
 };
 
 export default connect(RecommendedPosts);
+
+const ArticlesContainer = styled('div')` ${tw`flex flex-wrap justify-center`}`;
+
+
+
+
+

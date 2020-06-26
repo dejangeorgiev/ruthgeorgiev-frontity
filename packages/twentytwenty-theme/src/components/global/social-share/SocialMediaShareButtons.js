@@ -26,7 +26,7 @@ const SocialMediaShareButtons = ({url, media, alt, title, children, hashtag, has
 
     return (
         <SocialMediaButtons>
-            <ShareTitle>Share:</ShareTitle>
+            <ShareTitle>Share this with your friends</ShareTitle>
             <FacebookShareButton
                 url={url}
                 media={media}
@@ -110,5 +110,5 @@ const SocialMediaShareButtons = ({url, media, alt, title, children, hashtag, has
 };
 
 export default connect(SocialMediaShareButtons);
-const SocialMediaButtons =styled('div')` ${tw`mt-10 text-left`}`;
-const ShareTitle =styled('h4')` ${tw`lowercase text-normal text-left p-0 m-0`}`;
+const SocialMediaButtons =styled('div')` ${tw`mt-10 text-center`}`;
+const ShareTitle =styled('p')` ${tw`lowercase text-normal text-center p-0 m-0`}`;

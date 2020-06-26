@@ -28,6 +28,8 @@ import EasyRecipe from "../global/icons/png/EasyRecipe.png"
 import ModernCookingTools from "../global/icons/png/ModernCookingTools.png"
 import ProfessionalChefFemale from "../global/icons/png/ProfessionalChefFemale.png"
 import RecipeTipsIconPng from "../global/icons/png/RecipeTips.png"
+import RecipePreparationTime from "./acf/RecipePreparationTime"
+import RecipeServings from "./acf/RecipeServings";
 
 import Comments from "../comments";
 import RecommendedPosts from "./acf/recommended/posts/RecommendedPosts";
@@ -43,7 +45,7 @@ const Post = ({state, actions, libraries}) => {
     // Get the data of the post.
     const post = state.source[data.type][data.id];
 
-    const postUrl = 'https://ruthgeorgiev-frontity.now.sh' + state.router.link;
+    const postUrl = 'https://ruthgeorgiev.com' + state.router.link;
 
     const media = state.source.attachment[post.featured_media];
 
@@ -62,6 +64,7 @@ const Post = ({state, actions, libraries}) => {
      */
     const categories = post.categories && post.categories.map((catId) => allCategories[catId]);
 
+    console.log(post);
     // Get all tags
     const allTags = state.source.tag;
     /**
@@ -132,10 +135,6 @@ const Post = ({state, actions, libraries}) => {
 
                     {/* The post's metadata like author, publish date, and comments */}
                     <PostMeta item={post}/>
-
-                    {/* If the post has tags, render it */}
-                    {post.tags && <PostTags tags={tags}/>}
-
                     <SocialMediaShareButtons
                         url={postUrl}
                         media={media.source_url}
@@ -143,8 +142,19 @@ const Post = ({state, actions, libraries}) => {
                         title={post.title.rendered}
                         children={post.title.rendered}
                         hashtag='#ruthgeorgiev'
-                        hashtags={['ruthgeorgiev', 'dejangeorgiev']}
+                        hashtags={['ruthgeorgiev', 'recipes']}
                     />
+                    {/* If the post has tags, render it */}
+                    {post.tags && <PostTags tags={tags}/>}
+
+
+                    {/* if the post has preparation time, render it */}
+                    {post.acf['postfieldgroup.preparation_time'] && <RecipePreparationTime id={post.id}/>}
+
+                    {/* if the post has servings, render it */}
+                    {post.acf['postfieldgroup.servings'] && <RecipeServings id={post.id}/>}
+
+
 
                     <PostTaxonomies>
                         <CuisineTaxonomy>
@@ -215,7 +225,7 @@ const Post = ({state, actions, libraries}) => {
 
                     {/* if the post has relationship posts video, render it */}
                     {/*post.acf['postfieldgroup.posts'] && <RecommendedPostsTitle>Read Next</RecommendedPostsTitle>*/}
-                    {/*post.acf['postfieldgroup.posts'] && <RecommendedPosts id={post.id}/>*/}
+                    { /*<RecommendedPosts />*/}
 
 
                 </SectionContainer>

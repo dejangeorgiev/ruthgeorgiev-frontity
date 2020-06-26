@@ -16,7 +16,7 @@ const PostTags = ({tags}) => {
 
     return (
         <PostMetaWrapper>
-            <PostMetaList style={{justifyContent: "flex-start"}}>
+            <PostMetaList style={{justifyContent: "flex-center"}}>
                 <PostMetaItem icon={TagIcon} label="Post Tags">
                     {postTags.map((tag, index) => {
                         const isLastTag = index === postTags.length - 1;

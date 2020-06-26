@@ -3,8 +3,6 @@ import React, {useEffect} from "react";
 import FeaturedMedia from "../post/featured-media";
 
 import PageCarousel from "./acf/Content/Carousel/PageCarousel";
-import Ingredients from "../post/acf/ingredients/Ingredients";
-import {SectionContainer} from "../post/post-item";
 
 
 const Page = ({state, actions, libraries}) => {
@@ -66,7 +64,6 @@ const Page = ({state, actions, libraries}) => {
 };
 
 export default connect(Page);
-
 
 const FeaturedImage = styled(FeaturedMedia)`
 margin-top: 0 !important;
