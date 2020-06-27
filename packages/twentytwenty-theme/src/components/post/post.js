@@ -64,7 +64,6 @@ const Post = ({state, actions, libraries}) => {
      */
     const categories = post.categories && post.categories.map((catId) => allCategories[catId]);
 
-    console.log(post);
     // Get all tags
     const allTags = state.source.tag;
     /**
@@ -223,13 +222,13 @@ const Post = ({state, actions, libraries}) => {
                         hashtags={['ruthgeorgiev', 'dejangeorgiev']}
                     />
 
-                    {/* if the post has relationship posts video, render it */}
-                    {/*post.acf['postfieldgroup.posts'] && <RecommendedPostsTitle>Read Next</RecommendedPostsTitle>*/}
-                    { /*<RecommendedPosts />*/}
-
-
                 </SectionContainer>
             </Header>
+
+
+            {/* Render recommended posts */}
+            <RecommendedPostsTitle>Read next <HigLightedText>recommended recipes</HigLightedText></RecommendedPostsTitle>
+            { <RecommendedPosts />}
 
             {/*
        * If the want to show featured media in the
@@ -293,7 +292,7 @@ const EquipmentTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
 const RecipeDescriptionTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
 const RecipeTipsTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
 const RecipeYoutubeVideoTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
-const RecommendedPostsTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
+const RecommendedPostsTitle = styled('h2')` ${tw`text-gray-800 text-center py-6 px-2`}`;
 
 const PostTaxonomies = styled('div')` ${tw`flex content-start text-left sm:flex-wrap flex-wrap h-30 bg-gray-200 my-10 p-10`}`;
 const CuisineTaxonomy = styled('div')` ${tw`w-full p-1`}`;
@@ -304,3 +303,6 @@ const IngredientsIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;
 const EquipmentIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;
 const DescriptionIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;
 const RecipeTipsIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;
+const HigLightedText = styled('span')` ${tw`bg-gray-200 font-normal px-5 rounded-full`}`;
+
+

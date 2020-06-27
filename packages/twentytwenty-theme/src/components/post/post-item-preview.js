@@ -69,7 +69,6 @@ const PostItemPreview = ({state, item, libraries, showExcerpt, showMedia = true,
                                 <Html2React html={content.rendered}/>
                             </EntryContent>
 
-
                             {/* If the post has tags, render it */}
                             {item.tags && <PostTags tags={tags}/>}
                         </PostInner>
@@ -90,15 +89,13 @@ export default connect(PostItemPreview);
 
 // All styles :)
 
-
-const Post = styled('div')` ${tw`m-3 max-w-2xl sm:inline-block rounded overflow-hidden shadow-lg`}`;
+const Post = styled('div')` ${tw`m-3 max-w-2xl sm:inline-block rounded overflow-hidden shadow-lg bg-white`}`;
 
 const FeaturedMediaContainer = styled('div')` ${tw`md:flex-shrink-0 w-full`}`;
 
 const FeaturedMediaImage = styled(FeaturedMedia)` ${tw`rounded-lg rounded-r-none m-0 w-full`}`;
 
 const PostHeader = styled.header``;
-
 
 // Header sizes bases on style.css
 const maxWidths = {
