@@ -3,15 +3,15 @@ import {connect, styled} from "frontity";
 import tw from "tailwind.macro";
 
 
-const RecipeDescription = ({state, id}) => {
+const RecipeDescription = ({state, id, libraries}) => {
 
     const post = state.source.post[id];
 
     const description = post.acf['postfieldgroup.description'];
-
+    const Html2React = libraries.html2react.Component;
     return (
         <Description>
-            {description}
+            <Html2React html={description} />
         </Description>
     );
 };

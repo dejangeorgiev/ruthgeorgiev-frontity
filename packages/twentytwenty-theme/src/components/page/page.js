@@ -1,4 +1,4 @@
-import {styled, connect} from "frontity";
+import {styled, connect,decode} from "frontity";
 import React, {useEffect} from "react";
 import FeaturedMedia from "../post/featured-media";
 
@@ -26,7 +26,7 @@ const Page = ({state, actions, libraries}) => {
 
     const pageContent = page.acf['contentfieldgroup.content'];
 
-
+console.log(pageContent)
     // Load the post, but only if the data is ready.
     return data.isReady ? (
         <div>
@@ -55,6 +55,16 @@ const Page = ({state, actions, libraries}) => {
                     if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.accordion') {
                         return <h1 key={key}>Accordion</h1>
                     }
+
+                    if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.text') {
+                        return <div key={key}>
+                            <h1>{pageContent[key]['contentfieldgroup.content.text.title']}</h1>
+                            <Html2React html={pageContent[key]['contentfieldgroup.content.text.text']} />
+                            </div>
+
+                    }
+
+
 
                 })}
 
