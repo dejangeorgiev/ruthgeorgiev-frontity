@@ -86,10 +86,6 @@ const twentyTwentyTheme = {
                      **/
                 },
                 {
-                    name: 'Gardening',
-                    href: '/gardening/'
-                },
-                {
                     name: 'Contact',
                     href: '/contact/'
                 }

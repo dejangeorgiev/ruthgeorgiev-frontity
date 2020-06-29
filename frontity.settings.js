@@ -41,6 +41,14 @@ const settings = {
                 },
             },
         },
+        {
+            name: "@frontity/google-tag-manager",
+            state: {
+                googleTagManager: {
+                    containerId: 'GTM-NBGPD9N'
+                },
+            },
+        },
         "@frontity/tiny-router",
         "@frontity/html2react"
     ]
