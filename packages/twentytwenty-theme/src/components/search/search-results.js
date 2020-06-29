@@ -47,7 +47,7 @@ const SearchResults = ({ state, libraries }) => {
           <SearchForm />
         </SearchContainer>
       ) : (
-        <Archive showExcerpt={true} showMedia={false} />
+        <Archive showExcerpt={true} showMedia={true} />
       )}
     </>
   );

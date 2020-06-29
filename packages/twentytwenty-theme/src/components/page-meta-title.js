@@ -38,6 +38,8 @@ const Title = ({state}) => {
     return (
         <Head>
             <title>{title}</title>
+            <meta name="description"
+                  content="Welcome to my Ruth's Blog. Here we will serve you with a collection of popular cooking recipes recipes, videos, travel tips, and how-tos."/>
             <meta property="og:title" content="The Rock"/>
             <meta property="og:type" content="video.movie"/>
             <meta property="og:url" content="https://ruthgeorgiev.com"/>
