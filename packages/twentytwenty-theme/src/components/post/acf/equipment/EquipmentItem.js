@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect, styled} from "frontity";
 import tw from "tailwind.macro";
+import ExternalLinkIcon from "../../../global/icons/ExternalLinkIcon";
 
 const EquipmentItem = ({key, name, description, link}) => {
 
@@ -14,8 +15,7 @@ const EquipmentItem = ({key, name, description, link}) => {
                 <EquipmentName>{name}</EquipmentName>
                 <EquipmentDescription>{description}</EquipmentDescription>
             </EquipmentContents>
-
-            <EquipmentLink href={linkUrl} target={linkTarget}>{linkTitle}</EquipmentLink>
+            <EquipmentLink href={linkUrl} target={linkTarget}>{linkTitle} <ExternalLinkIcon/></EquipmentLink>
         </Equipment>
     );
 };
@@ -27,4 +27,4 @@ const EquipmentImage = styled('img')` ${tw`h-16 w-16 md:h-24 md:w-24 rounded-ful
 const EquipmentContents = styled('div')` ${tw`text-center md:text-left px-10`}`;
 const EquipmentName = styled('p')` ${tw`p-0 m-0 font-normal`}`;
 const EquipmentDescription = styled('span')` ${tw`text-gray-600`}`;
-const EquipmentLink = styled('a')` ${tw`text-gray-600 p-4 md:absolute right-0`}`;
+const EquipmentLink = styled('a')` ${tw`text-gray-900 p-4 md:absolute right-0 underline`}`;

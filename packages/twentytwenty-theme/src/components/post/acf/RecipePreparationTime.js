@@ -12,10 +12,10 @@ const RecipePreparationTime = ({state, id}) => {
     return (
         <PreparationTime>
             <PreparationTimeIcon src={StopWatch}/>
-            <PreparationTimeTitle>Preparation Time</PreparationTimeTitle>
             <PreparationTimeValue>
                 {time}<span> min.</span>
             </PreparationTimeValue>
+            <PreparationTimeTitle>Preparation Time</PreparationTimeTitle>
         </PreparationTime>
     );
 };
@@ -26,5 +26,4 @@ export default connect(RecipePreparationTime);
 const PreparationTime = styled('div')` ${tw`px-5 inline-block`}`;
 const PreparationTimeTitle = styled('p')` ${tw`p-0 m-0 text-center`}`;
 const PreparationTimeValue = styled('p')` ${tw`p-0 m-0 text-center`}`;
-
 const PreparationTimeIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;

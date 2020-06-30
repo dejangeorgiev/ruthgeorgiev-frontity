@@ -73,4 +73,8 @@ export default connect(Theme);
 
 const Main = styled.main`
   display: block;
+  
+  @media (max-width: 640px) {
+margin-top: 80px;
+}
 `;

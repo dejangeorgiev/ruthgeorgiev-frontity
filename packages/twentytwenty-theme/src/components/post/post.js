@@ -14,6 +14,7 @@ import PostMeta from "./post-meta";
 import PostTags from "./post-tags";
 import Ingredients from "./acf/ingredients/Ingredients";
 import Sponsored from "./acf/sponsored/Sponsored";
+import Badge from "./acf/badges/Badge";
 import Equipment from "./acf/equipment/Equipment";
 import RecipeDescription from "./acf/RecipeDescription";
 import RecipeNote from "./acf/RecipeNote";
@@ -183,6 +184,10 @@ const Post = ({state, actions, libraries}) => {
                         src={ProfessionalChefFemale}/></RecipeDescriptionTitle>}
                     {post.acf['postfieldgroup.description'] && <RecipeDescription id={post.id}/>}
 
+                    {/* if the post has badge / sponsored link, render it */}
+                    {post.acf['postfieldgroup.badge'] && <Badge id={post.id}/>}
+
+
                     {/* If the post has ingredients, render it */}
                     {post.acf['postfieldgroup.ingredients'] &&
                     <IngredientsTitle>Ingredients <IngredientsIcon src={EasyRecipe}/></IngredientsTitle>}
@@ -238,7 +243,7 @@ const Post = ({state, actions, libraries}) => {
 
             {/* If the post has an excerpt (short summary text), we render it */
             }
-            {
+            {/*
                 post.content && (
                     <PostInner size="thin">
                         <EntryContent>
@@ -246,7 +251,7 @@ const Post = ({state, actions, libraries}) => {
                         </EntryContent>
                     </PostInner>
                 )
-            }
+            */}
         </PostArticle>
     ) : null;
 };
@@ -264,11 +269,12 @@ padding: 8rem 0;
 
 const PostArticle = styled(_Post)`
 padding-top: 0 !important;
+
 `;
 
 const FeaturedImage = styled(FeaturedMedia)`
 margin-top: 0 !important;
-position: relative;
+position: relative;700px
 
 > div {
 position: relative;

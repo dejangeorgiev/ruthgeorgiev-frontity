@@ -3,7 +3,6 @@ import {connect, styled} from "frontity";
 import tw from "tailwind.macro";
 import LunchIcon from "../../global/icons/png/Lunch.png"
 
-
 const RecipeServings = ({state, id}) => {
 
     const post = state.source.post[id];
@@ -12,11 +11,9 @@ const RecipeServings = ({state, id}) => {
 
     return (
         <Serving>
-            <ServingIcon src={LunchIcon} />
+            <ServingIcon src={LunchIcon}/>
+            <ServingValue>{value}</ServingValue>
             <ServingValueTitle>Servings</ServingValueTitle>
-            <ServingValue>
-                {value}
-            </ServingValue>
         </Serving>
     );
 };
