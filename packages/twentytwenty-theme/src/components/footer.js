@@ -4,6 +4,7 @@ import Link from "./link";
 import SectionContainer from "./styles/section-container";
 import tw from "tailwind.macro";
 
+
 // Component that provides scroll to top functionality
 const BackToTop = () => {
     // scroll to top function
@@ -30,27 +31,6 @@ const Footer = ({state}) => {
     return (
 
         <SiteFooter bg={footerBg} role="contentinfo">
-
-            <SiteFooterSubscribe>
-                <SiteFooterSubscribeContainer>
-                    <SiteFooterSubscribeText>
-                        Join 31,000+ other and never miss out on new recipes, videos, tips and more.
-                    </SiteFooterSubscribeText>
-
-                    <SiteFooterSubscribeFormDiv1>
-                        <SiteFooterSubscribeFormDiv2>
-                            <SiteFooterSubscribeFormDiv3>
-                                <SiteFooterSubscribeFormInput
-                                    type='email'
-                                    placeholder='Enter your email'
-                                />
-                                <SiteFooterSubscribeFormButton>subscribe</SiteFooterSubscribeFormButton>
-                            </SiteFooterSubscribeFormDiv3>
-                        </SiteFooterSubscribeFormDiv2>
-                    </SiteFooterSubscribeFormDiv1>
-                </SiteFooterSubscribeContainer>
-            </SiteFooterSubscribe>
-
             <SiteFooterInner>
                 <Credits>
                     <Copyright>
@@ -122,14 +102,4 @@ const PoweredBy = styled.p`
     display: block;
   }
 `;
-
-
-const SiteFooterSubscribe = styled('div')`  ${tw`flex justify-center px-4 text-gray-100 bg-gray-800`}`;
-const SiteFooterSubscribeContainer = styled('div')`  ${tw`py-6`}`;
-const SiteFooterSubscribeText = styled('h2')`  ${tw`text-center font-bold`}`;
-const SiteFooterSubscribeFormDiv1 = styled('div')`  ${tw`flex justify-center mt-6`}`;
-const SiteFooterSubscribeFormDiv2 = styled('div')`  ${tw`bg-white rounded-lg`}`;
-const SiteFooterSubscribeFormDiv3 = styled('div')`  ${tw`flex flex-wrap justify-between`}`;
-const SiteFooterSubscribeFormInput = styled('input')`  ${tw`m-1 p-2 appearance-none rounded-full border-none text-gray-700 outline-none`}`;
-const SiteFooterSubscribeFormButton = styled('button')`  ${tw`w-full m-1 p-2 bg-gray-800 text-gray-100 rounded-lg font-normal uppercase lg:w-auto`}`;
 

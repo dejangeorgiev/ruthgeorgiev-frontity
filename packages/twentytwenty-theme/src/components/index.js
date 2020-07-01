@@ -14,6 +14,7 @@ import MetaTitle from "./page-meta-title";
 import PageError from "./page-error";
 import Page from "./page"
 import FrontPage from "./page/FrontPage";
+import FooterWithLinksAndTags from "./global/footer/FooterWithLinksAndTags";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -64,6 +65,7 @@ const Theme = ({state, libraries}) => {
                 </Main>
             </div>
 
+            <FooterWithLinksAndTags/>
             <Footer/>
         </>
     );
