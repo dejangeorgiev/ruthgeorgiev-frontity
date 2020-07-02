@@ -152,7 +152,6 @@ export const PostInner = styled(SectionContainer)`
 
 export const EntryContent = styled.div`
   line-height: 1.5;
-  max-width: 58rem;
   font-family: "Bw Quinta Pro", Garamond, "Times New Roman", sans-serif;
   letter-spacing: normal;
 

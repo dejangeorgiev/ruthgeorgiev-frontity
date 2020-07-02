@@ -1,4 +1,4 @@
-import {styled, connect,decode} from "frontity";
+import {styled, connect, decode} from "frontity";
 import React, {useEffect} from "react";
 import FeaturedMedia from "../post/featured-media";
 
@@ -26,12 +26,10 @@ const Page = ({state, actions, libraries}) => {
 
     const pageContent = page.acf['contentfieldgroup.content'];
 
-console.log(pageContent)
+    console.log(pageContent)
     // Load the post, but only if the data is ready.
     return data.isReady ? (
         <div>
-            <h1>{page.title.rendered}</h1>
-
             {page.featured_media !== 0 && (
                 <FeaturedImage id={page.featured_media}/>
             )}
@@ -59,21 +57,36 @@ console.log(pageContent)
                     if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.text') {
                         return <div key={key}>
                             <h1>{pageContent[key]['contentfieldgroup.content.text.title']}</h1>
-                            <Html2React html={pageContent[key]['contentfieldgroup.content.text.text']} />
-                            </div>
+                            <Html2React html={pageContent[key]['contentfieldgroup.content.text.text']}/>
+                        </div>
 
                     }
 
 
-
                 })}
 
-
+            {
+                page.content && (
+                    <PostInner size="medium">
+                    <EntryContent>
+                        <Html2React html={page.content.rendered}/>
+                    </EntryContent>
+                    </PostInner>
+                )
+            }
         </div>
     ) : null;
 };
 
 export default connect(Page);
+
+const maxWidths = {
+    thin: "58rem",
+    small: "80rem",
+    medium: "100rem",
+};
+
+const getMaxWidth = (props) => maxWidths[props.size] || maxWidths["medium"];
 
 const FeaturedImage = styled(FeaturedMedia)`
 margin-top: 0 !important;
@@ -93,4 +106,39 @@ left: 0;
 right: 0;
 top: 0;
 }
+`;
+
+const SectionContainer = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(100% - 4rem);
+  max-width: ${getMaxWidth};
+
+  @media (min-width: 700px) {
+    width: calc(100% - 8rem);
+  }
+`;
+
+const PostInner = styled(SectionContainer)`
+  padding-top: 5rem;
+  @media (min-width: 700px) {
+    padding-top: 8rem;
+  }
+`;
+
+const EntryContent = styled.div`
+  line-height: 1.5;
+  letter-spacing: normal;
+  @media (min-width: 700px) {
+    font-size: 2.1rem;
+  }
+
+  > *:first-of-type {
+    margin-top: 0;
+  }
+
+  figure {
+    margin: 2em 0;
+    max-width: 100%;
+  }
 `;

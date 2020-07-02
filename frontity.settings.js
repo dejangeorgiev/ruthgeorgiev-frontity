@@ -2,7 +2,7 @@ const settings = {
     name: "rg-frontity",
     state: {
         frontity: {
-            url: "https://admin.ruthgeorgiev.com",
+            url: "https://ruthgeorgiev.com",
             title: "Ruth Georgiev",
             description: "Cooking with love & travelling with passion"
         },

@@ -39,7 +39,7 @@ const FooterWithLinksAndTags = ({actions}) => {
                 </FooterSingleSection>
                 <FooterSingleSection>
                     <SectionTitle>Support</SectionTitle>
-                    <FooterLink href="/#">Privacy Policy</FooterLink>
+                    <FooterLink href="/privacy-policy">Privacy Policy</FooterLink>
                     <FooterLink href="/contact">Contact</FooterLink>
                 </FooterSingleSection>
                 <FooterSingleSection>

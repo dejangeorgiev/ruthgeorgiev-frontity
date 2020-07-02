@@ -76,6 +76,8 @@ const Post = ({state, actions, libraries}) => {
     // Get all cuisine
     const allCuisine = state.source.cuisine;
 
+    console.log(post)
+
     /**
      * The item's cuisine is an array of each cuisine id
      * So, we'll look up the details of each cuisine in allCuisine
@@ -217,6 +219,19 @@ const Post = ({state, actions, libraries}) => {
 
                     {/* <Comments id={post.id}/> */}
 
+
+                    {/* If the post has an excerpt (short summary text), we render it */
+                    }
+                    {
+                        post.content && (
+                            <PostInner size="medium">
+                                <EntryContent>
+                                    <Html2React html={post.content.rendered}/>
+                                </EntryContent>
+                            </PostInner>
+                        )
+                    }
+
                     <SocialMediaShareButtons
                         url={postUrl}
                         media={media.source_url}
@@ -232,7 +247,7 @@ const Post = ({state, actions, libraries}) => {
 
 
             {/* Render recommended posts */}
-            <RecommendedPostsTitle>Read next <HigLightedText>recommended recipes</HigLightedText></RecommendedPostsTitle>
+            <RecommendedPostsTitle>Read next <HigLightedText>newest recipes</HigLightedText></RecommendedPostsTitle>
             { <RecommendedPosts />}
 
             {/*
@@ -240,18 +255,6 @@ const Post = ({state, actions, libraries}) => {
        * list of featured posts, we render the media.
        */
             }
-
-            {/* If the post has an excerpt (short summary text), we render it */
-            }
-            {/*
-                post.content && (
-                    <PostInner size="thin">
-                        <EntryContent>
-                            <Html2React html={post.content.rendered}/>
-                        </EntryContent>
-                    </PostInner>
-                )
-            */}
         </PostArticle>
     ) : null;
 };

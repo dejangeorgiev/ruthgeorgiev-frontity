@@ -42,9 +42,14 @@ const PostItemPreview = ({state, item, libraries, showExcerpt, showMedia = true,
                * list of featured posts, we render the media.
             */}
             {state.theme.featuredMedia.showOnArchive && showMedia && (
+
+
                 <FeaturedMediaContainer>
-                    <FeaturedMediaImage id={item.featured_media}/>
+                    <PostLink link={item.link}>
+                        <FeaturedMediaImage id={item.featured_media}/>
+                    </PostLink>
                 </FeaturedMediaContainer>
+
             )}
 
             <PostHeader>
@@ -65,9 +70,12 @@ const PostItemPreview = ({state, item, libraries, showExcerpt, showMedia = true,
                         <PostInner size="thin">
                             {/* TODO: Change this to HTML2React */}
                             {/* dangerouslySetInnerHTML={{ __html: content.rendered }} */}
-                            <EntryContent>
-                                <Html2React html={content.rendered}/>
-                            </EntryContent>
+
+                            <PostLink link={item.link}>
+                                <EntryContent>
+                                    <Html2React html={content.rendered}/>
+                                </EntryContent>
+                            </PostLink>
 
                             {/* If the post has tags, render it */}
                             {item.tags && <PostTags tags={tags}/>}
