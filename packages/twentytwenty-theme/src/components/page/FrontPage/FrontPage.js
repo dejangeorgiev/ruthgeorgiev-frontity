@@ -28,7 +28,7 @@ const FrontPage = ({state, actions, libraries}) => {
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent:'center',
+        justifyContent: 'center',
         alignItems: 'center'
     };
 
@@ -39,7 +39,7 @@ const FrontPage = ({state, actions, libraries}) => {
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent:'center',
+        justifyContent: 'center',
         alignItems: 'center'
     };
 
@@ -50,19 +50,10 @@ const FrontPage = ({state, actions, libraries}) => {
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent:'center',
+        justifyContent: 'center',
         alignItems: 'center'
     };
-    const FourthSlideStyles = {
-        backgroundImage: `url(https://admin.ruthgeorgiev.com/wp-content/uploads/2020/05/ovo-vegetarian-diet-scaled.jpg)`,
-        backgroundSize: 'cover',
-        width: '100%',
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent:'center',
-        alignItems: 'center'
-    };
+
 
     /**
      * Once the post has loaded in the DOM, prefetch both the
@@ -76,6 +67,12 @@ const FrontPage = ({state, actions, libraries}) => {
     // Load the post, but only if the data is ready.
     return data.isReady ? (
         <FrontPageContainer>
+            <HomeTeaser>
+                <h1>Best Cooking Recipes</h1>
+                <h2>How to improve cooking skills</h2>
+                <p>A collection of cooking recipes, vegan, vegetarian, healthy tips, Asian, European...</p>
+                <SlideContentButton link='/recipes'>Go to the recipes</SlideContentButton>
+            </HomeTeaser>
             <HomeCarousel
                 renderArrow={arrow}
                 focusOnSelect={true}
@@ -93,40 +90,10 @@ const FrontPage = ({state, actions, libraries}) => {
                 tiltEasing="cubic-bezier(0.110, 1, 1.000, 0.210)"
                 transitionMs={700}
             >
-                <FirstSlide style={FirstSlideStyles}>
-                    <SlideContent>
-                        <SlideContentTitle>Recipes</SlideContentTitle>
-                        <SlideContentText>A variety of recipes, vegan, vegetarian, healthy, Asian, European...</SlideContentText>
-                        <SlideContentButton link='/recipes'>go to the recipes</SlideContentButton>
-                    </SlideContent>
-                </FirstSlide>
-
-                <SecondSlide style={SecondSlideStyles}>
-                    <SlideContent>
-                        <SlideContentTitle>Travel</SlideContentTitle>
-                        <SlideContentText>A variety of travel tips, from Asia till Europe...</SlideContentText>
-                        <SlideContentButton link='/recipes'>Button</SlideContentButton>
-                    </SlideContent>
-                </SecondSlide>
-
-                <ThirdSlide style={ThirdSlideStyles}>
-                    <SlideContent>
-                        <SlideContentTitle>Gardening</SlideContentTitle>
-                        <SlideContentText>A variety of Gardening tips, from plants till foods...</SlideContentText>
-                        <SlideContentButton link='/recipes'>Button</SlideContentButton>
-                    </SlideContent>
-                </ThirdSlide>
-
-                <FourthSlide style={FourthSlideStyles}>
-                    <SlideContent>
-                        <SlideContentTitle>Gardening</SlideContentTitle>
-                        <SlideContentText>A variety of Gardening tips, from plants till foods...</SlideContentText>
-                        <SlideContentButton link='/recipes'>Button</SlideContentButton>
-                    </SlideContent>
-                </FourthSlide>
+                <FirstSlide style={FirstSlideStyles}/>
+                <SecondSlide style={SecondSlideStyles}/>
+                <ThirdSlide style={ThirdSlideStyles}/>
             </HomeCarousel>
-
-
         </FrontPageContainer>
     ) : null;
 };
@@ -149,9 +116,6 @@ const NextButton = styled('button')` ${tw`bg-transparent hover:cursor-pointer ou
 const FirstSlide = styled('div')` ${tw`bg-grey-200 bg-no-repeat bg-cover bg-center w-full h-screen`}`;
 const SecondSlide = styled('div')` ${tw`bg-green-400 bg-no-repeat bg-cover bg-center w-full h-screen`}`;
 const ThirdSlide = styled('div')` ${tw`bg-red-200 bg-no-repeat bg-cover bg-center w-full h-screen`}`;
-const FourthSlide = styled('div')` ${tw`bg-red-200 bg-no-repeat bg-cover bg-center w-full h-screen`}`;
 
-const SlideContent = styled('div')` ${tw`bg-gray-100 fixed px-10 shadow-2xl rounded sm:bottom-auto`}`;
-const SlideContentTitle = styled('h1')` ${tw`font-normal m-0 pt-6 text-8xl`}`;
-const SlideContentText = styled('p')` ${tw`font-normal pb-8 m-0`}`;
-const SlideContentButton = styled(Link)` ${tw`border-b-2 border-gray-600 m-0 p-0`}`;
+const SlideContentButton = styled(Link)` ${tw`border-b-2 border-gray-600 underline m-0 p-0`}`;
+const HomeTeaser = styled('div')` ${tw`absolute bg-gray-200 bottom-0 text-center p-5 right-0 left-0 m-auto z-10`}`;

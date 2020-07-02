@@ -8,6 +8,9 @@ const settings = {
         },
         newsletter: {
             slot: 'above-the-footer'
+        },
+        sitemap:{
+            origin:"https://admin.ruthgeorgiev.com"
         }
     },
     packages: [

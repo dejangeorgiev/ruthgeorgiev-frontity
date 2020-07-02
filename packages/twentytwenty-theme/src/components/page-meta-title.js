@@ -37,9 +37,9 @@ const Title = ({state}) => {
 
     return (
         <Head>
-            <title>{title}</title>
+            <title>{title} - The Best Cooking Recipes, healthy foods & tips</title>
             <meta name="description"
-                  content="Welcome to my Ruth's Blog. Here we will serve you with a collection of popular cooking recipes recipes, videos, travel tips, and how-tos."/>
+                  content="Welcome to my kitchen. Here we will serve you with a collection of the best cooking recipes, healthy tips, great foods, and how to improve your cooking skills."/>
             <meta property="og:title" content="The Rock"/>
             <meta property="og:type" content="video.movie"/>
             <meta property="og:url" content="https://ruthgeorgiev.com"/>
