@@ -4,7 +4,7 @@ const settings = {
         frontity: {
             url: "https://ruthgeorgiev.com",
             title: "Ruth Georgiev",
-            description: "Cooking with love & travelling with passion"
+            description: "Cooking with love. Here we will serve you with a collection of the best cooking recipes, healthy tips, great foods, and how to improve your cooking skills"
         },
         newsletter: {
             slot: 'above-the-footer'

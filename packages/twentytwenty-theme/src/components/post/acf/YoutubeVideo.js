@@ -10,10 +10,11 @@ const YoutubeVideo = ({videoId}) => {
         width: '640',
     };
 
+
     return (
         <Video>
             <YouTube
-                videoId={videoId}
+                videoId={videoId} opts={opts}
             />
         </Video>
 
@@ -22,6 +23,7 @@ const YoutubeVideo = ({videoId}) => {
 };
 
 export default connect(YoutubeVideo);
+
 
 
 const Video = styled('div')` ${tw`flex justify-center`}`;

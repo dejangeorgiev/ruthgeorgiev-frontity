@@ -23,10 +23,8 @@ const Page = ({state, actions, libraries}) => {
         actions.source.fetch("/");
     }, []);
 
-
     const pageContent = page.acf['contentfieldgroup.content'];
 
-    console.log(pageContent)
     // Load the post, but only if the data is ready.
     return data.isReady ? (
         <div>
@@ -59,9 +57,7 @@ const Page = ({state, actions, libraries}) => {
                             <h1>{pageContent[key]['contentfieldgroup.content.text.title']}</h1>
                             <Html2React html={pageContent[key]['contentfieldgroup.content.text.text']}/>
                         </div>
-
                     }
-
 
                 })}
 

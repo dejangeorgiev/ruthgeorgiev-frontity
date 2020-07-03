@@ -76,8 +76,6 @@ const Post = ({state, actions, libraries}) => {
     // Get all cuisine
     const allCuisine = state.source.cuisine;
 
-    console.log(post)
-
     /**
      * The item's cuisine is an array of each cuisine id
      * So, we'll look up the details of each cuisine in allCuisine
@@ -132,7 +130,7 @@ const Post = ({state, actions, libraries}) => {
                     <PostTitle
                         as="h1"
                         className="heading-size-1"
-                        dangerouslySetInnerHTML={{__html: post.title.rendered}}
+                        dangerouslySetIfnnerHTML={{__html: post.title.rendered}}
                     />
 
                     {/* The post's metadata like author, publish date, and comments */}
@@ -213,7 +211,7 @@ const Post = ({state, actions, libraries}) => {
 
                     {/* if the post has a YouTube video, render it */}
                     {post.acf['postfieldgroup.video'] &&
-                    <RecipeYoutubeVideoTitle>Explained on YouTube <YouTubeIcon/>
+                    <RecipeYoutubeVideoTitle>Watch how i make it <YouTubeIcon/>
                     </RecipeYoutubeVideoTitle>}
                     {post.acf['postfieldgroup.video'] && <YoutubeVideo videoId={post.acf['postfieldgroup.video']}/>}
 
@@ -296,12 +294,12 @@ top: 0;
 `;
 
 
-const IngredientsTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
-const EquipmentTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
-const RecipeDescriptionTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
-const RecipeTipsTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
-const RecipeYoutubeVideoTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2`}`;
-const RecommendedPostsTitle = styled('h2')` ${tw`text-gray-800 text-center py-6 px-2`}`;
+const IngredientsTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6 px-2 uppercase`}`;
+const EquipmentTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6 px-2 uppercase`}`;
+const RecipeDescriptionTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6 px-2 uppercase`}`;
+const RecipeTipsTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2 font-normal uppercase`}`;
+const RecipeYoutubeVideoTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6 px-2 uppercase`}`;
+const RecommendedPostsTitle = styled('h2')` ${tw`text-gray-800 font-normal text-center py-6 px-2 uppercase`}`;
 
 const PostTaxonomies = styled('div')` ${tw`flex content-start text-left sm:flex-wrap flex-wrap h-30 bg-gray-200 my-10 p-10`}`;
 const CuisineTaxonomy = styled('div')` ${tw`w-full p-1`}`;

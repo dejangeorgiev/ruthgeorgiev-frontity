@@ -39,7 +39,7 @@ const Header = ({state}) => {
                                     <SiteTitle>
                                         <StyledLink link="/">{title}</StyledLink>
                                     </SiteTitle>
-                                    <SiteDescription>{description}</SiteDescription>
+                                    <SiteDescription>Cooking with love & travelling with passion</SiteDescription>
                                 </TitleGroup>
 
                                 {/* Mobile menu button and modal */}
