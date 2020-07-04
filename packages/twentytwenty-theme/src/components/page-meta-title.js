@@ -8,11 +8,9 @@ const Title = ({state, actions}) => {
     let title = state.frontity.title;
     // Set the default description.
     let description = state.frontity.description;
-    
-
 
     if (data.isTaxonomy) {
-        // Add titles to taxonomies, like "Category: Nature - Blog Name" or "Tag: Japan - Blog Name".
+        // Add titles to taxonomies, like "Category: Italian - Blog Name" or "Tag: Asian - Blog Name".
         // 1. Get the taxonomy entity from the state to get its taxonomy term and name.
         const {taxonomy, name} = state.source[data.taxonomy][data.id];
         // 2. Uppercase first letter of the taxonomy term (from "category" to "Category").
@@ -36,8 +34,6 @@ const Title = ({state, actions}) => {
         // 3. Render the proper title.
         title = `${cleanTitle} - ${state.frontity.title}`;
 
-        const YoastHead = state.source[data.type][data.id].yoast_head;
-
     } else if (data.is404) {
         // Add titles to 404's.
         title = `404 Not Found - ${state.frontity.title}`;
@@ -45,6 +41,7 @@ const Title = ({state, actions}) => {
 
     return (
         <Head>
+
             <title>{title} - The Best Cooking Recipes & healthy tips</title>
             <meta name="description"
                   content={description}/>

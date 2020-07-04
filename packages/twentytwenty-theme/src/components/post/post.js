@@ -6,7 +6,6 @@ import {
     Post as _Post,
     PostHeader,
     PostInner,
-    PostTitle,
     SectionContainer,
 } from "./post-item";
 import PostCategories from "./post-categories";
@@ -46,10 +45,10 @@ const Post = ({state, actions, libraries}) => {
     // Get the data of the post.
     const post = state.source[data.type][data.id];
 
-    const postUrl = 'https://ruthgeorgiev.com' + state.router.link;
+    const postUrl = state.frontity.url + state.router.link;
 
     const media = state.source.attachment[post.featured_media];
-
+    
     // Get the data of the author.
     // const author = state.source.author[post.author];
     // Get a human readable date.
@@ -127,11 +126,8 @@ const Post = ({state, actions, libraries}) => {
                     {/* If the post has categories, render the categories */}
                     {post.categories && <PostCategories categories={categories}/>}
 
-                    <PostTitle
-                        as="h1"
-                        className="heading-size-1"
-                        dangerouslySetIfnnerHTML={{__html: post.title.rendered}}
-                    />
+
+                    <PostTitle className="heading-size-1">{post.title.rendered}</PostTitle>
 
                     {/* The post's metadata like author, publish date, and comments */}
                     <PostMeta item={post}/>
@@ -153,7 +149,6 @@ const Post = ({state, actions, libraries}) => {
 
                     {/* if the post has servings, render it */}
                     {post.acf['postfieldgroup.servings'] && <RecipeServings id={post.id}/>}
-
 
 
                     <PostTaxonomies>
@@ -246,7 +241,7 @@ const Post = ({state, actions, libraries}) => {
 
             {/* Render recommended posts */}
             <RecommendedPostsTitle>Read next <HigLightedText>newest recipes</HigLightedText></RecommendedPostsTitle>
-            { <RecommendedPosts />}
+            {<RecommendedPosts/>}
 
             {/*
        * If the want to show featured media in the
@@ -293,6 +288,7 @@ top: 0;
 }
 `;
 
+const PostTitle = styled('h1')` ${tw`text-6xl sm:text-8xl `}`;
 
 const IngredientsTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6 px-2 uppercase`}`;
 const EquipmentTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6 px-2 uppercase`}`;
@@ -311,5 +307,4 @@ const EquipmentIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;
 const DescriptionIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;
 const RecipeTipsIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;
 const HigLightedText = styled('span')` ${tw`bg-gray-200 font-normal px-5 rounded-full`}`;
-
 
