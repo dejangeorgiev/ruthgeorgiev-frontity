@@ -5,6 +5,7 @@ import frontity__google_analytics_default from "@frontity/google-analytics/src/i
 import frontity__google_tag_manager_default from "@frontity/google-tag-manager/src/index";
 import frontity__tiny_router_default from "@frontity/tiny-router/src/index";
 import frontity__html2react_default from "@frontity/html2react/src/index";
+import frontity__head_tags_default from "@frontity/head-tags/src/index";
 
 const packages = {
   frontity__twentytwenty_theme_default,
@@ -13,6 +14,7 @@ const packages = {
   frontity__google_tag_manager_default,
   frontity__tiny_router_default,
   frontity__html2react_default,
+  frontity__head_tags_default,
 };
 
 export default client({ packages });
@@ -27,6 +29,7 @@ if (module["hot"]) {
       "@frontity/google-tag-manager/src/index",
       "@frontity/tiny-router/src/index",
       "@frontity/html2react/src/index",
+      "@frontity/head-tags/src/index",
     ],
     () => {
       const client = require("@frontity/core/src/client").default;
@@ -36,6 +39,7 @@ if (module["hot"]) {
       const frontity__google_tag_manager_default = require("@frontity/google-tag-manager/src/index").default;
       const frontity__tiny_router_default = require("@frontity/tiny-router/src/index").default;
       const frontity__html2react_default = require("@frontity/html2react/src/index").default;
+      const frontity__head_tags_default = require("@frontity/head-tags/src/index").default;
       const packages = {
         frontity__twentytwenty_theme_default,
         frontity__wp_source_default,
@@ -43,6 +47,7 @@ if (module["hot"]) {
         frontity__google_tag_manager_default,
         frontity__tiny_router_default,
         frontity__html2react_default,
+        frontity__head_tags_default,
       };
       client({ packages });
     }

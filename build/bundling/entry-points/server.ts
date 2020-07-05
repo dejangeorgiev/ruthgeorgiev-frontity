@@ -5,6 +5,7 @@ import frontity__google_analytics_default from "@frontity/google-analytics/src/i
 import frontity__google_tag_manager_default from "@frontity/google-tag-manager/src/index";
 import frontity__tiny_router_default from "@frontity/tiny-router/src/index";
 import frontity__html2react_default from "@frontity/html2react/src/index";
+import frontity__head_tags_default from "@frontity/head-tags/src/index";
 
 const packages = {
   frontity__twentytwenty_theme_default,
@@ -13,6 +14,7 @@ const packages = {
   frontity__google_tag_manager_default,
   frontity__tiny_router_default,
   frontity__html2react_default,
+  frontity__head_tags_default,
 };
 
 export default server({ packages });

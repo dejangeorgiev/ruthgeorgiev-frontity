@@ -35,11 +35,8 @@ const Theme = ({state, libraries}) => {
             <FontFaces/>
 
             {/* Add some metatags to the <head> of the HTML. */}
+
             <MetaTitle/>
-            <Head>
-                <meta name="description" content={state.frontity.description}/>
-                <html lang="en"/>
-            </Head>
 
             {/* Accessibility: Provides ability to skip to main content */}
             <SkipLink as="a" href="#main">
