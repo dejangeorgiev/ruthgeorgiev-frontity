@@ -169,6 +169,7 @@ const Post = ({state, actions, libraries}) => {
                             {post.meals && <Meals meals={meals}/>}
                         </MealsTaxonomy>
                     </PostTaxonomies>
+                    
                     {state.theme.featuredMedia.showOnPost && (
                         <FeaturedImage id={post.featured_media} isSinglePost={true}/>
                     )}

@@ -38,8 +38,7 @@ const FeaturedMedia = ({state, id, className}) => {
 export default connect(FeaturedMedia);
 
 const Figure = styled.figure`
-  position: relative;
-  min-height: 300px;
+  position: relative;EntryCategories
 `;
 
 const SectionImageContainer = styled(SectionContainer)`

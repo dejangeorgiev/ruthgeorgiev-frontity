@@ -64,6 +64,8 @@ const Theme = ({state, libraries}) => {
 
             <FooterWithLinksAndTags/>
             <Footer/>
+
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5efe5d0b5b7db3bf" />
         </>
     );
 };

@@ -58,7 +58,7 @@ export default connect(FooterWithLinksAndTags);
 
 const FooterContainer = styled('div')`  ${tw`bg-gray-100`}`;
 const FooterInner = styled('div')`  ${tw`m-auto text-gray-800 flex flex-wrap justify-start lg:justify-center`}`;
-const FooterSingleSection = styled('div')`  ${tw`p-20`}`;
+const FooterSingleSection = styled('div')`  ${tw`px-10 py-5 sm:px-20 sm:py-20`}`;
 const SectionTitle = styled('div')`  ${tw`uppercase text-gray-500 font-medium`}`;
 const FooterLink = styled('a')`  ${tw`my-3 block hover:underline`}`;
 const FooterLinkTag = styled('span')`  ${tw`text-teal-600 p-1`}`;

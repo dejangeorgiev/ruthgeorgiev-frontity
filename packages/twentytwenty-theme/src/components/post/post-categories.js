@@ -31,10 +31,7 @@ export default connect(PostCategories);
 const EntryCategories = styled.div`
   line-height: 1.25;
   margin-bottom: 2rem;
-
-  @media (min-width: 700px) {
-    margin-bottom: 3rem;
-  }
+  margin-top: 2rem;
 `;
 
 const EntryCategoriesInner = styled.div`

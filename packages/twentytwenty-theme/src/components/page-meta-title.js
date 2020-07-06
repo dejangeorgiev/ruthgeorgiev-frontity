@@ -43,15 +43,7 @@ const Title = ({state, actions}) => {
         <Head>
 
             <title>{title} - The Best Cooking Recipes & healthy tips</title>
-            <meta name="description"
-                  content={description}/>
-            <meta property="og:title" content="The Rock"/>
-            <meta property="og:type" content="video.movie"/>
-            <meta property="og:url" content="https://ruthgeorgiev.com"/>
-            <meta property="og:image"
-                  content="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/05/ruth-georgiev-kitchen.jpg"/>
-            <link rel="shortcut icon" type="image/x-icon"
-                  href="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/07/rg_logo.png"/>
+
         </Head>
     );
 };
