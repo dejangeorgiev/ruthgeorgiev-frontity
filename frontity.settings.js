@@ -45,7 +45,7 @@ const settings = {
             },
         },
         {
-            name: "@frontity/google-tag-manager",
+            name: "@frontity/google-tag-manager-analytics",
             state: {
                 googleTagManager: {
                     containerId: 'GTM-NBGPD9N'
