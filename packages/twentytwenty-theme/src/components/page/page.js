@@ -32,6 +32,16 @@ const Page = ({state, actions, libraries}) => {
                 <FeaturedImage id={page.featured_media}/>
             )}
 
+            {
+                page.content && (
+                    <PostInner size="medium">
+                        <EntryContent>
+                            <Html2React html={page.content.rendered}/>
+                        </EntryContent>
+                    </PostInner>
+                )
+            }
+
             {Object.keys(pageContent)
                 .map(function (key, i) {
 
@@ -60,16 +70,6 @@ const Page = ({state, actions, libraries}) => {
                     }
 
                 })}
-
-            {
-                page.content && (
-                    <PostInner size="medium">
-                    <EntryContent>
-                        <Html2React html={page.content.rendered}/>
-                    </EntryContent>
-                    </PostInner>
-                )
-            }
         </div>
     ) : null;
 };

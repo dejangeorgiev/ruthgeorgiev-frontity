@@ -63,7 +63,7 @@ const Post = ({state, actions, libraries}) => {
      * So, we'll look up the details of each category in allCategories
      */
     const categories = post.categories && post.categories.map((catId) => allCategories[catId]);
-
+console.log(post)
     // Get all tags
     const allTags = state.source.tag;
     /**
@@ -169,7 +169,7 @@ const Post = ({state, actions, libraries}) => {
                             {post.meals && <Meals meals={meals}/>}
                         </MealsTaxonomy>
                     </PostTaxonomies>
-                    
+
                     {state.theme.featuredMedia.showOnPost && (
                         <FeaturedImage id={post.featured_media} isSinglePost={true}/>
                     )}
