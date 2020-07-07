@@ -1,10 +1,9 @@
 import {styled, connect} from "frontity";
 import React, {useEffect} from "react";
 import tw from "tailwind.macro";
-import Carousel, {consts} from 'react-elastic-carousel'
 
 
-const PageCarousel = ({state, actions, libraries}) => {
+const PageAccordion = ({state, actions, libraries}) => {
 
     /**
      * Once the post has loaded in the DOM, prefetch both the
@@ -32,17 +31,9 @@ const PageCarousel = ({state, actions, libraries}) => {
     ) : null;
 };
 
-export default connect(PageCarousel);
+export default connect(PageAccordion);
 
-export function arrow({type, onClick, isEdge}) {
-    return type === consts.PREV ? (
-        <ButtonLeft onClick={onClick} disabled={isEdge}>
-            <ButtonLeftSpan>&#x279c;</ButtonLeftSpan>
-        </ButtonLeft>
-    ) : <ButtonRight onClick={onClick} disabled={isEdge}>
-        <ButtonRightSpan>&#x279c;</ButtonRightSpan>
-    </ButtonRight>
-}
+
 
 const CarouselContainer = styled('div')` ${tw`m-10 mx-auto p-16 sm:p-24 lg:p-48 bg-gray-200`}`;
 

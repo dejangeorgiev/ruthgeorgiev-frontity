@@ -43,7 +43,9 @@ const Title = ({state, actions}) => {
         <Head>
 
             <title>{title} - The Best Cooking Recipes & healthy tips</title>
-
+            <link rel="shortcut icon" type="image/x-icon" href="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/07/rg_logo.png"/>
+            <link rel="shortcut icon" type="image/x-icon"
+                  href="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/07/rg_logo.png"/>
         </Head>
     );
 };

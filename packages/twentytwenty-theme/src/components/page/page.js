@@ -1,9 +1,8 @@
 import {styled, connect, decode} from "frontity";
 import React, {useEffect} from "react";
 import FeaturedMedia from "../post/featured-media";
-
 import PageCarousel from "./acf/Content/Carousel/PageCarousel";
-
+import Text from "./acf/Content/Text"
 
 const Page = ({state, actions, libraries}) => {
     // Get information about the current URL.
@@ -32,16 +31,6 @@ const Page = ({state, actions, libraries}) => {
                 <FeaturedImage id={page.featured_media}/>
             )}
 
-            {
-                page.content && (
-                    <PostInner size="medium">
-                        <EntryContent>
-                            <Html2React html={page.content.rendered}/>
-                        </EntryContent>
-                    </PostInner>
-                )
-            }
-
             {Object.keys(pageContent)
                 .map(function (key, i) {
 
@@ -63,13 +52,24 @@ const Page = ({state, actions, libraries}) => {
                     }
 
                     if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.text') {
-                        return <div key={key}>
-                            <h1>{pageContent[key]['contentfieldgroup.content.text.title']}</h1>
-                            <Html2React html={pageContent[key]['contentfieldgroup.content.text.text']}/>
-                        </div>
+                        return <Text key={key}
+                                title={pageContent[key]['contentfieldgroup.content.text.title']}
+                                     text={pageContent[key]['contentfieldgroup.content.text.text']}
+                        />
+                        
                     }
 
                 })}
+
+            {
+                page.content && (
+                    <PostInner size="medium">
+                        <EntryContent>
+                            <Html2React html={page.content.rendered}/>
+                        </EntryContent>
+                    </PostInner>
+                )
+            }
         </div>
     ) : null;
 };

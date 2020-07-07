@@ -10,7 +10,7 @@ import Loading from "./loading";
 import Post from "./post";
 import SearchResults from "./search/search-results";
 import SkipLink from "./styles/skip-link";
-import MetaTitle from "./page-meta-title";
+import Title from "./page-meta-title";
 import PageError from "./page-error";
 import Page from "./page"
 import FrontPage from "./page/FrontPage";
@@ -36,7 +36,7 @@ const Theme = ({state, libraries}) => {
 
             {/* Add some metatags to the <head> of the HTML. */}
 
-            <MetaTitle/>
+            <Title/>
 
             {/* Accessibility: Provides ability to skip to main content */}
             <SkipLink as="a" href="#main">
@@ -61,7 +61,6 @@ const Theme = ({state, libraries}) => {
                     </Switch>
                 </Main>
             </div>
-
             <FooterWithLinksAndTags/>
             <Footer/>
         </>

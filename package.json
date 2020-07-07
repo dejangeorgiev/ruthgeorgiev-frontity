@@ -17,7 +17,7 @@
     "@babel/types": "^7.9.5",
     "@frontity/analytics": "^1.2.0",
     "@frontity/connect": "^1.0.5",
-    "@frontity/core": "^1.5.2",
+    "@frontity/core": "^1.7.2",
     "@frontity/google-analytics": "^1.2.0",
     "@frontity/google-tag-manager-analytics": "^1.0.0",
     "@frontity/head-tags": "^1.0.4",
