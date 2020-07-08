@@ -3,6 +3,7 @@ import React, {useEffect} from "react";
 import FeaturedMedia from "../post/featured-media";
 import PageCarousel from "./acf/Content/Carousel/PageCarousel";
 import Text from "./acf/Content/Text"
+import Card from "./acf/Content/Card"
 
 const Page = ({state, actions, libraries}) => {
     // Get information about the current URL.
@@ -23,7 +24,6 @@ const Page = ({state, actions, libraries}) => {
     }, []);
 
     const pageContent = page.acf['contentfieldgroup.content'];
-
     // Load the post, but only if the data is ready.
     return data.isReady ? (
         <div>
@@ -56,7 +56,20 @@ const Page = ({state, actions, libraries}) => {
                                 title={pageContent[key]['contentfieldgroup.content.text.title']}
                                      text={pageContent[key]['contentfieldgroup.content.text.text']}
                         />
-                        
+
+                    }
+
+                    if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.card') {
+
+
+                        return <Card key={key}
+                                     name={pageContent[key]['contentfieldgroup.content.card.name']}
+                                     description={pageContent[key]['contentfieldgroup.content.card.description']}
+                                     highlightedText={pageContent[key]['contentfieldgroup.content.card.highlighted_text']}
+                                     imageID={pageContent[key]['contentfieldgroup.content.card.image'].ID}
+                                     url={pageContent[key]['contentfieldgroup.content.card.url']}
+                        />
+
                     }
 
                 })}

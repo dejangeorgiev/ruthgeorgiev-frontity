@@ -25,7 +25,7 @@ const FrontPage = ({state, actions, libraries}) => {
         backgroundImage: `url(https://admin.ruthgeorgiev.com/wp-content/uploads/2020/06/food-scaled.jpg)`,
         backgroundSize: 'cover',
         width: '100%',
-        height: '100vh',
+        height: '50vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -36,7 +36,7 @@ const FrontPage = ({state, actions, libraries}) => {
         backgroundImage: `url(https://admin.ruthgeorgiev.com/wp-content/uploads/2020/06/brekkie-scaled.jpg)`,
         backgroundSize: 'cover',
         width: '100%',
-        height: '100vh',
+        height: '50vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -47,7 +47,7 @@ const FrontPage = ({state, actions, libraries}) => {
         backgroundImage: `url(https://admin.ruthgeorgiev.com/wp-content/uploads/2020/06/brunch-scaled.jpg)`,
         backgroundSize: 'cover',
         width: '100%',
-        height: '100vh',
+        height: '50vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -67,12 +67,6 @@ const FrontPage = ({state, actions, libraries}) => {
     // Load the post, but only if the data is ready.
     return data.isReady ? (
         <FrontPageContainer>
-            <HomeTeaser>
-                <h1>Best Cooking Recipes</h1>
-                <h2>How to improve cooking skills</h2>
-                <p>A collection of cooking recipes, vegan, vegetarian, healthy tips, Asian, European...</p>
-                <SlideContentButton link='/recipes'>Go to the recipes</SlideContentButton>
-            </HomeTeaser>
             <HomeCarousel
                 renderArrow={arrow}
                 focusOnSelect={true}
@@ -94,6 +88,12 @@ const FrontPage = ({state, actions, libraries}) => {
                 <SecondSlide style={SecondSlideStyles}/>
                 <ThirdSlide style={ThirdSlideStyles}/>
             </HomeCarousel>
+            <HomeTeaser>
+                <h1>Best Cooking Recipes</h1>
+                <h2>How to improve cooking skills</h2>
+                <p>A collection of cooking recipes, vegan, vegetarian, healthy tips, Asian, European...</p>
+                <SlideContentButton link='/recipes'>Go to the recipes</SlideContentButton>
+            </HomeTeaser>
         </FrontPageContainer>
     ) : null;
 };
@@ -106,16 +106,12 @@ export function arrow({type, onClick, isEdge}) {
     ) : <NextButton onClick={onClick} disabled={isEdge}><ArrowRight/></NextButton>
 }
 
-const FrontPageContainer = styled('div')` ${tw`flex flex-wrap outline-none fixed w-full top-0 h-full min-h-full`}`;
-
-const HomeCarousel = styled(Carousel)` ${tw`p-0 m-0 relative w-full h-full min-h-full outline-none`}`;
-
-const PrevButton = styled('button')` ${tw`bg-transparent hover:cursor-pointer outline-none fixed left-0 z-10 mx-auto top-0 bottom-0`}`;
-const NextButton = styled('button')` ${tw`bg-transparent hover:cursor-pointer outline-none fixed right-0 z-10 mx-auto top-0 bottom-0`}`;
-
-const FirstSlide = styled('div')` ${tw`bg-grey-200 bg-no-repeat bg-cover bg-center w-full h-screen`}`;
-const SecondSlide = styled('div')` ${tw`bg-green-400 bg-no-repeat bg-cover bg-center w-full h-screen`}`;
-const ThirdSlide = styled('div')` ${tw`bg-red-200 bg-no-repeat bg-cover bg-center w-full h-screen`}`;
-
-const SlideContentButton = styled(Link)` ${tw`border-b-2 border-gray-600 underline m-0 p-0`}`;
-const HomeTeaser = styled('div')` ${tw`absolute bg-gray-200 bottom-0 text-center p-5 right-0 left-0 m-auto z-10`}`;
+const FrontPageContainer = styled('div')` ${tw`flex flex-wrap outline-none w-full h-1/2`}`;
+const HomeCarousel = styled(Carousel)` ${tw`p-0 m-0 relative w-full h-1/2 outline-none`}`;
+const PrevButton = styled('button')` ${tw`bg-transparent hover:cursor-pointer outline-none mx-auto`}`;
+const NextButton = styled('button')` ${tw`bg-transparent hover:cursor-pointer outline-none mx-auto`}`;
+const FirstSlide = styled('div')` ${tw`bg-grey-200 bg-no-repeat bg-cover bg-center w-full`}`;
+const SecondSlide = styled('div')` ${tw`bg-green-400 bg-no-repeat bg-cover bg-center w-full`}`;
+const ThirdSlide = styled('div')` ${tw`bg-red-200 bg-no-repeat bg-cover bg-center w-full`}`;
+const SlideContentButton = styled(Link)` ${tw`bg-transparent hover:bg-gray-700 text-black-700 font-normal hover:text-white py-2 px-4 border-solid border-2 border-gray-700 hover:border-transparent rounded`}`;
+const HomeTeaser = styled('div')` ${tw`relative w-full text-center p-5 m-auto shadow-xl`}`;
