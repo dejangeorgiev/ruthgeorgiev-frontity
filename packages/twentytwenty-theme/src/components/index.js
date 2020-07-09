@@ -36,7 +36,7 @@ const Theme = ({state, libraries}) => {
 
             {/* Add some metatags to the <head> of the HTML. */}
 
-            
+            <Title/>
 
             {/* Accessibility: Provides ability to skip to main content */}
             <SkipLink as="a" href="#main">
