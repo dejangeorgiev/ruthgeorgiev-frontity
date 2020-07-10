@@ -5,14 +5,12 @@ import FacebookIcon from "../icons/social-media/FacebookIcon";
 import InstagramIcon from "../icons/social-media/InstagramIcon";
 import YoutubeIcon from "../icons/social-media/YoutubeIcon";
 import PinterestIcon from "../icons/social-media/PinterestIcon";
+import TwitterIcon from "../icons/social-media/TwitterIcon"
 
 const FooterWithLinksAndTags = ({actions}) => {
-
-
     return (
         <FooterContainer>
             <FooterInner>
-
                 <FooterSingleSection>
                     <SectionTitle>Popular Dishes & Diets</SectionTitle>
                     <FooterLink href="/diets/vegan/">Vegan </FooterLink>
@@ -44,10 +42,31 @@ const FooterWithLinksAndTags = ({actions}) => {
                 </FooterSingleSection>
                 <FooterSingleSection>
                     <SectionTitle>Let's be friends</SectionTitle>
-                    <FooterSocialMediaLink href="https://www.facebook.com/ruthgeorgiev/" target="_blank"><FacebookIcon/></FooterSocialMediaLink>
-                    <FooterSocialMediaLink href="https://www.instagram.com/ruthgeorgiev/" target="_blank"><InstagramIcon/></FooterSocialMediaLink>
-                    <FooterSocialMediaLink href="https://www.pinterest.ch/ruthgeorgiev/" target="_blank"><PinterestIcon/></FooterSocialMediaLink>
-                    <FooterSocialMediaLink href="https://www.youtube.com/ruthgeorgiev/" target='_blank'><YoutubeIcon/></FooterSocialMediaLink>
+                    <FooterSocialMediaLink
+                        href="https://www.facebook.com/ruthgeorgiev/"
+                        target="_blank">
+                        <FacebookIcon/>
+                    </FooterSocialMediaLink>
+                    <FooterSocialMediaLink
+                        href="https://www.instagram.com/ruthgeorgiev/"
+                        target="_blank">
+                        <InstagramIcon/>
+                    </FooterSocialMediaLink>
+                    <FooterSocialMediaLink
+                        href="https://www.pinterest.ch/ruthgeorgiev/"
+                        target="_blank">
+                        <PinterestIcon/>
+                    </FooterSocialMediaLink>
+                    <FooterSocialMediaLink
+                        href="https://www.youtube.com/ruthgeorgiev/"
+                        target='_blank'>
+                        <YoutubeIcon/>
+                    </FooterSocialMediaLink>
+                    <FooterSocialMediaLink
+                        href="https://twitter.com/GeorgievRuth"
+                        target='_blank'>
+                        <TwitterIcon/>
+                    </FooterSocialMediaLink>
                 </FooterSingleSection>
             </FooterInner>
         </FooterContainer>
