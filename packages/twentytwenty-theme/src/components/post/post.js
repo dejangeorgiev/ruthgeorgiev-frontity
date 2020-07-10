@@ -181,6 +181,7 @@ const Post = ({state, actions, libraries}) => {
                     {post.acf['postfieldgroup.description'] && <RecipeDescription id={post.id}/>}
 
                     {/* if the post has badge / sponsored link, render it */}
+                    {post.acf['postfieldgroup.badge'] && <SectionTitle>Products i use or have tried</SectionTitle>}
                     {post.acf['postfieldgroup.badge'] && <Badge id={post.id}/>}
 
 
@@ -291,6 +292,7 @@ top: 0;
 
 const PostTitle = styled('h1')` ${tw`text-6xl sm:text-8xl `}`;
 
+const SectionTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6 px-2 uppercase`}`;
 const IngredientsTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6 px-2 uppercase`}`;
 const EquipmentTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6 px-2 uppercase`}`;
 const RecipeDescriptionTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6 px-2 uppercase`}`;

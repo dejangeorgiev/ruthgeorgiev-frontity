@@ -42,7 +42,7 @@ export default connect(BadgeCard);
 const CardBadgeLink = styled('a')`
 text-decoration:none
 `;
-const Card = styled('div')` ${tw`bg-indigo-900 hover:bg-indigo-800 text-center py-4 rounded-full px-4`}`;
+const Card = styled('div')` ${tw`bg-indigo-900 hover:bg-indigo-800 text-center py-4 my-4 rounded-full px-4`}`;
 const CardWrapper = styled('div')` ${tw`p-4 bg-indigo-800 w-full items-center text-indigo-100 leading-none rounded-full flex inline-flex`}`;
-const HighlightedText = styled('span')` ${tw`flex rounded-full bg-indigo-500 uppercase px-2 py-1 hidden sm:inline-flex font-bold mr-3`}`;
+const HighlightedText = styled('span')` ${tw`flex rounded-full bg-indigo-500 px-2 py-1 hidden sm:inline-flex font-bold mr-3`}`;
 const LinkText = styled('span')` ${tw`font-normal mr-2 text-center flex-auto`}`;
