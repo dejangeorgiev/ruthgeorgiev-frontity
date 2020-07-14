@@ -15,7 +15,10 @@ const EquipmentItem = ({key, name, description, link}) => {
                 <EquipmentName>{name}</EquipmentName>
                 <EquipmentDescription>{description}</EquipmentDescription>
             </EquipmentContents>
-            <EquipmentLink href={linkUrl} target={linkTarget}>{linkTitle} <ExternalLinkIcon/></EquipmentLink>
+            <EquipmentLink
+                href={linkUrl}
+                target={linkTarget}
+                rel="noopener noreferrer">{linkTitle} <ExternalLinkIcon/></EquipmentLink>
         </Equipment>
     );
 };
