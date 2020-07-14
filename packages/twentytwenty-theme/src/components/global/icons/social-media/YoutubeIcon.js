@@ -6,7 +6,7 @@ const YoutubeIcon = ({}) => {
 
     return (
         <Icon>
-            <svg version="1.1" id="Layer_5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                  width="30px" height="30px" viewBox="0 0 512 512" enableBackground="new 0 0 512 512">
                 <path fillRule="evenodd" clipRule="evenodd" fill="#E62D27" d="M506.89,360.392c0,0-11.502,39.733-26.863,55.608
 	c-19.464,20.844-42.788,25.266-52.805,26.484c-3.282,0.25-6.673,0.461-10.064,0.672l-0.016-0.141

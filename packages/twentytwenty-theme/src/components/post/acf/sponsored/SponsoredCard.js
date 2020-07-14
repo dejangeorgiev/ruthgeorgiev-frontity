@@ -26,7 +26,11 @@ const SponsoredCard = ({card, state, actions}) => {
     // Load the post, but only if the data is ready.
     return data.isReady ? (
         <div>
-            <SponsoredCardBadgeLink href={SponsoredCardLinkUrl} target="_blank">
+            <SponsoredCardBadgeLink
+                href={SponsoredCardLinkUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 <Card>
                     <SponsoredCardImageContainer>
                         <SponsoredCardImage

@@ -6,7 +6,7 @@ const FacebookIcon = ({}) => {
 
     return (
         <Icon>
-            <svg version="1.1" id="Layer_5" xmlns="http://www.w3.org/2000/svg"
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                  x="0px" y="0px"
                  width="30px" height="30px" viewBox="0 0 512 512" enableBackground="new 0 0 512 512">
                 <path fillRule="evenodd" clipRule="evenodd" fill="#3B5998" d="M448,512h-87.999c-22.094,0-39.999-17.922-39.999-40V360.001

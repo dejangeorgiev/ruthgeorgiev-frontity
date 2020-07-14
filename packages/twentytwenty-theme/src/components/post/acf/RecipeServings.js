@@ -11,7 +11,7 @@ const RecipeServings = ({state, id}) => {
 
     return (
         <Serving>
-            <ServingIcon src={LunchIcon}/>
+            <ServingIcon src={LunchIcon} alt="Serving Persons"/>
             <ServingValue>{value}</ServingValue>
             <ServingValueTitle>Servings</ServingValueTitle>
         </Serving>

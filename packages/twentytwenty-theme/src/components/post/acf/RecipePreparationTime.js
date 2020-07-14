@@ -11,7 +11,7 @@ const RecipePreparationTime = ({state, id}) => {
 
     return (
         <PreparationTime>
-            <PreparationTimeIcon src={StopWatch}/>
+            <PreparationTimeIcon src={StopWatch} alt="Preparation Time"/>
             <PreparationTimeValue>
                 {time}<span> min.</span>
             </PreparationTimeValue>

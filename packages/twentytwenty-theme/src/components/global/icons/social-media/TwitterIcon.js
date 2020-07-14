@@ -6,7 +6,7 @@ const TwitterIcon = ({}) => {
 
     return (
         <Icon>
-            <svg version="1.1" id="Layer_5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                  width="30px" height="30px" viewBox="0 0 512 512" enableBackground="new 0 0 512 512">
                 <path fillRule="evenodd" clipRule="evenodd" fill="#00ACED" d="M512,107.867c0,7.031-2.203,13.527-5.977,18.836
 	c-10.062,15.051-23.727,25.977-37.367,37.422c-2.797,2.707-4.57,6.387-4.805,10.531c-1.523,69.156-27.141,148.246-72.78,200.512

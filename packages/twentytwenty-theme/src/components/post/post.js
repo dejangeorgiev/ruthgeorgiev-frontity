@@ -177,7 +177,7 @@ const Post = ({state, actions, libraries}) => {
                     {/* if the post has description, render it */}
                     {post.acf['postfieldgroup.description'] &&
                     <RecipeDescriptionTitle>How to do it? <DescriptionIcon
-                        src={ProfessionalChefFemale}/></RecipeDescriptionTitle>}
+                        src={ProfessionalChefFemale} alt="Professional Chef Female"/></RecipeDescriptionTitle>}
                     {post.acf['postfieldgroup.description'] && <RecipeDescription id={post.id}/>}
 
                     {/* if the post has badge / sponsored link, render it */}
@@ -187,12 +187,12 @@ const Post = ({state, actions, libraries}) => {
 
                     {/* If the post has ingredients, render it */}
                     {post.acf['postfieldgroup.ingredients'] &&
-                    <IngredientsTitle>Ingredients <IngredientsIcon src={EasyRecipe}/></IngredientsTitle>}
+                    <IngredientsTitle>Ingredients <IngredientsIcon src={EasyRecipe} alt="Recipe Ingredients"/></IngredientsTitle>}
                     {post.acf['postfieldgroup.ingredients'] && <Ingredients id={post.id}/>}
 
                     {/* If the post has equipment, render it */}
                     {post.acf['postfieldgroup.equipment'] &&
-                    <EquipmentTitle>Equipment <EquipmentIcon src={ModernCookingTools}/> </EquipmentTitle>}
+                    <EquipmentTitle>Equipment <EquipmentIcon src={ModernCookingTools} alt="Recipe Equipment"/> </EquipmentTitle>}
                     {post.acf['postfieldgroup.equipment'] && <Equipment id={post.id}/>}
 
                     {/* if the post has affiliate / sponsored link, render it */}
@@ -200,7 +200,7 @@ const Post = ({state, actions, libraries}) => {
 
                     {/* if the post has tips, render it */}
                     {post.acf['postfieldgroup.tips'] &&
-                    <RecipeTipsTitle>Tips <RecipeTipsIcon src={RecipeTipsIconPng}/> </RecipeTipsTitle>}
+                    <RecipeTipsTitle>Tips <RecipeTipsIcon src={RecipeTipsIconPng} alt="Recipe tips"/> </RecipeTipsTitle>}
                     {post.acf['postfieldgroup.tips'] && <RecipeTips id={post.id}/>}
 
                     {/* if the post has description, render it */}

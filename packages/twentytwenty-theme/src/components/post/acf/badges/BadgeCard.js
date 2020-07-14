@@ -24,7 +24,11 @@ const BadgeCard = ({card, state, actions}) => {
     // Load the post, but only if the data is ready.
     return data.isReady ? (
         <>
-            <CardBadgeLink href={BadgeCardLinkURL} target={BadgeCardLinkTarget}>
+            <CardBadgeLink
+                href={BadgeCardLinkURL}
+                target={BadgeCardLinkTarget}
+                rel="noopener noreferrer"
+            >
                 <Card>
                     <CardWrapper role="alert">
                         <HighlightedText>{BadgeCardHighlightedText}</HighlightedText>
