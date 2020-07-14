@@ -7,7 +7,6 @@ const FooterLink = ({url, title, target, tag}) => {
     return (
         <Link
             href={url}
-            rel="noopener noreferrer"
             target={target}>
             {title}
             {tag && <FooterLinkTag name={tag}/>}

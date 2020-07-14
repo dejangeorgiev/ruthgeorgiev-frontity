@@ -56,12 +56,9 @@ const Page = ({state, actions, libraries}) => {
                                 title={pageContent[key]['contentfieldgroup.content.text.title']}
                                      text={pageContent[key]['contentfieldgroup.content.text.text']}
                         />
-
                     }
 
                     if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.card') {
-
-
                         return <Card key={key}
                                      name={pageContent[key]['contentfieldgroup.content.card.name']}
                                      description={pageContent[key]['contentfieldgroup.content.card.description']}
@@ -69,11 +66,8 @@ const Page = ({state, actions, libraries}) => {
                                      imageID={pageContent[key]['contentfieldgroup.content.card.image'].ID}
                                      url={pageContent[key]['contentfieldgroup.content.card.url']}
                         />
-
                     }
-
                 })}
-
             {
                 page.content && (
                     <PostInner size="medium">
