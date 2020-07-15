@@ -94,7 +94,6 @@ const Copyright = styled.p`
 `;
 
 const PoweredBy = styled.p`
-  color: #6d6d6d;
   display: none;
   margin: 0 0 0 2.4rem;
 

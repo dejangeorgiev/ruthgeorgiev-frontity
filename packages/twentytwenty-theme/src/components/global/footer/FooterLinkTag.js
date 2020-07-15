@@ -12,4 +12,4 @@ const FooterLinkTag = ({name}) => {
 
 export default connect(FooterLinkTag);
 
-const Tag = styled('span')` ${tw`text-teal-600 p-1`}`;
+const Tag = styled('span')` ${tw`text-teal-900 bg-gray-200 rounded-full p-2 mx-2`}`;

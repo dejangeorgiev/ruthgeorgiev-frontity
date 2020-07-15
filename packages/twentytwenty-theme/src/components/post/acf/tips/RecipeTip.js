@@ -6,10 +6,10 @@ const RecipeTip = ({key, title, description}) => {
 
     return (
         <Tips>
-            <EquipmentContents>
-                <EquipmentNameTitle>{title}</EquipmentNameTitle>
-                <EquipmentDescription>{description}</EquipmentDescription>
-            </EquipmentContents>
+            <TipContents>
+                <TipName>{title}</TipName>
+                <TipDescription>{description}</TipDescription>
+            </TipContents>
         </Tips>
     );
 };
@@ -17,6 +17,6 @@ const RecipeTip = ({key, title, description}) => {
 export default connect(RecipeTip);
 
 const Tips = styled('div')` ${tw`md:flex bg-white rounded-lg p-6 shadow-md my-6 relative`}`;
-const EquipmentContents = styled('div')` ${tw`text-left px-10`}`;
-const EquipmentNameTitle = styled('h5')` ${tw`p-0 m-0 font-normal underline`}`;
-const EquipmentDescription = styled('span')` ${tw`text-gray-600`}`;
+const TipContents = styled('div')` ${tw`text-left px-10`}`;
+const TipName = styled('h5')` ${tw`p-0 m-0 font-normal underline`}`;
+const TipDescription = styled('span')` ${tw`text-gray-800`}`;

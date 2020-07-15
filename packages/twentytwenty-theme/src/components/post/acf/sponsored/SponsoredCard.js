@@ -63,7 +63,7 @@ const Card = styled('div')` ${tw`md:flex shadow-md my-20 hover:shadow-sm relativ
 const SponsoredCardImageContainer = styled('div')` ${tw`md:flex-shrink-0`}`;
 const SponsoredCardImage = styled('img')` ${tw`rounded-lg rounded-r-none md:max-w-xl`}`;
 const SponsoredCardContents = styled('div')`${tw`text-left mt-4 md:ml-6 pl-5`}`;
-const ContentBadge = styled('div')`${tw`uppercase tracking-wide text-gray-500 font-bold inline-block pt-5`}`;
+const ContentBadge = styled('div')`${tw`uppercase tracking-wide text-gray-700 font-bold inline-block pt-5`}`;
 const BadgeTitle = styled('h5')`${tw`block mt-1 leading-tight font-semibold pt-3 mb-0 text-gray-900 hover:underline`}`;
-const BadgeDescription = styled('p')`${tw`mt-2 text-gray-600 pr-6 py-3`}`;
+const BadgeDescription = styled('p')`${tw`mt-2 text-gray-800 pr-6 py-3`}`;
 
