@@ -57,7 +57,7 @@ const RecommendedPosts = ({state, showExcerpt, showMedia, actions}) => {
 
 export default connect(RecommendedPosts);
 
-const ArticlesContainer = styled('div')` ${tw`flex flex-wrap justify-center bg-gray-200 py-24`}`;
+const ArticlesContainer = styled('div')` ${tw`flex flex-wrap justify-center bg-gray-200 py-24 w-full`}`;
 
 
 

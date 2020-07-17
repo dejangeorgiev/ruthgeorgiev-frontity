@@ -1,10 +1,12 @@
-import {styled, connect} from "frontity";
+import {styled, connect, fetch} from "frontity";
 import React, {useEffect} from "react";
 import tw from "tailwind.macro";
 import Carousel, {consts} from 'react-elastic-carousel'
 import ArrowRight from "../../global/icons/ArrowRight";
 import ArrowLeft from "../../global/icons/ArrowLeft";
 import Link from '../../link'
+
+import RecommendedPosts from "../../post/acf/recommended/posts/RecommendedPosts";
 
 
 const FrontPage = ({state, actions, libraries}) => {
@@ -66,35 +68,40 @@ const FrontPage = ({state, actions, libraries}) => {
 
     // Load the post, but only if the data is ready.
     return data.isReady ? (
-        <FrontPageContainer>
-            <HomeCarousel
-                renderArrow={arrow}
-                focusOnSelect={true}
-                itemsToShow={1}
-                itemsToScroll={1}
-                pagination={false}
-                showArrows={true}
-                enableSwipe={true}
-                enableMouseSwipe={true}
-                disableArrowsOnEnd={false}
-                preventDefaultTouchmoveEvent={true}
-                enableAutoPlay={true}
-                autoPlaySpeed={8000}
-                easing="cubic-bezier(1,.15,.55,1.54)"
-                tiltEasing="cubic-bezier(0.110, 1, 1.000, 0.210)"
-                transitionMs={700}
-            >
-                <FirstSlide style={FirstSlideStyles}/>
-                <SecondSlide style={SecondSlideStyles}/>
-                <ThirdSlide style={ThirdSlideStyles}/>
-            </HomeCarousel>
-            <HomeTeaser>
-                <h1>Best Cooking Recipes</h1>
-                <h2>How to improve cooking skills</h2>
-                <p>A collection of cooking recipes, vegan, vegetarian, healthy tips, Asian, European...</p>
-                <SlideContentButton link='/recipes'>Go to the recipes</SlideContentButton>
-            </HomeTeaser>
-        </FrontPageContainer>
+
+            <FrontPageContainer>
+                <HomeCarousel
+                    renderArrow={arrow}
+                    focusOnSelect={true}
+                    itemsToShow={1}
+                    itemsToScroll={1}
+                    pagination={false}
+                    showArrows={true}
+                    enableSwipe={true}
+                    enableMouseSwipe={true}
+                    disableArrowsOnEnd={false}
+                    preventDefaultTouchmoveEvent={true}
+                    enableAutoPlay={true}
+                    autoPlaySpeed={8000}
+                    easing="cubic-bezier(1,.15,.55,1.54)"
+                    tiltEasing="cubic-bezier(0.110, 1, 1.000, 0.210)"
+                    transitionMs={700}
+                >
+                    <FirstSlide style={FirstSlideStyles}/>
+                    <SecondSlide style={SecondSlideStyles}/>
+                    <ThirdSlide style={ThirdSlideStyles}/>
+                </HomeCarousel>
+                <HomeTeaser>
+                    <h1>Best Cooking Recipes</h1>
+                    <h2>How to improve cooking skills</h2>
+                    <p>A collection of cooking recipes, vegan, vegetarian, healthy tips, Asian, European...</p>
+                    <SlideContentButton link='/recipes'>Go to the recipes</SlideContentButton>
+                </HomeTeaser>
+                <RecommendedPosts/>
+            </FrontPageContainer>
+
+
+
     ) : null;
 };
 
@@ -113,5 +120,6 @@ const NextButton = styled('button')` ${tw`bg-transparent hover:cursor-pointer ou
 const FirstSlide = styled('div')` ${tw`bg-grey-200 bg-no-repeat bg-cover bg-center w-full`}`;
 const SecondSlide = styled('div')` ${tw`bg-green-400 bg-no-repeat bg-cover bg-center w-full`}`;
 const ThirdSlide = styled('div')` ${tw`bg-red-200 bg-no-repeat bg-cover bg-center w-full`}`;
-const SlideContentButton = styled(Link)` ${tw`bg-transparent hover:bg-gray-700 text-black-700 font-normal hover:text-white py-2 px-4 border-solid border-2 border-gray-700 hover:border-transparent rounded`}`;
+const SlideContentButton = styled(Link)`
+                ${tw`bg-transparent hover:bg-gray-700 text-black-700 font-normal hover:text-white py-2 px-4 border-solid border-2 border-gray-700 hover:border-transparent rounded`}`;
 const HomeTeaser = styled('div')` ${tw`relative w-full text-center p-5 m-auto shadow-xl`}`;
