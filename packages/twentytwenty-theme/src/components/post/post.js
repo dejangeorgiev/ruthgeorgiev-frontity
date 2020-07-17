@@ -270,25 +270,7 @@ padding-top: 0 !important;
 
 `;
 
-const FeaturedImage = styled(FeaturedMedia)`
-margin-top: 0 !important;
-position: relative;700px
-
-> div {
-position: relative;
-}
-
-&:before {
-background: #fff;
-content: "";
-display: block;
-position: absolute;
-bottom: 50%;
-left: 0;
-right: 0;
-top: 0;
-}
-`;
+const FeaturedImage = styled(FeaturedMedia)` ${tw`max-h-auto`} `;
 
 const PostTitle = styled('h1')` ${tw`text-6xl sm:text-8xl `}`;
 

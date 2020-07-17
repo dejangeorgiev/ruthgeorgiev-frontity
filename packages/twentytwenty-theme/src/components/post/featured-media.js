@@ -50,5 +50,4 @@ const Image = styled(Img)`
   max-width: 100%;
   display: block;
   height: auto;
-  max-height: 440px;
 `;

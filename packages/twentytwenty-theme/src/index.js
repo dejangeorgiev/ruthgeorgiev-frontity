@@ -84,10 +84,6 @@ const twentyTwentyTheme = {
                         }
                      ]
                      **/
-                },
-                {
-                    name: 'Contact',
-                    href: '/contact/'
                 }
                 /**
                  ["Home", "/"],
