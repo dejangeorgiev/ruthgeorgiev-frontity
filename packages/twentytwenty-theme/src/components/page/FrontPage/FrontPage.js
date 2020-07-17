@@ -97,6 +97,7 @@ const FrontPage = ({state, actions, libraries}) => {
                     <p>A collection of cooking recipes, vegan, vegetarian, healthy tips, Asian, European...</p>
                     <SlideContentButton link='/recipes'>Go to the recipes</SlideContentButton>
                 </HomeTeaser>
+                <SectionTitle>Newest Recipes</SectionTitle>
                 <RecommendedPosts/>
             </FrontPageContainer>
 
@@ -123,3 +124,5 @@ const ThirdSlide = styled('div')` ${tw`bg-red-200 bg-no-repeat bg-cover bg-cente
 const SlideContentButton = styled(Link)`
                 ${tw`bg-transparent hover:bg-gray-700 text-black-700 font-normal hover:text-white py-2 px-4 border-solid border-2 border-gray-700 hover:border-transparent rounded`}`;
 const HomeTeaser = styled('div')` ${tw`relative w-full text-center p-5 m-auto shadow-xl`}`;
+
+const SectionTitle = styled('h2')` ${tw`text-gray-800 mx-auto my-12 font-normal text-center py-6 px-2 uppercase`}`;
