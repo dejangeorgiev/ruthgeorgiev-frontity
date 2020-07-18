@@ -9,20 +9,14 @@ const NewsletterSubscription = ({actions}) => {
 
     return (
         <SubscriptionSection>
-            <Mailchimp/>
+
             <SubscriptionContainer>
                 <SubscriptionText>
                     Join 31,000+ other and never miss out on new recipes, videos, tips and more.
                 </SubscriptionText>
                 <SubscriptionFormDiv1>
                     <SubscriptionFormDiv2>
-                        <SubscriptionFormDiv3>
-                            <SubscriptionFormInput
-                                type='email'
-                                placeholder='Enter your email'
-                            />
-                            <SiteFooterSubscribeFormButton>subscribe</SiteFooterSubscribeFormButton>
-                        </SubscriptionFormDiv3>
+                        <Mailchimp/>
                     </SubscriptionFormDiv2>
                 </SubscriptionFormDiv1>
             </SubscriptionContainer>

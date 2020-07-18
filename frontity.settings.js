@@ -9,7 +9,7 @@ const settings = {
         newsletter: {
             slot: 'above-the-footer',
             mailchimp:{
-                url: 'http://eepurl.com/g-Hrsz'
+                url: 'https://ruthgeorgiev.us10.list-manage.com/subscribe/post?u=ddb464652565465fb2305fc30&id=544679ca17'
             }
         },
         sitemap:{
