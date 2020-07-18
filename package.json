@@ -35,6 +35,7 @@
     "react-headroom": "^3.0.0",
     "react-id-swiper": "^4.0.0",
     "react-intersection-observer": "^8.26.2",
+    "react-mailchimp-subscribe": "^2.1.0",
     "react-share": "^4.1.0",
     "react-spring": "^8.0.27",
     "react-youtube": "^7.11.2",

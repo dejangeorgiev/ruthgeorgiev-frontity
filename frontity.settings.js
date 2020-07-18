@@ -7,7 +7,10 @@ const settings = {
             description: "Cooking with love. Here we will serve you with a collection of the best cooking recipes, healthy tips, great foods, and how to improve your cooking skills"
         },
         newsletter: {
-            slot: 'above-the-footer'
+            slot: 'above-the-footer',
+            mailchimp:{
+                url: 'http://eepurl.com/g-Hrsz'
+            }
         },
         sitemap:{
             origin:"https://admin.ruthgeorgiev.com"

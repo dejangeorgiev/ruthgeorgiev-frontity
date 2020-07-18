@@ -15,6 +15,7 @@ import PageError from "./page-error";
 import Page from "./page"
 import FrontPage from "./page/FrontPage";
 import FooterWithLinksAndTags from "./global/footer/FooterWithLinksAndTags";
+import NewsletterSubscription from "./global/newsletter/NewsletterSubscription";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -61,6 +62,7 @@ const Theme = ({state, libraries}) => {
                     </Switch>
                 </Main>
             </div>
+            <NewsletterSubscription/>
             <FooterWithLinksAndTags/>
             <Footer/>
         </>
