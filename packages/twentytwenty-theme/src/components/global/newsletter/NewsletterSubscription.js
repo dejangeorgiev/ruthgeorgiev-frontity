@@ -11,8 +11,11 @@ const NewsletterSubscription = ({actions}) => {
         <SubscriptionSection>
 
             <SubscriptionContainer>
+                <SubscriptionTitle>
+                    Hungry for more?
+                </SubscriptionTitle>
                 <SubscriptionText>
-                    Join 31,000+ other and never miss out on new recipes, videos, tips and more.
+                    Join our community and never miss out on new recipes, videos, tips and more.
                 </SubscriptionText>
                 <SubscriptionFormDiv1>
                     <SubscriptionFormDiv2>
@@ -28,11 +31,8 @@ export default connect(NewsletterSubscription);
 
 
 const SubscriptionSection = styled('div')`  ${tw`flex justify-center px-4 text-gray-100 bg-gray-800`}`;
-const SubscriptionContainer = styled('div')`  ${tw`py-6`}`;
-const SubscriptionText = styled('h2')`  ${tw`text-center font-bold`}`;
+const SubscriptionContainer = styled('div')`  ${tw`py-20`}`;
+const SubscriptionTitle = styled('h2')`  ${tw`text-center font-bold p-2 m-0 uppercase`}`;
+const SubscriptionText = styled('h4')`  ${tw`text-center font-normal p-2 m-0`}`;
 const SubscriptionFormDiv1 = styled('div')`  ${tw`flex justify-center m-6`}`;
 const SubscriptionFormDiv2 = styled('div')`  ${tw`bg-white rounded-lg`}`;
-const SubscriptionFormDiv3 = styled('div')`  ${tw`flex flex-wrap justify-between`}`;
-const SubscriptionFormInput = styled('input')`  ${tw`m-1 p-4 appearance-none rounded-full border-none text-gray-700 outline-none`}`;
-const SiteFooterSubscribeFormButton = styled('button')`  ${tw`w-full m-2 p-4 bg-gray-800 text-gray-100 rounded-lg font-normal uppercase lg:w-auto`}`;
-
