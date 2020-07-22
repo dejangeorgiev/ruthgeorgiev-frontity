@@ -41,7 +41,6 @@ const Title = ({state, actions}) => {
 
     return (
         <Head>
-
             <title>{title} - The Best Cooking Recipes & healthy tips</title>
             <html lang="en" />
             <meta name="robots" content="all" />

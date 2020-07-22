@@ -61,6 +61,11 @@ const cssReset = css`
   .cNRLLS{
     margin:0 !important;
   }
+  
+  input,
+  select{
+  font-size: 100%;
+  }
 `;
 
 const documentSetup = (colors) => css`
