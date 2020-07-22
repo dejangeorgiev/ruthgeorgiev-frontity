@@ -62,10 +62,11 @@ const cssReset = css`
     margin:0 !important;
   }
   
-  input,
-  select{
-  font-size: 100%;
+ @media screen and (max-width: 767px) {
+  input, select, textarea {
+    font-size: 16px !important;
   }
+}
 `;
 
 const documentSetup = (colors) => css`
