@@ -8,12 +8,13 @@ const RecipeServings = ({state, id}) => {
     const post = state.source.post[id];
 
     const value = post.acf['postfieldgroup.servings'];
+    const servingType = post.acf['postfieldgroup.serving_type'];
 
     return (
         <Serving>
             <ServingIcon src={LunchIcon} alt="Serving Persons"/>
             <ServingValue>{value}</ServingValue>
-            <ServingValueTitle>Servings</ServingValueTitle>
+            <ServingValueTitle>{servingType}</ServingValueTitle>
         </Serving>
     );
 };

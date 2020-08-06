@@ -8,12 +8,13 @@ const RecipePreparationTime = ({state, id}) => {
     const post = state.source.post[id];
 
     const time = post.acf['postfieldgroup.preparation_time'];
+    const timeUnit = post.acf['postfieldgroup.preparation_time_unit'];
 
     return (
         <PreparationTime>
             <PreparationTimeIcon src={StopWatch} alt="Preparation Time"/>
             <PreparationTimeValue>
-                {time}<span> min.</span>
+                {time}<span> {timeUnit}</span>
             </PreparationTimeValue>
             <PreparationTimeTitle>Preparation Time</PreparationTimeTitle>
         </PreparationTime>
