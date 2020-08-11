@@ -36,7 +36,7 @@ const Footer = ({state}) => {
                         &copy; {currentYear}{" "}
                         <Link link={"/"}>{state.frontity.title}</Link>
                     </Copyright>
-                    <PoweredBy>Cooking with love & travelling with passion</PoweredBy>
+                    <PoweredBy>Cooking with love & traveling with passion</PoweredBy>
                 </Credits>
                 <BackToTop/>
             </SiteFooterInner>
