@@ -67,6 +67,59 @@ const cssReset = css`
     font-size: 16px !important;
   }
 }
+
+
+  /* Input fields styles */
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="date"],
+  textarea,
+  select {
+    display: block;
+    padding: 6px 12px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    outline-color: transparent;
+    transition: outline-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin: 8px 0 4px 0;
+    &:focus {
+      outline-color: #000000;
+    }
+  }
+  input[type="submit"] {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid #000000;
+    padding: 12px 36px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #ffffff;
+    
+    &:hover{
+        color: #ffffff;
+    background-color: #000000;
+    }
+  }
+  
 `;
 
 const documentSetup = (colors) => css`

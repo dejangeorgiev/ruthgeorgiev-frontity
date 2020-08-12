@@ -4,6 +4,7 @@ import FeaturedMedia from "../post/featured-media";
 import PageCarousel from "./acf/Content/Carousel/PageCarousel";
 import Text from "./acf/Content/Text"
 import Card from "./acf/Content/Card"
+import HighlightedLink from "./acf/Content/HighlightedLink";
 
 const Page = ({state, actions, libraries}) => {
     // Get information about the current URL.
@@ -65,6 +66,12 @@ const Page = ({state, actions, libraries}) => {
                                      highlightedText={pageContent[key]['contentfieldgroup.content.card.highlighted_text']}
                                      imageID={pageContent[key]['contentfieldgroup.content.card.image'].ID}
                                      url={pageContent[key]['contentfieldgroup.content.card.url']}
+                        />
+                    }
+
+                    if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.highlightedlink') {
+                        return <HighlightedLink key={key}
+
                         />
                     }
                 })}

@@ -29,6 +29,7 @@ import ModernCookingTools from "../global/icons/png/ModernCookingTools.png"
 import ProfessionalChefFemale from "../global/icons/png/ProfessionalChefFemale.png"
 import RecipeTipsIconPng from "../global/icons/png/RecipeTips.png"
 import RecipePreparationTime from "./acf/RecipePreparationTime"
+import RecipeCookingTime from "./acf/RecipeCookingTime";
 import RecipeServings from "./acf/RecipeServings";
 
 import Comments from "../comments";
@@ -144,11 +145,14 @@ const Post = ({state, actions, libraries}) => {
                     {post.tags && <PostTags tags={tags}/>}
 
 
+                    {/* if the post has servings, render it */}
+                    {post.acf['postfieldgroup.servings'] && <RecipeServings id={post.id}/>}
+
                     {/* if the post has preparation time, render it */}
                     {post.acf['postfieldgroup.preparation_time'] && <RecipePreparationTime id={post.id}/>}
 
-                    {/* if the post has servings, render it */}
-                    {post.acf['postfieldgroup.servings'] && <RecipeServings id={post.id}/>}
+                    {/* if the post has cooking time, render it */}
+                    {post.acf['postfieldgroup.cooking_time'] && <RecipeCookingTime id={post.id}/>}
 
 
                     <PostTaxonomies>

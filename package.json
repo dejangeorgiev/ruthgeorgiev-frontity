@@ -30,7 +30,7 @@
     "antd": "^4.1.5",
     "babel-plugin-macros": "^2.8.0",
     "frontity": "^1.10.0",
-    "frontity-contact-form-7": "^0.1.6",
+    "frontity-contact-form-7": "^0.1.7",
     "react-elastic-carousel": "^0.6.4",
     "react-headroom": "^3.0.0",
     "react-id-swiper": "^4.0.0",

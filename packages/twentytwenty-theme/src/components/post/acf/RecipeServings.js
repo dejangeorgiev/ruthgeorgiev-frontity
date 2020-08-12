@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect, styled} from "frontity";
 import tw from "tailwind.macro";
-import LunchIcon from "../../global/icons/png/Lunch.png"
+import LunchIcon from "../../global/icons/png/Plate.png"
 
 const RecipeServings = ({state, id}) => {
 
