@@ -31,59 +31,62 @@ const Page = ({state, actions, libraries}) => {
             {page.featured_media !== 0 && (
                 <FeaturedImage id={page.featured_media}/>
             )}
+            <SectionContainer>
+                {Object.keys(pageContent)
+                    .map(function (key, i) {
 
-            {Object.keys(pageContent)
-                .map(function (key, i) {
+                        if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.carousel') {
+                            const Carousel = pageContent[key]['contentfieldgroup.content.carousel.item'];
+                            return <PageCarousel
+                                key={i}
+                                id={page.id}
+                                carousel={Carousel}
+                            />
+                        }
 
-                    if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.carousel') {
-                        const Carousel = pageContent[key]['contentfieldgroup.content.carousel.item'];
-                        return <PageCarousel
-                            key={i}
-                            id={page.id}
-                            carousel={Carousel}
-                        />
-                    }
+                        if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.image') {
+                            return <h1 key={key}>IMAGE</h1>
+                        }
 
-                    if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.image') {
-                        return <h1 key={key}>IMAGE</h1>
-                    }
+                        if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.accordion') {
+                            return <h1 key={key}>Accordion</h1>
+                        }
 
-                    if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.accordion') {
-                        return <h1 key={key}>Accordion</h1>
-                    }
+                        if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.text') {
+                            return <Text key={key}
+                                         title={pageContent[key]['contentfieldgroup.content.text.title']}
+                                         text={pageContent[key]['contentfieldgroup.content.text.text']}
+                            />
+                        }
 
-                    if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.text') {
-                        return <Text key={key}
-                                title={pageContent[key]['contentfieldgroup.content.text.title']}
-                                     text={pageContent[key]['contentfieldgroup.content.text.text']}
-                        />
-                    }
+                        if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.card') {
+                            return <Card key={key}
+                                         name={pageContent[key]['contentfieldgroup.content.card.name']}
+                                         description={pageContent[key]['contentfieldgroup.content.card.description']}
+                                         highlightedText={pageContent[key]['contentfieldgroup.content.card.highlighted_text']}
+                                         imageID={pageContent[key]['contentfieldgroup.content.card.image'].ID}
+                                         url={pageContent[key]['contentfieldgroup.content.card.url']}
+                            />
+                        }
 
-                    if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.card') {
-                        return <Card key={key}
-                                     name={pageContent[key]['contentfieldgroup.content.card.name']}
-                                     description={pageContent[key]['contentfieldgroup.content.card.description']}
-                                     highlightedText={pageContent[key]['contentfieldgroup.content.card.highlighted_text']}
-                                     imageID={pageContent[key]['contentfieldgroup.content.card.image'].ID}
-                                     url={pageContent[key]['contentfieldgroup.content.card.url']}
-                        />
-                    }
-
-                    if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.highlightedlink') {
-                        return <HighlightedLink key={key}
-
-                        />
-                    }
-                })}
-            {
-                page.content && (
-                    <PostInner size="medium">
-                        <EntryContent>
-                            <Html2React html={page.content.rendered}/>
-                        </EntryContent>
-                    </PostInner>
-                )
-            }
+                        if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.highlightedlink') {
+                            return <HighlightedLink key={key}
+                                                    target={pageContent[key]['contentfieldgroup.content.highlightedlink.link'].target}
+                                                    title={pageContent[key]['contentfieldgroup.content.highlightedlink.link'].title}
+                                                    url={pageContent[key]['contentfieldgroup.content.highlightedlink.link'].url}
+                            />
+                        }
+                    })}
+                {
+                    page.content && (
+                        <PostInner size="medium">
+                            <EntryContent>
+                                <Html2React html={page.content.rendered}/>
+                            </EntryContent>
+                        </PostInner>
+                    )
+                }
+            </SectionContainer>
         </div>
     ) : null;
 };

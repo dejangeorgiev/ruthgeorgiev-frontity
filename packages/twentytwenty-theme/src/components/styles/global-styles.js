@@ -71,12 +71,12 @@ const cssReset = css`
 
   /* Input fields styles */
   input[type="text"],
-  input[type="email"],
   input[type="url"],
   input[type="tel"],
   input[type="number"],
   input[type="date"],
   textarea,
+  .wpcf7-email,
   select {
     display: block;
     padding: 6px 12px;

@@ -2,8 +2,7 @@ import {styled, connect} from "frontity";
 import React, {useEffect} from "react";
 import tw from "tailwind.macro";
 
-
-const HighlightedLink = ({state, actions, libraries}) => {
+const HighlightedLink = ({state, actions, libraries, target, title, url}) => {
 
     /**
      * Once the post has loaded in the DOM, prefetch both the
@@ -26,20 +25,16 @@ const HighlightedLink = ({state, actions, libraries}) => {
 
 
     return data.isReady ? (
-        <Container>
-
-            <Title>General</Title>
-
+        <Container href={url}
+                   target={target}>
+            {title}
         </Container>
     ) : null;
 };
 
 export default connect(HighlightedLink);
 
-
-const Container = styled('div')` ${tw`flex mx-3 rounded max-w-xl items-center inline-block px-10 shadow-2xl border-2 border-solid`}`;
-const Title = styled('h5')` ${tw`m-0 p-0`}`;
-
+const Container = styled('a')` ${tw`my-10 mx-5 rounded max-w-xl inline-block p-20 shadow-2xl hover:shadow-none border-2 border-solid`}`;
 
 
 
