@@ -47,7 +47,6 @@ const Title = ({state, actions}) => {
             <link rel="shortcut icon" type="image/x-icon" href="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/07/rg_logo.png"/>
             <link rel="shortcut icon" type="image/x-icon"
                   href="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/07/rg_logo.png"/>
-            <script data-ad-client="ca-pub-2902968812206324" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         </Head>
     );
 };
