@@ -1,4 +1,4 @@
-import {connect, Global, Head, styled} from "frontity";
+import {connect, Slot, Global, Head, styled} from "frontity";
 import Switch from "@frontity/components/switch";
 import React from "react";
 import Footer from "./footer";
@@ -16,7 +16,6 @@ import Page from "./page"
 import FrontPage from "./page/FrontPage";
 import FooterWithLinksAndTags from "./global/footer/FooterWithLinksAndTags";
 import NewsletterSubscription from "./global/newsletter/NewsletterSubscription";
-
 
 
 /**
