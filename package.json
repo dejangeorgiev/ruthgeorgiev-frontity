@@ -18,6 +18,7 @@
     "@frontity/analytics": "^1.2.0",
     "@frontity/connect": "^1.0.5",
     "@frontity/core": "^1.7.2",
+    "@frontity/google-ad-manager": "^0.1.0",
     "@frontity/google-analytics": "^1.2.0",
     "@frontity/google-tag-manager-analytics": "^1.0.0",
     "@frontity/head-tags": "^1.0.4",

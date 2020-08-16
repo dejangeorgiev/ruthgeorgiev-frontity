@@ -18,6 +18,7 @@ import FooterWithLinksAndTags from "./global/footer/FooterWithLinksAndTags";
 import NewsletterSubscription from "./global/newsletter/NewsletterSubscription";
 
 
+
 /**
  * Theme is the root React component of our theme. The one we will export
  * in roots.
@@ -51,6 +52,7 @@ const Theme = ({state, libraries}) => {
 
                 {/* Add the main section. It renders a different component depending
         on the type of URL we are in. */}
+
                 <Main id="main">
                     <Switch>
                         <FrontPage when={data.isHome}/>
