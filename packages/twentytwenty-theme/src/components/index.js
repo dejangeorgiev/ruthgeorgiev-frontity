@@ -17,7 +17,6 @@ import FrontPage from "./page/FrontPage";
 import FooterWithLinksAndTags from "./global/footer/FooterWithLinksAndTags";
 import NewsletterSubscription from "./global/newsletter/NewsletterSubscription";
 
-
 /**
  * Theme is the root React component of our theme. The one we will export
  * in roots.

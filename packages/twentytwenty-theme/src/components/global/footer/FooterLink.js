@@ -2,18 +2,19 @@ import React from "react";
 import {connect, styled} from "frontity";
 import tw from 'tailwind.macro';
 import FooterLinkTag from "./FooterLinkTag";
+import Link from "../../link"
 
 const FooterLink = ({url, title, target, tag}) => {
     return (
-        <Link
-            href={url}
+        <CustomLink
+            link={url}
             target={target}>
             {title}
             {tag && <FooterLinkTag name={tag}/>}
-        </Link>
+        </CustomLink>
     );
 };
 
 export default connect(FooterLink);
 
-const Link = styled('a')` ${tw`my-3 block w-max-content hover:underline`}`;
+const CustomLink = styled(Link)` ${tw`my-3 block w-max-content hover:underline`}`;

@@ -8,13 +8,14 @@ import YoutubeIcon from "../icons/social-media/YoutubeIcon";
 import PinterestIcon from "../icons/social-media/PinterestIcon";
 import TwitterIcon from "../icons/social-media/TwitterIcon"
 
+
 const FooterWithLinksAndTags = ({actions}) => {
     return (
         <FooterContainer>
             <FooterInner>
                 <FooterSingleSection>
                     <SectionTitle>Popular Dishes & Diets</SectionTitle>
-                    <FooterLink url="/diets/vegan/" title="Vegan" />
+                    <FooterLink url="/diets/vegan/" title="Vegan"/>
                     <FooterLink url="/diets/vegetarian/" title="Vegetarian"/>
                     <FooterLink url="/dishes/curry/" title="Curry"/>
                     <FooterLink url="/dishes/salad/" title="Salad"/>

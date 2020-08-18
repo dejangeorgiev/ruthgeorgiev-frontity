@@ -1,7 +1,6 @@
 import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
 
-
 const homeHandler = {
     name: "home",
     priority: 10,
@@ -84,6 +83,10 @@ const twentyTwentyTheme = {
                         }
                      ]
                      **/
+                },
+                {
+                    name:'Travel',
+                    href:'/travel/'
                 }
                 /**
                  ["Home", "/"],
@@ -106,7 +109,7 @@ const twentyTwentyTheme = {
                 showOnPost: true,
             },
             // Whether to auto-fetch links on a page. Values can be "no" | "all" | "in-view" | "hover"
-            autoPreFetch: "no",
+            autoPreFetch: "hover",
             /**
              * At the moment, we only include the ascii characters of Inter font.
              * Values can be "us-ascii" | "latin" | "all"
@@ -119,6 +122,11 @@ const twentyTwentyTheme = {
                     type: "profiles", // type slug
                     endpoint: "profiles", // REST API endpoint
                     archive: "/profiles" // link where this custom posts are listed
+                },
+                {
+                    type: "travel", // type slug
+                    endpoint: "travel", // REST API endpoint
+                    archive: "/travel" // link where this custom posts are listed
                 }
             ],
             taxonomies: [

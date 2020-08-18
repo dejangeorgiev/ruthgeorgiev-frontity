@@ -22,7 +22,7 @@ import {
 } from 'react-share';
 import tw from "tailwind.macro";
 
-const SocialMediaShareButtons = ({url, media, alt, title, children, hashtag, hashtags}) => {
+const SocialMediaShareButtons = ({url, media, alt, title, children, hashtag, hashtags, related}) => {
 
     return (
         <SocialMediaButtons>
@@ -44,6 +44,7 @@ const SocialMediaShareButtons = ({url, media, alt, title, children, hashtag, has
                 title={title}
                 children={children}
                 hashtags={hashtags}
+                related={related}
             >
                 <TwitterIcon
                     size={40}

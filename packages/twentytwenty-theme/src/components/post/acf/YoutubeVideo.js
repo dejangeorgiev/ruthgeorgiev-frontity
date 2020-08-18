@@ -8,24 +8,19 @@ const YoutubeVideo = ({videoId}) => {
     const opts = {
         height: '360',
         width: '640',
+        playerVars: {rel: 0, showinfo: 0, ecver: 2}
     };
-
 
     return (
         <Video>
             <YouTube
-                videoId={videoId} opts={opts}
+                videoId={videoId}
+                opts={opts}
             />
         </Video>
-
     );
-
 };
 
 export default connect(YoutubeVideo);
 
-
-
 const Video = styled('div')` ${tw`flex justify-center`}`;
-
-

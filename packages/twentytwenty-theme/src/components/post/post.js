@@ -31,7 +31,7 @@ import RecipeTipsIconPng from "../global/icons/png/RecipeTips.png"
 import RecipePreparationTime from "./acf/RecipePreparationTime"
 import RecipeCookingTime from "./acf/RecipeCookingTime";
 import RecipeServings from "./acf/RecipeServings";
-
+import {CopyToClipboard} from "react-copy-to-clipboard/lib/Component";
 import Comments from "../comments";
 import RecommendedPosts from "./acf/recommended/posts/RecommendedPosts";
 
@@ -140,7 +140,9 @@ const Post = ({state, actions, libraries}) => {
                         children={post.title.rendered}
                         hashtag='#ruthgeorgiev'
                         hashtags={['ruthgeorgiev', 'recipes']}
+                        related={['@GeorgievRuth']}
                     />
+
                     {/* If the post has tags, render it */}
                     {post.tags && <PostTags tags={tags}/>}
 
@@ -238,7 +240,8 @@ const Post = ({state, actions, libraries}) => {
                         title={post.title.rendered}
                         children={post.title.rendered}
                         hashtag='#ruthgeorgiev'
-                        hashtags={['ruthgeorgiev', 'dejangeorgiev']}
+                        hashtags={['ruthgeorgiev', 'recipes']}
+                        related={['GeorgievRuth']}
                     />
 
                 </SectionContainer>
