@@ -140,7 +140,6 @@ const Post = ({state, actions, libraries}) => {
                         children={post.title.rendered}
                         hashtag='#ruthgeorgiev'
                         hashtags={['ruthgeorgiev', 'recipes']}
-                        related={['@GeorgievRuth']}
                     />
 
                     {/* If the post has tags, render it */}
@@ -241,7 +240,6 @@ const Post = ({state, actions, libraries}) => {
                         children={post.title.rendered}
                         hashtag='#ruthgeorgiev'
                         hashtags={['ruthgeorgiev', 'recipes']}
-                        related={['GeorgievRuth']}
                     />
 
                 </SectionContainer>

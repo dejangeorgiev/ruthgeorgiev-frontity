@@ -41,7 +41,9 @@ const DishTag = styled(Link)`
 
   transition: border-bottom-color 150ms;
   :hover {
-    border-bottom-color: transparent;
+    background-color: #2d3748;
+    border-bottom: 0.15rem solid currentColor;
+    color: white;
   }
 `;
 
