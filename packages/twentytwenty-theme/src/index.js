@@ -83,10 +83,6 @@ const twentyTwentyTheme = {
                         }
                      ]
                      **/
-                },
-                {
-                    name:'Travel',
-                    href:'/travel/'
                 }
                 /**
                  ["Home", "/"],
