@@ -10,6 +10,7 @@ import tw from "tailwind.macro";
 import Link from "../link"
 import DeleteIcon from "../global/icons/DeleteIcon";
 import GetTaxonomyDescription from "../global/taxonomies/RecipeTaxonomies/GetTaxonomyDescription";
+import Author from "../global/author/author"
 
 const Archive = ({state, showExcerpt, showMedia}) => {
     // Get the data of the current list.
@@ -22,6 +23,9 @@ const Archive = ({state, showExcerpt, showMedia}) => {
     useEffect(() => {
         Post.preload();
     }, []);
+
+    // Get Author data
+    const AuthorData= state.source.author[data.id];
 
     // Get all taxonomies
     const taxonomies = state.source.taxonomies;
@@ -51,8 +55,8 @@ const Archive = ({state, showExcerpt, showMedia}) => {
 
             {/* If the list is for a specific author, we render a title. */}
             {data.isAuthor && (
-                <ArchiveHeader labelColor={primary} label="Author">
-                    <b>{decode(state.source.author[data.id].name)}</b>
+                <ArchiveHeader labelColor={primary}>
+                    <Author author={AuthorData} />
                 </ArchiveHeader>
             )}
             <ArticlesContainer>

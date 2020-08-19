@@ -31,7 +31,6 @@ import RecipeTipsIconPng from "../global/icons/png/RecipeTips.png"
 import RecipePreparationTime from "./acf/RecipePreparationTime"
 import RecipeCookingTime from "./acf/RecipeCookingTime";
 import RecipeServings from "./acf/RecipeServings";
-import {CopyToClipboard} from "react-copy-to-clipboard/lib/Component";
 import Comments from "../comments";
 import RecommendedPosts from "./acf/recommended/posts/RecommendedPosts";
 
