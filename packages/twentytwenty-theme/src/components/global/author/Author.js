@@ -9,7 +9,6 @@ import YoutubeIcon from "../icons/social-media/YoutubeIcon";
 import LocationMarker from "../icons/png/LocationMarker.png"
 
 const Author = ({author, state, actions}) => {
-
     /**
      * Once the post has loaded in the DOM, prefetch both the
      * home posts and the list component so if the user visits
@@ -89,7 +88,6 @@ const Author = ({author, state, actions}) => {
                     <TwitterIcon/>
                 </AuthorSocialMediaLink>
             )}
-
         </AuthorContainer>
     )
 };
