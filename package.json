@@ -30,7 +30,7 @@
     "@frontity/wp-source": "^1.7.0",
     "@types/youtube": "0.0.39",
     "babel-plugin-macros": "^2.8.0",
-    "frontity": "^1.10.0",
+    "frontity": "^1.10.1",
     "frontity-contact-form-7": "^0.1.7",
     "react-elastic-carousel": "^0.6.4",
     "react-headroom": "^3.0.0",
