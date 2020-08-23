@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "frontity dev",
     "build": "frontity build",
-    "serve": "frontity serve"
+    "serve": "node frontity-serve.js"
   },
   "prettier": {},
   "dependencies": {
