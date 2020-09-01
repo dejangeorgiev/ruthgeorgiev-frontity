@@ -38,7 +38,7 @@ export default connect(RecipeTaxonomy);
 const TaxonomyTag = styled(Link)`
   font-size: 1.4rem;
   color:black;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.036666667em;
   text-decoration: none;
   text-transform: uppercase;
