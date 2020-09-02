@@ -33,6 +33,7 @@ import RecipeCookingTime from "./acf/RecipeCookingTime";
 import RecipeServings from "./acf/RecipeServings";
 import Comments from "../comments";
 import RecommendedPosts from "./acf/recommended/posts/RecommendedPosts";
+import ReadingProgress from "react-reading-progress"
 
 
 import SocialMediaShareButtons from "../global/social-share/SocialMediaShareButtons";
@@ -119,7 +120,9 @@ const Post = ({state, actions, libraries}) => {
 
     // Load the post, but only if the data is ready.
     return data.isReady ? (
-        <PostArticle>
+        <PostArticle id="target-el">
+            <ReadingProgressBar targetEl="#target-el"/>
+
             <Header>
                 <SectionContainer>
 
@@ -296,4 +299,8 @@ const EquipmentIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;
 const DescriptionIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;
 const RecipeTipsIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;
 const HigLightedText = styled('span')` ${tw`bg-gray-200 font-normal px-5 rounded-full`}`;
+const ReadingProgressBar = styled(ReadingProgress)`
+height: 0.2rem;
+transition: width 0.2s linear;
+`;
 
