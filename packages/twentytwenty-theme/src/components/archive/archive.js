@@ -10,7 +10,7 @@ import tw from "tailwind.macro";
 import Link from "../link"
 import DeleteIcon from "../global/icons/DeleteIcon";
 import GetTaxonomyDescription from "../global/taxonomies/RecipeTaxonomies/GetTaxonomyDescription";
-import Author from "../global/author/author"
+import Author from "../global/author/Author"
 
 const Archive = ({state, showExcerpt, showMedia}) => {
     // Get the data of the current list.
