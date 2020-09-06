@@ -126,11 +126,10 @@ const Post = ({state, actions, libraries}) => {
             <Header>
                 <SectionContainer>
 
+                    <PostTitle className="heading-size-1">{post.title.rendered}</PostTitle>
+
                     {/* If the post has categories, render the categories */}
                     {post.categories && <PostCategories categories={categories}/>}
-
-
-                    <PostTitle className="heading-size-1">{post.title.rendered}</PostTitle>
 
                     {/* The post's metadata like author, publish date, and comments */}
                     <PostMeta item={post}/>

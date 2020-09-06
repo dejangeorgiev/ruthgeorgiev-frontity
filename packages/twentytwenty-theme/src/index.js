@@ -83,7 +83,30 @@ const twentyTwentyTheme = {
                         }
                      ]
                      **/
+                },
+                /**
+                {
+                    name: 'Services',
+                    href: '/services/',
+
+
+                     submenu: [
+                     {
+                            name: 'Photography',
+                            href: '/category/salad/'
+                        },
+                     {
+                            name: 'Videography',
+                            href: '/category/italian/'
+                        },
+                     {
+                            name: 'Catering',
+                            href: '/category/vegan/'
+                        }
+                     ]
+
                 }
+                 **/
                 /**
                  ["Home", "/"],
                  ["Recipes", "/recipes/"],

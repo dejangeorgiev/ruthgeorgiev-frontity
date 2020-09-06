@@ -308,6 +308,16 @@ const elementBase = (colors) => css`
                 color: white;
         }
   }
+  
+  p > a {
+        color: black;
+        box-shadow: rgb(189, 178, 255) 0px -3px 0px inset;
+        transition: box-shadow 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s, color 0.15s ease 0s;
+        &:hover {
+                box-shadow: rgb(189, 178, 255) 0px -26px inset;
+                color: white;
+        }
+  }
 `;
 
 const listStyle = css`
