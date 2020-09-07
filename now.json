@@ -2,8 +2,40 @@
   "version": 2,
   "builds": [
     {
+      "src": "build/static/**/*",
+      "use": "@now/static"
+    },
+    {
+      "src": "robots.txt",
+      "use": "@now/static"
+    },
+    {
+      "src": "favicon.ico",
+      "use": "@now/static"
+    },
+    {
+      "src": "build/server.js",
+      "use": "@now/node"
+    },
+
+    {
       "src": "package.json",
-      "use": "@frontity/now"
+      "use": "@now/node-server"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/robots.txt",
+      "dest": "/robots.txt"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/build/static/$1"
+    },
+    {
+      "src": "/(.*)",
+
+      "dest": "/build/server.js"
     }
   ]
 }
