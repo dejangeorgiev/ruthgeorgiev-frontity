@@ -7,9 +7,12 @@
     "frontity"
   ],
   "scripts": {
+    "main": "server.js",
+    "start": "node build/server.js",
     "dev": "frontity dev",
     "build": "frontity build",
-    "serve": "node frontity-serve.js"
+    "serve": "node frontity-serve.js",
+    "deploy": "npx frontity build && npx now --prod"
   },
   "prettier": {},
   "dependencies": {
