@@ -136,6 +136,7 @@ const twentyTwentyTheme = {
             fontSets: "all",
         },
         source: {
+            api: "https://admin.ruthgeorgiev.com/wp-json",
             postTypes: [
                 {
                     type: "profiles", // type slug
