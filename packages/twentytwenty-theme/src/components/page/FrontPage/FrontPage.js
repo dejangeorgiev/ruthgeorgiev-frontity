@@ -10,8 +10,11 @@ import RecommendedPosts from "../../post/acf/recommended/posts/RecommendedPosts"
 
 
 const FrontPage = ({state, actions, libraries}) => {
+
+
     // Get information about the current URL.
     const data = state.source.get(state.router.link);
+
     // Get the data of the post.
     const page = state.source[data.type][data.id];
     // Get the data of the author.
@@ -22,6 +25,8 @@ const FrontPage = ({state, actions, libraries}) => {
     // Get the html2react component.
 
     const Html2React = libraries.html2react.Component;
+
+
 
     const FirstSlideStyles = {
         backgroundImage: `url(https://admin.ruthgeorgiev.com/wp-content/uploads/2020/06/food-scaled.jpg)`,
@@ -63,8 +68,9 @@ const FrontPage = ({state, actions, libraries}) => {
      * the home page, everything is ready and it loads instantly.
      */
     useEffect(() => {
-        actions.source.fetch("/");
+        actions.source.fetch("");
     }, []);
+
 
     // Load the post, but only if the data is ready.
     return data.isReady ? (

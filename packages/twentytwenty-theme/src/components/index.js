@@ -13,15 +13,17 @@ import SkipLink from "./styles/skip-link";
 import Title from "./page-meta-title";
 import PageError from "./page-error";
 import Page from "./page"
+import Travel from "./travel";
 import FrontPage from "./page/FrontPage";
 import FooterWithLinksAndTags from "./global/footer/FooterWithLinksAndTags";
 import NewsletterSubscription from "./global/newsletter/NewsletterSubscription";
+import SearchAlgolia from "./search/search-algolia";
 
 /**
  * Theme is the root React component of our theme. The one we will export
  * in roots.
  */
-const Theme = ({state, libraries}) => {
+const Theme = ({state, actions, libraries}) => {
     // Get information about the current URL.
     const data = state.source.get(state.router.link);
     const parse = libraries.source.parse(state.router.link);
@@ -52,12 +54,14 @@ const Theme = ({state, libraries}) => {
         on the type of URL we are in. */}
 
                 <Main id="main">
+                    <SearchAlgolia/>
                     <Switch>
                         <FrontPage when={data.isHome}/>
                         <Loading when={data.isFetching}/>
                         <SearchResults when={isSearch}/>
                         <Archive when={data.isArchive}/>
                         <Page when={data.isPage}/>
+                        <Travel when={data.isTravel} />
                         <Post when={data.isPostType}/>
                         <PageError when={data.isError}/>
                     </Switch>

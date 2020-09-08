@@ -42,13 +42,20 @@ const Title = ({state, actions}) => {
     return (
         <Head>
             <title>{title} - The Best Cooking Recipes & healthy tips</title>
-            <html lang="en" />
-            <meta name="robots" content="all" />
-            <link rel="shortcut icon" type="image/x-icon" href="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/07/rg_logo.png"/>
+            <html lang="en"/>
+            <meta name="robots" content="all"/>
             <link rel="shortcut icon" type="image/x-icon"
                   href="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/07/rg_logo.png"/>
+            <link rel="shortcut icon" type="image/x-icon"
+                  href="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/07/rg_logo.png"/>
+
+
+                <link rel="stylesheet"
+                      href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/algolia-min.css"
+                      integrity="sha256-HB49n/BZjuqiCtQQf49OdZn63XuKFaxcIHWf0HNKte8=" crossorigin="anonymous"/>
+
         </Head>
-    );
+);
 };
 
 export default connect(Title);

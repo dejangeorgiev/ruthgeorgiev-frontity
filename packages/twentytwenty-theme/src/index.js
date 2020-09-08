@@ -169,7 +169,19 @@ const twentyTwentyTheme = {
                     taxonomy: "meals", // taxonomy slug
                     endpoint: "meals", // REST API endpoint
                     postTypeEndpoint: "posts", // endpoint from which posts from this taxonomy are fetched
+                },
+                /**
+                {
+                    taxonomy: "destinations", // taxonomy slug
+                    endpoint:"destinations", // REST API endpoint
+                    postTypeEndpoint: "travel", // endpoint from which posts from this taxonomy are fetched
+                },
+                {
+                    taxonomy: "experiences", // taxonomy slug
+                    endpoint:"experiences", // REST API endpoint
+                    postTypeEndpoint: "travel", // endpoint from which posts from this taxonomy are fetched
                 }
+                 **/
             ],
             handlers: [homeHandler]
         }
@@ -191,7 +203,7 @@ const twentyTwentyTheme = {
             },
             closeSearchModal: ({state}) => {
                 state.theme.isSearchModalOpen = false;
-            },
+            }
         }
     },
     libraries: {
