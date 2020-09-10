@@ -54,7 +54,7 @@ const Theme = ({state, actions, libraries}) => {
         on the type of URL we are in. */}
 
                 <Main id="main">
-                    
+
                     <Switch>
                         <FrontPage when={data.isHome}/>
                         <Loading when={data.isFetching}/>
