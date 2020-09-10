@@ -1,124 +1,127 @@
-import { styled, connect, Global, css } from "frontity";
-import React, { useRef } from "react";
-import { useTransition, animated } from "react-spring";
+import {styled, connect, Global, css} from "frontity";
+import React, {useRef} from "react";
+import {useTransition, animated} from "react-spring";
 
-import { CloseIcon } from "../icons";
+import {CloseIcon} from "../icons";
 import ScreenReaderText from "../styles/screen-reader";
 import useFocusTrap from "../hooks/use-trap-focus";
 import useFocusEffect from "../hooks/use-focus-effect";
 import Button from "../styles/button";
 
-const SearchModal = ({ state, actions }) => {
-  const { searchQuery } = state.source.get(state.router.link);
+import RecommendedPosts from "../post/acf/recommended/posts/RecommendedPosts";
 
-  const { isSearchModalOpen } = state.theme;
-  const { closeSearchModal } = actions.theme;
-  const { primary } = state.theme.colors;
+const SearchModal = ({state, actions}) => {
+    const {searchQuery} = state.source.get(state.router.link);
 
-  // Keep a reference to the input so we can grab it's value on form submission
-  const inputRef = useRef();
-  const containerRef = useRef();
+    const {isSearchModalOpen} = state.theme;
+    const {closeSearchModal} = actions.theme;
+    const {primary} = state.theme.colors;
 
-  const transitions = useTransition(isSearchModalOpen, null, {
-    from: { transform: "translate3d(0,-100%,0)" },
-    enter: { transform: "translate3d(0,0px,0)" },
-    leave: { transform: "translate3d(0,-100%,0)" },
-  });
-  useFocusEffect(inputRef, isSearchModalOpen);
-  useFocusTrap(containerRef, isSearchModalOpen);
+    // Keep a reference to the input so we can grab it's value on form submission
+    const inputRef = useRef();
+    const containerRef = useRef();
 
-  // Format the query to remove trailing spaces and replace space with "+"
-  const formatQuery = (query) => query.trim().replace(" ", "+").toLowerCase();
+    const transitions = useTransition(isSearchModalOpen, null, {
+        from: {transform: "translate3d(0,-100%,0)"},
+        enter: {transform: "translate3d(0,0px,0)"},
+        leave: {transform: "translate3d(0,-100%,0)"},
+    });
+    useFocusEffect(inputRef, isSearchModalOpen);
+    useFocusTrap(containerRef, isSearchModalOpen);
 
-  const handleSubmit = (event) => {
-    // Prevent page navigation
-    event.preventDefault();
+    // Format the query to remove trailing spaces and replace space with "+"
+    const formatQuery = (query) => query.trim().replace(" ", "+").toLowerCase();
 
-    // Get the input's value
-    const searchString = inputRef.current.value;
+    const handleSubmit = (event) => {
+        // Prevent page navigation
+        event.preventDefault();
 
-    // If the typed search string is not empty
-    // Better to trim write spaces as well
-    if (searchString.trim().length > 0) {
-      // Let's go search for blogs that match the search string
-      actions.router.set(`/?s=${formatQuery(searchString)}`);
+        // Get the input's value
+        const searchString = inputRef.current.value;
 
-      // Scroll the page to the top
-      window.scrollTo(0, 0);
+        // If the typed search string is not empty
+        // Better to trim write spaces as well
+        if (searchString.trim().length > 0) {
+            // Let's go search for blogs that match the search string
+            actions.router.set(`/?s=${formatQuery(searchString)}`);
 
-      // Close the search modal
-      closeSearchModal();
-    }
-  };
+            // Scroll the page to the top
+            window.scrollTo(0, 0);
 
-  return (
-    <>
-      <ModalOverlay
-        role="presentation"
-        data-open={isSearchModalOpen}
-        onClick={closeSearchModal}
-      />
-      <div
-        css={css`
-          position: absolute;
-          top: 0;
-          right: 0;
-          left: 0;
-          z-index: 2000;
-        `}
-      >
-        {transitions.map(
-          ({ item, key, props }) =>
-            item && (
-              <animated.div key={key} style={props}>
-                <Global
-                  styles={css`
-                    html {
-                      overflow-y: scroll;
-                      position: fixed;
-                      width: 100%;
-                      top: 0px;
-                      left: 0px;
-                    }
-                  `}
-                />
+            // Close the search modal
+            closeSearchModal();
+        }
+    };
 
-                <ModalInner
-                  role="dialog"
-                  aria-modal="true"
-                  onClick={(event) => {
-                    // prevent clicks within the content from propagating to the ModalOverlay
-                    event.stopPropagation();
-                  }}
-                >
-                  <SectionInner ref={containerRef}>
-                    <SearchForm
-                      role="search"
-                      aria-label="Search for:"
-                      onSubmit={handleSubmit}
-                    >
-                      <SearchInput
-                        ref={inputRef}
-                        type="search"
-                        defaultValue={searchQuery || ""}
-                        placeholder="search for:"
-                        name="search"
-                      />
-                      <SearchButton bg={primary}>Search</SearchButton>
-                    </SearchForm>
+    return (
+        <>
+            <ModalOverlay
+                role="presentation"
+                data-open={isSearchModalOpen}
+                onClick={closeSearchModal}
+            />
+            <div
+                css={css`
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    z-index: 2000;
+                `}
+            >
+                {transitions.map(
+                    ({item, key, props}) =>
+                        item && (
+                            <animated.div key={key} style={props}>
+                                <Global
+                                    styles={css`
+                                            html {
+                                                overflow-y: scroll;
+                                                position: fixed;
+                                                width: 100%;
+                                                top: 0px;
+                                                left: 0px;
+                                                }
+                                            `}
+                                />
 
-                    <CloseButton onClick={closeSearchModal}>
-                      <ScreenReaderText>Close search</ScreenReaderText>
-                      <CloseIcon />
-                    </CloseButton>
-                  </SectionInner>
-                </ModalInner>
-              </animated.div>
-            )
-        )}
-      </div>
-    </>
-  );
+                                <ModalInner
+                                    role="dialog"
+                                    aria-modal="true"
+                                    onClick={(event) => {
+                                        // prevent clicks within the content from propagating to the ModalOverlay
+                                        event.stopPropagation();
+                                    }}
+                                >
+                                    <SectionInner ref={containerRef}>
+                                        <SearchForm
+                                            role="search"
+                                            aria-label="Search for:"
+                                            onSubmit={handleSubmit}
+                                        >
+                                            <SearchInput
+                                                ref={inputRef}
+                                                type="search"
+                                                defaultValue={searchQuery || ""}
+                                                placeholder="Hi friend, search through our recipe archive...."
+                                                name="search"
+                                            />
+                                            <SearchButton bg={primary}>Search</SearchButton>
+                                        </SearchForm>
+
+                                        <CloseButton onClick={closeSearchModal}>
+                                            <ScreenReaderText>Close search</ScreenReaderText>
+                                            <CloseIcon/>
+                                        </CloseButton>
+                                    </SectionInner>
+                                </ModalInner>
+                            </animated.div>
+                        )
+                )}
+
+            </div>
+        </>
+    );
 };
 
 export default connect(SearchModal);
@@ -143,6 +146,7 @@ const ModalOverlay = styled.div`
 `;
 
 const ModalInner = styled.div`
+  border-radius: 100px;
   box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.08);
   transform: translateY(0);
   background: #fff;
@@ -183,6 +187,7 @@ const SearchInput = styled.input`
   border: none;
   border-radius: 0;
   color: inherit;
+  outline: 0;
   display: block;
   font-size: 2rem;
   letter-spacing: -0.0277em;
@@ -203,13 +208,10 @@ const SearchInput = styled.input`
   @media (min-width: 700px) {
     border: none;
     font-size: 3.2rem;
-    height: 14rem;
+    height: 10rem;
   }
 
-  &:focus {
-    outline: thin dotted;
-    outline-offset: -4px;
-  }
+
 `;
 
 const CloseButton = styled.button`

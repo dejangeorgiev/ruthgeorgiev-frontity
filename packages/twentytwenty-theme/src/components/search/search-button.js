@@ -32,7 +32,7 @@ export default connect(SearchButton);
 
 const HeaderToggle = styled.div`
   display: none;
-
+  outline:none;
   @media (min-width: 1600px) {
     display: flex;
     flex-shrink: 0;
