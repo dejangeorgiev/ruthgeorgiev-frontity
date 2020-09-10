@@ -56,9 +56,9 @@ const Theme = ({state, actions, libraries}) => {
                 <Main id="main">
 
                     <Switch>
-                        <FrontPage when={data.isHome}/>
                         <Loading when={data.isFetching}/>
                         <SearchResults when={isSearch}/>
+                        <FrontPage when={data.isHome}/>
                         <Archive when={data.isArchive}/>
                         <Page when={data.isPage}/>
                         <Travel when={data.isTravel} />

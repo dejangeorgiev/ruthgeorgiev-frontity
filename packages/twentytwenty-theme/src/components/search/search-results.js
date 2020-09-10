@@ -1,6 +1,6 @@
 import React from "react";
 import { connect, styled } from "frontity";
-import Archive from "../archive";
+import ArchiveSearchResults from "../archive/archive-search-results";
 import ArchiveHeader from "../archive/archive-header";
 import SectionContainer from "../styles/section-container";
 import SearchForm from "./search-form";
@@ -47,7 +47,7 @@ const SearchResults = ({ state, libraries }) => {
           <SearchForm />
         </SearchContainer>
       ) : (
-        <Archive showExcerpt={true} showMedia={true} />
+        <ArchiveSearchResults showExcerpt={true} showMedia={true} />
       )}
     </>
   );
