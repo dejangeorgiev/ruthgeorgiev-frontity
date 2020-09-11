@@ -53,6 +53,8 @@ const Title = ({state, actions}) => {
                 <link rel="stylesheet"
                       href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/algolia-min.css"
                       integrity="sha256-HB49n/BZjuqiCtQQf49OdZn63XuKFaxcIHWf0HNKte8=" crossorigin="anonymous"/>
+            <meta name="p:domain_verify" content="ca0a59bb01e4367019fe7adbeb9a855a"/>
+            <script data-ad-client="ca-pub-2902968812206324" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         </Head>
 );
 };
