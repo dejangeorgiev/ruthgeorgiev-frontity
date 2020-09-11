@@ -103,7 +103,7 @@ const SearchModal = ({state, actions}) => {
                                                 ref={inputRef}
                                                 type="search"
                                                 defaultValue={searchQuery || ""}
-                                                placeholder="Hi friend, search through our recipe archive...."
+                                                placeholder="Hungry? 😋 Search through our recipe archive...."
                                                 name="search"
                                             />
                                             <SearchButton bg={primary}>Search</SearchButton>

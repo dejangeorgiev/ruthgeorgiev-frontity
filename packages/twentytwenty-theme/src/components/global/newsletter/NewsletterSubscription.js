@@ -12,7 +12,7 @@ const NewsletterSubscription = ({actions}) => {
 
             <SubscriptionContainer>
                 <SubscriptionTitle>
-                    Hungry for more?
+                    Hungry for more? 😋
                 </SubscriptionTitle>
                 <SubscriptionText>
                     Join our community and never miss out on new recipes, videos, tips and more.

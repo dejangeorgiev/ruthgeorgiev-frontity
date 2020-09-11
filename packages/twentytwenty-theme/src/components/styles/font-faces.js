@@ -1,15 +1,5 @@
 import React from "react";
 import { Global, css, connect } from "frontity";
-import InterMedium from "../../fonts/inter/Inter-Medium.woff2";
-import InterBold from "../../fonts/inter/Inter-Bold.woff2";
-import InterSemiBold from "../../fonts/inter/Inter-SemiBold.woff2";
-import InterMediumUS from "../../fonts/inter/Inter-Medium-US-ASCII.woff2";
-import InterBoldUS from "../../fonts/inter/Inter-Bold-US-ASCII.woff2";
-import InterSemiBoldUS from "../../fonts/inter/Inter-SemiBold-US-ASCII.woff2";
-import InterMediumLatin from "../../fonts/inter/Inter-Medium-LATIN.woff2";
-import InterBoldLatin from "../../fonts/inter/Inter-Bold-LATIN.woff2";
-import InterSemiBoldLatin from "../../fonts/inter/Inter-SemiBold-LATIN.woff2";
-
 /* Fonts from Bw Quinta Pro */
 import BwQuintaProBlack from "../../fonts/bw-quinta-pro/BwQuintaPro-Black.woff"
 import BwQuintaProBlackItalic from "../../fonts/bw-quinta-pro/BwQuintaPro-BlackItalic.woff"
