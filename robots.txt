@@ -5,6 +5,7 @@
 # It is safe to leave this file as is.
 
 # Make sure that you know what you are doing before editing this file as it might prevent google from indexing your content. To find out more about robots.txt: https://support.google.com/webmasters/answer/6062608
+
 Sitemap: http://admin.ruthgeorgiev.com/sitemap_index.xml
 User-agent: *
 Allow: /
