@@ -7,6 +7,7 @@ import InstagramIcon from "../icons/social-media/InstagramIcon";
 import YoutubeIcon from "../icons/social-media/YoutubeIcon";
 import PinterestIcon from "../icons/social-media/PinterestIcon";
 import TwitterIcon from "../icons/social-media/TwitterIcon"
+import LinkedinIcon from "../icons/social-media/LinkedinIcon"
 
 
 const FooterWithLinksAndTags = ({actions}) => {
@@ -74,6 +75,12 @@ const FooterWithLinksAndTags = ({actions}) => {
                         target="_blank"
                         rel="noopener noreferrer">
                         <TwitterIcon/>
+                    </FooterSocialMediaLink>
+                    <FooterSocialMediaLink
+                        href="https://www.linkedin.com/in/ruth-georgiev-984959a3/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <LinkedinIcon/>
                     </FooterSocialMediaLink>
                 </FooterSingleSection>
             </FooterInner>

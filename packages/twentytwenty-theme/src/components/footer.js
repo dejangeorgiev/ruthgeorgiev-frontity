@@ -34,7 +34,7 @@ const Footer = ({state}) => {
                 <Credits>
                     <Copyright>
                         &copy; {currentYear}{" "}
-                        <Link link={"/"}>{state.frontity.title}</Link>
+                        <Link link={"/author/ruth-georgiev/"}>{state.frontity.title}</Link>
                     </Copyright>
                     <PoweredBy>Cooking with love & traveling with passion</PoweredBy>
                 </Credits>

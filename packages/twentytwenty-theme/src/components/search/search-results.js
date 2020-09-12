@@ -25,8 +25,8 @@ const SearchResults = ({ state, libraries }) => {
 
   return (
     <>
-      <ArchiveHeader label="Search" labelColor={primary}>
-        <span>{`“${reverseFormat(searchQuery)}”`}</span>
+      <ArchiveHeader>
+        Glad to see you are looking for <span>{`“${reverseFormat(searchQuery)}”`}</span> recipes.
         <IntroText size="thin">
           {isEmpty ? (
             <Text>
@@ -35,8 +35,7 @@ const SearchResults = ({ state, libraries }) => {
             </Text>
           ) : (
             <Text>
-              We found {total} {total === 1 ? "result" : "results"} for your
-              search.
+              We found {total} {total === 1 ? `“${reverseFormat(searchQuery)}”` + " result" : `“${reverseFormat(searchQuery)}”` + " results"} for you. <br/>Let's cook 👩‍🍳
             </Text>
           )}
         </IntroText>

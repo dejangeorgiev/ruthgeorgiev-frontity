@@ -6,6 +6,7 @@ import FacebookIcon from "../icons/social-media/FacebookIcon";
 import InstagramIcon from "../icons/social-media/InstagramIcon";
 import PinterestIcon from "../icons/social-media/PinterestIcon";
 import YoutubeIcon from "../icons/social-media/YoutubeIcon";
+import LinkedinIcon from "../icons/social-media/LinkedinIcon"
 import LocationMarker from "../icons/png/LocationMarker.png"
 
 const Author = ({author, state, actions}) => {
@@ -86,6 +87,15 @@ const Author = ({author, state, actions}) => {
                     target="_blank"
                     rel="noopener noreferrer">
                     <TwitterIcon/>
+                </AuthorSocialMediaLink>
+            )}
+
+            {author.acf['userfieldgroup.linkedin'] && (
+                <AuthorSocialMediaLink
+                    href={author.acf['userfieldgroup.linkedin']}
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <LinkedinIcon/>
                 </AuthorSocialMediaLink>
             )}
         </AuthorContainer>

@@ -41,12 +41,12 @@ const SearchForm = ({ state, actions, libraries }) => {
         <SearchInput
           type="search"
           defaultValue={searchQuery}
-          placeholder="Search ..."
+          placeholder="Search for food recipes here ..."
           ref={inputRef}
         />
       </Label>
       <SearchButton bg={primary} type="submit">
-        Search
+        Find
       </SearchButton>
     </Form>
   );
