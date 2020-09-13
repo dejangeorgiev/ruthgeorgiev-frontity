@@ -17,37 +17,36 @@ const SubscribeForm = ({status, message, onValidated}) => {
 
 
     return (
-        <SubscriptionFormSection>
+        <>
+            <SubscriptionFormSection>
+                <SubscriptionFormInput
+                    ref={node => (email = node)}
+                    type="email"
+                    placeholder="Your email"
+                    value={status === "success" ? "" : null}
+                />
+                <SiteFooterSubscribeFormButton onClick={submit}>
+                    Subscribe
+                </SiteFooterSubscribeFormButton>
+
+            </SubscriptionFormSection>
             {status === "sending" && <StatusProcessing style={{color: "blue"}}>sending...</StatusProcessing>}
             {status === "error" && (
-                <StatusError
-                    dangerouslySetInnerHTML={{__html: message}}
-                />
+                <StatusError>Oops! Sorry friend, his email address looks fake or invalid. <br/>Please enter a real email address.</StatusError>
             )}
             {status === "success" && (
-                <StatusSuccess
-                    dangerouslySetInnerHTML={{__html: message}}
-                />
+                <StatusSuccess>Thank you so much! We'll feed you weekly with new recipes. </StatusSuccess>
             )}
-            <SubscriptionFormInput
-                ref={node => (email = node)}
-                type="email"
-                placeholder="Your email"
-                value={status === "success" ? "" : null}
-            />
-            <SiteFooterSubscribeFormButton onClick={submit}>
-                Subscribe
-            </SiteFooterSubscribeFormButton>
-        </SubscriptionFormSection>
+        </>
     );
 };
 
 export default connect(SubscribeForm);
 
-const SubscriptionFormSection = styled('div')`  ${tw`flex flex-wrap justify-between`}`;
+const SubscriptionFormSection = styled('div')`  ${tw`max-w-xl`}`;
 const SubscriptionFormInput = styled('input')`  ${tw`m-1 p-4 appearance-none rounded-full border-none text-gray-700 outline-none`}`;
 const SiteFooterSubscribeFormButton = styled('button')`  ${tw`w-full m-2 p-4 bg-gray-800 text-gray-100 rounded-lg font-normal uppercase lg:w-auto`}`;
 const StatusProcessing = styled('span')`  ${tw`text-blue-100`}`;
-const StatusError = styled('div')`  ${tw`text-red-100`}`;
-const StatusSuccess = styled('div')`  ${tw`text-green-100`}`;
+const StatusError = styled('div')` ${tw`text-red-700 absolute`}`;
+const StatusSuccess = styled('div')`  ${tw`text-green-600 absolute`}`;
 

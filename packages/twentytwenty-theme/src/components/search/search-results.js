@@ -1,55 +1,53 @@
 import React from "react";
-import { connect, styled } from "frontity";
+import {connect, styled} from "frontity";
 import ArchiveSearchResults from "../archive/archive-search-results";
 import ArchiveHeader from "../archive/archive-header";
 import SectionContainer from "../styles/section-container";
 import SearchForm from "./search-form";
+import SearchNotFound from "./search-not-found";
+import SearchFound from "./search-found";
 
-const SearchResults = ({ state, libraries }) => {
-  const { primary } = state.theme.colors;
-  // Get the current path or link
-  const currentPath = state.router.link;
+const SearchResults = ({state, libraries}) => {
+    const {primary} = state.theme.colors;
+    // Get the current path or link
+    const currentPath = state.router.link;
 
-  // Get the total pages that match the current path/url
-  const { total } = state.source.data[currentPath];
-  const isEmpty = total === 0;
+    // Get the total pages that match the current path/url
+    const {total} = state.source.data[currentPath];
+    const isEmpty = total === 0;
 
-  // Parse to current url to get the search query
-  const parse = libraries.source.parse(state.router.link);
+    // Parse to current url to get the search query
+    const parse = libraries.source.parse(state.router.link);
 
-  // Parse returns an object whose query string is stored in "s"
-  const searchQuery = parse.query["s"];
+    // Parse returns an object whose query string is stored in "s"
+    const searchQuery = parse.query["s"];
 
-  // Since we formatted the query string in the search modal, let's reverse the formatting
-  const reverseFormat = (query) => query.replace("+", " ");
+    // Since we formatted the query string in the search modal, let's reverse the formatting
+    const reverseFormat = (query) => query.replace("+", " ");
 
-  return (
-    <>
-      <ArchiveHeader>
-        Glad to see you are looking for <span>{`“${reverseFormat(searchQuery)}”`}</span> recipes.
-        <IntroText size="thin">
-          {isEmpty ? (
-            <Text>
-              We could not find any results for your search. You can give it
-              another try through the search form below.
-            </Text>
-          ) : (
-            <Text>
-              We found {total} {total === 1 ? `“${reverseFormat(searchQuery)}”` + " result" : `“${reverseFormat(searchQuery)}”` + " results"} for you. <br/>Let's cook 👩‍🍳
-            </Text>
-          )}
-        </IntroText>
-      </ArchiveHeader>
+    const searchKeyword = `${reverseFormat(searchQuery)}`
 
-      {isEmpty ? (
-        <SearchContainer size="thin">
-          <SearchForm />
-        </SearchContainer>
-      ) : (
-        <ArchiveSearchResults showExcerpt={true} showMedia={true} />
-      )}
-    </>
-  );
+    return (
+        <>
+            <div>
+                {isEmpty ? (
+                    <SearchNotFound keyword={searchKeyword}/>
+                ) : (
+                    <>
+                        <SearchFound keyword={searchKeyword} total={total} />
+                    </>
+                )}
+            </div>
+
+            {isEmpty ? (
+                <SearchContainer size="thin">
+                    <SearchForm/>
+                </SearchContainer>
+            ) : (
+                <ArchiveSearchResults showExcerpt={true} showMedia={true}/>
+            )}
+        </>
+    );
 };
 
 export default connect(SearchResults);
