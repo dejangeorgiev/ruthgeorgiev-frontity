@@ -8,6 +8,9 @@ import Link from "../link";
 
 const SearchFound = ({keyword, total}) => {
 
+    let isMoreThanOne = total > 1;
+
+
     return (
         <>
             <SearchFoundContainer>
@@ -15,14 +18,15 @@ const SearchFound = ({keyword, total}) => {
                     <img src={SuperChef} alt="Ruth Georgiev - Super Chef - Search found in Ruth's archive"/>
                 </SearchFoundContainerImage>
                 <SearchFoundContainerContents>
-                    <SearchFoundEntryTitle>Voilà! We found the best <Keyword>{keyword}</Keyword> recipes for
-                        you.</SearchFoundEntryTitle>
+                    <SearchFoundEntryTitle>Voilà! We found the best
+                        {(isMoreThanOne) ? <Keyword> {total} {keyword} recipes </Keyword> :
+                            <Keyword> {keyword} recipe </Keyword>}
+                        for you.</SearchFoundEntryTitle>
                     <h4>Let's cook 👩‍🍳</h4>
                     <SearchFoundIntroText>
-                        Happy to see that you are interested to have some of the recipes related
-                        to <span>"{keyword}"</span> in your kitchen.
+                        Happy to see that you are interested to have some of the <Keyword>"{keyword}"</Keyword> related
+                        recipes in your kitchen.
                     </SearchFoundIntroText>
-
                     <SearchFoundNavigation>
                         Let me know how you made it on 👉
                         <SearchFoundCustomLink href="https://www.instagram.com/ruthgeorgiev/" target="_blank"
@@ -36,7 +40,6 @@ const SearchFound = ({keyword, total}) => {
                     </SearchFoundNavigation>
                 </SearchFoundContainerContents>
             </SearchFoundContainer>
-
         </>
     );
 };
