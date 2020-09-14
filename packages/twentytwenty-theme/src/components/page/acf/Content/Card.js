@@ -28,23 +28,21 @@ const Card = ({state, actions, libraries, name, description, highlightedText, im
 
     return data.isReady ? (
         <div>
-
-                <Container>
-                    <CardImageContainer>
-                        <CardImage id={imageID}/>
-                    </CardImageContainer>
-                    <CardContents>
-                        <ContentBadge>
-                            <ExternalLinkIcon/>
-                            {highlightedText}
-                        </ContentBadge>
-                        <BadgeTitle href={url}>{name}</BadgeTitle>
-                        <BadgeDescription>
-                            <Html2React html={description}/>
-                        </BadgeDescription>
-                    </CardContents>
-                </Container>
-
+            <Container>
+                <CardImageContainer>
+                    <CardImage id={imageID}/>
+                </CardImageContainer>
+                <CardContents>
+                    <ContentBadge>
+                        <ExternalLinkIcon/>
+                        {highlightedText}
+                    </ContentBadge>
+                    <BadgeTitle href={url}>{name}</BadgeTitle>
+                    <BadgeDescription>
+                        <Html2React html={description}/>
+                    </BadgeDescription>
+                </CardContents>
+            </Container>
         </div>
     ) : null;
 };

@@ -22,7 +22,7 @@ const SearchFound = ({keyword, total}) => {
                         {(isMoreThanOne) ? <Keyword> {total} {keyword} recipes </Keyword> :
                             <Keyword> {keyword} recipe </Keyword>}
                         for you.</SearchFoundEntryTitle>
-                    <h4>Let's cook 👩‍🍳</h4>
+                    <h4>Let's cook. 👩‍🍳</h4>
                     <SearchFoundIntroText>
                         Happy to see that you are interested to have some of the <Keyword>"{keyword}"</Keyword> related
                         recipes in your kitchen.

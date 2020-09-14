@@ -5,6 +5,7 @@ import PageCarousel from "./acf/Content/Carousel/PageCarousel";
 import Text from "./acf/Content/Text"
 import Card from "./acf/Content/Card"
 import HighlightedLink from "./acf/Content/HighlightedLink";
+import ProfileCard from "./acf/Content/ProfileCard";
 
 const Page = ({state, actions, libraries}) => {
     // Get information about the current URL.
@@ -75,6 +76,38 @@ const Page = ({state, actions, libraries}) => {
                                                     title={pageContent[key]['contentfieldgroup.content.highlightedlink.link'].title}
                                                     url={pageContent[key]['contentfieldgroup.content.highlightedlink.link'].url}
                             />
+                        }
+
+                        if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.profile') {
+                            return <ProfileCard key={key}
+                                                name={pageContent[key]['contentfieldgroup.content.profile.name']}
+                                                image={pageContent[key]['contentfieldgroup.content.profile.image']}
+                                                profession={pageContent[key]['contentfieldgroup.content.profile.profession']}
+                                                location={pageContent[key]['contentfieldgroup.content.profile.location']}
+                                                description={pageContent[key]['contentfieldgroup.content.profile.description']}
+                                                button={pageContent[key]['contentfieldgroup.content.profile.button']}
+                                                facebook={pageContent[key]['contentfieldgroup.content.profile.facebook']}
+                                                instagram={pageContent[key]['contentfieldgroup.content.profile.instagram']}
+                                                twitter={pageContent[key]['contentfieldgroup.content.profile.twitter']}
+                                                youtube={pageContent[key]['contentfieldgroup.content.profile.youtube']}
+                                                linkedin={pageContent[key]['contentfieldgroup.content.profile.linkedin']}
+                                                pinterest={pageContent[key]['contentfieldgroup.content.profile.pinterest']}
+                            />
+
+                            /**
+                             name,
+                             image,
+                             profession,
+                             location,
+                             description,
+                             button,
+                             facebook,
+                             instagram,
+                             twitter,
+                             youtube,
+                             linkedin,
+                             unsplash
+                             **/
                         }
                     })}
                 {

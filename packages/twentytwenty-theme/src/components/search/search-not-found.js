@@ -16,23 +16,22 @@ const SearchNotFound = ({keyword}) => {
                     <img src={SearchNotFoundIcon} alt="Search is not found in Ruth's archive"/>
                 </SearchNotFoundContainerImage>
                 <SearchNotFoundContainerContents>
-                    <SearchNotFoundEntryTitle>Search not found</SearchNotFoundEntryTitle>
-                    <h4>Glad to see you are looking for "{keyword}" recipes.</h4>
+                    <SearchNotFoundEntryTitle>So sorry, we found no <Keyword>{keyword}</Keyword> recipes in our kitchen.</SearchNotFoundEntryTitle>
+                    <h4>Glad to see you are looking for "{keyword}" recipes. Soon we'll make some.</h4>
                     <SearchNotFoundIntroText>
-                        Unfortunately we could not find any recipes related to <span>"{keyword}"</span> in my kitchen. You can give it
-                        another try through the search form below.
+                        In meantime you can give it another try through the search form below.
                     </SearchNotFoundIntroText>
                     <SearchForm/>
                     <SearchNotFoundNotFoundNavigation>
                         Go to 👉
-                        <SearchNotFoundCustomNotFoundLink link="/">Homepage</SearchNotFoundCustomNotFoundLink>
-                        <SearchNotFoundCustomNotFoundLink link="/recipes">Recipes</SearchNotFoundCustomNotFoundLink>
-                        <SearchNotFoundCustomNotFoundLink link="/?s=healthy">
+                        <SearchNotFoundCustomLink link="/">Homepage</SearchNotFoundCustomLink>
+                        <SearchNotFoundCustomLink link="/recipes">Recipes</SearchNotFoundCustomLink>
+                        <SearchNotFoundCustomLink link="/?s=healthy">
                             Healthy Food
-                        </SearchNotFoundCustomNotFoundLink>
-                        <SearchNotFoundCustomNotFoundLink link="/category/must-try/">
+                        </SearchNotFoundCustomLink>
+                        <SearchNotFoundCustomLink link="/category/must-try/">
                             Must Try Recipes
-                        </SearchNotFoundCustomNotFoundLink>
+                        </SearchNotFoundCustomLink>
                         <SearchNotFoundScrollDown>
                             <br/> <p>Or scroll down to find more recipes</p>
                             <SearchNotFoundDownArrow src={ArrowDown}/></SearchNotFoundScrollDown>
@@ -77,14 +76,13 @@ const SearchNotFoundContainer = styled('div')` ${tw`block sm:flex max-w-screen-x
 const SearchNotFoundContainerImage = styled('div')` ${tw`w-full`}`;
 const SearchNotFoundContainerContents = styled('div')` ${tw`text-left p-4`}`;
 
-
 const SearchNotFoundRecommendedPostsTitle = styled('h2')` ${tw`text-gray-800 font-normal text-center px-2 uppercase`}`;
 const SearchNotFoundHigLightedText = styled('span')` ${tw`bg-gray-200 font-normal px-5 rounded-full`}`;
 const SearchNotFoundScrollDown = styled('span')` ${tw`flex text-center m-auto`}`;
 const SearchNotFoundDownArrow = styled('img')` ${tw`w-12 inline-block`}`;
 const SearchNotFoundNotFoundNavigation = styled('div')` ${tw`py-10`}`;
 
-const SearchNotFoundCustomNotFoundLink = styled(Link)`
+const SearchNotFoundCustomLink = styled(Link)`
     color: black;
         box-shadow: rgb(189, 178, 255) 0px -3px 0px inset;
         transition: box-shadow 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s, color 0.15s ease 0s;
@@ -92,3 +90,5 @@ const SearchNotFoundCustomNotFoundLink = styled(Link)`
                 box-shadow: rgb(189, 178, 255) 0px -26px inset;
         }
  ${tw`m-4 inline-block w-max-content`}`;
+
+const Keyword = styled('span')` ${tw`text-red-800`}`;
