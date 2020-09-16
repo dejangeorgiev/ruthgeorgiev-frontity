@@ -65,7 +65,7 @@ const settings = {
                             library:"googleAdManager.GooglePublisherTag",
                             priority:5,
                             props:{
-                                id:"before-description-ad",
+                                id:"22111369743",
                                 unit:"/22112326048/RecipeBeforeDescription",
                                 size:[250,250],
                             },
