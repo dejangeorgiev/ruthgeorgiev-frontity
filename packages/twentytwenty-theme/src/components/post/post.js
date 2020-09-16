@@ -180,8 +180,7 @@ const Post = ({state, actions, libraries}) => {
                         <FeaturedImage id={post.featured_media} isSinglePost={true}/>
                     )}
 
-
-                    <Slot name="before-description-ad" />
+                    <AdBannerBody name="before-description-ad" />
 
                     {/* if the post has description, render it */}
                     {post.acf['postfieldgroup.description'] &&
@@ -235,6 +234,7 @@ const Post = ({state, actions, libraries}) => {
                             </PostInner>
                         )
                     }
+
 
                     <SocialMediaShareButtons
                         url={postUrl}
@@ -290,6 +290,7 @@ const RecipeDescriptionTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6
 const RecipeTipsTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2 font-normal uppercase`}`;
 const RecipeYoutubeVideoTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6 px-2 uppercase`}`;
 const RecommendedPostsTitle = styled('h2')` ${tw`text-gray-800 font-normal text-center py-6 px-2 uppercase`}`;
+const AdBannerBody = styled(Slot)` ${tw`flex justify-center m-10`}`;
 
 const PostTaxonomies = styled('div')` ${tw`flex content-start text-left sm:flex-wrap flex-wrap h-30 bg-gray-200 my-10 p-10`}`;
 const CuisineTaxonomy = styled('div')` ${tw`w-full p-1`}`;

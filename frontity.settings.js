@@ -79,6 +79,16 @@ const settings = {
                                 unit:"/6499/example/banner",
                                 size:[320,100],
                             },
+                        },
+                        testBannerAd:{
+                            slot:"test-banner",
+                            library:"googleAdManager.GooglePublisherTag",
+                            priority:5,
+                            props:{
+                                id:"test-banner-ad",
+                                unit:"/6499/example/banner",
+                                size:[320,100],
+                            },
                         }
                     }
                 }
