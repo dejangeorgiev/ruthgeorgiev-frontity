@@ -1,4 +1,4 @@
-import {styled, connect} from "frontity";
+import {styled, connect, Slot} from "frontity";
 import React, {useEffect} from "react";
 import FeaturedMedia from "./featured-media";
 import {
@@ -179,6 +179,9 @@ const Post = ({state, actions, libraries}) => {
                     {state.theme.featuredMedia.showOnPost && (
                         <FeaturedImage id={post.featured_media} isSinglePost={true}/>
                     )}
+
+
+                    <Slot name="before-description-ad" />
 
                     {/* if the post has description, render it */}
                     {post.acf['postfieldgroup.description'] &&

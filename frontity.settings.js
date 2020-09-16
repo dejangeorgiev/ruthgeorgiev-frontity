@@ -60,14 +60,14 @@ const settings = {
             state:{
                 fills:{
                     googleAdManager:{
-                        beforeHeaderAd:{
-                            slot:"before-header",
+                        beforeDescriptionAd:{
+                            slot:"before-description-ad",
                             library:"googleAdManager.GooglePublisherTag",
                             priority:5,
                             props:{
-                                id:"before-header-ad",
-                                unit:"/6499/example/banner",
-                                size:[320,100],
+                                id:"before-description-ad",
+                                unit:"/22112326048/RecipeBeforeDescription",
+                                size:[250,250],
                             },
                         },
                         afterHeaderAd:{
