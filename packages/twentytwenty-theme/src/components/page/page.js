@@ -6,6 +6,7 @@ import Text from "./acf/Content/Text"
 import Card from "./acf/Content/Card"
 import HighlightedLink from "./acf/Content/HighlightedLink";
 import ProfileCard from "./acf/Content/ProfileCard";
+import InstaFeed from "./acf/Content/InstaFeed";
 
 const Page = ({state, actions, libraries}) => {
     // Get information about the current URL.
@@ -26,6 +27,7 @@ const Page = ({state, actions, libraries}) => {
     }, []);
 
     const pageContent = page.acf['contentfieldgroup.content'];
+
     // Load the post, but only if the data is ready.
     return data.isReady ? (
         <div>
@@ -93,23 +95,19 @@ const Page = ({state, actions, libraries}) => {
                                                 linkedin={pageContent[key]['contentfieldgroup.content.profile.linkedin']}
                                                 pinterest={pageContent[key]['contentfieldgroup.content.profile.pinterest']}
                             />
-
-                            /**
-                             name,
-                             image,
-                             profession,
-                             location,
-                             description,
-                             button,
-                             facebook,
-                             instagram,
-                             twitter,
-                             youtube,
-                             linkedin,
-                             unsplash
-                             **/
                         }
+
+                        if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.instafeed') {
+                            return <InstaFeed key={key}
+                                              title={pageContent[key]['contentfieldgroup.content.instafeed.title']}
+                                              posts={pageContent[key]['contentfieldgroup.content.instafeed.posts']}
+                            />
+                        }
+
                     })}
+
+
+
                 {
                     page.content && (
                         <PostInner size="medium">
@@ -119,6 +117,7 @@ const Page = ({state, actions, libraries}) => {
                         </PostInner>
                     )
                 }
+
             </SectionContainer>
         </div>
     ) : null;
@@ -130,9 +129,10 @@ const maxWidths = {
     thin: "58rem",
     small: "80rem",
     medium: "100rem",
+    large: "120rem",
 };
 
-const getMaxWidth = (props) => maxWidths[props.size] || maxWidths["medium"];
+const getMaxWidth = (props) => maxWidths[props.size] || maxWidths["large"];
 
 const FeaturedImage = styled(FeaturedMedia)`
 margin-top: 0 !important;

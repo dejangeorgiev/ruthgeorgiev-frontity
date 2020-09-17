@@ -35,7 +35,6 @@ import Comments from "../comments";
 import RecommendedPosts from "./acf/recommended/posts/RecommendedPosts";
 import ReadingProgress from "react-reading-progress"
 
-
 import SocialMediaShareButtons from "../global/social-share/SocialMediaShareButtons";
 
 import tw from 'tailwind.macro'

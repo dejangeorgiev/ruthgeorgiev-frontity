@@ -146,7 +146,7 @@ const ProfileCard = ({
 
 export default connect(ProfileCard);
 
-const Profile = styled('div')` ${tw`flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0`}`;
+const Profile = styled('div')` ${tw`flex items-center h-auto flex-wrap mx-auto my-32`}`;
 const MainColumn = styled('div')` ${tw`w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0`}`;
 const ProfileInner = styled('div')` ${tw`p-4 md:p-12 text-center lg:text-left`}`;
 const MobileImage = styled('div')` ${tw`block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-top`}`;
