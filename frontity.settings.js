@@ -8,12 +8,12 @@ const settings = {
         },
         newsletter: {
             slot: 'above-the-footer',
-            mailchimp:{
+            mailchimp: {
                 url: 'https://ruthgeorgiev.us10.list-manage.com/subscribe/post?u=ddb464652565465fb2305fc30&id=544679ca17'
             }
         },
-        sitemap:{
-            origin:"https://admin.ruthgeorgiev.com"
+        sitemap: {
+            origin: "https://admin.ruthgeorgiev.com"
         }
     },
     packages: [
@@ -57,37 +57,47 @@ const settings = {
         },
         {
             name: "@frontity/google-ad-manager",
-            state:{
-                fills:{
-                    googleAdManager:{
-                        beforeDescriptionAd:{
-                            slot:"before-description-ad",
-                            library:"googleAdManager.GooglePublisherTag",
-                            priority:5,
-                            props:{
-                                id:"22111369743",
-                                unit:"/22112326048/RecipeBeforeDescription",
-                                size:[250,250],
+            state: {
+                fills: {
+                    googleAdManager: {
+                        beforeDescriptionAd: {
+                            slot: "before-description-ad",
+                            library: "googleAdManager.GooglePublisherTag",
+                            priority: 5,
+                            props: {
+                                id: "22111369743",
+                                unit: "/22112326048/RecipeBeforeDescription",
+                                size: [728, 90],
                             },
                         },
-                        afterHeaderAd:{
-                            slot:"after-header",
-                            library:"googleAdManager.GooglePublisherTag",
-                            priority:5,
-                            props:{
-                                id:"after-header-ad",
-                                unit:"/6499/example/banner",
-                                size:[320,100],
+                        beforeDescriptionAdMobile: {
+                            slot: "before-description-ad-mobile",
+                            library: "googleAdManager.GooglePublisherTag",
+                            priority: 5,
+                            props: {
+                                id: "22112326048",
+                                unit: "/22112326048/RecipeBeforeDescriptionMobile",
+                                size: [[320, 50], [300, 250], [320, 480], [480, 320]],
                             },
                         },
-                        testBannerAd:{
-                            slot:"test-banner",
-                            library:"googleAdManager.GooglePublisherTag",
-                            priority:5,
-                            props:{
-                                id:"test-banner-ad",
-                                unit:"/6499/example/banner",
-                                size:[320,100],
+                        afterHeaderAd: {
+                            slot: "after-header",
+                            library: "googleAdManager.GooglePublisherTag",
+                            priority: 5,
+                            props: {
+                                id: "after-header-ad",
+                                unit: "/6499/example/banner",
+                                size: [320, 100],
+                            },
+                        },
+                        testBannerAd: {
+                            slot: "test-banner",
+                            library: "googleAdManager.GooglePublisherTag",
+                            priority: 5,
+                            props: {
+                                id: "test-banner-ad",
+                                unit: "/6499/example/banner",
+                                size: [320, 100],
                             },
                         }
                     }

@@ -1,6 +1,8 @@
 import React from "react";
 import {connect} from "frontity";
-import Loading from "../../loading"
+import Loading from "../../loading";
+import CommentsSuccess from "./comments-success";
+import CommentsError from "./comments-error";
 
 const CommentsForm = ({actions, state, postId}) => {
     const form = state.comments.forms[postId];
@@ -60,14 +62,15 @@ const CommentsForm = ({actions, state, postId}) => {
 
                 {/* Show the REST API error messages.
             E.g. "Sorry, you must be logged in to comment." */}
-                {form?.errorMessage && <div>ERROR: {form?.errorMessage}</div>}
+                {form?.errorMessage && <CommentsError message={form?.errorMessage} />}
 
                 {/* If the form was submitted successfully we can show a confirmation */}
                 <div>
-                    {form?.isSubmitted && "The comment was submitted successfully!"}
+                    {form?.isSubmitted && <CommentsSuccess />}
                 </div>
 
                 <input type="submit"/>
+
             </form>
         </>
     );

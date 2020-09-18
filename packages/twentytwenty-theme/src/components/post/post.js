@@ -178,7 +178,7 @@ const Post = ({state, actions, libraries}) => {
                         <FeaturedImage id={post.featured_media} isSinglePost={true}/>
                     )}
 
-                    <AdBannerBody name="before-description-ad"/>
+                    {<AdBannerBody name="before-description-ad"/>}
 
                     {/* if the post has description, render it */}
                     {post.acf['postfieldgroup.description'] &&
@@ -186,10 +186,11 @@ const Post = ({state, actions, libraries}) => {
                         src={ProfessionalChefFemale} alt="Professional Chef Female"/></RecipeDescriptionTitle>}
                     {post.acf['postfieldgroup.description'] && <RecipeDescription id={post.id}/>}
 
+                    {<AdBannerBodyMobile name="before-description-ad-mobile"/>}
+
                     {/* if the post has badge / sponsored link, render it */}
                     {post.acf['postfieldgroup.badge'] && <SectionTitle>Products i use or have tried</SectionTitle>}
                     {post.acf['postfieldgroup.badge'] && <Badge id={post.id}/>}
-
 
                     {/* If the post has ingredients, render it */}
                     {post.acf['postfieldgroup.ingredients'] &&
@@ -222,8 +223,7 @@ const Post = ({state, actions, libraries}) => {
                     {post.acf['postfieldgroup.video'] && <YoutubeVideo videoId={post.acf['postfieldgroup.video']}/>}
 
 
-                    {/* If the post has an excerpt (short summary text), we render it */
-                    }
+                    {/* If the post has an excerpt (short summary text), we render it */}
                     {
                         post.content && (
                             <PostInner size="medium">
@@ -233,7 +233,6 @@ const Post = ({state, actions, libraries}) => {
                             </PostInner>
                         )
                     }
-
 
                     <SocialMediaShareButtons
                         url={postUrl}
@@ -245,7 +244,7 @@ const Post = ({state, actions, libraries}) => {
                         hashtags={['ruthgeorgiev', 'recipes']}
                     />
 
-                    {/*<Comments postId={post.id} />*/}
+                    {/*<Comments postId={post.id}/>*/}
 
                 </SectionContainer>
             </Header>
@@ -291,7 +290,8 @@ const RecipeDescriptionTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6
 const RecipeTipsTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2 font-normal uppercase`}`;
 const RecipeYoutubeVideoTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6 px-2 uppercase`}`;
 const RecommendedPostsTitle = styled('h2')` ${tw`text-gray-800 font-normal text-center py-6 px-2 uppercase`}`;
-const AdBannerBody = styled(Slot)` ${tw`flex justify-center m-10`}`;
+const AdBannerBody = styled(Slot)` ${tw`flex justify-center m-10 md:hidden`}`;
+const AdBannerBodyMobile = styled(Slot)` ${tw`flex justify-center m-10 md:hidden`}`;
 
 const PostTaxonomies = styled('div')` ${tw`flex content-start text-left sm:flex-wrap flex-wrap h-30 bg-gray-200 my-10 p-10`}`;
 const CuisineTaxonomy = styled('div')` ${tw`w-full p-1`}`;

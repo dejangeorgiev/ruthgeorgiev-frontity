@@ -36,7 +36,7 @@ const Footer = ({state}) => {
                         &copy; {currentYear}{" "}
                         <Link link={"/author/ruth-georgiev/"}>{state.frontity.title}</Link>
                     </Copyright>
-                    <PoweredBy>Cooking with love & traveling with passion</PoweredBy>
+                    <PoweredBy>Cooking with 🤍</PoweredBy>
                 </Credits>
                 <BackToTop/>
             </SiteFooterInner>
