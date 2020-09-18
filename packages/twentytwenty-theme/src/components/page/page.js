@@ -7,6 +7,8 @@ import Card from "./acf/Content/Card"
 import HighlightedLink from "./acf/Content/HighlightedLink";
 import ProfileCard from "./acf/Content/ProfileCard";
 import InstaFeed from "./acf/Content/InstaFeed";
+import PinterestWidget from "./acf/Content/PinterestWidget";
+
 
 const Page = ({state, actions, libraries}) => {
     // Get information about the current URL.
@@ -103,10 +105,13 @@ const Page = ({state, actions, libraries}) => {
                                               posts={pageContent[key]['contentfieldgroup.content.instafeed.posts']}
                             />
                         }
-
                     })}
+                {/*
+                    <PinterestWidget title="Check my Pinterest"
+                                     profile="https://www.pinterest.com/ruthgeorgiev/"/>
+                    <a data-pin-do="embedPin" data-pin-width="medium" href="https://www.pinterest.com/pin/99360735500167749/"></a>
 
-
+               */}
 
                 {
                     page.content && (

@@ -97,9 +97,9 @@ const FrontPage = ({state, actions, libraries}) => {
                 <ThirdSlide style={ThirdSlideStyles}/>
             </HomeCarousel>
             <HomeTeaser>
-                <Title>Best Cooking Recipes &</Title>
-                <SubTitle>How to improve cooking skills</SubTitle>
-                <p>A collection of cooking recipes & healthy tips.</p>
+                <Title>Cooking Recipes</Title>
+                <SubTitle>That your friends & family will love</SubTitle>
+                <p>Here you can find a collection of cooking recipes & healthy tips.</p>
                 <SlideContentButton link='/recipes'>Go to the recipes</SlideContentButton>
             </HomeTeaser>
             <SectionTitle>Newest Recipes</SectionTitle>

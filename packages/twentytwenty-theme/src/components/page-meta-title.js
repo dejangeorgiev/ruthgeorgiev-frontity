@@ -48,7 +48,7 @@ const Title = ({state, actions}) => {
                   href="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/07/rg_logo.png"/>
             <link rel="shortcut icon" type="image/x-icon"
                   href="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/07/rg_logo.png"/>
-
+            <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
         </Head>
 );
 };

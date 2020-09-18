@@ -5,12 +5,12 @@ import InstagramEmbed from 'react-instagram-embed';
 import SectionTitle from "../../global/SectionTitle";
 import RecipeTaxonomy from "../../../global/taxonomies/RecipeTaxonomies/RecipeTaxonomy";
 
-const InstaFeed = ({
+const PinterestWidget = ({
                        state,
                        actions,
                        libraries,
                        title,
-                       posts,
+                       profile,
                    }) => {
 
     /**
@@ -34,29 +34,14 @@ const InstaFeed = ({
     return data.isReady ? (
         <>
             <SectionTitle title={title}/>
-            <InstaPosts>
-                {Object.keys(posts).map((key, id) => {
-                    const InstaPostUrl = posts[key]['contentfieldgroup.content.instafeed.posts.url'];
 
-                    return (
-                        <InstaPost key={key}>
-                            <InstagramEmbed
-                                url={InstaPostUrl}
-                                maxWidth={320}
-                                hideCaption={true}
-                                containerTagName='div'
-                                protocol=''
-                                injectScript
-                            />
-                        </InstaPost>
-                    );
-                })}
-            </InstaPosts>
+            <a data-pin-do="embedUser" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="100" href={profile}></a>
+
         </>
     ) : null;
 };
 
-export default connect(InstaFeed);
+export default connect(PinterestWidget);
 
 const InstaPosts = styled('div')` ${tw`flex flex-wrap content-center justify-center h-auto m-auto`}`;
 // const InstaPosts = styled('div')` ${tw`flex flex-wrap items-center justify-between h-auto m-auto`}`;

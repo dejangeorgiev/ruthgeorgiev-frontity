@@ -31,10 +31,9 @@ import RecipeTipsIconPng from "../global/icons/png/RecipeTips.png"
 import RecipePreparationTime from "./acf/RecipePreparationTime"
 import RecipeCookingTime from "./acf/RecipeCookingTime";
 import RecipeServings from "./acf/RecipeServings";
-import Comments from "../comments";
 import RecommendedPosts from "./acf/recommended/posts/RecommendedPosts";
 import ReadingProgress from "react-reading-progress"
-
+import Comments from '../global/comments/index'
 import SocialMediaShareButtons from "../global/social-share/SocialMediaShareButtons";
 
 import tw from 'tailwind.macro'
@@ -48,7 +47,7 @@ const Post = ({state, actions, libraries}) => {
     const postUrl = state.frontity.url + state.router.link;
 
     const media = state.source.attachment[post.featured_media];
-    
+
     // Get the data of the author.
     // const author = state.source.author[post.author];
     // Get a human readable date.
@@ -179,7 +178,7 @@ const Post = ({state, actions, libraries}) => {
                         <FeaturedImage id={post.featured_media} isSinglePost={true}/>
                     )}
 
-                    <AdBannerBody name="before-description-ad" />
+                    <AdBannerBody name="before-description-ad"/>
 
                     {/* if the post has description, render it */}
                     {post.acf['postfieldgroup.description'] &&
@@ -194,12 +193,14 @@ const Post = ({state, actions, libraries}) => {
 
                     {/* If the post has ingredients, render it */}
                     {post.acf['postfieldgroup.ingredients'] &&
-                    <IngredientsTitle>Ingredients <IngredientsIcon src={EasyRecipe} alt="Recipe Ingredients"/></IngredientsTitle>}
+                    <IngredientsTitle>Ingredients <IngredientsIcon src={EasyRecipe}
+                                                                   alt="Recipe Ingredients"/></IngredientsTitle>}
                     {post.acf['postfieldgroup.ingredients'] && <Ingredients id={post.id}/>}
 
                     {/* If the post has equipment, render it */}
                     {post.acf['postfieldgroup.equipment'] &&
-                    <EquipmentTitle>Equipment <EquipmentIcon src={ModernCookingTools} alt="Recipe Equipment"/> </EquipmentTitle>}
+                    <EquipmentTitle>Equipment <EquipmentIcon src={ModernCookingTools} alt="Recipe Equipment"/>
+                    </EquipmentTitle>}
                     {post.acf['postfieldgroup.equipment'] && <Equipment id={post.id}/>}
 
                     {/* if the post has affiliate / sponsored link, render it */}
@@ -207,7 +208,8 @@ const Post = ({state, actions, libraries}) => {
 
                     {/* if the post has tips, render it */}
                     {post.acf['postfieldgroup.tips'] &&
-                    <RecipeTipsTitle>Tips <RecipeTipsIcon src={RecipeTipsIconPng} alt="Recipe tips"/> </RecipeTipsTitle>}
+                    <RecipeTipsTitle>Tips <RecipeTipsIcon src={RecipeTipsIconPng} alt="Recipe tips"/>
+                    </RecipeTipsTitle>}
                     {post.acf['postfieldgroup.tips'] && <RecipeTips id={post.id}/>}
 
                     {/* if the post has description, render it */}
@@ -218,8 +220,6 @@ const Post = ({state, actions, libraries}) => {
                     <RecipeYoutubeVideoTitle>Watch how i make it <YouTubeIcon/>
                     </RecipeYoutubeVideoTitle>}
                     {post.acf['postfieldgroup.video'] && <YoutubeVideo videoId={post.acf['postfieldgroup.video']}/>}
-
-                    {/* <Comments id={post.id}/> */}
 
 
                     {/* If the post has an excerpt (short summary text), we render it */
@@ -244,6 +244,8 @@ const Post = ({state, actions, libraries}) => {
                         hashtag='#ruthgeorgiev'
                         hashtags={['ruthgeorgiev', 'recipes']}
                     />
+
+                    {/*<Comments postId={post.id} />*/}
 
                 </SectionContainer>
             </Header>
