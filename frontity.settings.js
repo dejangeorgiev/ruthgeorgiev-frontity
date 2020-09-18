@@ -77,7 +77,7 @@ const settings = {
                             props: {
                                 id: "22112326048",
                                 unit: "/22112326048/RecipeBeforeDescriptionMobile",
-                                size: [[320, 50], [300, 250], [320, 480], [480, 320]],
+                                size:  [300, 250],
                             },
                         },
                         afterHeaderAd: {
