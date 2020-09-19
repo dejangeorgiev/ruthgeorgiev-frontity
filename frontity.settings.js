@@ -67,7 +67,7 @@ const settings = {
                             props: {
                                 id: "22111369743",
                                 unit: "/22112326048/RecipeBeforeDescription",
-                                size: [728, 90],
+                                size: [320, 50],
                             },
                         },
                         beforeDescriptionAdMobile: {
@@ -97,7 +97,7 @@ const settings = {
                             props: {
                                 id: "test-banner-ad",
                                 unit: "/6499/example/banner",
-                                size: [320, 100],
+                                size: [320, 50],
                             },
                         }
                     }
