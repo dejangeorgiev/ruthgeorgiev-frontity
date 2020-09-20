@@ -97,27 +97,29 @@ const cssReset = css`
     }
   }
   input[type="submit"] {
+    background-color: #f7fafc;
+    color: #2d3748;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
     display: inline-block;
     margin-bottom: 0;
-    font-weight: 400;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
     -ms-touch-action: manipulation;
     touch-action: manipulation;
-    cursor: pointer;
     background-image: none;
-    border: 1px solid #000000;
-    padding: 12px 36px;
-    font-size: 14px;
+    border: 2px solid #2d3748;
+    font-size:inherit;
     line-height: 1.42857143;
     border-radius: 4px;
-    color: #000000;
-    background-color: #ffffff;
+    color: #2d3748;
+    background-color: #f7fafc;
     
     &:hover{
-        color: #ffffff;
-    background-color: #000000;
+        color: #2d3748;
+        background-color: #edf2f7;
     }
   }
   

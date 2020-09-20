@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { connect } from "frontity";
+import React, {useEffect} from "react";
+import {connect} from "frontity";
 import CommentsList from "./comments-list";
 import CommentsForm from "./comments-form";
 
-const Comments = ({ actions, state, postId }) => {
+const Comments = ({actions, state, postId}) => {
     useEffect(() => {
         actions.source.fetch(`@comments/${postId}`);
     }, []);
@@ -12,8 +12,10 @@ const Comments = ({ actions, state, postId }) => {
     return (
         data.isReady && (
             <>
-                <CommentsForm postId={postId} />
-                <CommentsList postId={postId} />
+                {data.items.length > 0 &&  <CommentsList postId={postId}/>}
+
+                <h6>Add your comment here</h6>
+                <CommentsForm postId={postId}/>
             </>
         )
     );

@@ -38,6 +38,7 @@ import SocialMediaShareButtons from "../global/social-share/SocialMediaShareButt
 
 import tw from 'tailwind.macro'
 
+
 const Post = ({state, actions, libraries}) => {
     // Get information about the current URL.
     const data = state.source.get(state.router.link);
@@ -47,6 +48,7 @@ const Post = ({state, actions, libraries}) => {
     const postUrl = state.frontity.url + state.router.link;
 
     const media = state.source.attachment[post.featured_media];
+
 
     // Get the data of the author.
     // const author = state.source.author[post.author];
@@ -123,7 +125,6 @@ const Post = ({state, actions, libraries}) => {
 
             <Header>
                 <SectionContainer>
-
                     <PostTitle className="heading-size-1">{post.title.rendered}</PostTitle>
 
                     {/* If the post has categories, render the categories */}
@@ -244,7 +245,7 @@ const Post = ({state, actions, libraries}) => {
                         hashtags={['ruthgeorgiev', 'recipes']}
                     />
 
-                    {/*<Comments postId={post.id}/>*/}
+                    {<Comments postId={post.id} id="comments"/>}
 
                 </SectionContainer>
             </Header>
