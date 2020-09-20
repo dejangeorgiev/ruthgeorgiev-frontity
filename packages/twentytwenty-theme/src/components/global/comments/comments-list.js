@@ -2,6 +2,7 @@ import React from "react";
 import {connect, styled} from "frontity";
 import Collapse from "@kunukn/react-collapse";
 import tw from "tailwind.macro";
+import DownRightArrow from "../icons/svg/DownRightArrow.svg"
 
 const initialState = false;
 
@@ -40,7 +41,6 @@ const CommentsList = ({state, libraries, postId}) => {
 
     const [status, dispatch] = React.useReducer(reducer, initialState);
 
-
     return (
         <>
             <div>
@@ -63,35 +63,63 @@ const CommentsList = ({state, libraries, postId}) => {
                     )}
 
                 </Header>
-
-
-
-
+                
                 <Container>
                     <Block isOpen={status}
                     >
-                        {data.items.map(({id}) => {
+                        {data.items.map(({id, children}) => {
                             return (
-                                <Comment>
-                                    {
-                                        state.source.comment[id].author_avatar_urls[48] &&
-                                        <CommentAuthorAvatarContainer>
-                                            <CommentAuthorAvatarImage
-                                                src={state.source.comment[id].author_avatar_urls[48]}
-                                                alt={state.source.comment[id].author_name}/>
-                                        </CommentAuthorAvatarContainer>
-                                    }
-                                    <CommentAuthorNameContainer>
-                                        <CommentAuthorName>{state.source.comment[id].author_name || "Anonymous"}</CommentAuthorName>
-                                    </CommentAuthorNameContainer>
+                                <>
+                                    <Comment>
+                                        {
+                                            state.source.comment[id].author_avatar_urls[48] &&
+                                            <CommentAuthorAvatarContainer>
+                                                <CommentAuthorAvatarImage
+                                                    src={state.source.comment[id].author_avatar_urls[48]}
+                                                    alt={state.source.comment[id].author_name}/>
+                                            </CommentAuthorAvatarContainer>
+                                        }
 
-                                    <CommentContent>
-                                        <Html2React
-                                            html={state.source.comment[id].content.rendered}
-                                        />
-                                    </CommentContent>
+                                        <CommentAuthorNameContainer>
+                                            <CommentAuthorName>{state.source.comment[id].author_name || "Anonymous"}</CommentAuthorName>
+                                        </CommentAuthorNameContainer>
 
-                                </Comment>
+                                        <CommentContent>
+                                            <Html2React
+                                                html={state.source.comment[id].content.rendered}
+                                            />
+                                        </CommentContent>
+
+                                    </Comment>
+                                    {children && children.map(({id}) => {
+                                        return (
+                                            <Reply>
+                                                <ReplyIcon>
+                                                    <img src={DownRightArrow} alt="Reply To Ruth Georgiev Post Icon"/>
+                                                </ReplyIcon>
+                                                <ReplyComment>
+                                                    {
+                                                        state.source.comment[id].author_avatar_urls[48] &&
+                                                        <CommentAuthorAvatarContainer>
+                                                            <CommentAuthorAvatarImage
+                                                                src={state.source.comment[id].author_avatar_urls[48]}
+                                                                alt={state.source.comment[id].author_name}/>
+                                                        </CommentAuthorAvatarContainer>
+                                                    }
+                                                    <CommentAuthorNameContainer>
+                                                        <CommentAuthorName>{state.source.comment[id].author_name || "Anonymous"}</CommentAuthorName>
+                                                    </CommentAuthorNameContainer>
+
+                                                    <CommentContent>
+                                                        <Html2React
+                                                            html={state.source.comment[id].content.rendered}
+                                                        />
+                                                    </CommentContent>
+                                                </ReplyComment>
+                                            </Reply>
+                                        )
+                                    })}
+                                </>
                             );
                         })}
                     </Block>
@@ -117,4 +145,8 @@ const CommentAuthorNameContainer = styled('div')` ${tw`block`}`;
 const CommentAuthorName = styled('h6')` ${tw`text-bold p-0 m-0`}`;
 
 const CommentContent = styled('div')` ${tw`block `}`;
+
+const ReplyComment = styled('div')` ${tw`ml-2 bg-gray-100 my-1 text-left p-4 w-full`}`;
+const Reply = styled('div')` ${tw`flex`}`;
+const ReplyIcon = styled('div')` ${tw`w-24`}`;
 
