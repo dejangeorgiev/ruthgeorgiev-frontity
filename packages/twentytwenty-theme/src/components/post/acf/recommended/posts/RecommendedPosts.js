@@ -5,10 +5,10 @@ import Pagination from "../../../../archive/archive-pagination";
 import PostSeparator from "../../../post-separator";
 import tw from "tailwind.macro";
 
-const RecommendedPosts = ({state, showExcerpt, showMedia, actions}) => {
+const RecommendedPosts = ({state, showExcerpt, showMedia, actions, postId}) => {
 
     useEffect(() => {
-        actions.source.fetch('/recipes/');
+        actions.source.fetch(`/recipes/${postId}`);
     }, []);
     // Get the data of the current list.
     const data = state.source.get('/recipes/');

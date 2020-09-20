@@ -103,7 +103,7 @@ const FrontPage = ({state, actions, libraries}) => {
                 <SlideContentButton link='/recipes'>Go to the recipes</SlideContentButton>
             </HomeTeaser>
             <SectionTitle>Newest Recipes</SectionTitle>
-            <RecommendedPosts/>
+            <RecommendedPosts postId=""/>
         </FrontPageContainer>
 
 
