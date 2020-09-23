@@ -1,9 +1,12 @@
 import React, {useEffect} from "react";
 import {Head, connect, decode} from "frontity";
+import {SectionContainer} from "./post/post-item";
 
 const Title = ({state, actions}) => {
     // Get data about the current URL.
     const data = state.source.get(state.router.link);
+
+    const post = state.source.post[data.id];
     // Set the default title.
     let title = state.frontity.title;
     // Set the default description.
@@ -49,8 +52,10 @@ const Title = ({state, actions}) => {
             <link rel="shortcut icon" type="image/x-icon"
                   href="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/07/rg_logo.png"/>
             <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+
+            <script data-ad-client="ca-pub-2902968812206324" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         </Head>
-);
+    );
 };
 
 export default connect(Title);

@@ -35,7 +35,7 @@ import RecommendedPosts from "./acf/recommended/posts/RecommendedPosts";
 import ReadingProgress from "react-reading-progress"
 import Comments from '../global/comments/index'
 import SocialMediaShareButtons from "../global/social-share/SocialMediaShareButtons";
-
+import GoogleStructuredDataForRecipe from "../global/marketing/google/GoogleStructuredDataForRecipe";
 import tw from 'tailwind.macro'
 
 
@@ -122,6 +122,8 @@ const Post = ({state, actions, libraries}) => {
     return data.isReady ? (
         <PostArticle id="target-el">
             <ReadingProgressBar targetEl="#target-el"/>
+
+            {/**<GoogleStructuredDataForRecipe id={post.id} />**/}
 
             <Header>
                 <SectionContainer>
@@ -246,6 +248,7 @@ const Post = ({state, actions, libraries}) => {
                     />
 
                     {<Comments postId={post.id} id="comments"/>}
+
 
                 </SectionContainer>
             </Header>
