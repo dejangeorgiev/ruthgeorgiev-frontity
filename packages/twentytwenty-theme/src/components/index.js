@@ -28,8 +28,8 @@ const Theme = ({state, actions, libraries}) => {
     const data = state.source.get(state.router.link);
     const parse = libraries.source.parse(state.router.link);
     // Check if the url is a search type
-    const isSearch = Boolean(parse.query["s"]);
 
+    const isSearch = Boolean(parse.query["s"]);
     return (
         <>
             {/* Add global styles for the whole site, like body or a's or font-faces.
@@ -58,7 +58,7 @@ const Theme = ({state, actions, libraries}) => {
                     <Switch>
                         <Loading when={data.isFetching}/>
                         <SearchResults when={isSearch}/>
-                        <FrontPage when={data.isHome}/>
+                        <FrontPage when={data.isHome && data.link === "/"}/>
                         <Archive when={data.isArchive}/>
                         <Page when={data.isPage}/>
                         <Travel when={data.isTravel} />

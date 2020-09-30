@@ -1,5 +1,7 @@
 import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
+import {postTypeHandler} from "@frontity/wp-source/src/libraries/handlers";
+
 
 const homeHandler = {
     name: "home",
@@ -9,7 +11,7 @@ const homeHandler = {
         const {api} = libraries.source;
         // 1. fetch the specified page
         const response = await api.get({
-            endpoint: "home"
+            endpoint: ""
         });
 
         // 2. Transform to json
@@ -18,8 +20,8 @@ const homeHandler = {
         // 3. add data to source
         Object.assign(state.source.data[route], {
             homeData,
-            isArchive: true,
-            isPostTypeArchive: true,
+            isArchive: false,
+            isPostTypeArchive: false,
             isHome: true
         });
     }
@@ -85,7 +87,7 @@ const twentyTwentyTheme = {
                      **/
                 },
                 /**
-                {
+                 {
                     name: 'Services',
                     href: '/services/',
 
@@ -171,19 +173,18 @@ const twentyTwentyTheme = {
                     postTypeEndpoint: "posts", // endpoint from which posts from this taxonomy are fetched
                 },
                 /**
-                {
+                 {
                     taxonomy: "destinations", // taxonomy slug
                     endpoint:"destinations", // REST API endpoint
                     postTypeEndpoint: "travel", // endpoint from which posts from this taxonomy are fetched
                 },
-                {
+                 {
                     taxonomy: "experiences", // taxonomy slug
                     endpoint:"experiences", // REST API endpoint
                     postTypeEndpoint: "travel", // endpoint from which posts from this taxonomy are fetched
                 }
                  **/
-            ],
-            handlers: [homeHandler]
+            ]
         }
     },
     /**
@@ -192,6 +193,17 @@ const twentyTwentyTheme = {
      */
     actions: {
         theme: {
+            init: ({libraries}) => {
+                libraries.source.handlers.push({
+                    name: "Post Types Handler",
+                    priority: 20,
+                    pattern: "/(.*)?/:slug", // post or page or attachment
+                    func: postTypeHandler({
+                        // Those are the default endpoints plus "product"
+                        endpoints: ["posts", "pages", "travel"],
+                    }),
+                });
+            },
             openMobileMenu: ({state}) => {
                 state.theme.isMobileMenuOpen = true;
             },

@@ -28,7 +28,7 @@ const RecommendedPosts = ({state, showExcerpt, showMedia, actions, postId}) => {
         <>
             <ArticlesContainer>
                 {/* Iterate over the items of the list. */}
-                {data.items.slice(0, 8).map(({type, id}, index) => {
+                {data.items.slice(0, 20).map(({type, id}, index) => {
                     const isLastArticle = index === data.items.length - 1;
                     const item = state.source[type][id];
                     // Render one Item component for each one.
