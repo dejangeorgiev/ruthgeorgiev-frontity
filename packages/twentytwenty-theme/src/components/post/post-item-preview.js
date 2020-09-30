@@ -116,7 +116,7 @@ const getMaxWidth = (props) => maxWidths[props.size] || maxWidths["medium"];
 
 const SectionContainer = styled('div')` ${tw`text-left mt-4 md:mt-0 md:ml-6`}`;
 
-const PostTitle = styled('h2')`${tw`block mt-1 leading-tight font-semibold pl-4 pt-3 mb-0 text-gray-900 hover:underline`}`;
+const PostTitle = styled('h2')`${tw`block mt-1 leading-tight font-semibold pl-4 pr-2 pt-3 mb-0 text-gray-900 hover:underline`}`;
 
 const PostLink = styled(Link)`
   color: #000000;
@@ -135,7 +135,7 @@ export const EntryContent = styled.div`
   max-width: 58rem;
   font-family: "Bw Quinta Pro", Garamond, "Times New Roman", sans-serif;
   letter-spacing: normal;
-
+  margin: 1rem 0;
   @media (min-width: 700px) {
     font-size: 2.1rem;
   }

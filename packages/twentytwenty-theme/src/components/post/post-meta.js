@@ -1,7 +1,10 @@
-import { styled, connect, decode } from "frontity";
+import {styled, connect, decode} from "frontity";
 import React from "react";
 import PostMetaItem from "./post-meta-item";
-import { UserIcon, CalendarIcon } from "../icons";
+import tw from "tailwind.macro";
+
+import CalendarIcon from "../global/icons/svg/CalendarIcon.svg"
+import CommentsIcon from "../global/icons/svg/Comments.svg"
 
 export const PostMetaWrapper = styled.div`
   margin-top: 2rem;
@@ -32,29 +35,34 @@ export const PostMetaList = styled.ul`
   }
 `;
 
-const PostMeta = ({ state, item }) => {
-  const author = state.source.author[item.author];
-  const date = new Date(item.date);
-  // const numberOfComments = item.comments.length;
+const PostMeta = ({state, item}) => {
+    const author = state.source.author[item.author];
+    const date = new Date(item.date);
 
-  return (
-    <PostMetaWrapper>
-      <PostMetaList>
-        {/* If the post has an author, we render a clickable author text. */}
-        {author && (
-          <PostMetaItem icon={UserIcon} label="Post Author" link={author.link}>
-            By {decode(author.name)}
-          </PostMetaItem>
-        )}
-        <PostMetaItem icon={CalendarIcon} label="Post Date">
-          {date.toDateString()}
-        </PostMetaItem>
-        {/* <PostMetaItem icon={ChatIcon} label="Post Comments">
-          {2} Comments
-        </PostMetaItem> */}
-      </PostMetaList>
-    </PostMetaWrapper>
-  );
+    let numberOfComments = "";
+
+    {
+        item._embedded.replies ? numberOfComments = item._embedded.replies[0].length : numberOfComments = ""
+    }
+
+    return (
+        <PostMetaWrapper>
+            <PostMetaList>
+                {/* If the post has an author, we render a clickable author text. */}
+                {author && (
+                    <PostMetaItem icon={author.avatar_urls[96]} label="Post Author" link={author.link}>
+                        By {decode(author.name)}
+                    </PostMetaItem>
+                )}
+                <PostMetaItem icon={CalendarIcon} label="Post Date">
+                    {date.toDateString()}
+                </PostMetaItem>
+                {numberOfComments && <PostMetaItem icon={CommentsIcon} label="Post Comments">
+                 {numberOfComments} Comments
+                 </PostMetaItem>}
+            </PostMetaList>
+        </PostMetaWrapper>
+    );
 };
 
 export default connect(PostMeta);

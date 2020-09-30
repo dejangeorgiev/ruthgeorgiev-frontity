@@ -6,6 +6,7 @@ import ArrowRight from "../../global/icons/ArrowRight";
 import ArrowLeft from "../../global/icons/ArrowLeft";
 import Link from '../../link'
 
+
 import RecommendedPosts from "../../post/acf/recommended/posts/RecommendedPosts";
 
 
@@ -103,6 +104,7 @@ const FrontPage = ({state, actions, libraries}) => {
                 <SlideContentButton link='/recipes'>Go to the recipes</SlideContentButton>
             </HomeTeaser>
             <SectionTitle>Newest Recipes</SectionTitle>
+
             <RecommendedPosts postId=""/>
         </FrontPageContainer>
 

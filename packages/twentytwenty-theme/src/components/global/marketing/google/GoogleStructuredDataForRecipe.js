@@ -1,6 +1,5 @@
 import React from 'react';
-import {Head, connect, styled} from "frontity";
-
+import {Head, connect, styled, decode} from "frontity";
 
 const GoogleStructuredDataForRecipe = ({state, libraries, id}) => {
 
@@ -8,21 +7,73 @@ const GoogleStructuredDataForRecipe = ({state, libraries, id}) => {
 
     const Html2React = libraries.html2react.Component;
 
+    const dateAndTime = new Date(post.date);
+    const year = dateAndTime.getFullYear();
+    const month = dateAndTime.getMonth();
+    const date = dateAndTime.getDate();
+
     const title = post.title.rendered;
     const image = state.source.attachment[post.featured_media].source_url;
     const authorName = state.source.author[post.author].name;
     const description = post.excerpt.rendered.replace(/(<([^>]+)>)/gi, "");
     const prepTime = post.acf['postfieldgroup.preparation_time'];
-    const prepTimeUnit = post.acf['postfieldgroup.preparation_time_unit'];
     const cookTime = post.acf['postfieldgroup.cooking_time'];
-    const cookTimeUnit = post.acf['postfieldgroup.cooking_time_unit'];
     const totalTime = Number(post.acf['postfieldgroup.preparation_time']) + Number(post.acf['postfieldgroup.cooking_time']);
-    const datePublished = '';
+    const datePublished = year + "-" + month + "-" + date;
+    const keywords = post.acf['postfieldgroup.keywords'];
+    const servings = post.acf['postfieldgroup.servings'];
+    const recipeCategory = state.source.category[post.categories[0]].name;
+    const recipeCuisine = decode(state.source.cuisine[post.cuisine[0]].name);
+    const calories = post.acf['postfieldgroup.calories'];
+    //const embedYouTubeUrl = "https://youtu.be/" + post.acf['postfieldgroup.video'];
 
-    console.log(post);
 
-    console.log(totalTime);
+    const recipeIngredients = post.acf['postfieldgroup.ingredients'];
 
+    const ingredients = [];
+    {
+        recipeIngredients.map((ingredient) => {
+            const singleIngredient = "\"" + ingredient['postfieldgroup.ingredients.amount'] + " " +
+                ingredient['postfieldgroup.ingredients.measure'] + " " +
+                ingredient['postfieldgroup.ingredients.name'] + "\"";
+
+            ingredients.push(
+                singleIngredient
+            );
+
+            ingredients.join(",")
+            return ingredients;
+        })
+    }
+
+    const recipeInstructions = post.acf['postfieldgroup.instructions'];
+    const instructions = [];
+    {
+        recipeInstructions.map((instruction) => {
+            const recipeInstructionImage = instruction['postfieldgroup.instructions.image']['sizes']['large'];
+            const recipeInstructionName = instruction['postfieldgroup.instructions.name'];
+            const recipeInstructionText = instruction['postfieldgroup.instructions.text'].replace(/(<([^>]+)>)/gi, "");
+
+            /**
+             * @todo: add ID's for the instruction steps, e.g. "https://ruthgeorgiev/apple-pie/#step1"
+             */
+            instructions.push(
+                {
+                    "@type": "HowToStep",
+                    "name": recipeInstructionName,
+                    "text": recipeInstructionText,
+                    "url": "https://ruthgeorgiev/" + post.slug,
+                    "image": recipeInstructionImage
+                }
+            );
+            instructions.join(",")
+        });
+    }
+
+    /**
+     * @todo: Find a solution to add video object into the JSON
+     * @example: https://developers.google.com/search/docs/data-types/recipe
+     */
 
     return (
         <Head>
@@ -33,102 +84,33 @@ const GoogleStructuredDataForRecipe = ({state, libraries, id}) => {
             {
             "@context": "https://schema.org/",
             "@type": "Recipe",
-            "name": ${title},
+            "name": "${title}",
             "image": [
-               ${image},
+               "${image}"
             ],
             "author": {
                 "@type": "Person",
-                "name": ${authorName},
+                "name": "${authorName}"
             },
-            "datePublished": "2018-03-10",
-            "description": ${description},
-            "prepTime": "PT"+${prepTime}+"M",
-            "cookTime": "PT"+${cookTime}+"M",
-            "totalTime": "PT"+${totalTime}+"M",
-            "keywords": "cake for a party, coffee",
-            "recipeYield": "10",
-            "recipeCategory": "Dessert",
-            "recipeCuisine": "American",
+            "datePublished": "${datePublished}",
+            "description": "${description}",
+            "prepTime": "PT${prepTime}M",
+            "cookTime": "PT${cookTime}M",
+            "totalTime": "PT${totalTime}M",
+            "keywords": "${keywords}",
+            "recipeYield": "${servings}",
+            "recipeCategory": "${recipeCategory}",
+            "recipeCuisine": "${recipeCuisine}",
             "nutrition": {
                 "@type": "NutritionInformation",
-                "calories": "270 calories"
+                "calories": "${calories}"
             },
-            "recipeIngredient": [
-                "2 cups of flour",
-                "3/4 cup white sugar",
-                "2 teaspoons baking powder",
-                "1/2 teaspoon salt",
-                "1/2 cup butter",
-                "2 eggs",
-                "3/4 cup milk"
-            ],
-            "recipeInstructions": [
-                {
-                    "@type": "HowToStep",
-                    "name": "Preheat",
-                    "text": "Preheat the oven to 350 degrees F. Grease and flour a 9x9 inch pan.",
-                    "url": "https://example.com/party-coffee-cake#step1",
-                    "image": "https://example.com/photos/party-coffee-cake/step1.jpg"
-                },
-                {
-                    "@type": "HowToStep",
-                    "name": "Mix dry ingredients",
-                    "text": "In a large bowl, combine flour, sugar, baking powder, and salt.",
-                    "url": "https://example.com/party-coffee-cake#step2",
-                    "image": "https://example.com/photos/party-coffee-cake/step2.jpg"
-                },
-                {
-                    "@type": "HowToStep",
-                    "name": "Add wet ingredients",
-                    "text": "Mix in the butter, eggs, and milk.",
-                    "url": "https://example.com/party-coffee-cake#step3",
-                    "image": "https://example.com/photos/party-coffee-cake/step3.jpg"
-                },
-                {
-                    "@type": "HowToStep",
-                    "name": "Spread into pan",
-                    "text": "Spread into the prepared pan.",
-                    "url": "https://example.com/party-coffee-cake#step4",
-                    "image": "https://example.com/photos/party-coffee-cake/step4.jpg"
-                },
-                {
-                    "@type": "HowToStep",
-                    "name": "Bake",
-                    "text": "Bake for 30 to 35 minutes, or until firm.",
-                    "url": "https://example.com/party-coffee-cake#step5",
-                    "image": "https://example.com/photos/party-coffee-cake/step5.jpg"
-                },
-                {
-                    "@type": "HowToStep",
-                    "name": "Enjoy",
-                    "text": "Allow to cool and enjoy.",
-                    "url": "https://example.com/party-coffee-cake#step6",
-                    "image": "https://example.com/photos/party-coffee-cake/step6.jpg"
-                }
-            ],
+            "recipeIngredient": [${ingredients}],
+            "recipeInstructions": ${JSON.stringify(instructions)},
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "5",
                 "ratingCount": "18"
-            },
-            "video": {
-                "@type": "VideoObject",
-                "name": "How to make a Party Coffee Cake",
-                "description": "This is how you make a Party Coffee Cake.",
-                "thumbnailUrl": [
-                     ${image},
-                ],
-                "contentUrl": "http://www.example.com/video123.mp4",
-                "embedUrl": "http://www.example.com/videoplayer?video=123",
-                "uploadDate": "2018-02-05T08:00:00+08:00",
-                "duration": "PT1M33S",
-                "interactionStatistic": {
-                    "@type": "InteractionCounter",
-                    "interactionType": {"@type": "http://schema.org/WatchAction"},
-                    "userInteractionCount": 2347
-                },
-                "expires": "2019-02-05T08:00:00+08:00"
             }
         }
            `
@@ -136,7 +118,6 @@ const GoogleStructuredDataForRecipe = ({state, libraries, id}) => {
             </script>
         </Head>
     )
-
 };
 
 export default connect(GoogleStructuredDataForRecipe);

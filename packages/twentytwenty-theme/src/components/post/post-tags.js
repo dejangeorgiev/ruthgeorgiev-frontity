@@ -1,6 +1,7 @@
 import {connect, decode, styled} from "frontity";
 import React, {Fragment} from "react";
 import {TagIcon} from "../icons";
+import LabelIcon from "../global/icons/svg/Label.svg"
 import Link from "../link";
 import {PostMetaList, PostMetaWrapper} from "./post-meta";
 import PostMetaItem from "./post-meta-item";
@@ -17,7 +18,7 @@ const PostTags = ({tags}) => {
     return (
         <PostMetaWrapper>
             <PostMetaList style={{justifyContent: "flex-center"}}>
-                <PostMetaItem icon={TagIcon} label="Post Tags">
+                <PostMetaItem icon={LabelIcon} label="Post Tags">
                     {postTags.map((tag, index) => {
                         const isLastTag = index === postTags.length - 1;
                         return (

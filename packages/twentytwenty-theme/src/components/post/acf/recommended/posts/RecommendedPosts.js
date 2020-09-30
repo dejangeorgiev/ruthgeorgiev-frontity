@@ -8,7 +8,7 @@ import tw from "tailwind.macro";
 const RecommendedPosts = ({state, showExcerpt, showMedia, actions, postId}) => {
 
     useEffect(() => {
-        actions.source.fetch(`/recipes/${postId}`);
+        actions.source.fetch(`/posts/${postId}`);
     }, []);
     // Get the data of the current list.
     const data = state.source.get('/recipes/');

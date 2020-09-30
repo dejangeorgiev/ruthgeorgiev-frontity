@@ -7,7 +7,7 @@ import InstagramIcon from "../icons/social-media/InstagramIcon";
 import PinterestIcon from "../icons/social-media/PinterestIcon";
 import YoutubeIcon from "../icons/social-media/YoutubeIcon";
 import LinkedinIcon from "../icons/social-media/LinkedinIcon"
-import LocationMarker from "../icons/png/LocationMarker.png"
+import LocationMarker from "../icons/svg/Location.svg"
 
 const Author = ({author, state, actions}) => {
     /**
@@ -30,17 +30,17 @@ const Author = ({author, state, actions}) => {
                 {author.acf['userfieldgroup.title'] && (
                     <AuthorTitle>{author.acf['userfieldgroup.title']}</AuthorTitle>
                 )}
-
-                {author.description && (
-                    <AuthorDescription>{author.description}</AuthorDescription>
-                )}
-
                 {author.acf['userfieldgroup.location'] && (
                     <Location>
                         <Marker src={LocationMarker}/>
                         <LocationTitle>{author.acf['userfieldgroup.location']}</LocationTitle>
                     </Location>
                 )}
+                {author.description && (
+                    <AuthorDescription>{author.description}</AuthorDescription>
+                )}
+
+
             </AboutContainer>
 
             {author.acf['userfieldgroup.facebook'] && (
@@ -61,7 +61,6 @@ const Author = ({author, state, actions}) => {
                     <InstagramIcon/>
                 </AuthorSocialMediaLink>
             )}
-
 
             {author.acf['userfieldgroup.pinterest'] && (
                 <AuthorSocialMediaLink
@@ -108,9 +107,9 @@ const AuthorContainer = styled('div')` ${tw`md:flex bg-white rounded-lg p-6`}`;
 const AuthorImage = styled('img')` ${tw`h-48 w-48 rounded-full mx-auto md:mx-0 md:mr-8`}`;
 const AboutContainer = styled('div')` ${tw`text-center md:text-left`}`;
 const AuthorName = styled('h2')` ${tw`m-0 text-6xl`}`;
-const AuthorTitle = styled('div')` ${tw`text-3xl text-purple-500 pb-6`}`;
+const AuthorTitle = styled('div')` ${tw`text-3xl text-purple-500`}`;
 const AuthorDescription = styled('div')` ${tw`font-body font-normal leading-tight tracking-normal text-3xl max-w-4xl mb-4`}`;
 const AuthorSocialMediaLink = styled('a')` ${tw`px-1`}`;
 const Location = styled('div')` ${tw``}`;
-const LocationTitle = styled('div')` ${tw`font-body font-normal text-4xl inline-block`}`;
-const Marker = styled('img')` ${tw`w-10 inline-block`}`;
+const LocationTitle = styled('div')` ${tw`font-body font-normal leading-tight tracking-normal text-3xl inline-block`}`;
+const Marker = styled('img')` ${tw`w-8 inline-block`}`;

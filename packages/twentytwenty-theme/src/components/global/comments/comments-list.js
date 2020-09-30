@@ -63,7 +63,6 @@ const CommentsList = ({state, libraries, postId}) => {
                     )}
 
                 </Header>
-                
                 <Container>
                     <Block isOpen={status}
                     >
@@ -89,7 +88,6 @@ const CommentsList = ({state, libraries, postId}) => {
                                                 html={state.source.comment[id].content.rendered}
                                             />
                                         </CommentContent>
-
                                     </Comment>
                                     {children && children.map(({id}) => {
                                         return (

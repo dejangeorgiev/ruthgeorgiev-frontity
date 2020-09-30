@@ -2,13 +2,14 @@ import React from "react";
 import {styled} from "frontity";
 import Link from "../link";
 import ScreenReaderText from "../styles/screen-reader";
+import tw from "tailwind.macro";
 
 const PostMetaItem = ({icon: Icon, label, link, children}) => {
     return (
         <ListItem>
             <MetaIcon>
                 <ScreenReaderText>{label}</ScreenReaderText>
-                <Icon/>
+                <CustomIcon src={Icon}/>
             </MetaIcon>
 
             <MetaText>
@@ -52,3 +53,5 @@ const ListItem = styled.li`
 `;
 
 export default PostMetaItem;
+
+const CustomIcon = styled('img')` ${tw`h-16 w-16 rounded mx-auto md:mx-0`}`;

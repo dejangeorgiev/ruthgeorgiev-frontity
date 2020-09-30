@@ -29,7 +29,7 @@ const SocialMediaShareButtons = ({url, media, alt, title, children, hashtag, has
 
     return (
         <SocialMediaButtons>
-            <ShareTitle>Share this with your friends</ShareTitle>
+            <ShareTitle>Share this recipe with your friends</ShareTitle>
             <FacebookShareButton
                 url={url}
                 media={media}

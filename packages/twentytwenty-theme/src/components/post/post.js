@@ -38,6 +38,7 @@ import SocialMediaShareButtons from "../global/social-share/SocialMediaShareButt
 import GoogleStructuredDataForRecipe from "../global/marketing/google/GoogleStructuredDataForRecipe";
 import tw from 'tailwind.macro'
 
+import ReactInstaStories from "../global/marketing/stories/ReactInstaStories"
 
 const Post = ({state, actions, libraries}) => {
     // Get information about the current URL.
@@ -48,7 +49,6 @@ const Post = ({state, actions, libraries}) => {
     const postUrl = state.frontity.url + state.router.link;
 
     const media = state.source.attachment[post.featured_media];
-
 
     // Get the data of the author.
     // const author = state.source.author[post.author];
@@ -123,7 +123,11 @@ const Post = ({state, actions, libraries}) => {
         <PostArticle id="target-el">
             <ReadingProgressBar targetEl="#target-el"/>
 
-            {/**<GoogleStructuredDataForRecipe id={post.id} />**/}
+            {
+                <GoogleStructuredDataForRecipe
+                    id={post.id}
+                />
+            }
 
             <Header>
                 <SectionContainer>
@@ -147,7 +151,6 @@ const Post = ({state, actions, libraries}) => {
                     {/* If the post has tags, render it */}
                     {post.tags && <PostTags tags={tags}/>}
 
-
                     {/* if the post has servings, render it */}
                     {post.acf['postfieldgroup.servings'] && <RecipeServings id={post.id}/>}
 
@@ -156,7 +159,6 @@ const Post = ({state, actions, libraries}) => {
 
                     {/* if the post has cooking time, render it */}
                     {post.acf['postfieldgroup.cooking_time'] && <RecipeCookingTime id={post.id}/>}
-
 
                     <PostTaxonomies>
                         <CuisineTaxonomy>
@@ -225,7 +227,6 @@ const Post = ({state, actions, libraries}) => {
                     </RecipeYoutubeVideoTitle>}
                     {post.acf['postfieldgroup.video'] && <YoutubeVideo videoId={post.acf['postfieldgroup.video']}/>}
 
-
                     {/* If the post has an excerpt (short summary text), we render it */}
                     {
                         post.content && (
@@ -248,11 +249,8 @@ const Post = ({state, actions, libraries}) => {
                     />
 
                     {<Comments postId={post.id} id="comments"/>}
-
-
                 </SectionContainer>
             </Header>
-
 
             {/* Render recommended posts */}
             <RecommendedPostsTitle>Read next <HigLightedText>newest recipes</HigLightedText></RecommendedPostsTitle>
@@ -280,7 +278,6 @@ padding: 8rem 0;
 
 const PostArticle = styled(_Post)`
 padding-top: 0 !important;
-
 `;
 
 const FeaturedImage = styled(FeaturedMedia)` ${tw`max-h-auto`} `;
