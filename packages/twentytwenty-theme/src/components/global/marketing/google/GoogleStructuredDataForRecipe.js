@@ -55,14 +55,14 @@ const GoogleStructuredDataForRecipe = ({state, libraries, id}) => {
             const recipeInstructionText = instruction['postfieldgroup.instructions.text'].replace(/(<([^>]+)>)/gi, "");
 
             /**
-             * @todo: add ID's for the instruction steps, e.g. "https://ruthgeorgiev/apple-pie/#step1"
+             * @todo: add ID's for the instruction steps, e.g. "https://ruthgeorgiev.com/apple-pie/#step1"
              */
             instructions.push(
                 {
                     "@type": "HowToStep",
                     "name": recipeInstructionName,
                     "text": recipeInstructionText,
-                    "url": "https://ruthgeorgiev/" + post.slug,
+                    "url": "https://ruthgeorgiev.com/" + post.slug,
                     "image": recipeInstructionImage
                 }
             );
