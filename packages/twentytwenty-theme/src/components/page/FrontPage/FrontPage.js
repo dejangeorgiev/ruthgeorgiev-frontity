@@ -5,6 +5,7 @@ import Carousel, {consts} from 'react-elastic-carousel'
 import ArrowRight from "../../global/icons/ArrowRight";
 import ArrowLeft from "../../global/icons/ArrowLeft";
 import Link from '../../link'
+import Archive from "../../archive"
 
 
 import RecommendedPosts from "../../post/acf/recommended/posts/RecommendedPosts";
@@ -74,7 +75,7 @@ const FrontPage = ({state, actions, libraries}) => {
 
     // Load the post, but only if the data is ready.
     return data.isReady ? (
-
+<>
         <FrontPageContainer>
             <HomeCarousel
                 renderArrow={arrow}
@@ -103,11 +104,10 @@ const FrontPage = ({state, actions, libraries}) => {
                 <p>Here you can find a collection of cooking recipes & healthy tips.</p>
                 <SlideContentButton link='/recipes'>Go to the recipes</SlideContentButton>
             </HomeTeaser>
-            <SectionTitle>Newest Recipes</SectionTitle>
 
-            <RecommendedPosts postId=""/>
         </FrontPageContainer>
-
+    <Archive/>
+</>
 
     ) : null;
 };
