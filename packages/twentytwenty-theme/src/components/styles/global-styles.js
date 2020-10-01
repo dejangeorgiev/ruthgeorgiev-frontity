@@ -504,8 +504,10 @@ const tableStyles = (colors) => css`
     border-spacing: 0;
     empty-cells: show;
     font-size: 1.6rem;
-    margin: 4rem 0;
-    max-width: 100%;
+    box-shadow: 0 0 5px 0px grey;
+    border-radius: 15px;
+    max-width: 450px;
+    margin: auto;
     overflow: hidden;
     width: 100%;
   }
