@@ -193,17 +193,6 @@ const twentyTwentyTheme = {
      */
     actions: {
         theme: {
-            init: ({libraries}) => {
-                libraries.source.handlers.push({
-                    name: "Post Types Handler",
-                    priority: 20,
-                    pattern: "/(.*)?/:slug", // post or page or attachment
-                    func: postTypeHandler({
-                        // Those are the default endpoints plus "product"
-                        endpoints: ["posts", "pages", "travel"],
-                    }),
-                });
-            },
             openMobileMenu: ({state}) => {
                 state.theme.isMobileMenuOpen = true;
             },
