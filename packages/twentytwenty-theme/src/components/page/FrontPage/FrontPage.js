@@ -1,11 +1,12 @@
 import {styled, connect, fetch} from "frontity";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import tw from "tailwind.macro";
 import Carousel, {consts} from 'react-elastic-carousel'
 import ArrowRight from "../../global/icons/ArrowRight";
 import ArrowLeft from "../../global/icons/ArrowLeft";
 import Link from '../../link'
 import Archive from "../../archive"
+import Loading from "../../loading"
 
 
 import RecommendedPosts from "../../post/acf/recommended/posts/RecommendedPosts";
@@ -62,6 +63,7 @@ const FrontPage = ({state, actions, libraries}) => {
         alignItems: 'center'
     };
 
+    const [loading, setLoading] = useState(true);
 
     /**
      * Once the post has loaded in the DOM, prefetch both the
@@ -69,45 +71,51 @@ const FrontPage = ({state, actions, libraries}) => {
      * the home page, everything is ready and it loads instantly.
      */
     useEffect(() => {
-        actions.source.fetch("");
+        actions.source.fetch("").then(response => {
+            setLoading(false);
+        })
     }, []);
-
 
     // Load the post, but only if the data is ready.
     return data.isReady ? (
-<>
-        <FrontPageContainer>
-            <HomeCarousel
-                renderArrow={arrow}
-                focusOnSelect={true}
-                itemsToShow={1}
-                itemsToScroll={1}
-                pagination={false}
-                showArrows={true}
-                enableSwipe={true}
-                enableMouseSwipe={true}
-                disableArrowsOnEnd={false}
-                preventDefaultTouchmoveEvent={true}
-                enableAutoPlay={true}
-                autoPlaySpeed={8000}
-                easing="cubic-bezier(1,.15,.55,1.54)"
-                tiltEasing="cubic-bezier(0.110, 1, 1.000, 0.210)"
-                transitionMs={700}
-            >
-                <FirstSlide style={FirstSlideStyles}/>
-                <SecondSlide style={SecondSlideStyles}/>
-                <ThirdSlide style={ThirdSlideStyles}/>
-            </HomeCarousel>
-            <HomeTeaser>
-                <Title>Cooking Recipes</Title>
-                <SubTitle>That your friends & family will love</SubTitle>
-                <p>Here you can find a collection of cooking recipes & healthy tips.</p>
-                <SlideContentButton link='/recipes'>Go to the recipes</SlideContentButton>
-            </HomeTeaser>
+        <>
+            {loading && (<Loading/>)}
+            {!loading && (
+                <>
+                    <FrontPageContainer>
+                        <HomeCarousel
+                            renderArrow={arrow}
+                            focusOnSelect={true}
+                            itemsToShow={1}
+                            itemsToScroll={1}
+                            pagination={false}
+                            showArrows={true}
+                            enableSwipe={true}
+                            enableMouseSwipe={true}
+                            disableArrowsOnEnd={false}
+                            preventDefaultTouchmoveEvent={true}
+                            enableAutoPlay={true}
+                            autoPlaySpeed={8000}
+                            easing="cubic-bezier(1,.15,.55,1.54)"
+                            tiltEasing="cubic-bezier(0.110, 1, 1.000, 0.210)"
+                            transitionMs={700}
+                        >
+                            <FirstSlide style={FirstSlideStyles}/>
+                            <SecondSlide style={SecondSlideStyles}/>
+                            <ThirdSlide style={ThirdSlideStyles}/>
+                        </HomeCarousel>
+                        <HomeTeaser>
+                            <Title>Cooking Recipes</Title>
+                            <SubTitle>That your friends & family will love</SubTitle>
+                            <p>Here you can find a collection of cooking recipes & healthy tips.</p>
+                            <SlideContentButton link='/recipes'>Go to the recipes</SlideContentButton>
+                        </HomeTeaser>
 
-        </FrontPageContainer>
-    <Archive/>
-</>
+                    </FrontPageContainer>
+                    <Archive/>
+                </>
+            )}
+        </>
 
     ) : null;
 };

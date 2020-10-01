@@ -9,7 +9,6 @@ import Archive from "./archive";
 import Loading from "./loading";
 import Post from "./post";
 import SearchResults from "./search/search-results";
-import SkipLink from "./styles/skip-link";
 import Title from "./page-meta-title";
 import PageError from "./page-error";
 import Page from "./page"
@@ -17,7 +16,6 @@ import Travel from "./travel";
 import FrontPage from "./page/FrontPage";
 import FooterWithLinksAndTags from "./global/footer/FooterWithLinksAndTags";
 import NewsletterSubscription from "./global/newsletter/NewsletterSubscription";
-import SearchAlgolia from "./search/search-algolia";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -41,11 +39,6 @@ const Theme = ({state, actions, libraries}) => {
 
             <Title/>
 
-            {/* Accessibility: Provides ability to skip to main content */}
-            <SkipLink as="a" href="#main">
-                Skip to main content
-            </SkipLink>
-
             <div style={{minHeight: "calc(100vh - 190px)"}}>
                 {/* Add the header of the site. */}
                 <Header/>
@@ -54,7 +47,6 @@ const Theme = ({state, actions, libraries}) => {
         on the type of URL we are in. */}
 
                 <Main id="main">
-
                     <Switch>
                         <Loading when={data.isFetching}/>
                         <SearchResults when={isSearch}/>
