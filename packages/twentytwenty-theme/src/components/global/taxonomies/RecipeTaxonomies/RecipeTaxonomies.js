@@ -7,7 +7,6 @@ import Carousel from 'react-elastic-carousel'
 
 const RecipeTaxonomies = ({taxonomies, state, actions}) => {
 
-
     const CarouselBreakpoints= [
         { width: 1, itemsToShow: 2, itemsToScroll: 2  },
         { width: 550, itemsToShow: 3, itemsToScroll: 3 },
@@ -23,7 +22,7 @@ const RecipeTaxonomies = ({taxonomies, state, actions}) => {
      * the home page, everything is ready and it loads instantly.
      */
     useEffect(() => {
-        actions.source.fetch("/");
+        actions.source.fetch(taxonomies);
     }, []);
 
     return (

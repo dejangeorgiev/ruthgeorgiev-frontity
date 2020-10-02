@@ -35,17 +35,10 @@ const SearchResults = ({state, libraries}) => {
                 ) : (
                     <>
                         <SearchFound keyword={searchKeyword} total={total} />
+                        <ArchiveSearchResults showExcerpt={true} showMedia={true}/>
                     </>
                 )}
             </div>
-
-            {isEmpty ? (
-                <SearchContainer size="thin">
-                    <SearchForm/>
-                </SearchContainer>
-            ) : (
-                <ArchiveSearchResults showExcerpt={true} showMedia={true}/>
-            )}
         </>
     );
 };

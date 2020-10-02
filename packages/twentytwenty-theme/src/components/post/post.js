@@ -123,11 +123,8 @@ const Post = ({state, actions, libraries}) => {
         <PostArticle id="target-el">
             <ReadingProgressBar targetEl="#target-el"/>
 
-            {
-                <GoogleStructuredDataForRecipe
-                    id={post.id}
-                />
-            }
+            {/* Add Google Structured data for recipe */}
+            {<GoogleStructuredDataForRecipe id={post.id}/>}
 
             <Header>
                 <SectionContainer>
@@ -138,6 +135,11 @@ const Post = ({state, actions, libraries}) => {
 
                     {/* The post's metadata like author, publish date, and comments */}
                     <PostMeta item={post}/>
+
+                    {state.theme.featuredMedia.showOnPost && (
+                        <FeaturedImage id={post.featured_media} isSinglePost={true}/>
+                    )}
+
                     <SocialMediaShareButtons
                         url={postUrl}
                         media={media.source_url}
@@ -178,10 +180,6 @@ const Post = ({state, actions, libraries}) => {
                             {post.meals && <Meals meals={meals}/>}
                         </MealsTaxonomy>
                     </PostTaxonomies>
-
-                    {state.theme.featuredMedia.showOnPost && (
-                        <FeaturedImage id={post.featured_media} isSinglePost={true}/>
-                    )}
 
                     {<AdBannerBody name="before-description-ad"/>}
 

@@ -6,8 +6,9 @@ import Link from "../link";
 import SearchForm from "./search-form";
 import ArrowDown from "../global/icons/svg/ArrowDown.svg";
 import RecommendedPosts from "../post/acf/recommended/posts/RecommendedPosts";
+import Archive from "../archive/archive";
 
-const SearchNotFound = ({keyword}) => {
+const SearchNotFound = ({state, keyword}) => {
 
     return (
         <>
@@ -32,17 +33,26 @@ const SearchNotFound = ({keyword}) => {
                         <SearchNotFoundCustomLink link="/category/must-try/">
                             Must Try Recipes
                         </SearchNotFoundCustomLink>
-                        <SearchNotFoundScrollDown>
-                            <br/> <p>Or scroll down to find more recipes</p>
-                            <SearchNotFoundDownArrow src={ArrowDown}/></SearchNotFoundScrollDown>
+                        {
+                            /**
+                             <SearchNotFoundScrollDown>
+
+                             <br/> <p>Or scroll down to find more recipes</p>
+                             <SearchNotFoundDownArrow src={ArrowDown}/></SearchNotFoundScrollDown>
+                             */
+                        }
                     </SearchNotFoundNotFoundNavigation>
 
                 </SearchNotFoundContainerContents>
             </SearchNotFoundContainer>
-            <SearchNotFoundRecommendedPostsTitle>Try our
-                <SearchNotFoundHigLightedText>newest recipes</SearchNotFoundHigLightedText>
-            </SearchNotFoundRecommendedPostsTitle>
-            <RecommendedPosts/>
+            {
+                /**
+                 <SearchNotFoundRecommendedPostsTitle>Try our
+                 <SearchNotFoundHigLightedText>newest recipes</SearchNotFoundHigLightedText>
+                 </SearchNotFoundRecommendedPostsTitle>
+                 <Archive/>
+                 */
+            }
         </>
     );
 };
@@ -51,25 +61,25 @@ export default connect(SearchNotFound);
 
 
 const SearchNotFoundEntryTitle = styled.h1`
-  margin: 0;
+margin: 0;
 
-  @media (min-width: 700px) {
-    font-size: 6.4rem !important;
-  }
+@media (min-width: 700px) {
+    font - size: 6.4rem !important;
+}
 
-  @media (min-width: 1200px) {
-    font-size: 8.4rem !important;
-  }
+@media (min-width: 1200px) {
+    font - size: 8.4rem !important;
+}
 `;
 
 const SearchNotFoundIntroText = styled.div`
-  margin-top: 2rem;
-  line-height: 1.5;
+margin-top: 2rem;
+line-height: 1.5;
 
-  @media (min-width: 700px) {
-    font-size: 2rem;
+@media (min-width: 700px) {
+    font - size: 2rem;
     margin-top: 2.5rem;
-  }
+}
 `;
 
 const SearchNotFoundContainer = styled('div')` ${tw`block sm:flex max-w-screen-xl content-center items-center text-center m-auto sm:min-h-full py-10 align-middle`}`;
@@ -83,12 +93,12 @@ const SearchNotFoundDownArrow = styled('img')` ${tw`w-12 inline-block`}`;
 const SearchNotFoundNotFoundNavigation = styled('div')` ${tw`py-10`}`;
 
 const SearchNotFoundCustomLink = styled(Link)`
-    color: black;
-        box-shadow: rgb(189, 178, 255) 0px -3px 0px inset;
-        transition: box-shadow 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s, color 0.15s ease 0s;
-        &:hover {
-                box-shadow: rgb(189, 178, 255) 0px -26px inset;
-        }
- ${tw`m-4 inline-block w-max-content`}`;
+color: black;
+box-shadow: rgb(189, 178, 255) 0px -3px 0px inset;
+transition: box-shadow 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s, color 0.15s ease 0s;
+&:hover {
+    box - shadow: rgb(189, 178, 255) 0px -26px inset;
+}
+${tw`m-4 inline-block w-max-content`}`;
 
 const Keyword = styled('span')` ${tw`text-red-800`}`;

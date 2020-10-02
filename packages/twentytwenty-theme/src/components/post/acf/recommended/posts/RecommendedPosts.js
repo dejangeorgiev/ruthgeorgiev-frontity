@@ -1,20 +1,38 @@
 import {connect, styled, decode} from "frontity";
-import React, {Fragment, useEffect} from "react";
+import React, {Fragment, useEffect, useState} from "react";
 import Article from "../../../post-item-preview";
 import Pagination from "../../../../archive/archive-pagination";
 import PostSeparator from "../../../post-separator";
 import tw from "tailwind.macro";
+import PostItemPreview from "../../../post-item-preview";
+import PostItem from "../../../post-item";
 
-const RecommendedPosts = ({state, showExcerpt, showMedia, actions, postId}) => {
+const RecommendedPosts = ({state, libraries, showExcerpt, showMedia, actions, postId}) => {
 
-    useEffect(() => {
+    /**
+     useEffect(() => {
         actions.source.fetch(`/posts/${postId}`);
     }, []);
+     */
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+
+        libraries.source.api.get({
+            endpoint: "posts",
+            params: {_embed: false, per_page: 100}
+        })
+            .then(response => {
+                response.json().then(data => {
+                    setPosts(data);
+                });
+            });
+
+    }, []);
+    
     // Get the data of the current list.
     const data = state.source.get('/recipes/');
     const {primary} = state.theme.colors;
-
-    if (!data.isReady) return null;
 
     // Whether the show the excerpt instead of the full content
     // If passed as prop, we'll respect that. Else, we'll use the theme settings
@@ -28,20 +46,23 @@ const RecommendedPosts = ({state, showExcerpt, showMedia, actions, postId}) => {
         <>
             <ArticlesContainer>
                 {/* Iterate over the items of the list. */}
-                {data.items.slice(0, 20).map(({type, id}, index) => {
-                    const isLastArticle = index === data.items.length - 1;
-                    const item = state.source[type][id];
+                {posts.map((post, id) => {
+
                     // Render one Item component for each one.
-                    return (
-                        <Fragment key={item.id}>
-                            <Article
-                                key={item.id}
-                                item={item}
-                                showExcerpt={_showExcerpt}
-                                showMedia={showMedia}
-                            />
-                        </Fragment>
-                    );
+
+
+                    /**
+                     return (
+                     <Fragment key={id}>
+                     <Article
+                     key={post.id}
+                     item={post}
+                     showExcerpt={_showExcerpt}
+                     showMedia={showMedia}
+                     />
+                     </Fragment>
+                     );
+                     */
                 })}
             </ArticlesContainer>
 

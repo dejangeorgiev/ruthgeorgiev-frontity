@@ -42,14 +42,11 @@ const PostItemPreview = ({state, item, libraries, showExcerpt, showMedia = true,
                * list of featured posts, we render the media.
             */}
             {state.theme.featuredMedia.showOnArchive && showMedia && (
-
-
                 <FeaturedMediaContainer>
                     <PostLink link={item.link}>
                         <FeaturedMediaImage id={item.featured_media}/>
                     </PostLink>
                 </FeaturedMediaContainer>
-
             )}
 
             <PostHeader>
@@ -86,8 +83,6 @@ const PostItemPreview = ({state, item, libraries, showExcerpt, showMedia = true,
                     <PostMeta item={item}/>
                 </SectionContainer>
             </PostHeader>
-
-
         </Post>
     );
 };
