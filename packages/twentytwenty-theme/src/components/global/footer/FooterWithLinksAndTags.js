@@ -65,7 +65,7 @@ const FooterWithLinksAndTags = ({actions}) => {
                         <PinterestIcon/>
                     </FooterSocialMediaLink>
                     <FooterSocialMediaLink
-                        href="https://www.youtube.com/ruthgeorgiev/"
+                        href="https://www.youtube.com/ruthgeorgiev?sub_confirmation=1"
                         target="_blank"
                         rel="noopener noreferrer">
                         <YoutubeIcon/>

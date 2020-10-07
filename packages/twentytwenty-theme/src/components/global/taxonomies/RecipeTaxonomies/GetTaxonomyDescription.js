@@ -1,8 +1,9 @@
 import {styled, connect, decode} from "frontity";
 import React, {useEffect} from "react";
 import tw from "tailwind.macro";
+import {EntryContent} from "../../../post/post-item";
 
-const GetTaxonomyDescription = ({taxonomy, state, actions}) => {
+const GetTaxonomyDescription = ({taxonomy, state, actions, libraries}) => {
 
     /**
      * Once the post has loaded in the DOM, prefetch both the
@@ -14,6 +15,8 @@ const GetTaxonomyDescription = ({taxonomy, state, actions}) => {
     }, []);
 
 
+    const Html2React = libraries.html2react.Component;
+
     // Get information about the current URL.
     const data = state.source.get(taxonomy);
 
@@ -24,10 +27,9 @@ const GetTaxonomyDescription = ({taxonomy, state, actions}) => {
     // Load the taxonomy description, but only if the data is ready.
     return data.isReady ? (
         <TaxonomyDescription>
-            <TaxonomyDescriptionText
-                dangerouslySetInnerHTML={{
-                    __html: taxonomyData.description
-                }}/>
+            <TaxonomyDescriptionText>
+                <Html2React html={taxonomyData.description}/>
+            </TaxonomyDescriptionText>
         </TaxonomyDescription>
     ) : null;
 };
@@ -35,4 +37,4 @@ const GetTaxonomyDescription = ({taxonomy, state, actions}) => {
 export default connect(GetTaxonomyDescription);
 
 const TaxonomyDescription = styled('div')` ${tw`py-2 px-4 rounded inline-flex shadow-xl items-center`}`;
-const TaxonomyDescriptionText = styled('div')` ${tw`font-normal text-4xl m-0 text-gray-800`}`;
+const TaxonomyDescriptionText = styled('div')` ${tw`font-normal text-2xl m-0 tracking-wide leading-normal text-gray-800`}`;

@@ -11,6 +11,7 @@ import Link from "../link"
 import DeleteIcon from "../global/icons/DeleteIcon";
 import GetTaxonomyDescription from "../global/taxonomies/RecipeTaxonomies/GetTaxonomyDescription";
 import Author from "../global/author/Author"
+import ArchiveLoadMore from "./archive-load-more";
 
 const Archive = ({state, showExcerpt, showMedia}) => {
     // Get the data of the current list.
@@ -25,7 +26,7 @@ const Archive = ({state, showExcerpt, showMedia}) => {
     }, []);
 
     // Get Author data
-    const AuthorData= state.source.author[data.id];
+    const AuthorData = state.source.author[data.id];
 
     // Get all taxonomies
     const taxonomies = state.source.taxonomies;
@@ -37,10 +38,8 @@ const Archive = ({state, showExcerpt, showMedia}) => {
 
     return (
         <>
-
             {/* If the post has categories, render the categories */}
             {taxonomies && data.isPostArchive && <RecipeTaxonomies taxonomies={taxonomies}/>}
-
 
             {/* If the list is a taxonomy, we render a title. */}
             {data.isTaxonomy && (
@@ -49,34 +48,34 @@ const Archive = ({state, showExcerpt, showMedia}) => {
                         <span>{decode(state.source[data.taxonomy][data.id].name)}</span>
                         <DeleteIcon/>
                     </TaxonomyTagButton>
-                    <GetTaxonomyDescription taxonomy={state.source[data.taxonomy][data.id].link}/>
                 </ArchiveHeader>
             )}
 
             {/* If the list is for a specific author, we render a title. */}
             {data.isAuthor && (
                 <ArchiveHeader labelColor={primary}>
-                    <Author author={AuthorData} />
+                    <Author author={AuthorData}/>
                 </ArchiveHeader>
             )}
-            <ArticlesContainer>
-            {/* Iterate over the items of the list. */}
-            {data.items.map(({type, id}, index) => {
-                const isLastArticle = index === data.items.length - 1;
-                const item = state.source[type][id];
 
-                // Render one Item component for each one.
-                return (
-                    <Fragment key={item.id}>
+            <ArticlesContainer>
+                {/* Iterate over the items of the list. */}
+                {data.items.map(({type, id}, index) => {
+                    const isLastArticle = index === data.items.length - 1;
+                    const item = state.source[type][id];
+
+                    // Render one Item component for each one.
+                    return (
+                        <Fragment key={item.id}>
                             <Article
                                 key={item.id}
                                 item={item}
                                 showExcerpt={_showExcerpt}
                                 showMedia={showMedia}
                             />
-                    </Fragment>
-                );
-            })}
+                        </Fragment>
+                    );
+                })}
             </ArticlesContainer>
 
             {data.totalPages > 1 && (
