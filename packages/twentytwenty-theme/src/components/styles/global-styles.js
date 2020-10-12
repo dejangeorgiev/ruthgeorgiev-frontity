@@ -79,9 +79,11 @@ const cssReset = css`
   textarea,
   .wpcf7-email,
   select {
+     font-family: inherit;
+   font-size: inherit;
     display: block;
     padding: 6px 12px;
-    font-size: 16px;
+   
     font-weight: 400;
     line-height: 1.5;
     color: #495057;
@@ -92,6 +94,7 @@ const cssReset = css`
     outline-color: transparent;
     transition: outline-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     margin: 8px 0 4px 0;
+    width:100%;
     &:focus {
       outline-color: #000000;
     }
@@ -99,7 +102,7 @@ const cssReset = css`
   input[type="submit"] {
     background-color: #f7fafc;
     color: #2d3748;
-    padding: 1rem;
+    padding: 1.5rem 4rem;
     cursor: pointer;
     border-radius: 0.25rem;
     display: inline-block;
@@ -116,7 +119,6 @@ const cssReset = css`
     border-radius: 4px;
     color: #2d3748;
     background-color: #f7fafc;
-    
     &:hover{
         color: #2d3748;
         background-color: #edf2f7;
