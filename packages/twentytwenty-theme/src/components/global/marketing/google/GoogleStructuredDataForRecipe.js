@@ -25,6 +25,8 @@ const GoogleStructuredDataForRecipe = ({state, libraries, id}) => {
     const recipeCategory = state.source.category[post.categories[0]].name;
     const recipeCuisine = decode(state.source.cuisine[post.cuisine[0]].name);
     const calories = post.acf['postfieldgroup.calories'];
+    const ratingValue = post.acf['postfieldgroup.rating_value'];
+    const ratingCount = post.acf['postfieldgroup.rating_count'];
     //const embedYouTubeUrl = "https://youtu.be/" + post.acf['postfieldgroup.video'];
 
 
@@ -109,8 +111,8 @@ const GoogleStructuredDataForRecipe = ({state, libraries, id}) => {
             "recipeInstructions": ${JSON.stringify(instructions)},
             "aggregateRating": {
                 "@type": "AggregateRating",
-                "ratingValue": "5",
-                "ratingCount": "18"
+                "ratingValue": "${ratingValue}",
+                "ratingCount": "${ratingCount}"
             }
         }
            `
