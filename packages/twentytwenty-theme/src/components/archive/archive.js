@@ -13,10 +13,15 @@ import GetTaxonomyDescription from "../global/taxonomies/RecipeTaxonomies/GetTax
 import Author from "../global/author/Author"
 import ArchiveLoadMore from "./archive-load-more";
 
+import SocialMediaShareButtons from "../global/social-share/SocialMediaShareButtons";
+
 const Archive = ({state, showExcerpt, showMedia}) => {
     // Get the data of the current list.
     const data = state.source.get(state.router.link);
     const {primary} = state.theme.colors;
+
+    const shareableUrl = state.frontity.url + state.router.link;
+
 
     // Whether the show the excerpt instead of the full content
     // If passed as prop, we'll respect that. Else, we'll use the theme settings
@@ -31,10 +36,12 @@ const Archive = ({state, showExcerpt, showMedia}) => {
     // Get all taxonomies
     const taxonomies = state.source.taxonomies;
 
+
     /**
      * The item's cuisine is an array of each cuisine id
      * So, we'll look up the details of each cuisine in allCuisine
      */
+
 
     return (
         <>
@@ -42,13 +49,40 @@ const Archive = ({state, showExcerpt, showMedia}) => {
             {taxonomies && data.isPostArchive && <RecipeTaxonomies taxonomies={taxonomies}/>}
 
             {/* If the list is a taxonomy, we render a title. */}
-            {data.isTaxonomy && (
-                <ArchiveHeader labelColor={primary} label={data.taxonomy}>
-                    <TaxonomyTagButton link="/recipes">
-                        <span>{decode(state.source[data.taxonomy][data.id].name)}</span>
-                        <DeleteIcon/>
-                    </TaxonomyTagButton>
-                </ArchiveHeader>
+            {data.isTaxonomy &&
+
+            (
+                <>
+
+                    <ArchiveHeader labelColor={primary} label={data.taxonomy}>
+                        <TaxonomyTagButton link="/recipes">
+                            <span>{decode(state.source[data.taxonomy][data.id].name)}</span>
+                            <DeleteIcon/>
+                        </TaxonomyTagButton>
+                    </ArchiveHeader>
+                    {console.log(state.source[data.taxonomy][data.id])}
+                    <SocialMediaShareButtons
+                        url={shareableUrl}
+                        media={state.source[data.taxonomy][data.id].acf.image.url}
+                        alt={state.source[data.taxonomy][data.id].acf.image.alt}
+                        title={
+                            state.source[data.taxonomy][data.id].acf.title ?
+                                state.source[data.taxonomy][data.id].acf.title :
+                                "The best of " + state.source[data.taxonomy][data.id].name + " " + state.source[data.taxonomy][data.id].taxonomy
+                        }
+                        children={
+                            state.source[data.taxonomy][data.id].acf.title ?
+                                state.source[data.taxonomy][data.id].acf.title :
+                                "The best of " + state.source[data.taxonomy][data.id].name + " " + state.source[data.taxonomy][data.id].taxonomy
+                        }
+                        hashtag='#ruthgeorgiev'
+                        hashtags={[state.source[data.taxonomy][data.id].acf.hashtags ?
+                            state.source[data.taxonomy][data.id].acf.hashtags :
+                            'ruthgeorgiev,recipes,foodie,cooking']}
+                    />
+
+                    <hr/>
+                </>
             )}
 
             {/* If the list is for a specific author, we render a title. */}
@@ -94,6 +128,10 @@ export default connect(Archive);
 const TaxonomyTagButton = styled(Link)` ${tw`z-10 border-solid border-2 border-black-200 hover:bg-gray-400 text-gray-800 font-normal py-2 px-4 no-underline rounded-full inline-flex items-center`}`;
 
 const ArticlesContainer = styled('div')` ${tw`flex flex-wrap justify-center`}`;
+const TaxonomyBackgroundImage = styled('div')` ${tw``}`;
+const TaxonomyContainer = styled('div')` ${tw`relative`}`;
+
+
 
 
 

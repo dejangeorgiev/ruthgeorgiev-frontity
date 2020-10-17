@@ -20,11 +20,10 @@ export default Header;
 const ArchiveHeader = styled.header`
   color: #000000;
   text-align: center;
-  background-color: #fff;
   padding: 4rem 0;
 
   @media (min-width: 700px) {
-    padding: 8rem 0;
+    padding: 8rem 0 4rem 0;
   }
 `;
 

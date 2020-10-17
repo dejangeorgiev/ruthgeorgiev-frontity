@@ -24,12 +24,12 @@ import tw from "tailwind.macro";
 
 const SocialMediaShareButtons = ({url, media, alt, title, children, hashtag, hashtags}) => {
 
-    const TwitterTitle = 'Thanks to @GeorgievRuth for making this recipe "' + title + '" available freely on ';
-    const FacebookTitle = 'Thanks to @RuthGeorgiev for making this recipe "' + title + '" available freely.';
+    const TwitterTitle = title + ' 😋 Get it here 👉';
+    const FacebookTitle = title + '. Get it here';
 
     return (
         <SocialMediaButtons>
-            <ShareTitle>Share this recipe with your friends</ShareTitle>
+            <ShareTitle>Share this with your friends</ShareTitle>
             <FacebookShareButton
                 url={url}
                 media={media}
@@ -114,5 +114,5 @@ const SocialMediaShareButtons = ({url, media, alt, title, children, hashtag, has
 };
 
 export default connect(SocialMediaShareButtons);
-const SocialMediaButtons =styled('div')` ${tw`mt-10 text-center`}`;
-const ShareTitle =styled('p')` ${tw`lowercase text-normal text-center p-0 m-0`}`;
+const SocialMediaButtons = styled('div')` ${tw`mt-10 text-center`}`;
+const ShareTitle = styled('p')` ${tw`lowercase text-normal text-center p-0 m-0`}`;
