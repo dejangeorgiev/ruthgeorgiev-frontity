@@ -37,12 +37,10 @@ const Archive = ({state, showExcerpt, showMedia}) => {
     // Get all taxonomies
     const taxonomies = state.source.taxonomies;
 
-
     /**
      * The item's cuisine is an array of each cuisine id
      * So, we'll look up the details of each cuisine in allCuisine
      */
-
 
     return (
         <>
@@ -54,17 +52,17 @@ const Archive = ({state, showExcerpt, showMedia}) => {
 
             (
                 <>
-                    {
-                        state.source[data.taxonomy][data.id].acf.image &&
-                        <RecipeTaxonomyImage url={state.source[data.taxonomy][data.id].acf.image.url}/>
-                    }
-
                     <ArchiveHeader labelColor={primary} label={data.taxonomy}>
                         <TaxonomyTagButton link="/recipes">
                             <span>{decode(state.source[data.taxonomy][data.id].name)}</span>
                             <DeleteIcon/>
                         </TaxonomyTagButton>
                     </ArchiveHeader>
+                    {
+                        state.source[data.taxonomy][data.id].acf.image &&
+                        <RecipeTaxonomyImage url={state.source[data.taxonomy][data.id].acf.image.url}/>
+                    }
+
                     <SocialMediaShareButtons
                         url={shareableUrl}
                         media={state.source[data.taxonomy][data.id].acf.image ?

@@ -27,7 +27,16 @@ const RecipeTaxonomyImage = ({url, state, actions}) => {
 
 export default connect(RecipeTaxonomyImage);
 
-const TaxonomyImage = styled('div')`
-
- 
- ${tw`h-halfscreen w-full lg:w-4/5 m-auto bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center`}`;
+const TaxonomyImage = styled('div')` ${tw`
+h-halfscreen 
+w-full 
+lg:w-11/12
+m-auto 
+bg-cover 
+bg-center 
+bg-no-repeat 
+flex 
+flex-col 
+justify-center 
+items-center
+`}`;
