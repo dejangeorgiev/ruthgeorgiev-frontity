@@ -23,7 +23,7 @@ const ArchiveHeader = styled.header`
   padding: 4rem 0;
 
   @media (min-width: 700px) {
-    padding: 8rem 0 4rem 0;
+    padding: 4rem 0;
   }
 `;
 

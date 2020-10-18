@@ -12,6 +12,7 @@ import DeleteIcon from "../global/icons/DeleteIcon";
 import GetTaxonomyDescription from "../global/taxonomies/RecipeTaxonomies/GetTaxonomyDescription";
 import Author from "../global/author/Author"
 import ArchiveLoadMore from "./archive-load-more";
+import RecipeTaxonomyImage from "../global/taxonomies/RecipeTaxonomies/RecipeTaxonomyImage";
 
 import SocialMediaShareButtons from "../global/social-share/SocialMediaShareButtons";
 
@@ -53,6 +54,10 @@ const Archive = ({state, showExcerpt, showMedia}) => {
 
             (
                 <>
+                    {
+                        state.source[data.taxonomy][data.id].acf.image &&
+                        <RecipeTaxonomyImage url={state.source[data.taxonomy][data.id].acf.image.url}/>
+                    }
 
                     <ArchiveHeader labelColor={primary} label={data.taxonomy}>
                         <TaxonomyTagButton link="/recipes">
@@ -60,11 +65,15 @@ const Archive = ({state, showExcerpt, showMedia}) => {
                             <DeleteIcon/>
                         </TaxonomyTagButton>
                     </ArchiveHeader>
-                    {console.log(state.source[data.taxonomy][data.id])}
                     <SocialMediaShareButtons
                         url={shareableUrl}
-                        media={state.source[data.taxonomy][data.id].acf.image.url}
-                        alt={state.source[data.taxonomy][data.id].acf.image.alt}
+                        media={state.source[data.taxonomy][data.id].acf.image ?
+                            state.source[data.taxonomy][data.id].acf.image.url :
+                            "https://admin.ruthgeorgiev.com/wp-content/uploads/2020/06/brunch-scaled.jpg"}
+                        alt={state.source[data.taxonomy][data.id].acf.image ?
+                            state.source[data.taxonomy][data.id].acf.image.alt :
+                            "Ruth Georgiev - Recipes cooked with love"
+                        }
                         title={
                             state.source[data.taxonomy][data.id].acf.title ?
                                 state.source[data.taxonomy][data.id].acf.title :
