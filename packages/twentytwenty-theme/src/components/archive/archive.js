@@ -58,32 +58,39 @@ const Archive = ({state, showExcerpt, showMedia}) => {
                             <DeleteIcon/>
                         </TaxonomyTagButton>
                     </ArchiveHeader>
-                    {
+                    {state.source[data.taxonomy][data.id].acf ?
                         state.source[data.taxonomy][data.id].acf.image &&
-                        <RecipeTaxonomyImage url={state.source[data.taxonomy][data.id].acf.image.url}/>
+                        <RecipeTaxonomyImage url={state.source[data.taxonomy][data.id].acf.image.url}/>:
+                        <RecipeTaxonomyImage url="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/06/brunch-scaled.jpg"/>
+
                     }
 
                     <SocialMediaShareButtons
                         url={shareableUrl}
-                        media={state.source[data.taxonomy][data.id].acf.image ?
+                        media={state.source[data.taxonomy][data.id].acf ?
+                            state.source[data.taxonomy][data.id].acf.image &&
                             state.source[data.taxonomy][data.id].acf.image.url :
                             "https://admin.ruthgeorgiev.com/wp-content/uploads/2020/06/brunch-scaled.jpg"}
-                        alt={state.source[data.taxonomy][data.id].acf.image ?
+                        alt={state.source[data.taxonomy][data.id].acf ?
+                            state.source[data.taxonomy][data.id].acf.image &&
                             state.source[data.taxonomy][data.id].acf.image.alt :
                             "Ruth Georgiev - Recipes cooked with love"
                         }
                         title={
-                            state.source[data.taxonomy][data.id].acf.title ?
+                            state.source[data.taxonomy][data.id].acf ?
+                                state.source[data.taxonomy][data.id].acf.title &&
                                 state.source[data.taxonomy][data.id].acf.title :
                                 "The best of " + state.source[data.taxonomy][data.id].name + " " + state.source[data.taxonomy][data.id].taxonomy
                         }
                         children={
-                            state.source[data.taxonomy][data.id].acf.title ?
+                            state.source[data.taxonomy][data.id].acf ?
+                                state.source[data.taxonomy][data.id].acf.title &&
                                 state.source[data.taxonomy][data.id].acf.title :
                                 "The best of " + state.source[data.taxonomy][data.id].name + " " + state.source[data.taxonomy][data.id].taxonomy
                         }
                         hashtag='#ruthgeorgiev'
-                        hashtags={[state.source[data.taxonomy][data.id].acf.hashtags ?
+                        hashtags={[state.source[data.taxonomy][data.id].acf ?
+                            state.source[data.taxonomy][data.id].acf.hashtags &&
                             state.source[data.taxonomy][data.id].acf.hashtags :
                             'ruthgeorgiev,recipes,foodie,cooking']}
                     />
