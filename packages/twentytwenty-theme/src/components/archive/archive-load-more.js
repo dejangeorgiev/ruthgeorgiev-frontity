@@ -82,7 +82,7 @@ const ArchiveLoadMore = ({state, actions, libraries}) => {
 
                         return (
                             <PagingItem key={index}>
-                                <StyledLink link={getPageLink(item)}>{item}</StyledLink>
+                                <StyledLink link={getPageLink(item)+"#articlesContainer"}>{item}</StyledLink>
                             </PagingItem>
                         );
                     })}
@@ -92,7 +92,7 @@ const ArchiveLoadMore = ({state, actions, libraries}) => {
             <Direction>
                 {console.log(next)}
                 {next && (
-                    <StyledLink link={next}>
+                    <StyledLink link={next+"#articlesContainer"}>
                         <DirectionItem>Older</DirectionItem> →
                     </StyledLink>
                 )}
@@ -116,7 +116,7 @@ const inlineBlock = css`
 const Container = styled.div`
   font-size: 1em;
   font-weight: 600;
-  margin: 0 auto;
+  margin: 50px auto;
   line-height: 30px;
   width: calc(100% - 4rem);
   max-width: ${getMaxWidth};

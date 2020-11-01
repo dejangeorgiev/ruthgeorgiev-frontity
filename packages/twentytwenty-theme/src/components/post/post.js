@@ -250,10 +250,6 @@ const Post = ({state, actions, libraries}) => {
                 </SectionContainer>
             </Header>
 
-            {/* Render recommended posts */}
-            <RecommendedPostsTitle>Read next <HigLightedText>newest recipes</HigLightedText></RecommendedPostsTitle>
-            {<RecommendedPosts postId={post.id}/>}
-
             {/*
        * If the want to show featured media in the
        * list of featured posts, we render the media.

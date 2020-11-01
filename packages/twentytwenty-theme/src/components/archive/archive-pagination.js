@@ -115,7 +115,7 @@ const inlineBlock = css`
 const Container = styled.div`
   font-size: 1em;
   font-weight: 600;
-  margin: 0 auto;
+  margin: 50px auto;
   line-height: 30px;
   width: calc(100% - 4rem);
   max-width: ${getMaxWidth};

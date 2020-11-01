@@ -60,8 +60,9 @@ const Archive = ({state, showExcerpt, showMedia}) => {
                     </ArchiveHeader>
                     {state.source[data.taxonomy][data.id].acf ?
                         state.source[data.taxonomy][data.id].acf.image &&
-                        <RecipeTaxonomyImage url={state.source[data.taxonomy][data.id].acf.image.url}/>:
-                        <RecipeTaxonomyImage url="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/06/brunch-scaled.jpg"/>
+                        <RecipeTaxonomyImage url={state.source[data.taxonomy][data.id].acf.image.url}/> :
+                        <RecipeTaxonomyImage
+                            url="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/06/brunch-scaled.jpg"/>
 
                     }
 
@@ -106,7 +107,7 @@ const Archive = ({state, showExcerpt, showMedia}) => {
                 </ArchiveHeader>
             )}
 
-            <ArticlesContainer>
+            <ArticlesContainer id="articlesContainer">
                 {/* Iterate over the items of the list. */}
                 {data.items.map(({type, id}, index) => {
                     const isLastArticle = index === data.items.length - 1;
@@ -128,7 +129,6 @@ const Archive = ({state, showExcerpt, showMedia}) => {
 
             {data.totalPages > 1 && (
                 <>
-                    <PostSeparator/>
                     <Pagination size="thin"/>
                 </>
             )}
