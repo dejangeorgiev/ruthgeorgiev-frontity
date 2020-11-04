@@ -151,7 +151,7 @@ const Direction = styled.div`
 const DirectionItem = styled.span`
   @media (min-width: 700px) {
     &:after {
-      content: " Posts";
+      content: " Recipes";
     }
   }
 `;
