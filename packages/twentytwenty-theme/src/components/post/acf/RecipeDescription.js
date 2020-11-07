@@ -21,3 +21,4 @@ export default connect(RecipeDescription);
 
 
 const Description = styled('p')` ${tw`text-left`}`;
+

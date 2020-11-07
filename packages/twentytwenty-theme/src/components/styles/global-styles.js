@@ -323,6 +323,16 @@ const elementBase = (colors) => css`
                 color: white;
         }
   }
+  
+  p > p > span > img {
+        position:relative !important;
+        margin: auto !important;
+        height: auto !important;
+  }
+  
+  p > p > span {
+        padding-bottom:0 !important;
+  }
 `;
 
 const listStyle = css`
