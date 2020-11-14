@@ -25,10 +25,43 @@ const SponsoredBadge = ({state, actions, id}) => {
             {Object.keys(SponsoredBadges).map((key) => {
                 const Card = SponsoredBadges[key];
 
-                let Badge = styled('a')` ${tw`rounded-full shadow-xl m-10 hover:shadow-sm fixed right-0 bottom-0 py-5 px-10 bg-white z-10 text-right`}`;
+                let Badge = styled('a')` ${tw`
+                    rounded-full 
+                    shadow-xl 
+                    m-10 
+                    sm:m-20
+                    hover:shadow-sm 
+                    fixed 
+                    right-0  
+                    bottom-0 
+                    py-5 
+                    px-10 
+                    bg-white 
+                    z-10
+                    text-right
+                    max-w-md
+                    w-screen
+                `}`;
 
                 if (Card['postfieldgroup.sponsored_badge.is_dark'][0] === "yes") {
-                    Badge = styled('a')` ${tw`rounded-full shadow-xl m-10 hover:shadow-sm fixed right-0 text-gray-100 bottom-0 py-5 px-10 bg-gray-700 z-10 text-right`}`;
+                    Badge = styled('a')` ${tw`
+                    rounded-full 
+                    shadow-xl 
+                    m-10 
+                    sm:m-20
+                    hover:shadow-sm 
+                    fixed 
+                    right-0 
+                    text-gray-100 
+                    bottom-0 
+                    py-5 
+                    px-10 
+                    bg-gray-700 
+                    z-10
+                    text-right
+                    max-w-md
+                    w-screen
+                    `}`;
 
                 }
                 return (
@@ -65,4 +98,4 @@ const SponsoredBadgeLink = styled('a')`
 text-decoration:none
 `;
 
-const SponsoredBadgeImage = styled('img')` ${tw`rounded-lg rounded-r-none md:max-w-xs`}`;
+const SponsoredBadgeImage = styled('img')` ${tw`rounded-lg rounded-r-none`}`;
