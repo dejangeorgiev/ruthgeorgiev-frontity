@@ -27,7 +27,7 @@ const SearchNotFound = ({state, keyword}) => {
                         Go to 👉
                         <SearchNotFoundCustomLink link="/">Homepage</SearchNotFoundCustomLink>
                         <SearchNotFoundCustomLink link="/recipes">Recipes</SearchNotFoundCustomLink>
-                        <SearchNotFoundCustomLink link="/?s=healthy">
+                        <SearchNotFoundCustomLink link="/category/healthy/">
                             Healthy Food
                         </SearchNotFoundCustomLink>
                         <SearchNotFoundCustomLink link="/category/must-try/">
