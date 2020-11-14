@@ -37,6 +37,7 @@ import Comments from '../global/comments/index'
 import SocialMediaShareButtons from "../global/social-share/SocialMediaShareButtons";
 import GoogleStructuredDataForRecipe from "../global/marketing/google/GoogleStructuredDataForRecipe";
 import tw from 'tailwind.macro'
+import SponsoredBadge from "./acf/sponsored/SponsoredBadge";
 
 import ReactInstaStories from "../global/marketing/stories/ReactInstaStories"
 
@@ -249,6 +250,9 @@ const Post = ({state, actions, libraries}) => {
                     {<Comments postId={post.id} id="comments"/>}
                 </SectionContainer>
             </Header>
+
+            {/* if the post has sponsored badge / sponsored link, render it */}
+            {post.acf['postfieldgroup.sponsored_badge'] && <SponsoredBadge id={post.id}/>}
 
             {/*
        * If the want to show featured media in the
