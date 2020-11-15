@@ -7,6 +7,7 @@ import Card from "./acf/Content/Card"
 import HighlightedLink from "./acf/Content/HighlightedLink";
 import ProfileCard from "./acf/Content/ProfileCard";
 import InstaFeed from "./acf/Content/InstaFeed";
+import Title from "./acf/Content/Title"
 import PinterestWidget from "./acf/Content/PinterestWidget";
 
 
@@ -103,6 +104,12 @@ const Page = ({state, actions, libraries}) => {
                             return <InstaFeed key={key}
                                               title={pageContent[key]['contentfieldgroup.content.instafeed.title']}
                                               posts={pageContent[key]['contentfieldgroup.content.instafeed.posts']}
+                            />
+                        }
+
+                        if (pageContent[key].acf_fc_layout === 'contentfieldgroup.content.title') {
+                            return <Title key={key}
+                                         title={pageContent[key]['contentfieldgroup.content.title.title']}
                             />
                         }
                     })}

@@ -38,9 +38,9 @@ const Text = ({state, actions, libraries, title, text}) => {
 export default connect(Text);
 
 
-const Container = styled('div')` ${tw`mx-auto p-10 bg-gray-200 `}`;
+const Container = styled('div')` ${tw`mx-auto p-10 bg-white shadow-xl`}`;
 const Title = styled('h2')` ${tw`text-gray-800 font-normal px-2 uppercase text-center`}`;
-const TextContainer = styled('div')` ${tw`max-w-6xl m-auto items-center`}`;
+const TextContainer = styled('div')` ${tw`m-auto items-center`}`;
 
 
 

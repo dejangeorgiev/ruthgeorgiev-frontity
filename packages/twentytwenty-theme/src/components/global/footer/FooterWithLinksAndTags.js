@@ -18,7 +18,7 @@ const FooterWithLinksAndTags = ({actions}) => {
                     <SectionTitle>Popular Dishes & Diets</SectionTitle>
                     <FooterLink url="/diets/vegan/" title="Vegan"/>
                     <FooterLink url="/diets/vegetarian/" title="Vegetarian"/>
-                    <FooterLink url="/dishes/curry/" title="Curry"/>
+                    <FooterLink url="/dishes/bread/" title="Bread"/>
                     <FooterLink url="/dishes/salad/" title="Salad"/>
                     <FooterLink url="/dishes/coffee/" title="Coffee"/>
                 </FooterSingleSection>
@@ -37,6 +37,8 @@ const FooterWithLinksAndTags = ({actions}) => {
                     <FooterLink url="/about" title="About Us"/>
                     <FooterLink url="/recipes" title="Recipes"/>
                     <FooterLink url="/partners" title="Partners" tag="Join us"/>
+                    <FooterLink url="/category/healthy" title="Healthy Foods"/>
+                    <FooterLink url="/brands" title="Ads of Brands" tag="New"/>
                 </FooterSingleSection>
                 <FooterSingleSection>
                     <SectionTitle>Support</SectionTitle>

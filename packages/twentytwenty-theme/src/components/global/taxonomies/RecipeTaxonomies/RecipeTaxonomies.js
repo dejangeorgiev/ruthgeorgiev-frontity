@@ -36,7 +36,7 @@ const RecipeTaxonomies = ({taxonomies, state, actions}) => {
                             breakPoints={CarouselBreakpoints}
                             focusOnSelect={false}
                             itemsToShow={9}
-                            itemsToScroll={5}
+                            itemsToScroll={1}
                             pagination={true}
                             showArrows={false}
                             enableSwipe={true}
