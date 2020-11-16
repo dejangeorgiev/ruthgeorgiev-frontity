@@ -51,7 +51,7 @@ const PageCarousel = ({state, actions, libraries, id, carousel}) => {
                 showArrows={true}
                 enableSwipe={true}
                 enableMouseSwipe={true}
-                preventDefaultTouchmoveEvent={true}
+                preventDefaultTouchmoveEvent={false}
                 autoPlaySpeed={8000}
                 easing="cubic-bezier(1,.15,.55,1.54)"
                 tiltEasing="cubic-bezier(0.110, 1, 1.000, 0.210)"
