@@ -135,36 +135,60 @@ export function arrow({type, onClick, isEdge}) {
 }
 
 const CarouselContainer = styled('div')` ${tw`m-10 mx-auto p-16 sm:p-24 lg:p-48 bg-gray-200`}`;
-const FirstDiv = styled('div')` min-height: 30rem; max-height:40rem; ${tw`w-full relative rounded-lg block md:flex items-center bg-gray-100 shadow-xl`}`;
-const SecondDiv = styled('div')` min-height: 30rem; max-height:40rem; ${tw`relative w-full md:w-2/5 h-full overflow-hidden rounded-t-lg md:rounded-t-none md:rounded-l-lg`}`;
-const Image = styled('img')` ${tw`absolute inset-0 w-full h-full object-cover object-center`}`;
-const ThirdDiv = styled('div')` ${tw`absolute inset-0 w-full h-full bg-yellow-100 opacity-25`}`;
-const FourthDiv = styled('div')` ${tw`absolute inset-0 w-full h-full flex items-center justify-center fill-current text-white`}`;
-const FifthDiv = styled('div')` ${tw`w-full md:w-3/5 h-full flex items-center bg-gray-100 rounded-lg`}`;
-const SixthDiv = styled('div')` ${tw`p-12 md:pr-24 md:pl-16 md:py-12`}`;
-const Description = styled('p')` ${tw`text-gray-600`}`;
-const DescriptionSpan = styled('span')` ${tw`text-gray-900`}`;
-const DescriptionLink = styled('a')` ${tw`flex items-baseline mt-3 text-indigo-600 hover:text-indigo-900 focus:text-indigo-900`}`;
-const DescriptionLinkSpan = styled('span')` ${tw`text-xs ml-1`}`;
-const FourthDivH2 = styled('h2')` ${tw`w-full h-24 text-center`}`;
-const CarouselTitleH1 = styled('h1')` ${tw`w-full h-36 text-left`}`;
-const FifthDivSvg = styled('svg')` ${tw`hidden md:block absolute inset-y-0 h-full w-24 fill-current text-gray-100 -ml-12`}`;
-const ButtonLeft = styled('button')` transform: scale(-1); ${tw`self-center z-10 -mr-8 bg-white hover:bg-gray-900 rounded-full shadow-2xl h-16 w-16 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -ml-6 cursor-pointer focus:outline-none focus:shadow-outline`}`;
-const ButtonLeftSpan = styled('span')` ${tw`block text-3xl px-4`}`;
-const ButtonRight = styled('button')` ${tw`self-center z-10 -ml-8 bg-white rounded-full shadow-2xl hover:bg-gray-900 h-16 w-16 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -mr-6 focus:outline-none cursor-pointer focus:shadow-outline`}`;
-const ButtonRightSpan = styled('span')` ${tw`block text-3xl px-4`}`;
-const PageElasticCarousel = styled(Carousel)` 
-outline:none; 
-max-height:330px;
 
-  @media (max-width: 700px) {
-  height:auto;
-  max-height:1000px; 
+const FirstDiv = styled('div')` 
+    max-height:40rem; 
+    @media (max-width: 768px) {
+            min-height: 30rem; 
+            max-height:80rem; 
+    }
+    
+    ${tw`w-full h-full relative rounded-lg block md:flex items-center shadow-xl`}`;
+
+const SecondDiv = styled('div')` 
+    min-height: 30rem; 
+    max-height:40rem; 
+    height:38rem; 
+    ${tw`relative w-full md:w-2/5 overflow-hidden rounded-t-lg md:rounded-t-none md:rounded-l-lg`}`;
+
+const Image = styled('img')` ${tw`absolute inset-0 w-full h-full object-cover object-center`}`;
+
+const ThirdDiv = styled('div')` ${tw`absolute inset-0 w-full h-full bg-yellow-100 opacity-25`}`;
+
+const FourthDiv = styled('div')` ${tw`absolute inset-0 w-full h-full flex items-center justify-center fill-current text-white`}`;
+
+const FifthDiv = styled('div')` ${tw`w-full md:w-3/5 h-full bg-gray-100 md:bg-transparent flex items-center rounded-lg`}`;
+
+const SixthDiv = styled('div')` ${tw`p-12 md:pr-24 md:pl-16 md:py-12`}`;
+
+const Description = styled('p')` ${tw`text-gray-600`}`;
+
+const DescriptionSpan = styled('span')` ${tw`text-gray-900`}`;
+
+const DescriptionLink = styled('a')` ${tw`flex items-baseline mt-3 text-indigo-600 hover:text-indigo-900 focus:text-indigo-900`}`;
+
+const DescriptionLinkSpan = styled('span')` ${tw`text-xs ml-1`}`;
+
+const FourthDivH2 = styled('h2')` ${tw`w-full h-24 text-center`}`;
+
+const CarouselTitleH1 = styled('h1')` ${tw`w-full h-36 text-left`}`;
+
+const FifthDivSvg = styled('svg')` ${tw`hidden md:block absolute inset-y-0 h-full w-24 fill-current text-gray-100 -ml-12`}`;
+
+const ButtonLeft = styled('button')` transform: scale(-1); ${tw`self-center z-10 -mr-8 bg-white hover:bg-gray-900 rounded-full shadow-2xl h-16 w-16 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -ml-6 cursor-pointer focus:outline-none focus:shadow-outline`}`;
+
+const ButtonLeftSpan = styled('span')` ${tw`block text-3xl px-4`}`;
+
+const ButtonRight = styled('button')` ${tw`self-center z-10 -ml-8 bg-white rounded-full shadow-2xl hover:bg-gray-900 h-16 w-16 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -mr-6 focus:outline-none cursor-pointer focus:shadow-outline`}`;
+
+const ButtonRightSpan = styled('span')` ${tw`block text-3xl px-4`}`;
+
+const PageElasticCarousel = styled(Carousel)` 
+    outline:none; 
+    max-height:330px;
+    
+    @media (max-width: 768px) {
+        height:auto;
+        max-height:1000px; 
   }
 ${tw``}`;
-
-
-
-
-
-
