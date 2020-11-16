@@ -134,13 +134,13 @@ export function arrow({type, onClick, isEdge}) {
     </ButtonRight>
 }
 
-const CarouselContainer = styled('div')` ${tw`m-10 mx-auto p-16 sm:p-24 lg:p-48 bg-gray-200`}`;
+const CarouselContainer = styled('div')` ${tw`m-10 mx-auto sm:p-16 sm:p-24 lg:p-48 sm:bg-gray-200`}`;
 
 const FirstDiv = styled('div')` 
     max-height:40rem; 
     @media (max-width: 768px) {
             min-height: 30rem; 
-            max-height:80rem; 
+            max-height: 90rem; 
     }
     
     ${tw`w-full h-full relative rounded-lg block md:flex items-center shadow-xl`}`;
@@ -159,7 +159,7 @@ const FourthDiv = styled('div')` ${tw`absolute inset-0 w-full h-full flex items-
 
 const FifthDiv = styled('div')` ${tw`w-full md:w-3/5 h-full bg-gray-100 md:bg-transparent flex items-center rounded-lg`}`;
 
-const SixthDiv = styled('div')` ${tw`p-12 md:pr-24 md:pl-16 md:py-12`}`;
+const SixthDiv = styled('div')` ${tw`p-6 md:pr-24 md:pl-16 md:py-12`}`;
 
 const Description = styled('p')` ${tw`text-gray-600`}`;
 
@@ -171,7 +171,7 @@ const DescriptionLinkSpan = styled('span')` ${tw`text-xs ml-1`}`;
 
 const FourthDivH2 = styled('h2')` ${tw`w-full h-24 text-center`}`;
 
-const CarouselTitleH1 = styled('h1')` ${tw`w-full h-36 text-left`}`;
+const CarouselTitleH1 = styled('h1')` ${tw`w-full my-1 sm:my-2 h-36 text-left`}`;
 
 const FifthDivSvg = styled('svg')` ${tw`hidden md:block absolute inset-y-0 h-full w-24 fill-current text-gray-100 -ml-12`}`;
 
