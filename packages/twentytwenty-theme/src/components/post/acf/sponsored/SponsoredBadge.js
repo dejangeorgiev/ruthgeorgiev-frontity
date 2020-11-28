@@ -98,4 +98,4 @@ const SponsoredBadgeLink = styled('a')`
 text-decoration:none
 `;
 
-const SponsoredBadgeImage = styled('img')` ${tw`rounded-lg rounded-r-none`}`;
+const SponsoredBadgeImage = styled('img')` max-width: 12rem; ${tw`rounded-lg rounded-r-none`}`;
