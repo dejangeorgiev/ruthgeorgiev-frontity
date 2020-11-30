@@ -38,8 +38,8 @@ const SponsoredBadge = ({state, actions, id}) => {
                     px-10 
                     bg-white 
                     z-10
-                    text-right
-                    max-w-md
+                    text-left
+                    max-w-sm
                     w-screen
                 `}`;
 
@@ -58,8 +58,8 @@ const SponsoredBadge = ({state, actions, id}) => {
                     px-10 
                     bg-gray-700 
                     z-10
-                    text-right
-                    max-w-md
+                    text-left
+                    max-w-sm
                     w-screen
                     `}`;
 
@@ -71,16 +71,22 @@ const SponsoredBadge = ({state, actions, id}) => {
                                href={Card['postfieldgroup.sponsored_badge.link']['url']}
                                target={Card['postfieldgroup.sponsored_badge.link']['target']}>
 
-                            {
-                                Card['postfieldgroup.sponsored_badge.highlighted_text'] &&
-                                <div>{Card['postfieldgroup.sponsored_badge.highlighted_text']}</div>
-                            }
 
                             {
                                 Card['postfieldgroup.sponsored_badge.image'] &&
+                                <SponsoredBadgeImageContainer>
                                 <SponsoredBadgeImage
                                     src={Card['postfieldgroup.sponsored_badge.image']['sizes']['medium']}/>
+                                </SponsoredBadgeImageContainer>
+
                             }
+
+                            {
+                                Card['postfieldgroup.sponsored_badge.highlighted_text'] &&
+                                <HighlightedText>{Card['postfieldgroup.sponsored_badge.highlighted_text']}</HighlightedText>
+                            }
+
+
 
                             <div>{Card['postfieldgroup.sponsored_badge.link']['title']}</div>
                         </Badge>
@@ -98,4 +104,6 @@ const SponsoredBadgeLink = styled('a')`
 text-decoration:none
 `;
 
-const SponsoredBadgeImage = styled('img')` max-width: 12rem; ${tw`rounded-lg rounded-r-none`}`;
+const SponsoredBadgeImage = styled('img')` max-width: 3rem; ${tw``}`;
+const SponsoredBadgeImageContainer = styled('div')`  ${tw`inline-flex rounded-lg rounded-r-none align-middle pr-2`}`;
+const HighlightedText = styled('div')` ${tw`inline-flex m-auto align-middle font-bold`}`;
