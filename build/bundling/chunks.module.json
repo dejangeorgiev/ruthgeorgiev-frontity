@@ -2,24 +2,24 @@
   "errors": [],
   "warnings": [],
   "version": "4.44.2",
-  "hash": "6d81d2c991f3f2d3ac42",
+  "hash": "40be6145bd6540fe9f37",
   "publicPath": "/static/",
   "outputPath": "/Users/dejangeorgiev/Code/ruthgeorgiev-frontity/build/static",
   "assetsByChunkName": {
     "FrontPage": "FrontPage.module.js",
     "page": "page.module.js",
-    "post": "post.module.js",
-    "rg-frontity": [
-      "rg-frontity.module.js",
-      "rg-frontity.176dc4e5ec9cb8150432.hot-update.js"
+    "post": [
+      "post.module.js",
+      "post.2262b9f0d824900f580d.hot-update.js"
     ],
+    "rg-frontity": "rg-frontity.module.js",
     "travel": "travel.module.js",
     "vendors~post": "vendors~post.module.js"
   },
   "assets": [
     {
-      "name": "176dc4e5ec9cb8150432.hot-update.json",
-      "size": 53,
+      "name": "2262b9f0d824900f580d.hot-update.json",
+      "size": 46,
       "chunks": [],
       "chunkNames": [],
       "info": {
@@ -262,26 +262,13 @@
       "isOverSizeLimit": true
     },
     {
-      "name": "post.module.js",
-      "size": 1173436,
+      "name": "post.2262b9f0d824900f580d.hot-update.js",
+      "size": 530643,
       "chunks": [
         "post"
       ],
       "chunkNames": [
         "post"
-      ],
-      "info": {},
-      "emitted": true,
-      "isOverSizeLimit": true
-    },
-    {
-      "name": "rg-frontity.176dc4e5ec9cb8150432.hot-update.js",
-      "size": 11429,
-      "chunks": [
-        "rg-frontity"
-      ],
-      "chunkNames": [
-        "rg-frontity"
       ],
       "info": {
         "hotModuleReplacement": true,
@@ -290,8 +277,20 @@
       "emitted": false
     },
     {
+      "name": "post.module.js",
+      "size": 1171586,
+      "chunks": [
+        "post"
+      ],
+      "chunkNames": [
+        "post"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
       "name": "rg-frontity.module.js",
-      "size": 13028755,
+      "size": 13046197,
       "chunks": [
         "rg-frontity"
       ],
@@ -334,8 +333,7 @@
         "rg-frontity"
       ],
       "assets": [
-        "rg-frontity.module.js",
-        "rg-frontity.176dc4e5ec9cb8150432.hot-update.js"
+        "rg-frontity.module.js"
       ],
       "children": {},
       "childAssets": {}
@@ -347,8 +345,7 @@
         "rg-frontity"
       ],
       "assets": [
-        "rg-frontity.module.js",
-        "rg-frontity.176dc4e5ec9cb8150432.hot-update.js"
+        "rg-frontity.module.js"
       ],
       "children": {},
       "childAssets": {}
@@ -366,7 +363,8 @@
       ],
       "assets": [
         "vendors~post.module.js",
-        "post.module.js"
+        "post.module.js",
+        "post.2262b9f0d824900f580d.hot-update.js"
       ],
       "children": {},
       "childAssets": {}

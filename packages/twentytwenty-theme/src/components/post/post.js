@@ -221,10 +221,8 @@ const Post = ({state, actions, libraries}) => {
                     {post.acf['postfieldgroup.note'] && <RecipeNote id={post.id}/>}
 
                     {/* if the post has a YouTube video, render it */}
-                    {post.acf['postfieldgroup.video'] &&
-                    <RecipeYoutubeVideoTitle>Watch how i make it <YouTubeIcon/>
-                    </RecipeYoutubeVideoTitle>}
-                    {post.acf['postfieldgroup.video'] && <YoutubeVideo videoId={post.acf['postfieldgroup.video']}/>}
+                    {/*post.acf['postfieldgroup.video'] && <RecipeYoutubeVideoTitle>Watch how i make it <YouTubeIcon/></RecipeYoutubeVideoTitle>*/}
+                    {/*post.acf['postfieldgroup.video'] && <YoutubeVideo videoId={post.acf['postfieldgroup.video']}/>*/}
 
                     {/* If the post has an excerpt (short summary text), we render it */}
                     {

@@ -1,7 +1,7 @@
 import Theme from "./components";
-import image from "@frontity/html2react/processors/image";
 import {postTypeHandler} from "@frontity/wp-source/src/libraries/handlers";
-
+import image from "@frontity/html2react/processors/image";
+import iframe from "@frontity/html2react/processors/iframe";
 
 const homeHandler = {
     name: "home",
@@ -213,7 +213,7 @@ const twentyTwentyTheme = {
              * Add a processor to `html2react` so it processes the `<img>` tags
              * inside the content HTML. You can add your own processors too
              */
-            processors: [image],
+            processors: [image, iframe],
         }
     },
 };
