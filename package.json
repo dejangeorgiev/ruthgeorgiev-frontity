@@ -33,6 +33,7 @@
     "@frontity/wp-source": "^1.9.1",
     "@frontity/yoast": "^2.0.0",
     "@kunukn/react-collapse": "^2.2.9",
+    "@loadable/component": "^5.14.1",
     "@types/youtube": "0.0.39",
     "algoliasearch": "^4.4.0",
     "babel-plugin-macros": "^2.8.0",

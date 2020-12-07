@@ -1,6 +1,8 @@
+import loadable from '@loadable/component'
+
+
 import {styled, connect, Slot} from "frontity";
 import React, {useEffect} from "react";
-import FeaturedMedia from "./featured-media";
 import {
     EntryContent,
     Post as _Post,
@@ -8,36 +10,43 @@ import {
     PostInner,
     SectionContainer,
 } from "./post-item";
-import PostCategories from "./post-categories";
-import PostMeta from "./post-meta";
-import PostTags from "./post-tags";
-import Ingredients from "./acf/ingredients/Ingredients";
-import Sponsored from "./acf/sponsored/Sponsored";
-import Badge from "./acf/badges/Badge";
-import Equipment from "./acf/equipment/Equipment";
-import RecipeDescription from "./acf/RecipeDescription";
-import RecipeNote from "./acf/RecipeNote";
-import RecipeTips from "./acf/tips/RecipeTips";
-import Cuisine from "./acf/cuisine/Cuisine";
-import Diets from "./acf/diets/Diets";
-import Dishes from "./acf/dishes/Dishes";
-import Meals from "./acf/meals/Meals";
+
 import YoutubeVideo from "./acf/YoutubeVideo";
 import YouTubeIcon from "../global/icons/YouTubeIcon";
+import RecommendedPosts from "./acf/recommended/posts/RecommendedPosts";
+
+import tw from 'tailwind.macro'
 import EasyRecipe from "../global/icons/png/EasyRecipe.png"
 import ModernCookingTools from "../global/icons/png/ModernCookingTools.png"
 import ProfessionalChefFemale from "../global/icons/png/ProfessionalChefFemale.png"
 import RecipeTipsIconPng from "../global/icons/png/RecipeTips.png"
-import RecipePreparationTime from "./acf/RecipePreparationTime"
-import RecipeCookingTime from "./acf/RecipeCookingTime";
-import RecipeServings from "./acf/RecipeServings";
-import RecommendedPosts from "./acf/recommended/posts/RecommendedPosts";
-import ReadingProgress from "react-reading-progress"
-import Comments from '../global/comments/index'
-import SocialMediaShareButtons from "../global/social-share/SocialMediaShareButtons";
-import GoogleStructuredDataForRecipe from "../global/marketing/google/GoogleStructuredDataForRecipe";
-import tw from 'tailwind.macro'
-import SponsoredBadge from "./acf/sponsored/SponsoredBadge";
+
+const FeaturedMedia = loadable(() => import('./featured-media'))
+const PostCategories = loadable(() => import('./post-categories'))
+const PostMeta = loadable(() => import('./post-meta'))
+const PostTags = loadable(() => import('./post-tags'))
+const Ingredients = loadable(() => import('./acf/ingredients/Ingredients'))
+const Sponsored = loadable(() => import('./acf/sponsored/Sponsored'))
+const Badge = loadable(() => import('./acf/badges/Badge'))
+const Equipment = loadable(() => import('./acf/equipment/Equipment'))
+const RecipeDescription = loadable(() => import('./acf/RecipeDescription'))
+const RecipeNote = loadable(() => import('./acf/RecipeNote'))
+const RecipeTips = loadable(() => import('./acf/tips/RecipeTips'))
+const Cuisine = loadable(() => import('./acf/cuisine/Cuisine'))
+const Diets = loadable(() => import('./acf/diets/Diets'))
+const Dishes = loadable(() => import('./acf/dishes/Dishes'))
+const Meals = loadable(() => import('./acf/meals/Meals'))
+
+const RecipePreparationTime = loadable(() => import('./acf/RecipePreparationTime'))
+const RecipeCookingTime = loadable(() => import('./acf/RecipeCookingTime'))
+const RecipeServings = loadable(() => import('./acf/RecipeServings'))
+const ReadingProgress = loadable(() => import('react-reading-progress'))
+const Comments = loadable(() => import('../global/comments/index'))
+const SocialMediaShareButtons = loadable(() => import('../global/social-share/SocialMediaShareButtons'))
+const GoogleStructuredDataForRecipe = loadable(() => import('../global/marketing/google/GoogleStructuredDataForRecipe'))
+const SponsoredBadge = loadable(() => import('./acf/sponsored/SponsoredBadge'))
+
+
 
 import ReactInstaStories from "../global/marketing/stories/ReactInstaStories"
 
