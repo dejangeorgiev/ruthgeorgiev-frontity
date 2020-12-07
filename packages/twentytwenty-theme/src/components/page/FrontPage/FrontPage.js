@@ -112,7 +112,7 @@ const FrontPage = ({state, actions, libraries}) => {
                         </HomeTeaser>
 
                     </FrontPageContainer>
-                    <Archive/>
+                   
                 </>
             )}
         </>

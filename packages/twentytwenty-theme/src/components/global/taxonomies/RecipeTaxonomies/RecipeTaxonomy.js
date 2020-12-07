@@ -26,7 +26,7 @@ const RecipeTaxonomy = ({taxonomy, state, actions}) => {
             <TaxonomyTag link={taxonomy.link}>
                 <TaxonomyName>{decode(taxonomy.name)}</TaxonomyName>
                 {
-                    TaxonomyImage ? <Image src={TaxonomyImage.sizes.medium} alt={TaxonomyImage.alt}/> : null
+                    TaxonomyImage ? <Image src={TaxonomyImage.sizes.small} alt={TaxonomyImage.alt}/> : null
                 }
             </TaxonomyTag>
         </TaxonomySingleCard>
