@@ -66,9 +66,7 @@ const Archive = ({state, showExcerpt, showMedia}) => {
                         <RecipeTaxonomyImage url={state.source[data.taxonomy][data.id].acf.image.url}/> :
                         <RecipeTaxonomyImage
                             url="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/06/brunch-scaled.jpg"/>
-
                     }
-
                     <SocialMediaShareButtons
                         url={shareableUrl}
                         media={state.source[data.taxonomy][data.id].acf ?

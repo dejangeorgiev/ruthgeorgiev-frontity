@@ -41,7 +41,7 @@ const RecipeTaxonomies = ({taxonomies, state, actions}) => {
                             showArrows={false}
                             enableSwipe={true}
                             enableMouseSwipe={true}
-                            preventDefaultTouchmoveEvent={true}
+                            preventDefaultTouchmoveEvent={false}
                         >
                         {
                             Object.keys(Taxonomy).map(id => {
