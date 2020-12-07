@@ -1,4 +1,6 @@
 import {styled, connect, decode} from "frontity";
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import React, {useEffect} from "react";
 import FeaturedMedia from "../../../post/featured-media";
 import Link from "../../../link";
@@ -26,7 +28,8 @@ const RecipeTaxonomy = ({taxonomy, state, actions}) => {
             <TaxonomyTag link={taxonomy.link}>
                 <TaxonomyName>{decode(taxonomy.name)}</TaxonomyName>
                 {
-                    TaxonomyImage ? <Image src={TaxonomyImage.sizes.small} alt={TaxonomyImage.alt}/> : null
+                    TaxonomyImage ? <Image src={TaxonomyImage.sizes.small} data-src={TaxonomyImage.sizes.small}
+                                           alt={TaxonomyImage.alt} className="lazyload"/> : null
                 }
             </TaxonomyTag>
         </TaxonomySingleCard>

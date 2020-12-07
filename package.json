@@ -40,6 +40,7 @@
     "classnames": "^2.2.6",
     "frontity": "^1.12.0",
     "frontity-contact-form-7": "^0.1.7",
+    "lazysizes": "^5.2.2",
     "react-elastic-carousel": "^0.9.0",
     "react-facebook": "^8.1.4",
     "react-headroom": "^3.0.0",

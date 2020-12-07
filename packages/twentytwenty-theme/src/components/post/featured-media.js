@@ -1,5 +1,7 @@
 import React from "react";
 import {connect, styled} from "frontity";
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import Img from "@frontity/components/image";
 import SectionContainer from "../styles/section-container";
 
@@ -28,6 +30,7 @@ const FeaturedMedia = ({state, id, className}) => {
                     alt={media.title.rendered}
                     src={media.source_url}
                     srcSet={srcset}
+                    className="lazyload"
                 />
             </SectionImageContainer>
 
