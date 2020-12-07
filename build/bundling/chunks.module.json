@@ -1,0 +1,413 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "4.44.2",
+  "hash": "6d81d2c991f3f2d3ac42",
+  "publicPath": "/static/",
+  "outputPath": "/Users/dejangeorgiev/Code/ruthgeorgiev-frontity/build/static",
+  "assetsByChunkName": {
+    "FrontPage": "FrontPage.module.js",
+    "page": "page.module.js",
+    "post": "post.module.js",
+    "rg-frontity": [
+      "rg-frontity.module.js",
+      "rg-frontity.176dc4e5ec9cb8150432.hot-update.js"
+    ],
+    "travel": "travel.module.js",
+    "vendors~post": "vendors~post.module.js"
+  },
+  "assets": [
+    {
+      "name": "176dc4e5ec9cb8150432.hot-update.json",
+      "size": 53,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "FrontPage.module.js",
+      "size": 156919,
+      "chunks": [
+        "FrontPage"
+      ],
+      "chunkNames": [
+        "FrontPage"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/BwQuintaPro-Black.woff",
+      "size": 50312,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/BwQuintaPro-BlackItalic.woff",
+      "size": 51048,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/BwQuintaPro-Bold.woff",
+      "size": 43600,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/BwQuintaPro-BoldItalic.woff",
+      "size": 42504,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/BwQuintaPro-Light.woff",
+      "size": 42040,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/BwQuintaPro-LightItalic.woff",
+      "size": 42752,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/BwQuintaPro-Medium.woff",
+      "size": 48652,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/BwQuintaPro-MediumItalic.woff",
+      "size": 50452,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/BwQuintaPro-Regular.woff",
+      "size": 48636,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/BwQuintaPro-RegularItalic.woff",
+      "size": 49540,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "images/AlarmClock.png",
+      "size": 18530,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "images/ArrowDown.svg",
+      "size": 1314,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "images/CalendarIcon.svg",
+      "size": 3129,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "images/Comments.svg",
+      "size": 3929,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "images/DownRightArrow.svg",
+      "size": 2060,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "images/EasyRecipe.png",
+      "size": 4234,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "images/Label.svg",
+      "size": 1720,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "images/Location.svg",
+      "size": 1341,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "images/ModernCookingTools.png",
+      "size": 7089,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "images/NotFoundIcon.svg",
+      "size": 15382,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "images/Plate.png",
+      "size": 22302,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "images/ProfessionalChefFemale.png",
+      "size": 6450,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "images/RecipeTips.png",
+      "size": 5654,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "images/SearchNotFound.svg",
+      "size": 18554,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "images/StopWatch.png",
+      "size": 14714,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "images/SuperChef.svg",
+      "size": 30372,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "page.module.js",
+      "size": 766730,
+      "chunks": [
+        "page"
+      ],
+      "chunkNames": [
+        "page"
+      ],
+      "info": {},
+      "emitted": false,
+      "isOverSizeLimit": true
+    },
+    {
+      "name": "post.module.js",
+      "size": 1173436,
+      "chunks": [
+        "post"
+      ],
+      "chunkNames": [
+        "post"
+      ],
+      "info": {},
+      "emitted": true,
+      "isOverSizeLimit": true
+    },
+    {
+      "name": "rg-frontity.176dc4e5ec9cb8150432.hot-update.js",
+      "size": 11429,
+      "chunks": [
+        "rg-frontity"
+      ],
+      "chunkNames": [
+        "rg-frontity"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "rg-frontity.module.js",
+      "size": 13028755,
+      "chunks": [
+        "rg-frontity"
+      ],
+      "chunkNames": [
+        "rg-frontity"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "travel.module.js",
+      "size": 4935,
+      "chunks": [
+        "travel"
+      ],
+      "chunkNames": [
+        "travel"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "vendors~post.module.js",
+      "size": 991187,
+      "chunks": [
+        "vendors~post"
+      ],
+      "chunkNames": [
+        "vendors~post"
+      ],
+      "info": {},
+      "emitted": false,
+      "isOverSizeLimit": true
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "rg-frontity": {
+      "chunks": [
+        "rg-frontity"
+      ],
+      "assets": [
+        "rg-frontity.module.js",
+        "rg-frontity.176dc4e5ec9cb8150432.hot-update.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "rg-frontity": {
+      "chunks": [
+        "rg-frontity"
+      ],
+      "assets": [
+        "rg-frontity.module.js",
+        "rg-frontity.176dc4e5ec9cb8150432.hot-update.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "archive": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "post": {
+      "chunks": [
+        "vendors~post",
+        "post"
+      ],
+      "assets": [
+        "vendors~post.module.js",
+        "post.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "page": {
+      "chunks": [
+        "page"
+      ],
+      "assets": [
+        "page.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "travel": {
+      "chunks": [
+        "travel"
+      ],
+      "assets": [
+        "travel.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "FrontPage": {
+      "chunks": [
+        "FrontPage"
+      ],
+      "assets": [
+        "FrontPage.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "logging": {
+    "webpack.buildChunkGraph.visitModules": {
+      "entries": [],
+      "filteredEntries": 5,
+      "debug": false
+    }
+  },
+  "children": []
+}

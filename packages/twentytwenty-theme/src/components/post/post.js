@@ -182,7 +182,7 @@ const Post = ({state, actions, libraries}) => {
                         </MealsTaxonomy>
                     </PostTaxonomies>
 
-                    {<AdBannerBody name="before-description-ad"/>}
+                    {/*<AdBannerBody name="before-description-ad"/>*/}
 
                     {/* if the post has description, render it */}
                     {post.acf['postfieldgroup.description'] &&
@@ -190,7 +190,7 @@ const Post = ({state, actions, libraries}) => {
                         src={ProfessionalChefFemale} alt="Professional Chef Female"/></RecipeDescriptionTitle>}
                     {post.acf['postfieldgroup.description'] && <RecipeDescription id={post.id}/>}
 
-                    {<AdBannerBodyMobile name="before-description-ad-mobile"/>}
+                    {/*<AdBannerBodyMobile name="before-description-ad-mobile"/>*/}
 
                     {/* if the post has badge / sponsored link, render it */}
                     {post.acf['postfieldgroup.badge'] && <SectionTitle>Products i use or have tried</SectionTitle>}
