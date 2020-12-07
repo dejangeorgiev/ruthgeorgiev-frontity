@@ -55,55 +55,6 @@ const settings = {
                 },
             },
         },
-        {
-            name: "@frontity/google-ad-manager",
-            state: {
-                fills: {
-                    googleAdManager: {
-                        beforeDescriptionAd: {
-                            slot: "before-description-ad",
-                            library: "googleAdManager.GooglePublisherTag",
-                            priority: 5,
-                            props: {
-                                id: "22111369743",
-                                unit: "/22112326048/RecipeBeforeDescription",
-                                size: [320, 50],
-                            },
-                        },
-                        beforeDescriptionAdMobile: {
-                            slot: "before-description-ad-mobile",
-                            library: "googleAdManager.GooglePublisherTag",
-                            priority: 5,
-                            props: {
-                                id: "22112326048",
-                                unit: "/22112326048/RecipeBeforeDescriptionMobile",
-                                size:  [300, 250],
-                            },
-                        },
-                        afterHeaderAd: {
-                            slot: "after-header",
-                            library: "googleAdManager.GooglePublisherTag",
-                            priority: 5,
-                            props: {
-                                id: "after-header-ad",
-                                unit: "/6499/example/banner",
-                                size: [320, 100],
-                            },
-                        },
-                        testBannerAd: {
-                            slot: "test-banner",
-                            library: "googleAdManager.GooglePublisherTag",
-                            priority: 5,
-                            props: {
-                                id: "test-banner-ad",
-                                unit: "/6499/example/banner",
-                                size: [320, 50],
-                            },
-                        }
-                    }
-                }
-            }
-        },
         "@frontity/tiny-router",
         "@frontity/html2react",
         "frontity-contact-form-7",

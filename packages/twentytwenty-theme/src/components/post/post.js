@@ -1,6 +1,5 @@
 import loadable from '@loadable/component'
 
-
 import {styled, connect, Slot} from "frontity";
 import React, {useEffect} from "react";
 import {
