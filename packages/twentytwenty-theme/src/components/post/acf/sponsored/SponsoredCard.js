@@ -1,5 +1,7 @@
 import {styled, connect, decode} from "frontity";
 import React, {useEffect} from "react";
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import ExternalLinkIcon from "../../../global/icons/ExternalLinkIcon";
 import tw from "tailwind.macro";
 
@@ -35,7 +37,10 @@ const SponsoredCard = ({card, state, actions}) => {
                     <SponsoredCardImageContainer>
                         <SponsoredCardImage
                             src={SponsoredCardImageUrl}
-                            alt={SponsoredCardImageAlt}/>
+                            data-src={SponsoredCardImageUrl}
+                            alt={SponsoredCardImageAlt}
+                            className="lazyload"
+                        />
                     </SponsoredCardImageContainer>
                     <SponsoredCardContents>
                         <ContentBadge>
