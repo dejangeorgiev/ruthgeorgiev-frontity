@@ -88,7 +88,7 @@ const SponsoredBadge = ({state, actions, id}) => {
 
 
 
-                            <div>{Card['postfieldgroup.sponsored_badge.link']['title']}</div>
+                            <Title>{Card['postfieldgroup.sponsored_badge.link']['title']}</Title>
                         </Badge>
                         }
                     </div>
@@ -104,6 +104,7 @@ const SponsoredBadgeLink = styled('a')`
 text-decoration:none
 `;
 
-const SponsoredBadgeImage = styled('img')` max-width: 3rem; max-height: 3rem; ${tw``}`;
+const SponsoredBadgeImage = styled('img')` max-width: 3rem; max-height: 3rem; margin-right:3px; ${tw``}`;
 const SponsoredBadgeImageContainer = styled('div')`  ${tw`inline-flex rounded-lg rounded-r-none align-middle pr-2`}`;
 const HighlightedText = styled('div')` ${tw`inline-flex m-auto align-middle font-bold`}`;
+const Title = styled('div')` ${tw`pt-3`}`;

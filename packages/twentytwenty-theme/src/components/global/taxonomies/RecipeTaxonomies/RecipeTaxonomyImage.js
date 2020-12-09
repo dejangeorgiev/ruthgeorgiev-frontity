@@ -3,7 +3,8 @@ import React, {useEffect} from "react";
 import tw from "tailwind.macro";
 
 import Carousel from 'react-elastic-carousel'
-
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 const RecipeTaxonomyImage = ({url, state, actions}) => {
 
     /**
@@ -20,7 +21,7 @@ const RecipeTaxonomyImage = ({url, state, actions}) => {
 
     return (
         <>
-            <TaxonomyImage style={TaxonomyImageStyles}/>
+            <TaxonomyImage style={TaxonomyImageStyles} data-src={url} className="lazyload" />
         </>
     )
 };
