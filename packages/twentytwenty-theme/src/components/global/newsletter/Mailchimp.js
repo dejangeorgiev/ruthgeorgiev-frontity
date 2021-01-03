@@ -10,16 +10,18 @@ const Mailchimp = ({state}) => {
     const url = state.newsletter.mailchimp.url;
 
     return (
-        <MailchimpSubscribe
-            url={url}
-            render={({subscribe, status, message}) => (
-                <SubscribeForm
-                    status={status}
-                    message={message}
-                    onValidated={formData => subscribe(formData)}
-                />
-            )}
-        />
+        <>
+            <MailchimpSubscribe
+                url={url}
+                render={({subscribe, status, message}) => (
+                    <SubscribeForm
+                        status={status}
+                        message={message}
+                        onValidated={formData => subscribe(formData)}
+                    />
+                )}
+            />
+        </>
     );
 };
 

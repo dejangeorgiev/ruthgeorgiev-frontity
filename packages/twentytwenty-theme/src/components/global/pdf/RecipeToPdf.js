@@ -1,5 +1,7 @@
 import {styled, connect, decode} from "frontity";
 import React, {useEffect} from "react";
+import {PDFViewer, Text, View, Document, StyleSheet} from '@react-pdf/renderer';
+import ReactDOM from 'react-dom';
 
 const RecipeToPdf = ({state, actions, libraries}) => {
     // Get information about the current URL.
@@ -9,6 +11,7 @@ const RecipeToPdf = ({state, actions, libraries}) => {
 
     // Get the html2react component.
     const Html2React = libraries.html2react.Component;
+
 
     const styles = StyleSheet.create({
         page: {
@@ -22,6 +25,9 @@ const RecipeToPdf = ({state, actions, libraries}) => {
         }
     });
 
+
+
+
     /**
      * Once the post has loaded in the DOM, prefetch both the
      * home posts and the list component so if the user visits
@@ -33,10 +39,19 @@ const RecipeToPdf = ({state, actions, libraries}) => {
 
     // Load the post, but only if the data is ready.
     return data.isReady ? (
-        <div>
 
-        </div>
-    ) : null;
+        <Document>
+            <Page size="A4" style={styles.page}>
+                <View style={styles.section}>
+                    <Text>Section #1</Text>
+                </View>
+                <View style={styles.section}>
+                    <Text>Section #2</Text>
+                </View>
+            </Page>
+        </Document>
+
+    ): null;
 };
 
 export default connect(RecipeToPdf);
@@ -48,7 +63,6 @@ const maxWidths = {
 };
 
 const getMaxWidth = (props) => maxWidths[props.size] || maxWidths["medium"];
-
 
 
 const SectionContainer = styled.div`

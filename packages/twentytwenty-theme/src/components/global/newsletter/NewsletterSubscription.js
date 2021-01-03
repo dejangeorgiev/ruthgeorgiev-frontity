@@ -6,10 +6,8 @@ import tw from 'tailwind.macro';
 
 const NewsletterSubscription = ({actions}) => {
 
-
     return (
         <SubscriptionSection>
-
             <SubscriptionContainer>
                 <SubscriptionTitle>
                     Hungry for more? 😋
@@ -19,9 +17,14 @@ const NewsletterSubscription = ({actions}) => {
                 </SubscriptionText>
                 <SubscriptionFormDiv1>
                     <SubscriptionFormDiv2>
-                        <Mailchimp/>
+                        <Mailchimp />
                     </SubscriptionFormDiv2>
                 </SubscriptionFormDiv1>
+                <p>
+                    I automatically agree to the ruthgeorgiev.com
+                    <PrivacyPolicyLink href="/privacy-policy" target="_blank"> Privacy Policy </PrivacyPolicyLink>
+                     by sending this form.
+                </p>
             </SubscriptionContainer>
         </SubscriptionSection>
     );
@@ -36,3 +39,4 @@ const SubscriptionTitle = styled('h2')`  ${tw`text-center font-bold p-2 m-0 uppe
 const SubscriptionText = styled('h4')`  ${tw`text-center font-normal p-2 m-0`}`;
 const SubscriptionFormDiv1 = styled('div')`  ${tw`flex justify-center m-6`}`;
 const SubscriptionFormDiv2 = styled('div')`  ${tw`bg-white rounded-lg`}`;
+const PrivacyPolicyLink = styled('a')`  ${tw`text-white`}`;

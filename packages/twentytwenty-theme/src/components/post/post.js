@@ -19,12 +19,17 @@ import EasyRecipe from "../global/icons/png/EasyRecipe.png"
 import ModernCookingTools from "../global/icons/png/ModernCookingTools.png"
 import ProfessionalChefFemale from "../global/icons/png/ProfessionalChefFemale.png"
 import RecipeTipsIconPng from "../global/icons/png/RecipeTips.png"
+import PageCarousel from "../page/acf/Content/Carousel/PageCarousel";
+import IngredientItem from "./acf/ingredients/IngredientItem";
 
 const FeaturedMedia = loadable(() => import('./featured-media'))
 const PostCategories = loadable(() => import('./post-categories'))
 const PostMeta = loadable(() => import('./post-meta'))
 const PostTags = loadable(() => import('./post-tags'))
 const Ingredients = loadable(() => import('./acf/ingredients/Ingredients'))
+
+//const AdditionalIngredients = loadable(() => import('./acf/ingredients/AdditionalIngredients'))
+const IngredientsRecipeName = loadable(() => import('./acf/ingredients/IngredientsRecipeName'))
 const Sponsored = loadable(() => import('./acf/sponsored/Sponsored'))
 const Badge = loadable(() => import('./acf/badges/Badge'))
 const Equipment = loadable(() => import('./acf/equipment/Equipment'))
@@ -44,10 +49,6 @@ const Comments = loadable(() => import('../global/comments/index'))
 const SocialMediaShareButtons = loadable(() => import('../global/social-share/SocialMediaShareButtons'))
 const GoogleStructuredDataForRecipe = loadable(() => import('../global/marketing/google/GoogleStructuredDataForRecipe'))
 const SponsoredBadge = loadable(() => import('./acf/sponsored/SponsoredBadge'))
-
-
-
-import ReactInstaStories from "../global/marketing/stories/ReactInstaStories"
 
 const Post = ({state, actions, libraries}) => {
     // Get information about the current URL.
@@ -118,6 +119,7 @@ const Post = ({state, actions, libraries}) => {
      */
     const meals = post.meals && post.meals.map((mealId) => allMeals[mealId]);
 
+    const additionalContents = post.acf['postfieldgroup.contents'];
     /**
      * Once the post has loaded in the DOM, prefetch both the
      * home posts and the list component so if the user visits
@@ -208,7 +210,46 @@ const Post = ({state, actions, libraries}) => {
                     {post.acf['postfieldgroup.ingredients'] &&
                     <IngredientsTitle>Ingredients <IngredientsIcon src={EasyRecipe}
                                                                    alt="Recipe Ingredients"/></IngredientsTitle>}
+                    {/* if recipe name is added */}
+                    {post.acf['postfieldgroup.recipe_name'] &&
+                    <IngredientsRecipeName id={post.id} name={post.acf['postfieldgroup.recipe_name']}/>}
                     {post.acf['postfieldgroup.ingredients'] && <Ingredients id={post.id}/>}
+
+                    {/* if additional ingredients are added */}
+
+                    {
+                        additionalContents &&
+                        <div>
+                            {Object.keys(additionalContents)
+                                .map(function (key, i) {
+                                    console.log(additionalContents[key].acf_fc_layout)
+                                    if (additionalContents[key].acf_fc_layout === 'postfieldgroup.contents.ingredients') {
+                                        const ingredientRecipeName = additionalContents[key]['postfieldgroup.contents.ingredients.recipe_name']
+                                        const additionalIngredients = additionalContents[key]['postfieldgroup.contents.ingredients.ingredient']
+                                        return <>
+                                            <IngredientsRecipeName
+                                                key={i}
+                                                id={post.id}
+                                                name={ingredientRecipeName}
+                                            />
+                                            {Object.keys(additionalIngredients).map(function (key) {
+                                                const name = additionalIngredients[key]['postfieldgroup.contents.ingredients.ingredient.name']
+                                                const amount = additionalIngredients[key]['postfieldgroup.contents.ingredients.ingredient.amount']
+                                                const measure = additionalIngredients[key]['postfieldgroup.contents.ingredients.ingredient.measure']
+                                                return <IngredientItem
+                                                    key={key}
+                                                    amount={amount}
+                                                    measure={measure}
+                                                    name={name}
+                                                />
+                                            })
+                                            }
+                                        </>
+                                    }
+                                })
+                            }
+                        </div>
+                    }
 
                     {/* If the post has equipment, render it */}
                     {post.acf['postfieldgroup.equipment'] &&

@@ -21,12 +21,19 @@ const RecipeTaxonomyImage = ({url, state, actions}) => {
 
     return (
         <>
-            <TaxonomyImage style={TaxonomyImageStyles} data-src={url} className="lazyload" />
+            <TaxonomyImage style={TaxonomyImageStyles} src={url} data-src={url} className="lazyload" />
         </>
     )
 };
 
 export default connect(RecipeTaxonomyImage);
+
+
+const Image = styled('img')` ${tw`
+h-halfscreen 
+
+`}`;
+
 
 const TaxonomyImage = styled('div')` ${tw`
 h-halfscreen 
