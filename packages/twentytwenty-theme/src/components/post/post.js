@@ -196,20 +196,45 @@ const Post = ({state, actions, libraries}) => {
 
                     {/* if the post has description, render it */}
                     {post.acf['postfieldgroup.description'] &&
-                    <RecipeDescriptionTitle>How to do it? <DescriptionIcon
-                        src={ProfessionalChefFemale} alt="Professional Chef Female"/></RecipeDescriptionTitle>}
+
+                    <SectionTitle>
+                        <SectionTitleHighlightContainer>
+                            <SectionTitleHighlight>
+                                How to do it?
+                            </SectionTitleHighlight>
+
+                        </SectionTitleHighlightContainer>
+                        <DescriptionIcon
+                            src={ProfessionalChefFemale} alt="Professional Chef Female"/>
+
+                    </SectionTitle>
+                    }
                     {post.acf['postfieldgroup.description'] && <RecipeDescription id={post.id}/>}
 
                     {/*<AdBannerBodyMobile name="before-description-ad-mobile"/>*/}
 
                     {/* if the post has badge / sponsored link, render it */}
-                    {post.acf['postfieldgroup.badge'] && <SectionTitle>Products i use or have tried</SectionTitle>}
+                    {post.acf['postfieldgroup.badge'] &&
+                    <SectionTitle>
+                        <SectionTitleHighlightContainer>
+                            <SectionTitleHighlight>
+                                Products i use or have tried
+                            </SectionTitleHighlight>
+                        </SectionTitleHighlightContainer>
+                    </SectionTitle>}
                     {post.acf['postfieldgroup.badge'] && <Badge id={post.id}/>}
 
                     {/* If the post has ingredients, render it */}
                     {post.acf['postfieldgroup.ingredients'] &&
-                    <IngredientsTitle>Ingredients <IngredientsIcon src={EasyRecipe}
-                                                                   alt="Recipe Ingredients"/></IngredientsTitle>}
+                    <SectionTitle>
+                        <SectionTitleHighlightContainer>
+                            <SectionTitleHighlight>
+                                Ingredients
+                            </SectionTitleHighlight>
+                        </SectionTitleHighlightContainer>
+
+                        <IngredientsIcon src={EasyRecipe}
+                                         alt="Recipe Ingredients"/></SectionTitle>}
                     {/* if recipe name is added */}
                     {post.acf['postfieldgroup.recipe_name'] &&
                     <IngredientsRecipeName id={post.id} name={post.acf['postfieldgroup.recipe_name']}/>}
@@ -253,8 +278,14 @@ const Post = ({state, actions, libraries}) => {
 
                     {/* If the post has equipment, render it */}
                     {post.acf['postfieldgroup.equipment'] &&
-                    <EquipmentTitle>Equipment <EquipmentIcon src={ModernCookingTools} alt="Recipe Equipment"/>
-                    </EquipmentTitle>}
+                    <SectionTitle>
+                        <SectionTitleHighlightContainer>
+                            <SectionTitleHighlight>
+                                Equipment
+                            </SectionTitleHighlight>
+                        </SectionTitleHighlightContainer>
+                         <EquipmentIcon src={ModernCookingTools} alt="Recipe Equipment"/>
+                    </SectionTitle>}
                     {post.acf['postfieldgroup.equipment'] && <Equipment id={post.id}/>}
 
                     {/* if the post has affiliate / sponsored link, render it */}
@@ -262,8 +293,14 @@ const Post = ({state, actions, libraries}) => {
 
                     {/* if the post has tips, render it */}
                     {post.acf['postfieldgroup.tips'] &&
-                    <RecipeTipsTitle>Tips <RecipeTipsIcon src={RecipeTipsIconPng} alt="Recipe tips"/>
-                    </RecipeTipsTitle>}
+                    <SectionTitle>
+                        <SectionTitleHighlightContainer>
+                            <SectionTitleHighlight>
+                                Tips
+                            </SectionTitleHighlight>
+                        </SectionTitleHighlightContainer>
+                         <RecipeTipsIcon src={RecipeTipsIconPng} alt="Recipe tips"/>
+                    </SectionTitle>}
                     {post.acf['postfieldgroup.tips'] && <RecipeTips id={post.id}/>}
 
                     {/* if the post has description, render it */}
@@ -329,17 +366,42 @@ const FeaturedImage = styled(FeaturedMedia)` ${tw`max-h-auto`} `;
 
 const PostTitle = styled('h1')` ${tw`text-6xl sm:text-8xl `}`;
 
-const SectionTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6 px-2 uppercase`}`;
-const IngredientsTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6 px-2 uppercase`}`;
-const EquipmentTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6 px-2 uppercase`}`;
-const RecipeDescriptionTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6 px-2 uppercase`}`;
-const RecipeTipsTitle = styled('h2')` ${tw`text-gray-800 py-6 px-2 font-normal uppercase`}`;
+const SectionTitle = styled('h2')` ${tw`z-10 text-gray-800 font-normal py-6 px-2 uppercase`}`;
+
+
+const SectionTitleHighlightContainer = styled('span')` ${tw`relative inline-block`}`;
+const SectionTitleHighlight = styled.span` 
+position: relative;
+&:before {
+    content: ' ';
+    display: block;
+    height: 90%;
+    width: 100%;
+    margin-left: -3px;
+    margin-right: -3px;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    transform: rotate(2deg);
+    top: -1px;
+    left: -1px;
+    border-radius: 20% 25% 20% 24%;
+    padding: 10px 3px 3px 10px;
+}`;
+
 const RecipeYoutubeVideoTitle = styled('h2')` ${tw`text-gray-800 font-normal py-6 px-2 uppercase`}`;
 const RecommendedPostsTitle = styled('h2')` ${tw`text-gray-800 font-normal text-center py-6 px-2 uppercase`}`;
 const AdBannerBody = styled(Slot)` ${tw`flex justify-center m-10 md:hidden`}`;
 const AdBannerBodyMobile = styled(Slot)` ${tw`flex justify-center m-10 md:hidden`}`;
 
-const PostTaxonomies = styled('div')` ${tw`flex content-start text-left sm:flex-wrap flex-wrap h-30 bg-gray-200 my-10 p-10`}`;
+const PostTaxonomies = styled('div')` 
+background-color: #FBAB7E;
+background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+  border-radius: 20% 25% 20% 24%;
+    padding: 10px 3px 3px 10px;
+       height: 90%;
+    width: 100%;
+
+${tw`flex content-start text-left sm:flex-wrap flex-wrap h-30 my-10 p-10`}`;
 const CuisineTaxonomy = styled('div')` ${tw`w-full p-1`}`;
 const DietsTaxonomy = styled('div')` ${tw`w-full p-1`}`;
 const DishesTaxonomy = styled('div')` ${tw`w-full p-1`}`;
