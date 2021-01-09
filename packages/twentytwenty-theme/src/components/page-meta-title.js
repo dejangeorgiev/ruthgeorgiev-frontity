@@ -53,7 +53,7 @@ const Title = ({state, actions}) => {
                   href="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/07/rg_logo.png"/>
 
             <meta httpEquiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
-
+            <script async src={`//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js`}/>
         </Head>
     );
 };

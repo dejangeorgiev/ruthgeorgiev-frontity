@@ -21,6 +21,7 @@ import ProfessionalChefFemale from "../global/icons/png/ProfessionalChefFemale.p
 import RecipeTipsIconPng from "../global/icons/png/RecipeTips.png"
 import PageCarousel from "../page/acf/Content/Carousel/PageCarousel";
 import IngredientItem from "./acf/ingredients/IngredientItem";
+import GoogleAds from "./ads/GoogleAds";
 
 const FeaturedMedia = loadable(() => import('./featured-media'))
 const PostCategories = loadable(() => import('./post-categories'))
@@ -224,6 +225,8 @@ const Post = ({state, actions, libraries}) => {
                     </SectionTitle>}
                     {post.acf['postfieldgroup.badge'] && <Badge id={post.id}/>}
 
+                    <GoogleAds/>
+
                     {/* If the post has ingredients, render it */}
                     {post.acf['postfieldgroup.ingredients'] &&
                     <SectionTitle>
@@ -291,6 +294,8 @@ const Post = ({state, actions, libraries}) => {
                     {/* if the post has affiliate / sponsored link, render it */}
                     {post.acf['postfieldgroup.sponsored'] && <Sponsored id={post.id}/>}
 
+                    <GoogleAds/>
+
                     {/* if the post has tips, render it */}
                     {post.acf['postfieldgroup.tips'] &&
                     <SectionTitle>
@@ -332,6 +337,8 @@ const Post = ({state, actions, libraries}) => {
                     />
 
                     {<Comments postId={post.id} id="comments"/>}
+
+                    <GoogleAds/>
                 </SectionContainer>
             </Header>
 
