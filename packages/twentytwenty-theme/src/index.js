@@ -86,6 +86,10 @@ const twentyTwentyTheme = {
                      ]
                      **/
                 },
+                {
+                    name: 'Services',
+                    href: '/services/',
+                },
                 /**
                  {
                     name: 'Services',
