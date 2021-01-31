@@ -9,7 +9,9 @@ import SearchModal from "./search/search-modal";
 import MobileSearchButton from "./mobile/search-button";
 import MobileMenuButton from "./mobile/menu-button";
 import MobileMenuModal from "./mobile/menu-modal";
+import RuthGeorgievLogo from "../components/global/icons/png/RuthGeorgievLogo.png"
 import tw from "tailwind.macro";
+
 
 const Header = ({state}) => {
     const {title, description} = state.frontity;
@@ -36,10 +38,11 @@ const Header = ({state}) => {
 
                                 {/* Heading and Description of the site */}
                                 <TitleGroup>
-                                    <SiteTitle>
-                                        <StyledLink link="/">{title}</StyledLink>
-                                    </SiteTitle>
-                                    <SiteDescription>Cooking with love.</SiteDescription>
+                                    <StyledLink link="/">
+                                        <Logo
+                                            src={RuthGeorgievLogo}
+                                            alt="logo"/>
+                                    </StyledLink>
                                 </TitleGroup>
 
                                 {/* Mobile menu button and modal */}
@@ -98,11 +101,13 @@ const PageHeader = styled.header`
   ${tw`sm:w-10/12 shadow-2xl sm:my-10 sm:rounded-full sm:mx-auto fixed sm:relative top-0 right-0 left-0`}
 `;
 
+const Logo = styled('img')` ${tw`inline-block w-64 align-bottom m-0 p-0`}`;
+
 const HeaderInner = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 2.8rem 0;
+  padding: 0.8rem 0;
   max-width: 168rem;
   z-index: 100;
   margin-left: auto;
