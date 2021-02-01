@@ -2,6 +2,7 @@ import Theme from "./components";
 import {postTypeHandler} from "@frontity/wp-source/src/libraries/handlers";
 import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";
+import menuHandler from "./components/handlers/menu-handler";
 
 const homeHandler = {
     name: "home",
@@ -120,6 +121,7 @@ const twentyTwentyTheme = {
                  ["Gardening", "/gardening/"]
                  **/
             ],
+            menuUrl: "main-menu",
             // State for the menu on mobile
             isMobileMenuOpen: false,
             // State for the search modal on mobile
@@ -134,7 +136,7 @@ const twentyTwentyTheme = {
                 showOnPost: true,
             },
             // Whether to auto-fetch links on a page. Values can be "no" | "all" | "in-view" | "hover"
-            autoPreFetch: "hover",
+            autoPreFetch: "in-view",
             /**
              * At the moment, we only include the ascii characters of Inter font.
              * Values can be "us-ascii" | "latin" | "all"
@@ -208,7 +210,10 @@ const twentyTwentyTheme = {
             },
             closeSearchModal: ({state}) => {
                 state.theme.isSearchModalOpen = false;
-            }
+            },
+            beforeSSR: async ({state, actions}) => {
+                await actions.source.fetch(`/menu/${state.theme.menuUrl}/`);
+            },
         }
     },
     libraries: {
@@ -218,6 +223,9 @@ const twentyTwentyTheme = {
              * inside the content HTML. You can add your own processors too
              */
             processors: [image, iframe],
+        },
+        source: {
+            handlers: [menuHandler]
         }
     },
 };

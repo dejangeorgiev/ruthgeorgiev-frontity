@@ -2,6 +2,7 @@ import React from "react";
 import {connect, styled} from "frontity";
 import Link from "../link";
 import tw from 'tailwind.macro'
+import {returnStatement} from "@babel/types";
 
 
 const Menu = ({options, currentPageLink, submenu}) => (
@@ -25,18 +26,42 @@ const Menu = ({options, currentPageLink, submenu}) => (
     </StyledMenu>
 );
 
+const DynamicMenu = ({items,currentPageLink,submenu}) => {
+    return (
+        <StyledMenu submenu={submenu}>
+            {items.map((item) => {
+                if (!item.child_items) {
+                    return (
+                        <MenuItem key={item.ID}>
+                            <MenuLink link={item.url}>
+                                {item.title}
+                            </MenuLink>
+                        </MenuItem>
+                    )
+                }
+            })}
+        </StyledMenu>
+    )
+};
+
 /**
  * Navigation Component
  *
  * It renders the navigation links
  */
-const Navigation = ({state}) => (
-    <NavWrapper>
-        <MenuNav>
-            <Menu options={state.theme.menu} currentPageLink={state.router.link}/>
-        </MenuNav>
-    </NavWrapper>
-);
+const Navigation = ({state}) => {
+    const menuItems = state.source.get(`/menu/${state.theme.menuUrl}/`).items;
+
+    return (
+        <NavWrapper>
+            <MenuNav>
+                <DynamicMenu items={menuItems} currentPageLink={state.router.link}/>
+
+                {/** <Menu options={state.theme.menu} currentPageLink={state.router.link}/> */}
+            </MenuNav>
+        </NavWrapper>
+    )
+};
 
 export default connect(Navigation);
 

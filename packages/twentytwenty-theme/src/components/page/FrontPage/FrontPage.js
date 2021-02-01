@@ -9,9 +9,6 @@ import Archive from "../../archive"
 import Loading from "../../loading"
 
 
-import RecommendedPosts from "../../post/acf/recommended/posts/RecommendedPosts";
-
-
 const FrontPage = ({state, actions, libraries}) => {
 
 
