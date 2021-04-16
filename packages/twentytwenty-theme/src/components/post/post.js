@@ -45,7 +45,7 @@ const Meals = loadable(() => import('./acf/meals/Meals'))
 const RecipePreparationTime = loadable(() => import('./acf/RecipePreparationTime'))
 const RecipeCookingTime = loadable(() => import('./acf/RecipeCookingTime'))
 const RecipeServings = loadable(() => import('./acf/RecipeServings'))
-const ReadingProgress = loadable(() => import('react-reading-progress'))
+//const ReadingProgress = loadable(() => import('react-reading-progress'))
 const Comments = loadable(() => import('../global/comments/index'))
 const SocialMediaShareButtons = loadable(() => import('../global/social-share/SocialMediaShareButtons'))
 const GoogleStructuredDataForRecipe = loadable(() => import('../global/marketing/google/GoogleStructuredDataForRecipe'))
@@ -133,7 +133,7 @@ const Post = ({state, actions, libraries}) => {
     // Load the post, but only if the data is ready.
     return data.isReady ? (
         <PostArticle id="target-el">
-            <ReadingProgressBar targetEl="#target-el"/>
+
 
             {/* Add Google Structured data for recipe */}
             {<GoogleStructuredDataForRecipe id={post.id}/>}

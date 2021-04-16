@@ -48,9 +48,9 @@ const Title = ({state, actions}) => {
             <html lang="en"/>
             <meta name="robots" content="all"/>
             <link rel="shortcut icon" type="image/x-icon"
-                  href="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/07/rg_logo.png"/>
+                  href="https://admin.ruthgeorgiev.com/wp-content/uploads/2021/04/rg_logo_transparent.jpg"/>
             <link rel="shortcut icon" type="image/x-icon"
-                  href="https://admin.ruthgeorgiev.com/wp-content/uploads/2020/07/rg_logo.png"/>
+                  href="https://admin.ruthgeorgiev.com/wp-content/uploads/2021/04/rg_logo_transparent.jpg"/>
 
             <meta httpEquiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
             <script async src={`//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js`}/>
