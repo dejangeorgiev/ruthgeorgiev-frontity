@@ -45,7 +45,6 @@ const Meals = loadable(() => import('./acf/meals/Meals'))
 const RecipePreparationTime = loadable(() => import('./acf/RecipePreparationTime'))
 const RecipeCookingTime = loadable(() => import('./acf/RecipeCookingTime'))
 const RecipeServings = loadable(() => import('./acf/RecipeServings'))
-//const ReadingProgress = loadable(() => import('react-reading-progress'))
 const Comments = loadable(() => import('../global/comments/index'))
 const SocialMediaShareButtons = loadable(() => import('../global/social-share/SocialMediaShareButtons'))
 const GoogleStructuredDataForRecipe = loadable(() => import('../global/marketing/google/GoogleStructuredDataForRecipe'))
@@ -418,8 +417,3 @@ const EquipmentIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;
 const DescriptionIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;
 const RecipeTipsIcon = styled('img')` ${tw`inline-block w-24 align-bottom`}`;
 const HigLightedText = styled('span')` ${tw`bg-gray-200 font-normal px-5 rounded-full`}`;
-const ReadingProgressBar = styled(ReadingProgress)`
-height: 0.2rem;
-transition: width 0.2s linear;
-`;
-
